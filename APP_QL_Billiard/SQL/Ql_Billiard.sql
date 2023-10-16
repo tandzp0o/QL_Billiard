@@ -1,3 +1,9 @@
+-- use master 
+-- go
+-- alter database [Ql_Billiard] set single_user with rollback immediate
+
+-- drop database [Ql_Billiard]
+
 create database Ql_Billiard
 go
 
@@ -92,10 +98,6 @@ CREATE TABLE LapHoaDon
 )
 
 
--- use master 
--- go
--- alter database [Ql_Billiard] set single_user with rollback immediate
 
--- drop database [Ql_Billiard]
 
 --Select * from KhachHang;
