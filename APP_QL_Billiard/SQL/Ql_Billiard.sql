@@ -97,3 +97,5 @@ CREATE TABLE LapHoaDon
 -- alter database [Ql_Billiard] set single_user with rollback immediate
 
 -- drop database [Ql_Billiard]
+
+--Select * from KhachHang;
