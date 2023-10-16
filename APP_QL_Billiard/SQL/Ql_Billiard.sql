@@ -96,8 +96,3 @@ CREATE TABLE LapHoaDon
     CONSTRAINT fk_LapHoaDon_acc FOREIGN KEY (TaiKhoan) REFERENCES Account(TaiKhoan),
     CONSTRAINT fk_LapHoaDon_hd FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
 )
-
-
-
-
---Select * from KhachHang;
