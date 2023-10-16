@@ -9,8 +9,14 @@ tôi là 1 quản lý của quán bida và tôi cần 1 app có thể giải quy
 - chuyển bàn (cộng tiền bàn cũ sang bàn mới)
 - khách đặt bàn trước
 
-
+------------------------Phân công:
 Thiện: hiển thị bàn, bấm vào bàn thì xem dc thông tin chi tiết và đc gọi món(thuốc là, bia, nc ngọt...), chuyển bàn
 Luân: Thanh toán, lên bill(Nhớ có check khách vip có lưu trong db hoặc sinh viên)
 Trường: Thống kê cho admin
 Tấn: đặt bàn trước, đăng nhập, tạo member
+
+------------------------Lưu ý:
+- trạng thái bàn(1: đang hoạt động, 2: trống, 3: đặt trước):
+	+ nếu tới giờ bàn đặt trước mà khách không tới thì stt = 2
+	+ nếu đặt bàn thì stt = 1
+	+ ấn đặt trước thì stt =3
