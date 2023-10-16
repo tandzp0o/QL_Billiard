@@ -1,8 +1,8 @@
-﻿-- use master 
--- go
--- alter database [Ql_Billiard] set single_user with rollback immediate
+﻿ --use master 
+ --go
+ --alter database [Ql_Billiard] set single_user with rollback immediate
 
--- drop database [Ql_Billiard]
+ --drop database [Ql_Billiard]
 
 create database Ql_Billiard
 go
@@ -98,7 +98,9 @@ CREATE TABLE LapHoaDon
 
 --Khi thêm thực đơn vào bill thì giảm số lượng trong thực đơn
 
+--số lượng đặt trong thực đơn <= số lượng tồn kho trong thực đơn
+
+
+
 --Check
 
-alter table ChiTietHoaDon
-add constraint ck_slDatbBeHonBangslKho check (SoLuongDat <= (select SoLuong from ThucDon where ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon)) 
