@@ -27,15 +27,22 @@ namespace APP_QL_Billiard
                 e.Cancel = true;
         }
 
+
+        public bool Login(string tk, string mk)
+        {
+            return AccountDAO.Instance.Login(tk, mk);
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string query = "select * from Account";
-            DataProvider provider = new DataProvider();
-            if()
-            fTable_Manager f = new fTable_Manager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            if (Login(txtTK.Text, txtMK.Text))
+            {
+                fTable_Manager f = new fTable_Manager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+                MessageBox.Show("Tài khoản hoặc mật khẩu chưa chính xác");
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -38,7 +38,7 @@ namespace APP_QL_Billiard
             this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMK = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -125,21 +125,21 @@ namespace APP_QL_Billiard
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Tan;
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtMK);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(50, 219);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(751, 37);
             this.panel3.TabIndex = 2;
             // 
-            // textBox1
+            // txtMK
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(231, -1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(517, 38);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMK.Location = new System.Drawing.Point(231, -1);
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(517, 38);
+            this.txtMK.TabIndex = 1;
+            this.txtMK.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -184,7 +184,7 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMK;
         private System.Windows.Forms.Label label2;
     }
 }
