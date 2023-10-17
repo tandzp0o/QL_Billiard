@@ -49,5 +49,10 @@ namespace APP_QL_Billiard
         {
             this.Close();
         }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+            MaximizeBox = false;
+        }
     }
 }

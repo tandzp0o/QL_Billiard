@@ -27,14 +27,14 @@ namespace APP_QL_Billiard.DAO
 
         private DataProvider() { }
 
-        private string conStr = "Data Source=TonDZP;Initial Catalog=Ql_Billiard;Integrated Security=True";
+        //private string conStr = "Data Source=TRUONG;Initial Catalog=Ql_Billiard;Integrated Security=True";
     
         // lấy datatable
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
             // dùng xong khối lệnh tự giải phóng dữ liệu đc khai báo
-            using (SqlConnection con = new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -63,7 +63,7 @@ namespace APP_QL_Billiard.DAO
         {
             int data = 0;
             // dùng xong khối lệnh tự giải phóng dữ liệu đc khai báo
-            using (SqlConnection con = new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -87,11 +87,11 @@ namespace APP_QL_Billiard.DAO
         }
 
         // lấy ô đầu tiên trong dòng kết quả
-        public object ExcuteScalar(string query, object[] parameter = null)
+        public T ExcuteScalar<T>(string query, T[] parameter = null)
         {
-            object data = 0;
+            T data;
             // dùng xong khối lệnh tự giải phóng dữ liệu đc khai báo
-            using (SqlConnection con = new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -108,7 +108,7 @@ namespace APP_QL_Billiard.DAO
                         }
                     }
                 }
-                data = cmd.ExecuteScalar();
+                data = (T)cmd.ExecuteScalar();
                 con.Close();
             }
             return data;

@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
