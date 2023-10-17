@@ -16,8 +16,8 @@ namespace APP_QL_Billiard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new fLogin());
-            Application.Run(new f_ThanhToan());
+            Application.Run(new fLogin());
+            //Application.Run(new f_ThanhToan());
         }
     }
 }

@@ -29,45 +29,12 @@ namespace APP_QL_Billiard
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billiardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tìnhTrạngBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lịchSửToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kháchHàngThànhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.pn_Left = new System.Windows.Forms.Panel();
+            this.pn_Top = new System.Windows.Forms.Panel();
+            this.pn_Content = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 0, 2, 2);
-            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem,
-            this.tìnhTrạngBànToolStripMenuItem,
-            this.lịchSửToolStripMenuItem,
-            this.kháchHàngThànhViênToolStripMenuItem,
-            this.khoToolStripMenuItem,
-            this.nhânViênToolStripMenuItem,
-            this.thốngKêToolStripMenuItem,
-            this.đăngXuấtToolStripMenuItem});
-            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(185, 700);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // bànToolStripMenuItem
             // 
@@ -83,89 +50,50 @@ namespace APP_QL_Billiard
             this.billiardToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.billiardToolStripMenuItem.Text = "Billiard";
             // 
-            // tìnhTrạngBànToolStripMenuItem
+            // pn_Left
             // 
-            this.tìnhTrạngBànToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.tìnhTrạngBànToolStripMenuItem.Name = "tìnhTrạngBànToolStripMenuItem";
-            this.tìnhTrạngBànToolStripMenuItem.Size = new System.Drawing.Size(161, 28);
-            this.tìnhTrạngBànToolStripMenuItem.Text = "Tình Trạng Bàn";
+            this.pn_Left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pn_Left.Location = new System.Drawing.Point(0, 0);
+            this.pn_Left.Name = "pn_Left";
+            this.pn_Left.Size = new System.Drawing.Size(283, 635);
+            this.pn_Left.TabIndex = 0;
             // 
-            // lịchSửToolStripMenuItem
+            // pn_Top
             // 
-            this.lịchSửToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.lịchSửToolStripMenuItem.Name = "lịchSửToolStripMenuItem";
-            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(88, 28);
-            this.lịchSửToolStripMenuItem.Text = "Lịch Sử";
+            this.pn_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pn_Top.Location = new System.Drawing.Point(283, 0);
+            this.pn_Top.Name = "pn_Top";
+            this.pn_Top.Size = new System.Drawing.Size(979, 94);
+            this.pn_Top.TabIndex = 1;
             // 
-            // kháchHàngThànhViênToolStripMenuItem
+            // pn_Content
             // 
-            this.kháchHàngThànhViênToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.kháchHàngThànhViênToolStripMenuItem.Name = "kháchHàngThànhViênToolStripMenuItem";
-            this.kháchHàngThànhViênToolStripMenuItem.Size = new System.Drawing.Size(131, 28);
-            this.kháchHàngThànhViênToolStripMenuItem.Text = "Khách Hàng";
-            // 
-            // khoToolStripMenuItem
-            // 
-            this.khoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.khoToolStripMenuItem.Name = "khoToolStripMenuItem";
-            this.khoToolStripMenuItem.Size = new System.Drawing.Size(58, 28);
-            this.khoToolStripMenuItem.Text = "Kho";
-            // 
-            // nhânViênToolStripMenuItem
-            // 
-            this.nhânViênToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(115, 28);
-            this.nhânViênToolStripMenuItem.Text = "Nhân Viên";
-            // 
-            // thốngKêToolStripMenuItem
-            // 
-            this.thốngKêToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(109, 28);
-            this.thốngKêToolStripMenuItem.Text = "Thống Kê";
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(118, 28);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
-            // 
-            // menuToolStripMenuItem
-            // 
-            this.menuToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(72, 28);
-            this.menuToolStripMenuItem.Text = "Menu";
+            this.pn_Content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Content.Location = new System.Drawing.Point(283, 94);
+            this.pn_Content.Name = "pn_Content";
+            this.pn_Content.Size = new System.Drawing.Size(979, 541);
+            this.pn_Content.TabIndex = 2;
             // 
             // fTable_Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 635);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.pn_Content);
+            this.Controls.Add(this.pn_Top);
+            this.Controls.Add(this.pn_Left);
             this.Name = "fTable_Manager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần Mềm Quản Lý Billiard";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem bànToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem billiardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tìnhTrạngBànToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lịchSửToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kháchHàngThànhViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem khoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nhânViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.Panel pn_Left;
+        private System.Windows.Forms.Panel pn_Top;
+        private System.Windows.Forms.Panel pn_Content;
     }
 }

@@ -48,6 +48,7 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThanhToanDAO.cs" />
+    <Compile Include="env.cs" />
     <Compile Include="fTable_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +77,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTable_Manager.resx">
+      <DependentUpon>fTable_Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_InHD.resx">
       <DependentUpon>f_InHD.cs</DependentUpon>

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace APP_QL_Billiard
 {
-    internal class env
+    public class env
     {
-        public static string conStr = "Data Source=TRUONG;Initial Catalog=Ql_Billiard;Integrated Security=True";
+        public static string conStr = "Data Source=TonDZP;Initial Catalog=Ql_Billiard;Integrated Security=True";
     }
 }
