@@ -1,7 +1,7 @@
 ﻿
 namespace APP_QL_Billiard
 {
-    partial class f_DangNhap
+    partial class fTable_Manager
     {
         /// <summary>
         /// Required designer variable.
@@ -29,25 +29,12 @@ namespace APP_QL_Billiard
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f_DangNhap));
-            this.SuspendLayout();
-            // 
-            // f_DangNhap
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(856, 415);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "f_DangNhap";
-            this.Text = "Đăng Nhập";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Form2";
         }
 
         #endregion
     }
 }
-

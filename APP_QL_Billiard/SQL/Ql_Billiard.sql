@@ -104,3 +104,6 @@ CREATE TABLE LapHoaDon
 
 --Check
 
+--Insert dữ liệu
+--Account
+INSERT INTO Account VALUES ('admin','14',1)

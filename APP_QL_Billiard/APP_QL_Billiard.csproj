@@ -45,22 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form2.cs">
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="fTable_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="fTable_Manager.Designer.cs">
+      <DependentUpon>fTable_Manager.cs</DependentUpon>
     </Compile>
-    <Compile Include="f_DangNhap.cs">
+    <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="f_DangNhap.Designer.cs">
-      <DependentUpon>f_DangNhap.cs</DependentUpon>
+    <Compile Include="fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="f_DangNhap.resx">
-      <DependentUpon>f_DangNhap.cs</DependentUpon>
+    <EmbeddedResource Include="fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +88,9 @@
   <ItemGroup>
     <Content Include="SQL\PhanCong_NghiepVu.txt" />
     <Content Include="SQL\Ql_Billiard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

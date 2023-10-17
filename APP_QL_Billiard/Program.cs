@@ -16,7 +16,7 @@ namespace APP_QL_Billiard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new f_DangNhap());
+            Application.Run(new fLogin());
         }
     }
 }
