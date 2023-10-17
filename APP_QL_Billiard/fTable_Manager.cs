@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace APP_QL_Billiard
 {
-    public partial class Form2 : Form
+    public partial class fTable_Manager : Form
     {
-        public Form2()
+        public fTable_Manager()
         {
             InitializeComponent();
         }
