@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\ThanhToanDAO.cs" />
     <Compile Include="fTable_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,10 +60,28 @@
     <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_InHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_InHD.Designer.cs">
+      <DependentUpon>f_InHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_ThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_ThanhToan.Designer.cs">
+      <DependentUpon>f_ThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_InHD.resx">
+      <DependentUpon>f_InHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_ThanhToan.resx">
+      <DependentUpon>f_ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
