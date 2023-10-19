@@ -33,7 +33,7 @@ CREATE TABLE ThucDon
     MaThucDon CHAR(5) PRIMARY KEY NOT NULL,
     TenThucDon NVARCHAR(50) NOT NULL,
     DonViTinh NVARCHAR(10) NOT NULL,
-    SoLuong int NOT NULL,
+    SoLuong int NOT NULL default 0,
     Gia FLOAT NOT NULL,
     GhiChu NVARCHAR(100),
     CONSTRAINT chk_GiaThucDon CHECK (Gia > 0),
@@ -92,6 +92,25 @@ CREATE TABLE LapHoaDon
     CONSTRAINT fk_LapHoaDon_hd FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
 )
 
+CREATE TABLE PhieuNhap
+(
+	MaPN INT IDENTITY not null primary key,
+	NgayNhap date not null,
+	ThanhTien float
+)
+
+CREATE TABLE ChiTietPhieuNhap
+(
+	MaPN INT not null,
+	MaThucDon CHAR(5) NOT NULL,
+	SoLuong int,
+	DonGia float,
+	TongTien float,
+	constraint PK_CTPN primary key (MaPN,MaThucDon),
+	constraint FK_CTPN_PN foreign key (MaPN) references PhieuNhap(MaPN),
+	constraint FK_CTPN_TD foreign key (MaThucDon) references ThucDon(MaThucDon)
+)
+
 --Triger
 
 --Chuyển bàn và thanh toán thành công sst bàn = 2
@@ -100,8 +119,42 @@ CREATE TABLE LapHoaDon
 
 --số lượng đặt trong thực đơn <= số lượng tồn kho trong thực đơn
 
-
-
+--PhieuNhap(ThanhTien) = Sum(ChiTietPhieuNhap(TongTien))
+go
+CREATE TRIGGER trg_TinhThanhTien
+ON ChiTietPhieuNhap
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    UPDATE PhieuNhap
+    SET ThanhTien = (SELECT SUM(TongTien) FROM ChiTietPhieuNhap WHERE MaPN = inserted.MaPN)
+    FROM PhieuNhap
+    INNER JOIN inserted ON PhieuNhap.MaPN = inserted.MaPN
+END
+--ChiTietPhieuNhap(TongTien) = ChiTietPhieuNhap(SoLuong) * ChiTietPhieuNhap(DonGia)
+go
+CREATE trigger trg_TinhTongTien on ChiTietPhieuNhap
+after insert
+as
+begin
+	update ChiTietPhieuNhap
+	set TongTien = i.SoLuong * i.DonGia
+	FROM ChiTietPhieuNhap ctpn
+    INNER JOIN inserted i ON ctpn.MaPN = i.MaPN and ctpn.MaThucDon = i.MaThucDon
+end
+--Tự động tăng số lượng khong thực đơn khi thêm chi tiết hoá đơn
+go
+CREATE TRIGGER update_so_luong
+ON ChiTietPhieuNhap
+AFTER INSERT
+AS
+BEGIN
+    UPDATE ThucDon
+    SET SoLuong = ThucDon.SoLuong + inserted.SoLuong
+    FROM ThucDon
+    INNER JOIN inserted ON ThucDon.MaThucDon = inserted.MaThucDon;
+END;
+go
 --Check
 
 --Insert dữ liệu
