@@ -9,8 +9,9 @@ namespace APP_QL_Billiard.DAO
 {
     internal class CtpnDAO
     {
-        public void addToCTPN(List<CTPN> ctpn)
+        public int addToCTPN(List<CTPN> ctpn)
         {
+            int kq = 0;
             string sql = "insert into PhieuNhap(NgayNhap) values ('" + DateTime.Now.ToString("MM/dd/yyyy") + "')";
             DataProvider.Instance.ExcuteNonQuery(sql);
             sql = "select top 1 mapn from PhieuNhap order by mapn desc";
@@ -18,8 +19,9 @@ namespace APP_QL_Billiard.DAO
             foreach(var i in ctpn)
             {
                 sql = "insert into ChiTietPhieuNhap(mapn, mathucdon, soluong, dongia) values ('" + mapn + "','" + i.MaThucDon + "'," + i.SoLuong + "," + i.DonGia + ")";
-                DataProvider.Instance.ExcuteNonQuery(sql);
+                kq += DataProvider.Instance.ExcuteNonQuery(sql);
             }
+            return kq;
         }
     }
 }

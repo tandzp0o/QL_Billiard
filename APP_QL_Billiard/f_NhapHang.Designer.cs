@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.gbNH = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtDG = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSL = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbbMH = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSL = new System.Windows.Forms.TextBox();
-            this.txtDG = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.gbNH.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,58 @@
             this.gbNH.TabIndex = 1;
             this.gbNH.TabStop = false;
             this.gbNH.Text = "Phiếu nhập hàng";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(229, 139);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(83, 139);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtDG
+            // 
+            this.txtDG.Location = new System.Drawing.Point(83, 98);
+            this.txtDG.Name = "txtDG";
+            this.txtDG.Size = new System.Drawing.Size(221, 22);
+            this.txtDG.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Đơn giá";
+            // 
+            // txtSL
+            // 
+            this.txtSL.Location = new System.Drawing.Point(83, 57);
+            this.txtSL.Name = "txtSL";
+            this.txtSL.Size = new System.Drawing.Size(221, 22);
+            this.txtSL.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Số lượng";
             // 
             // cbbMH
             // 
@@ -85,6 +137,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(6, 183);
             this.listView1.Name = "listView1";
@@ -96,67 +149,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mặt hàng";
-            this.columnHeader1.Width = 215;
+            this.columnHeader1.Width = 67;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Đơn giá";
-            this.columnHeader2.Width = 89;
+            this.columnHeader2.Width = 65;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Số lượng";
             this.columnHeader3.Width = 65;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Số lượng";
-            // 
-            // txtSL
-            // 
-            this.txtSL.Location = new System.Drawing.Point(83, 57);
-            this.txtSL.Name = "txtSL";
-            this.txtSL.Size = new System.Drawing.Size(221, 22);
-            this.txtSL.TabIndex = 4;
-            // 
-            // txtDG
-            // 
-            this.txtDG.Location = new System.Drawing.Point(83, 98);
-            this.txtDG.Name = "txtDG";
-            this.txtDG.Size = new System.Drawing.Size(221, 22);
-            this.txtDG.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Đơn giá";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(83, 139);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(229, 139);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // f_NhapHang
             // 
