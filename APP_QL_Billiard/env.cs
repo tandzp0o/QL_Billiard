@@ -8,6 +8,6 @@ namespace APP_QL_Billiard
 {
     public class env
     {
-        public static string conStr = "Data Source=ADMIN-PC;Initial Catalog=Ql_Billiard;Persist Security Info=True;User ID=sa;Password=123";
+        public static string conStr = "Data Source=TonDZP;Initial Catalog=Ql_Billiard;Persist Security Info=True;User ID=sa;Password=123";
     }
 }
