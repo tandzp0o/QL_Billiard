@@ -16,5 +16,10 @@ namespace APP_QL_Billiard
         {
             InitializeComponent();
         }
+
+        private void pn_Content_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
