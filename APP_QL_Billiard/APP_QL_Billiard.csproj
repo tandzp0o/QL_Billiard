@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\BanDAO.cs" />
     <Compile Include="DAO\CtpnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThanhToanDAO.cs" />
+    <Compile Include="DTO\Ban.cs" />
     <Compile Include="DTO\CTPN.cs" />
     <Compile Include="env.cs" />
     <Compile Include="fTable_Manager.cs">

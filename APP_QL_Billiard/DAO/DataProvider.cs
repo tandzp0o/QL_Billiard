@@ -113,5 +113,7 @@ namespace APP_QL_Billiard.DAO
             }
             return (T)Convert.ChangeType(data, typeof(T));
         }
+
+       
     }
 }
