@@ -16,16 +16,9 @@ namespace APP_QL_Billiard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< Updated upstream
-            Application.Run(new fLogin());
-            //Application.Run(new fTable_Manager());
-            //Application.Run(new fTable_Manager_ADM());
-=======
-            //Application.Run(new fLogin());
-            //Application.Run(new fTable_Manager());
->>>>>>> Stashed changes
             //Application.Run(new f_ThanhToan());
-            Application.Run(new f_NhapHang());
+            //Application.Run(new f_NhapHang());
+            Application.Run(new f_ThanhToan());
         }
     }
 }

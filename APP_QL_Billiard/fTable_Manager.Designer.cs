@@ -20,9 +20,6 @@ namespace APP_QL_Billiard
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -31,11 +28,6 @@ namespace APP_QL_Billiard
         {
             this.pn_Left = new System.Windows.Forms.Panel();
             this.btnSignOut = new System.Windows.Forms.Button();
-<<<<<<< Updated upstream
-=======
-            this.btnThongKe = new System.Windows.Forms.Button();
-            this.btnEmployee = new System.Windows.Forms.Button();
->>>>>>> Stashed changes
             this.btnKho = new System.Windows.Forms.Button();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnStatusBan = new System.Windows.Forms.Button();
@@ -61,11 +53,6 @@ namespace APP_QL_Billiard
             this.pn_Left.Location = new System.Drawing.Point(0, 0);
             this.pn_Left.Name = "pn_Left";
             this.pn_Left.Size = new System.Drawing.Size(258, 745);
-<<<<<<< Updated upstream
-            this.pn_Left.TabIndex = 1;
-=======
-            this.pn_Left.TabIndex = 0;
->>>>>>> Stashed changes
             // 
             // btnSignOut
             // 
@@ -77,83 +64,6 @@ namespace APP_QL_Billiard
             this.btnSignOut.TabIndex = 7;
             this.btnSignOut.Text = "Đăng Xuất";
             this.btnSignOut.UseVisualStyleBackColor = false;
-<<<<<<< Updated upstream
-=======
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.Location = new System.Drawing.Point(0, 575);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(258, 57);
-            this.btnThongKe.TabIndex = 6;
-            this.btnThongKe.Text = "Thống Kê";
-            this.btnThongKe.UseVisualStyleBackColor = true;
-            // 
-            // btnEmployee
-            // 
-            this.btnEmployee.Location = new System.Drawing.Point(0, 512);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(258, 57);
-            this.btnEmployee.TabIndex = 5;
-            this.btnEmployee.Text = "Nhân Viên";
-            this.btnEmployee.UseVisualStyleBackColor = true;
-            // 
-            // btnKho
-            // 
-            this.btnKho.Location = new System.Drawing.Point(0, 449);
-            this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(258, 57);
-            this.btnKho.TabIndex = 4;
-            this.btnKho.Text = "Kho";
-            this.btnKho.UseVisualStyleBackColor = true;
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Location = new System.Drawing.Point(0, 386);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(258, 57);
-            this.btnHistory.TabIndex = 3;
-            this.btnHistory.Text = "Lịch Sử";
-            this.btnHistory.UseVisualStyleBackColor = true;
-            // 
-            // btnStatusBan
-            // 
-            this.btnStatusBan.Location = new System.Drawing.Point(0, 323);
-            this.btnStatusBan.Name = "btnStatusBan";
-            this.btnStatusBan.Size = new System.Drawing.Size(258, 57);
-            this.btnStatusBan.TabIndex = 2;
-            this.btnStatusBan.Text = "Tình Trạng Bàn";
-            this.btnStatusBan.UseVisualStyleBackColor = true;
-            // 
-            // btnThucDon
-            // 
-            this.btnThucDon.Location = new System.Drawing.Point(0, 260);
-            this.btnThucDon.Name = "btnThucDon";
-            this.btnThucDon.Size = new System.Drawing.Size(258, 57);
-            this.btnThucDon.TabIndex = 1;
-            this.btnThucDon.Text = "Menu";
-            this.btnThucDon.UseVisualStyleBackColor = true;
-            // 
-            // picLogo
-            // 
-            this.picLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLogo.Image = global::APP_QL_Billiard.Properties.Resources.Logo;
-            this.picLogo.Location = new System.Drawing.Point(0, 0);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(258, 225);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 0;
-            this.picLogo.TabStop = false;
-            // 
-            // pn_Top
-            // 
-            this.pn_Top.Controls.Add(this.namePage);
-            this.pn_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn_Top.Location = new System.Drawing.Point(258, 0);
-            this.pn_Top.Name = "pn_Top";
-            this.pn_Top.Size = new System.Drawing.Size(1199, 94);
-            this.pn_Top.TabIndex = 1;
->>>>>>> Stashed changes
             // 
             // btnKho
             // 
@@ -226,12 +136,6 @@ namespace APP_QL_Billiard
             this.pn_Content.Location = new System.Drawing.Point(258, 94);
             this.pn_Content.Name = "pn_Content";
             this.pn_Content.Size = new System.Drawing.Size(1199, 651);
-<<<<<<< Updated upstream
-            this.pn_Content.TabIndex = 3;
-=======
-            this.pn_Content.TabIndex = 2;
-            this.pn_Content.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_Content_Paint);
->>>>>>> Stashed changes
             // 
             // fTable_Manager
             // 
@@ -250,8 +154,6 @@ namespace APP_QL_Billiard
             this.ResumeLayout(false);
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Panel pn_Left;
         private System.Windows.Forms.Button btnSignOut;
