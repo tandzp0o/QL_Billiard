@@ -84,5 +84,11 @@ namespace APP_QL_Billiard
         {
             CapNhatThongTinHoaDon();
         }
+
+        private void btn_InHD_Click(object sender, EventArgs e)
+        {
+            f_InHD fInHD = new f_InHD(maHoaDon);
+            fInHD.Show();
+        }
     }
 }

@@ -299,6 +299,7 @@
             this.MinimizeBox = false;
             this.Name = "f_InHD";
             this.Text = "Hoá đơn";
+            this.Load += new System.EventHandler(this.f_InHD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThanhToan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
