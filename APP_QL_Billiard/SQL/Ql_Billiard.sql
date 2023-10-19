@@ -160,6 +160,7 @@ go
 --Insert dữ liệu
 --Account
 INSERT INTO Account VALUES ('admin','14',1)
+INSERT INTO Account VALUES ('user','14',0)
 
 --------------------------------------------------Trần Thành Luân--------------------------------------------------
 --Trigger tính thời gian chơi(ThoiGianChoi) trong bảng hoá đơn(HoaDon)

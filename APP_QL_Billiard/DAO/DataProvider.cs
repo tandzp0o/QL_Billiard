@@ -87,9 +87,9 @@ namespace APP_QL_Billiard.DAO
         }
 
         // lấy ô đầu tiên trong dòng kết quả
-        public T ExcuteScalar<T>(string query, T[] parameter = null)
+        public T ExcuteScalar<T>(string query, object[] parameter = null)
         {
-            T data;
+            object data;
             // dùng xong khối lệnh tự giải phóng dữ liệu đc khai báo
             using (SqlConnection con = new SqlConnection(env.conStr))
             {
@@ -108,10 +108,10 @@ namespace APP_QL_Billiard.DAO
                         }
                     }
                 }
-                data = (T)cmd.ExecuteScalar();
+                data = cmd.ExecuteScalar();
                 con.Close();
             }
-            return data;
+            return (T)Convert.ChangeType(data, typeof(T));
         }
     }
 }

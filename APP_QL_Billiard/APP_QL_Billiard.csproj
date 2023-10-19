@@ -56,6 +56,12 @@
     <Compile Include="fTable_Manager.Designer.cs">
       <DependentUpon>fTable_Manager.cs</DependentUpon>
     </Compile>
+    <Compile Include="fTable_Manager_ADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTable_Manager_ADM.Designer.cs">
+      <DependentUpon>fTable_Manager_ADM.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fTable_Manager.resx">
       <DependentUpon>fTable_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTable_Manager_ADM.resx">
+      <DependentUpon>fTable_Manager_ADM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_InHD.resx">
       <DependentUpon>f_InHD.cs</DependentUpon>

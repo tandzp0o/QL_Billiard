@@ -36,10 +36,20 @@ namespace APP_QL_Billiard
         {
             if (Login(txtTK.Text, txtMK.Text))
             {
-                fTable_Manager f = new fTable_Manager();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                if(AccountDAO.Instance.CheckADM(txtTK.Text))
+                {
+                    fTable_Manager_ADM f = new fTable_Manager_ADM();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    fTable_Manager f1 = new fTable_Manager();
+                    this.Hide();
+                    f1.ShowDialog();
+                    this.Show();
+                }
             }
             else
                 MessageBox.Show("Tài khoản hoặc mật khẩu chưa chính xác");

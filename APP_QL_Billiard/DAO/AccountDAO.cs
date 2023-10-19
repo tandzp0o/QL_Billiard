@@ -33,9 +33,17 @@ namespace APP_QL_Billiard.DAO
 
         public bool Login(string tk, string mk)
         {
-            string query = "select * from Account where TaiKhoan = '"+tk+"' and MatKhau = '"+mk+"'";
+            string query = "select * from Account where TaiKhoan = '" + tk + "' and MatKhau = '" + mk + "'";
             DataTable result = DataProvider.Instance.ExcuteQuery(query);
             return result.Rows.Count > 0;
+        }
+
+        public bool CheckADM(string tk)
+        {
+            string query = "select IsAdmin from Account where TaiKhoan = '" + tk + "'";
+            int result = DataProvider.Instance.ExcuteScalar<int>(query);
+            return result>0;
+
         }
     }
 }
