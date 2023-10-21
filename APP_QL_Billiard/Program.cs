@@ -20,9 +20,10 @@ namespace APP_QL_Billiard
             //Application.Run(new f_NhapHang());
             //Application.Run(new f_NhapHang());
             //Application.Run(new fTable_Manager());
-            Application.Run(new fTable_Manager_ADM());
+            //Application.Run(new fTable_Manager_ADM());
             //Application.Run(new fLogin());
             //Application.Run(new f_ListTable());
+            Application.Run(new fDatTruoc());
         }
     }
 }

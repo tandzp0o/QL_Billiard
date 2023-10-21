@@ -207,7 +207,7 @@
             // delToolStripMenuItem
             // 
             this.delToolStripMenuItem.Name = "delToolStripMenuItem";
-            this.delToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.delToolStripMenuItem.Text = "Xoá";
             this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
             // 

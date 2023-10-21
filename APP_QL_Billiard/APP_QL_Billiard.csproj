@@ -61,6 +61,12 @@
     <Compile Include="DTO\Ban.cs" />
     <Compile Include="DTO\CTPN.cs" />
     <Compile Include="env.cs" />
+    <Compile Include="fDatTruoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDatTruoc.Designer.cs">
+      <DependentUpon>fDatTruoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTable_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fChiTietBan.resx">
       <DependentUpon>fChiTietBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDatTruoc.resx">
+      <DependentUpon>fDatTruoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>

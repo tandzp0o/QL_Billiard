@@ -82,6 +82,7 @@ CREATE TABLE DatTruoc
     Id int NOT NULL,
     MaBan CHAR(3) NOT NULL,
     ThoiGianToi time not null, --nếu tới giờ thì hiện thông báo 
+	NgayDat datetime not null,
     CONSTRAINT pk_DatTruoc PRIMARY KEY (Id,MaBan),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan)
@@ -255,8 +256,8 @@ INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7'
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Loai 2', 3, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (1, 'B01', '18:00:00');
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (2, 'B02', '19:00:00');
+INSERT INTO DatTruoc (Id, MaBan, NgayDat, ThoiGianToi) VALUES (1, 'B01', '2023-10-17T17:00:00', '18:00:00');
+INSERT INTO DatTruoc (Id, MaBan, NgayDat, ThoiGianToi) VALUES (2, 'B02', '2023-10-17T17:00:00', '19:00:00');
 
 -- Thêm dữ liệu vào bảng HoaDon
 INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T18:00:00', null);

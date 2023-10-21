@@ -77,5 +77,11 @@ namespace APP_QL_Billiard
             namePage.Text = btnThongKe.Text;
 
         }
+
+        private void btnDatTruoc_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnDatTruoc.Text;
+
+        }
     }
 }
