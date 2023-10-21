@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbNH = new System.Windows.Forms.GroupBox();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtDG = new System.Windows.Forms.TextBox();
@@ -41,11 +43,15 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbNH.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbNH
             // 
+            this.gbNH.Controls.Add(this.btnEdit);
             this.gbNH.Controls.Add(this.btnSave);
             this.gbNH.Controls.Add(this.btnAdd);
             this.gbNH.Controls.Add(this.txtDG);
@@ -61,6 +67,17 @@
             this.gbNH.TabIndex = 1;
             this.gbNH.TabStop = false;
             this.gbNH.Text = "Phiếu nhập hàng";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(321, 49);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(58, 44);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -121,6 +138,7 @@
             this.cbbMH.Name = "cbbMH";
             this.cbbMH.Size = new System.Drawing.Size(221, 24);
             this.cbbMH.TabIndex = 2;
+            this.cbbMH.Click += new System.EventHandler(this.cbbMH_Click);
             // 
             // label1
             // 
@@ -145,6 +163,9 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.Leave += new System.EventHandler(this.listView1_Leave);
+            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDown);
             // 
             // columnHeader1
             // 
@@ -161,6 +182,20 @@
             this.columnHeader3.Text = "Số lượng";
             this.columnHeader3.Width = 65;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 28);
+            // 
+            // delToolStripMenuItem
+            // 
+            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.delToolStripMenuItem.Text = "Xoá";
+            // 
             // f_NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -170,8 +205,10 @@
             this.Name = "f_NhapHang";
             this.Text = "Nhập hàng";
             this.Load += new System.EventHandler(this.f_NhapHang_Load);
+            this.Click += new System.EventHandler(this.f_NhapHang_Click);
             this.gbNH.ResumeLayout(false);
             this.gbNH.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -190,5 +227,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSL;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem delToolStripMenuItem;
     }
 }

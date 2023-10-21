@@ -11,6 +11,8 @@ using APP_QL_Billiard.DAO;
 using APP_QL_Billiard.DTO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
+using System.Runtime.CompilerServices;
 
 namespace APP_QL_Billiard
 {
@@ -35,18 +37,23 @@ namespace APP_QL_Billiard
         private void f_NhapHang_Load(object sender, EventArgs e)
         {
             loadMH();
+            this.gbNH.Click += new EventHandler(gbNH_Click);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            btnEdit.Visible = false;
             CTPN ctpn = new CTPN();
             ctpn.MaThucDon = cbbMH.SelectedValue.ToString();
             ctpn.SoLuong = int.Parse(txtSL.Text);
             ctpn.DonGia = int.Parse(txtDG.Text);
             cts.Add(ctpn);
             string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), ctpn.DonGia.ToString(), ctpn.SoLuong.ToString() };
-            ListViewItem listViewItem = new ListViewItem(row);
-            listView1.Items.Add(listViewItem);
+            ListViewItem listViewI = new ListViewItem(row);
+            listView1.Items.Add(listViewI);
+            txtDG.Clear();
+            txtSL.Clear();
+            cbbMH.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -54,6 +61,9 @@ namespace APP_QL_Billiard
             CtpnDAO ctpnDAO = new CtpnDAO();
             if (ctpnDAO.addToCTPN(cts) != 0)
             {
+                btnAdd.Visible = true;
+                btnEdit.Visible = false;
+                cbbMH.Enabled = true;
                 txtDG.Clear();
                 txtSL.Clear();
                 cts.Clear();
@@ -62,6 +72,93 @@ namespace APP_QL_Billiard
                 MessageBox.Show("Thêm thành công");
             }
             else MessageBox.Show("Thêm không thành công");
+        }
+
+        private ListViewItem listViewItem;
+
+        private void listView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (listView1.GetItemAt(e.X, e.Y) is ListViewItem)
+            {
+                if(e.Button == MouseButtons.Right)
+                {
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
+                listViewItem = listView1.GetItemAt(e.X, e.Y);
+            }
+        }
+
+        private ListViewItem lvi;
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                int index = cbbMH.FindStringExact(lvi.SubItems[0].Text);
+                DataRowView drv = (DataRowView)cbbMH.Items[index];
+                var cbbi = drv[0].ToString();
+                foreach (var i in cts)
+                {
+                    if (i.MaThucDon == cbbi)
+                    {
+                        i.MaThucDon = cbbMH.SelectedValue.ToString();
+                        i.SoLuong = int.Parse(txtSL.Text);
+                        i.DonGia = int.Parse(txtDG.Text);
+                        string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), i.DonGia.ToString(), i.SoLuong.ToString() };
+                        for (int j = 0; j < row.Length; j++)
+                        {
+                            listView1.SelectedItems[0].SubItems[j].Text = row[j];
+                        }
+                        MessageBox.Show("Sửa thành công");
+                        gbNH_Click(sender, e);
+                        txtDG.Clear();
+                        txtSL.Clear();
+                        cts.Clear();
+                        cbbMH.SelectedIndex = 0;
+                        break;
+                    }
+                }
+            }
+            else MessageBox.Show("Cần chọn 1 dòng để sửa");
+        }
+
+        private void listView1_Leave(object sender, EventArgs e)
+        {
+              
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEdit.Visible = true;
+            btnAdd.Visible = false;
+            lvi = listViewItem;
+            int index = cbbMH.FindStringExact(listViewItem.SubItems[0].Text);
+            cbbMH.SelectedIndex = index;
+            txtDG.Text = listViewItem.SubItems[1].Text;
+            txtSL.Text = listViewItem.SubItems[2].Text;
+            cbbMH.Enabled = false;
+        }
+
+        private void f_NhapHang_Click(object sender, EventArgs e)
+        {
+            btnEdit.Visible = false;
+            btnAdd.Visible = true;
+            cbbMH.Enabled = true;
+        }
+
+        private void cbbMH_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void gbNH_Click(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count > 0)
+            {
+                listView1.Items[listView1.SelectedIndices[0]].Selected = false;
+            }
+            btnEdit.Visible = false;
+            btnAdd.Visible = true;
+            cbbMH.Enabled = true;
         }
     }
 }
