@@ -28,7 +28,7 @@ namespace APP_QL_Billiard
             {
                 Button btn = new Button() { Width = BanDAO.TableWidth, Height = BanDAO.TableHeight };
                 btn.Text = item.Name + Environment.NewLine + item.Type;
-
+                btn.Margin = new Padding(50);
                 switch (item.Status)
                 {
                     case "1":

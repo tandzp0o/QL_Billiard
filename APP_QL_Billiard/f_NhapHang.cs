@@ -44,6 +44,14 @@ namespace APP_QL_Billiard
         {
             if (txtDG.Text != string.Empty && txtSL.Text != string.Empty)
             {
+                foreach (var item in cts)
+                {
+                    if(item.MaThucDon == cbbMH.SelectedValue.ToString())
+                    {
+                        MessageBox.Show("Đã tồn tại mặt hàng trong phiếu nhập này");
+                        return;
+                    }    
+                }
                 btnEdit.Visible = false;
                 CTPN ctpn = new CTPN();
                 ctpn.MaThucDon = cbbMH.SelectedValue.ToString();
@@ -169,6 +177,12 @@ namespace APP_QL_Billiard
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void delToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cts.RemoveAt(listView1.SelectedIndices[0]);
+            listView1.Items[listView1.SelectedIndices[0]].Remove();
         }
     }
 }
