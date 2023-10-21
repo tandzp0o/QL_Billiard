@@ -245,14 +245,14 @@ INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyen Van A', '0123456789');
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Tran Thi B', '0987654321');
 
 -- Thêm dữ liệu vào bảng Ban 
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A01', N'Ban 1', N'Loai 1', 1, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A01', N'Ban 1', N'Loai 1', 3, 100000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A02', N'Ban 2', N'Loai 2', 2, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B01', N'Ban 3', N'Loai 1', 1, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B02', N'Ban 4', N'Loai 2', 2, 200000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B02', N'Ban 4', N'Loai 2', 3, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('C01', N'Ban 5', N'Loai 1', 1, 100000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('C02', N'Ban 6', N'Loai 2', 2, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7', N'Loai 1', 1, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Loai 2', 2, 200000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Loai 2', 3, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
 INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (1, 'B01', '18:00:00');
