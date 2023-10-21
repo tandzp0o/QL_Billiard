@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietBan.Designer.cs">
+      <DependentUpon>ChiTietBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BanDAO.cs" />
     <Compile Include="DAO\CtpnDAO.cs" />
@@ -93,6 +99,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChiTietBan.resx">
+      <DependentUpon>ChiTietBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +145,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\Logo.jpg" />
+    <None Include="Resources\add-user.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\end.png" />
+    <None Include="Resources\time].png" />
+    <None Include="Resources\exchange.png" />
+    <None Include="Resources\dollar-flat.png" />
+    <None Include="Resources\user11.png" />
     <Content Include="SQL\PhanCong_NghiepVu.txt" />
     <Content Include="SQL\Ql_Billiard.sql" />
   </ItemGroup>
