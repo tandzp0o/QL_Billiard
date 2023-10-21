@@ -10,13 +10,12 @@ using System.Windows.Forms;
 
 namespace APP_QL_Billiard
 {
-    public partial class ChiTietBan : Form
+    public partial class fChiTietBan : Form
     {
-        public ChiTietBan()
+        public fChiTietBan()
         {
             InitializeComponent();
         }
 
-        
     }
 }

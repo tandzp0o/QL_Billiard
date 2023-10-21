@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietBan.cs">
+    <Compile Include="fChiTietBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietBan.Designer.cs">
-      <DependentUpon>ChiTietBan.cs</DependentUpon>
+    <Compile Include="fChiTietBan.Designer.cs">
+      <DependentUpon>fChiTietBan.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BanDAO.cs" />
@@ -105,8 +105,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ChiTietBan.resx">
-      <DependentUpon>ChiTietBan.cs</DependentUpon>
+    <EmbeddedResource Include="fChiTietBan.resx">
+      <DependentUpon>fChiTietBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>

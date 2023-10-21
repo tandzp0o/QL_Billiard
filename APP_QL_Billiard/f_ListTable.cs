@@ -28,14 +28,17 @@ namespace APP_QL_Billiard
             {
                 Button btn = new Button() { Width = BanDAO.TableWidth, Height = BanDAO.TableHeight };
                 btn.Text = item.Name + Environment.NewLine + item.Type;
-
+                btn.Margin = new Padding(18);
                 switch (item.Status)
                 {
                     case "1":
-                        btn.BackColor = Color.White;
+                        btn.BackColor = Color.ForestGreen;
                         break;
                     case "2":
-                        btn.BackColor = Color.Aqua;
+                        btn.BackColor = Color.White;
+                        break;
+                    case "3":
+                        btn.BackColor = Color.Yellow;
                         break;
 
                 }
@@ -43,5 +46,14 @@ namespace APP_QL_Billiard
             }
         }
         #endregion
+
+        private void flpTable_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = this.flpTable.CreateGraphics();
+            Pen p = new Pen(Color.Black,3);
+            PointF pf1 = new PointF(465f,0f);
+            PointF pf2 = new PointF(465f,flpTable.Height*60f/9);
+            e.Graphics.DrawLine(p, pf1, pf2);
+        }
     }
 }

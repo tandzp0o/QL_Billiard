@@ -38,6 +38,7 @@ CREATE TABLE ThucDon
     DonViTinh NVARCHAR(10) NOT NULL,
     SoLuong int NOT NULL default 0,
     Gia FLOAT NOT NULL,
+    Hinh nvarchar(max), 
     GhiChu NVARCHAR(100),
     CONSTRAINT chk_GiaThucDon CHECK (Gia > 0),
     CONSTRAINT chk_SoLuong CHECK (SoLuong > 0)

@@ -18,8 +18,8 @@ namespace APP_QL_Billiard.DAO
             private set { BanDAO.instance = value; }
         }
 
-        public static int TableWidth = 75;
-        public static int TableHeight = 75;
+        public static int TableWidth = 110;
+        public static int TableHeight = 150;
         private BanDAO() { }
 
         public List<Ban> LoadTableList()
