@@ -1,6 +1,6 @@
 ﻿namespace APP_QL_Billiard
 {
-    partial class fChiTietBan
+    partial class fFunction_Ban
     {
         /// <summary>
         /// Required designer variable.
