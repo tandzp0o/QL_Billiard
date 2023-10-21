@@ -154,9 +154,10 @@ namespace APP_QL_Billiard
             // flpTable
             // 
             this.flpTable.AutoScroll = true;
+            this.flpTable.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpTable.Location = new System.Drawing.Point(15, 7);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(807, 759);
+            this.flpTable.Size = new System.Drawing.Size(315, 271);
             this.flpTable.TabIndex = 0;
             // 
             // fTable_Manager
