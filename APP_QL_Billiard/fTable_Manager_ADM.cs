@@ -17,9 +17,22 @@ namespace APP_QL_Billiard
             InitializeComponent();
         }
 
-        private void fTable_Manager_Load(object sender, EventArgs e)
-        {
+        public Form child;
 
+        public void formContent(Form content, Panel x)
+        {
+            if(child != null)
+            {
+                child.Close();
+            }
+            child = content;
+            content.TopLevel = false;
+            content.FormBorderStyle = FormBorderStyle.None;
+            content.Dock = DockStyle.Fill;
+            x.Controls.Add(content);
+            x.Tag = content;
+            content.BringToFront();
+            content.Show();
         }
 
         private void btnThucDon_Click(object sender, EventArgs e)
@@ -42,7 +55,7 @@ namespace APP_QL_Billiard
         private void btnKho_Click(object sender, EventArgs e)
         {
             namePage.Text = btnKho.Text;
-
+            formContent(new f_NhapHang(),pn_Right);
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)

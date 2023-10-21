@@ -42,7 +42,8 @@ namespace APP_QL_Billiard
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pn_Top = new System.Windows.Forms.Panel();
             this.namePage = new System.Windows.Forms.Label();
-            this.pn_Content = new System.Windows.Forms.Panel();
+            this.pn_Right = new System.Windows.Forms.Panel();
+            this.pn_center = new System.Windows.Forms.Panel();
             this.pn_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pn_Top.SuspendLayout();
@@ -175,30 +176,38 @@ namespace APP_QL_Billiard
             this.namePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.namePage.Location = new System.Drawing.Point(71, 32);
             this.namePage.Name = "namePage";
-            this.namePage.Size = new System.Drawing.Size(218, 39);
+            this.namePage.Size = new System.Drawing.Size(209, 38);
             this.namePage.TabIndex = 0;
             this.namePage.Text = "Menu Admin";
             // 
-            // pn_Content
+            // pn_Right
             // 
-            this.pn_Content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Content.Location = new System.Drawing.Point(258, 94);
-            this.pn_Content.Name = "pn_Content";
-            this.pn_Content.Size = new System.Drawing.Size(1199, 651);
-            this.pn_Content.TabIndex = 2;
+            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Right.Location = new System.Drawing.Point(908, 94);
+            this.pn_Right.Name = "pn_Right";
+            this.pn_Right.Size = new System.Drawing.Size(549, 651);
+            this.pn_Right.TabIndex = 2;
+            // 
+            // pn_center
+            // 
+            this.pn_center.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_center.Location = new System.Drawing.Point(258, 94);
+            this.pn_center.Name = "pn_center";
+            this.pn_center.Size = new System.Drawing.Size(650, 651);
+            this.pn_center.TabIndex = 3;
             // 
             // fTable_Manager_ADM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1457, 745);
-            this.Controls.Add(this.pn_Content);
+            this.Controls.Add(this.pn_center);
+            this.Controls.Add(this.pn_Right);
             this.Controls.Add(this.pn_Top);
             this.Controls.Add(this.pn_Left);
             this.Name = "fTable_Manager_ADM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần Mềm Quản Lý Billiard";
-            this.Load += new System.EventHandler(this.fTable_Manager_Load);
             this.pn_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pn_Top.ResumeLayout(false);
@@ -212,7 +221,7 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.ToolStripMenuItem billiardToolStripMenuItem;
         private System.Windows.Forms.Panel pn_Left;
         private System.Windows.Forms.Panel pn_Top;
-        private System.Windows.Forms.Panel pn_Content;
+        private System.Windows.Forms.Panel pn_Right;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button btnKho;
@@ -222,5 +231,6 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Button btnSignOut;
         private System.Windows.Forms.Label namePage;
+        private System.Windows.Forms.Panel pn_center;
     }
 }

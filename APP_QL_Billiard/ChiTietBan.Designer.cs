@@ -59,10 +59,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(536, -58);
+            label2.Location = new System.Drawing.Point(476, -46);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(0, 20);
+            label2.Size = new System.Drawing.Size(0, 17);
             label2.TabIndex = 40;
             // 
             // bttSave
@@ -73,10 +73,10 @@
             this.bttSave.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttSave.ForeColor = System.Drawing.Color.White;
             this.bttSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bttSave.Location = new System.Drawing.Point(577, 170);
-            this.bttSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bttSave.Location = new System.Drawing.Point(513, 136);
+            this.bttSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bttSave.Name = "bttSave";
-            this.bttSave.Size = new System.Drawing.Size(96, 45);
+            this.bttSave.Size = new System.Drawing.Size(85, 36);
             this.bttSave.TabIndex = 48;
             this.bttSave.Text = "Lưu";
             this.bttSave.UseVisualStyleBackColor = false;
@@ -87,12 +87,12 @@
             this.txtGia.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGia.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
-            this.txtGia.Location = new System.Drawing.Point(238, 494);
-            this.txtGia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGia.Location = new System.Drawing.Point(212, 395);
+            this.txtGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGia.Multiline = true;
             this.txtGia.Name = "txtGia";
             this.txtGia.ReadOnly = true;
-            this.txtGia.Size = new System.Drawing.Size(433, 53);
+            this.txtGia.Size = new System.Drawing.Size(385, 43);
             this.txtGia.TabIndex = 46;
             // 
             // label3
@@ -100,10 +100,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Teal;
-            this.label3.Location = new System.Drawing.Point(2, 505);
+            this.label3.Location = new System.Drawing.Point(2, 404);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(225, 43);
+            this.label3.Size = new System.Drawing.Size(186, 36);
             this.label3.TabIndex = 45;
             this.label3.Text = "Tổng tiền : ";
             // 
@@ -111,10 +111,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 419);
+            this.label1.Location = new System.Drawing.Point(2, 335);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 37);
+            this.label1.Size = new System.Drawing.Size(183, 31);
             this.label1.TabIndex = 44;
             this.label1.Text = "Số giờ chơi : ";
             // 
@@ -122,12 +122,12 @@
             // 
             this.txtGio.BackColor = System.Drawing.Color.White;
             this.txtGio.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGio.Location = new System.Drawing.Point(238, 410);
-            this.txtGio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGio.Location = new System.Drawing.Point(212, 328);
+            this.txtGio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGio.Multiline = true;
             this.txtGio.Name = "txtGio";
             this.txtGio.ReadOnly = true;
-            this.txtGio.Size = new System.Drawing.Size(433, 46);
+            this.txtGio.Size = new System.Drawing.Size(385, 38);
             this.txtGio.TabIndex = 43;
             // 
             // btnBack
@@ -135,33 +135,33 @@
             this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(-24, -59);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBack.Location = new System.Drawing.Point(-21, -47);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(80, 66);
+            this.btnBack.Size = new System.Drawing.Size(71, 53);
             this.btnBack.TabIndex = 39;
             this.btnBack.UseVisualStyleBackColor = false;
             // 
             // txtTimeEnd
             // 
             this.txtTimeEnd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimeEnd.Location = new System.Drawing.Point(13, 307);
-            this.txtTimeEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTimeEnd.Location = new System.Drawing.Point(12, 246);
+            this.txtTimeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTimeEnd.Multiline = true;
             this.txtTimeEnd.Name = "txtTimeEnd";
             this.txtTimeEnd.ReadOnly = true;
-            this.txtTimeEnd.Size = new System.Drawing.Size(214, 46);
+            this.txtTimeEnd.Size = new System.Drawing.Size(191, 38);
             this.txtTimeEnd.TabIndex = 36;
             // 
             // txtTimeStart
             // 
             this.txtTimeStart.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimeStart.Location = new System.Drawing.Point(13, 236);
-            this.txtTimeStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTimeStart.Location = new System.Drawing.Point(12, 189);
+            this.txtTimeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTimeStart.Multiline = true;
             this.txtTimeStart.Name = "txtTimeStart";
             this.txtTimeStart.ReadOnly = true;
-            this.txtTimeStart.Size = new System.Drawing.Size(214, 46);
+            this.txtTimeStart.Size = new System.Drawing.Size(191, 38);
             this.txtTimeStart.TabIndex = 34;
             // 
             // btnAdd
@@ -173,10 +173,10 @@
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::APP_QL_Billiard.Properties.Resources.add_user;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(504, 170);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAdd.Location = new System.Drawing.Point(448, 136);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(64, 45);
+            this.btnAdd.Size = new System.Drawing.Size(57, 36);
             this.btnAdd.TabIndex = 49;
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
@@ -190,10 +190,10 @@
             this.btnPay.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPay.Image = global::APP_QL_Billiard.Properties.Resources.dollar_flat;
             this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPay.Location = new System.Drawing.Point(610, 619);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPay.Location = new System.Drawing.Point(542, 495);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(268, 88);
+            this.btnPay.Size = new System.Drawing.Size(238, 70);
             this.btnPay.TabIndex = 47;
             this.btnPay.Text = "Thanh toán";
             this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -208,10 +208,10 @@
             this.btnChange.ForeColor = System.Drawing.Color.White;
             this.btnChange.Image = global::APP_QL_Billiard.Properties.Resources.exchange;
             this.btnChange.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnChange.Location = new System.Drawing.Point(740, 33);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnChange.Location = new System.Drawing.Point(658, 26);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(138, 111);
+            this.btnChange.Size = new System.Drawing.Size(123, 89);
             this.btnChange.TabIndex = 42;
             this.btnChange.Text = "Chuyển bàn";
             this.btnChange.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -220,10 +220,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::APP_QL_Billiard.Properties.Resources.Manager;
-            this.pictureBox1.Location = new System.Drawing.Point(932, 49);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(828, 39);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 49);
+            this.pictureBox1.Size = new System.Drawing.Size(41, 39);
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseWaitCursor = true;
@@ -238,10 +238,10 @@
             this.btnTinh.ForeColor = System.Drawing.Color.White;
             this.btnTinh.Image = global::APP_QL_Billiard.Properties.Resources.time_;
             this.btnTinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTinh.Location = new System.Drawing.Point(438, 304);
-            this.btnTinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTinh.Location = new System.Drawing.Point(389, 243);
+            this.btnTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTinh.Name = "btnTinh";
-            this.btnTinh.Size = new System.Drawing.Size(236, 48);
+            this.btnTinh.Size = new System.Drawing.Size(210, 38);
             this.btnTinh.TabIndex = 38;
             this.btnTinh.Text = "Tính giờ";
             this.btnTinh.UseVisualStyleBackColor = false;
@@ -256,10 +256,10 @@
             this.btnEnd.ForeColor = System.Drawing.Color.White;
             this.btnEnd.Image = global::APP_QL_Billiard.Properties.Resources.end;
             this.btnEnd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnd.Location = new System.Drawing.Point(238, 307);
-            this.btnEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEnd.Location = new System.Drawing.Point(212, 246);
+            this.btnEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(160, 48);
+            this.btnEnd.Size = new System.Drawing.Size(142, 38);
             this.btnEnd.TabIndex = 37;
             this.btnEnd.Text = "Kết thúc";
             this.btnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -274,10 +274,10 @@
             this.btnStart.ForeColor = System.Drawing.Color.White;
             this.btnStart.Image = global::APP_QL_Billiard.Properties.Resources.play;
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStart.Location = new System.Drawing.Point(238, 236);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnStart.Location = new System.Drawing.Point(212, 189);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(160, 48);
+            this.btnStart.Size = new System.Drawing.Size(142, 38);
             this.btnStart.TabIndex = 35;
             this.btnStart.Text = "Bắt đầu";
             this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -285,10 +285,10 @@
             // 
             // picBan
             // 
-            this.picBan.Location = new System.Drawing.Point(100, 0);
-            this.picBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picBan.Location = new System.Drawing.Point(89, 0);
+            this.picBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBan.Name = "picBan";
-            this.picBan.Size = new System.Drawing.Size(150, 182);
+            this.picBan.Size = new System.Drawing.Size(133, 146);
             this.picBan.TabIndex = 33;
             this.picBan.TabStop = false;
             // 
@@ -296,9 +296,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(986, 58);
+            this.label4.Location = new System.Drawing.Point(876, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 24);
+            this.label4.Size = new System.Drawing.Size(69, 21);
             this.label4.TabIndex = 50;
             this.label4.Text = "Hien NV";
             // 
@@ -306,17 +306,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(453, 247);
+            this.label5.Location = new System.Drawing.Point(403, 198);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(203, 27);
+            this.label5.Size = new System.Drawing.Size(177, 23);
             this.label5.TabIndex = 51;
             this.label5.Text = "Hien ngay he thong";
             // 
             // ChiTietBan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 759);
+            this.ClientSize = new System.Drawing.Size(992, 607);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAdd);
@@ -336,6 +336,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.txtTimeStart);
             this.Controls.Add(this.picBan);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ChiTietBan";
             this.Text = "ChiTietBan";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
