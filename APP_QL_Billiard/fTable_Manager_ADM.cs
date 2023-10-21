@@ -47,6 +47,7 @@ namespace APP_QL_Billiard
 
         private void btnThucDon_Click(object sender, EventArgs e)
         {
+         
             namePage.Text = btnThucDon.Text + " Admin";
         }
 

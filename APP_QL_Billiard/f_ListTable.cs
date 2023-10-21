@@ -31,13 +31,13 @@ namespace APP_QL_Billiard
                 btn.Margin = new Padding(18);
                 switch (item.Status)
                 {
-                    case "1":
+                    case 1:
                         btn.BackColor = Color.ForestGreen;
                         break;
-                    case "2":
+                    case 2:
                         btn.BackColor = Color.White;
                         break;
-                    case "3":
+                    case 3:
                         btn.BackColor = Color.Yellow;
                         break;
 
