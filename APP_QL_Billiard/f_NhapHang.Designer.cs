@@ -143,6 +143,7 @@
             // 
             // cbbMH
             // 
+            this.cbbMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbMH.FormattingEnabled = true;
             this.cbbMH.Location = new System.Drawing.Point(145, 51);
@@ -206,8 +207,9 @@
             // delToolStripMenuItem
             // 
             this.delToolStripMenuItem.Name = "delToolStripMenuItem";
-            this.delToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.delToolStripMenuItem.Text = "Xoá";
+            this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
             // 
             // f_NhapHang
             // 
