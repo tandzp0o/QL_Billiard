@@ -36,11 +36,9 @@ namespace APP_QL_Billiard
             this.pn_Top = new System.Windows.Forms.Panel();
             this.namePage = new System.Windows.Forms.Label();
             this.pn_Content = new System.Windows.Forms.Panel();
-            this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.pn_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pn_Top.SuspendLayout();
-            this.pn_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_Left
@@ -143,22 +141,12 @@ namespace APP_QL_Billiard
             // 
             // pn_Content
             // 
-            this.pn_Content.Controls.Add(this.flpTable);
             this.pn_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Content.Location = new System.Drawing.Point(290, 118);
             this.pn_Content.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pn_Content.Name = "pn_Content";
             this.pn_Content.Size = new System.Drawing.Size(1349, 813);
             this.pn_Content.TabIndex = 0;
-            // 
-            // flpTable
-            // 
-            this.flpTable.AutoScroll = true;
-            this.flpTable.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flpTable.Location = new System.Drawing.Point(15, 7);
-            this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(315, 271);
-            this.flpTable.TabIndex = 0;
             // 
             // fTable_Manager
             // 
@@ -175,7 +163,6 @@ namespace APP_QL_Billiard
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pn_Top.ResumeLayout(false);
             this.pn_Top.PerformLayout();
-            this.pn_Content.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -190,6 +177,5 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.Panel pn_Top;
         private System.Windows.Forms.Label namePage;
         private System.Windows.Forms.Panel pn_Content;
-        private System.Windows.Forms.FlowLayoutPanel flpTable;
     }
 }
