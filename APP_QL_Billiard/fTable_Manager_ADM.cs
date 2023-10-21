@@ -47,13 +47,14 @@ namespace APP_QL_Billiard
 
         private void btnThucDon_Click(object sender, EventArgs e)
         {
+         
             namePage.Text = btnThucDon.Text + " Admin";
         }
 
         private void btnStatusBan_Click(object sender, EventArgs e)
         {
             namePage.Text = btnStatusBan.Text;
-            formContent(new f_ListTable(), new fChiTietBan(), pn_center, pn_Right);
+            formContent(new f_ListTable(), new fFunction_Ban(), pn_center, pn_Right);
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
