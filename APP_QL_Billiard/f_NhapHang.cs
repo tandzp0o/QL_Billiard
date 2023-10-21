@@ -42,36 +42,44 @@ namespace APP_QL_Billiard
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            btnEdit.Visible = false;
-            CTPN ctpn = new CTPN();
-            ctpn.MaThucDon = cbbMH.SelectedValue.ToString();
-            ctpn.SoLuong = int.Parse(txtSL.Text);
-            ctpn.DonGia = int.Parse(txtDG.Text);
-            cts.Add(ctpn);
-            string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), ctpn.DonGia.ToString(), ctpn.SoLuong.ToString() };
-            ListViewItem listViewI = new ListViewItem(row);
-            listView1.Items.Add(listViewI);
-            txtDG.Clear();
-            txtSL.Clear();
-            cbbMH.SelectedIndex = 0;
+            if (txtDG.Text != string.Empty && txtSL.Text != string.Empty)
+            {
+                btnEdit.Visible = false;
+                CTPN ctpn = new CTPN();
+                ctpn.MaThucDon = cbbMH.SelectedValue.ToString();
+                ctpn.SoLuong = int.Parse(txtSL.Text);
+                ctpn.DonGia = int.Parse(txtDG.Text);
+                cts.Add(ctpn);
+                string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), ctpn.DonGia.ToString(), ctpn.SoLuong.ToString() };
+                ListViewItem listViewI = new ListViewItem(row);
+                listView1.Items.Add(listViewI);
+                txtDG.Clear();
+                txtSL.Clear();
+                cbbMH.SelectedIndex = 0;
+            }
+            else MessageBox.Show("Vui lòng điền vào chỗ trống");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CtpnDAO ctpnDAO = new CtpnDAO();
-            if (ctpnDAO.addToCTPN(cts) != 0)
+            if (listView1.Items.Count > 0)
             {
-                btnAdd.Visible = true;
-                btnEdit.Visible = false;
-                cbbMH.Enabled = true;
-                txtDG.Clear();
-                txtSL.Clear();
-                cts.Clear();
-                listView1.Items.Clear();
-                cbbMH.SelectedIndex = 0;
-                MessageBox.Show("Thêm thành công");
+                CtpnDAO ctpnDAO = new CtpnDAO();
+                if (ctpnDAO.addToCTPN(cts) != 0)
+                {
+                    btnAdd.Visible = true;
+                    btnEdit.Visible = false;
+                    cbbMH.Enabled = true;
+                    txtDG.Clear();
+                    txtSL.Clear();
+                    cts.Clear();
+                    listView1.Items.Clear();
+                    cbbMH.SelectedIndex = 0;
+                    MessageBox.Show("Thêm thành công");
+                }
+                else MessageBox.Show("Thêm không thành công");
             }
-            else MessageBox.Show("Thêm không thành công");
+            else MessageBox.Show("Không có thực đơn trong phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private ListViewItem listViewItem;
@@ -88,13 +96,11 @@ namespace APP_QL_Billiard
             }
         }
 
-        private ListViewItem lvi;
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                int index = cbbMH.FindStringExact(lvi.SubItems[0].Text);
+                int index = cbbMH.FindStringExact(listViewItem.SubItems[0].Text);
                 DataRowView drv = (DataRowView)cbbMH.Items[index];
                 var cbbi = drv[0].ToString();
                 foreach (var i in cts)
@@ -113,7 +119,6 @@ namespace APP_QL_Billiard
                         gbNH_Click(sender, e);
                         txtDG.Clear();
                         txtSL.Clear();
-                        cts.Clear();
                         cbbMH.SelectedIndex = 0;
                         break;
                     }
@@ -131,7 +136,6 @@ namespace APP_QL_Billiard
         {
             btnEdit.Visible = true;
             btnAdd.Visible = false;
-            lvi = listViewItem;
             int index = cbbMH.FindStringExact(listViewItem.SubItems[0].Text);
             cbbMH.SelectedIndex = index;
             txtDG.Text = listViewItem.SubItems[1].Text;
@@ -159,6 +163,12 @@ namespace APP_QL_Billiard
             btnEdit.Visible = false;
             btnAdd.Visible = true;
             cbbMH.Enabled = true;
+        }
+
+        private void txtSL_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
