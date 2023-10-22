@@ -85,5 +85,23 @@ namespace APP_QL_Billiard
             DateTime currentTime = DateTime.Now;
             txt_Time.Text = currentTime.ToString("HH:mm:ss");
         }
+
+        private void fFunction_Ban_Activated(object sender, EventArgs e)
+        {
+            if (Ban1 != null)
+            {
+                lbl_NV.Text = "Nguyễn Văn A";
+                txt_TenBan.Text = Ban1.Name;
+            }
+        }
+
+        private void fFunction_Ban_Enter(object sender, EventArgs e)
+        {
+            if (Ban1 != null)
+            {
+                lbl_NV.Text = "Nguyễn Văn A";
+                txt_TenBan.Text = Ban1.Name;
+            }
+        }
     }
 }
