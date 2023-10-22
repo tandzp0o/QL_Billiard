@@ -67,9 +67,9 @@ namespace APP_QL_Billiard.DAO
 
         public double GetTongTienGio(int maHoaDon)
         {
-            string query = "Select DATEDIFF(MINUTE, GioBatDau, GioKetThuc) / 60.0 from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select (DATEDIFF(MINUTE, GioBatDau, GioKetThuc)/60.0) * Gia from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? (double)(decimal)result : 0;
+            return result != null ? Convert.ToDouble(result) : 0;
         }
 
         public double GetGiaGio(int maHoaDon)
@@ -78,6 +78,36 @@ namespace APP_QL_Billiard.DAO
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (double)result : 0;
         }
+
+        public DataTable GetHoaDonChiTiet(int maHoaDon)
+        {
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                con.Open();
+                string query = @"SELECT TenThucDon, SoLuongDat, DonViTinh, Gia,
+                         SoLuongDat * Gia AS ThanhTien,
+                         CASE
+                             WHEN IsMember IS NULL THEN ThanhToan
+                             WHEN IsMember = 0 THEN ThanhToan * 0.8
+                             WHEN IsMember = 1 THEN ThanhToan * 0.75
+                         END AS ThanhToan
+                         FROM ChiTietHoaDon
+                         JOIN ThucDon ON ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                         JOIN HoaDon ON ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                         WHERE ChiTietHoaDon.MaHoaDon = @maHoaDon";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
 
         private object ExecuteScalar(string query, int maHoaDon)
         {

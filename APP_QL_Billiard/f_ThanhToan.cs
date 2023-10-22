@@ -90,5 +90,14 @@ namespace APP_QL_Billiard
             f_InHD fInHD = new f_InHD(maHoaDon);
             fInHD.Show();
         }
+
+        private void f_ThanhToan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Bạn có muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (DialogResult.No == r)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

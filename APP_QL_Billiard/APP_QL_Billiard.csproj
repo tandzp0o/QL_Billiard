@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="env.cs" />
     <Compile Include="fFunction_Ban.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,7 +61,6 @@
     <Compile Include="DAO\ThanhToanDAO.cs" />
     <Compile Include="DTO\Ban.cs" />
     <Compile Include="DTO\CTPN.cs" />
-    <Compile Include="env.cs" />
     <Compile Include="fDatTruoc.cs">
       <SubType>Form</SubType>
     </Compile>

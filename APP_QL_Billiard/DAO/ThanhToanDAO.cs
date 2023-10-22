@@ -98,6 +98,5 @@ namespace APP_QL_Billiard.DAO
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (string)result : "";
         }
-
     }
 }

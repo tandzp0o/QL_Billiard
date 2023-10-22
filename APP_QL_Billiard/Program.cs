@@ -16,11 +16,11 @@ namespace APP_QL_Billiard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new f_ThanhToan());
+            Application.Run(new f_ThanhToan());
             //Application.Run(new f_NhapHang());
             //Application.Run(new f_NhapHang());
             //Application.Run(new fTable_Manager());
-            Application.Run(new fTable_Manager_ADM());
+            //Application.Run(new fTable_Manager_ADM());
             //Application.Run(new fLogin());
             //Application.Run(new f_ListTable());
             //Application.Run(new fFunction_Ban());

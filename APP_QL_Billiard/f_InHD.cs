@@ -37,6 +37,8 @@ namespace APP_QL_Billiard
             lb_TienDV.Text = "Tiền dịch vụ: " + inHoaDonDAO.GetTienDichVu(maHoaDon).ToString() + " VND";
             lb_TongTienGio.Text = "Tổng tiền giờ: " + inHoaDonDAO.GetTongTienGio(maHoaDon).ToString() + " VND";
             lb_TienGio.Text = "Giá giờ: " + inHoaDonDAO.GetGiaGio(maHoaDon).ToString() + "/1h";
+            DataTable dt = inHoaDonDAO.GetHoaDonChiTiet(maHoaDon);
+            dgv_ThanhToan.DataSource = dt;
         }
     }
 }

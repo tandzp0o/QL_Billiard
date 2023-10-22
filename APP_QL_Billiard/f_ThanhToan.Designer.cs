@@ -249,6 +249,7 @@
             this.MinimizeBox = false;
             this.Name = "f_ThanhToan";
             this.Text = "Thanh Toán";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.f_ThanhToan_FormClosing);
             this.Load += new System.EventHandler(this.f_ThanhToan_Load);
             this.gb_DoiTuong.ResumeLayout(false);
             this.gb_DoiTuong.PerformLayout();
