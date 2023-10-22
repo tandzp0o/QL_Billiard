@@ -12,22 +12,31 @@ using APP_QL_Billiard.DTO;
 
 namespace APP_QL_Billiard
 {
-    
-    
+
+
     public partial class fFunction_Ban : Form
     {
-   
+        public Ban Ban1 { get;  set;}
         public fFunction_Ban( )
         {
             InitializeComponent();
             
         }
+        public fFunction_Ban(Ban a)
+        {
+            InitializeComponent();
+            Ban1 = a;
+        }
 
         public void fFunction_Ban_Load(object sender, EventArgs e)
         {
 
-            lbl_NV.Text= "Nguyễn Văn A";
-          
+           
+            if (Ban1 != null)
+            {
+                lbl_NV.Text = "Nguyễn Văn A";
+                txt_TenBan.Text = Ban1.Name; 
+            }
 
             //var date1 = DateTime.Now;
             //txtTimeStart.Text = date1.ToString("HH:mm   dd/MM/yyyy");
@@ -74,7 +83,7 @@ namespace APP_QL_Billiard
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime currentTime = DateTime.Now;
-            txtTimeStart.Text = currentTime.ToString("HH:mm   dd/MM/yyyy");
+            txt_Time.Text = currentTime.ToString("HH:mm:ss");
         }
     }
 }

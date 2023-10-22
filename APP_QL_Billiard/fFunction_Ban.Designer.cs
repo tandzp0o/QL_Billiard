@@ -46,6 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
+            this.txt_Time = new System.Windows.Forms.TextBox();
+            this.txt_TenBan = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -79,6 +81,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txt_TenBan);
+            this.panel1.Controls.Add(this.txt_Time);
             this.panel1.Controls.Add(this.NameTable);
             this.panel1.Controls.Add(this.btnChange);
             this.panel1.Controls.Add(this.txtGia);
@@ -101,6 +105,7 @@
             // 
             // NameTable
             // 
+            this.NameTable.AllowDrop = true;
             this.NameTable.AutoSize = true;
             this.NameTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameTable.Location = new System.Drawing.Point(3, 28);
@@ -282,6 +287,28 @@
             this.btnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEnd.UseVisualStyleBackColor = false;
             // 
+            // txt_Time
+            // 
+            this.txt_Time.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Time.Location = new System.Drawing.Point(344, 86);
+            this.txt_Time.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_Time.Multiline = true;
+            this.txt_Time.Name = "txt_Time";
+            this.txt_Time.ReadOnly = true;
+            this.txt_Time.Size = new System.Drawing.Size(215, 46);
+            this.txt_Time.TabIndex = 52;
+            // 
+            // txt_TenBan
+            // 
+            this.txt_TenBan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TenBan.Location = new System.Drawing.Point(4, 86);
+            this.txt_TenBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_TenBan.Multiline = true;
+            this.txt_TenBan.Name = "txt_TenBan";
+            this.txt_TenBan.ReadOnly = true;
+            this.txt_TenBan.Size = new System.Drawing.Size(152, 46);
+            this.txt_TenBan.TabIndex = 53;
+            // 
             // fFunction_Ban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -319,5 +346,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.TextBox txtTimeStart;
+        private System.Windows.Forms.TextBox txt_Time;
+        private System.Windows.Forms.TextBox txt_TenBan;
     }
 }

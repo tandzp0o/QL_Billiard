@@ -29,6 +29,8 @@ namespace APP_QL_Billiard
                 Button btn = new Button() { Width = BanDAO.TableWidth, Height = BanDAO.TableHeight };
                 btn.Text = item.Name + Environment.NewLine + item.Type;
                 btn.Margin = new Padding(18);
+                btn.Tag= item;
+                btn.Click += Btn_Click;
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.FlatAppearance.BorderColor = Color.Black;
                 btn.FlatAppearance.BorderSize = 2;
@@ -50,7 +52,12 @@ namespace APP_QL_Billiard
             }
         }
         #endregion
-
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            fFunction_Ban fSent = new fFunction_Ban();
+            fSent.Ban1= (Ban)btn.Tag;
+        }
         private void flpTable_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = this.flpTable.CreateGraphics();
