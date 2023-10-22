@@ -20,6 +20,15 @@ namespace APP_QL_Billiard
             LoadBan();
         }
 
+        public fFunction_Ban F { get; set; }
+
+        public f_ListTable(fFunction_Ban f)
+        {
+            F = f;
+            InitializeComponent();
+            LoadBan();
+        }
+
         #region Method
         void LoadBan()
         {
@@ -52,11 +61,14 @@ namespace APP_QL_Billiard
             }
         }
         #endregion
+    
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            fFunction_Ban fSent = new fFunction_Ban();
+            fFunction_Ban fSent = F; 
             fSent.Ban1= (Ban)btn.Tag;
+            fSent.Activate();
+            fSent.reLoad();
         }
         private void flpTable_Paint(object sender, PaintEventArgs e)
         {

@@ -59,7 +59,7 @@
             label2.Location = new System.Drawing.Point(476, -46);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(0, 16);
+            label2.Size = new System.Drawing.Size(0, 17);
             label2.TabIndex = 40;
             // 
             // timer1
@@ -71,7 +71,7 @@
             // 
             this.pictureBox1.Image = global::APP_QL_Billiard.Properties.Resources.Manager;
             this.pictureBox1.Location = new System.Drawing.Point(306, 22);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 47);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -106,7 +106,7 @@
             // 
             this.txt_TenBan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenBan.Location = new System.Drawing.Point(4, 69);
-            this.txt_TenBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_TenBan.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TenBan.Multiline = true;
             this.txt_TenBan.Name = "txt_TenBan";
             this.txt_TenBan.ReadOnly = true;
@@ -117,7 +117,7 @@
             // 
             this.txt_Time.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Time.Location = new System.Drawing.Point(306, 69);
-            this.txt_Time.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Time.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Time.Multiline = true;
             this.txt_Time.Name = "txt_Time";
             this.txt_Time.ReadOnly = true;
@@ -145,7 +145,7 @@
             this.btnChange.Image = global::APP_QL_Billiard.Properties.Resources.exchange;
             this.btnChange.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnChange.Location = new System.Drawing.Point(142, 13);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(126, 93);
             this.btnChange.TabIndex = 42;
@@ -160,7 +160,7 @@
             this.txtGia.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
             this.txtGia.Location = new System.Drawing.Point(214, 407);
-            this.txtGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGia.Margin = new System.Windows.Forms.Padding(4);
             this.txtGia.Multiline = true;
             this.txtGia.Name = "txtGia";
             this.txtGia.ReadOnly = true;
@@ -178,7 +178,7 @@
             this.btnPay.Image = global::APP_QL_Billiard.Properties.Resources.dollar_flat;
             this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPay.Location = new System.Drawing.Point(269, 486);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(231, 70);
             this.btnPay.TabIndex = 47;
@@ -191,7 +191,7 @@
             this.txtGio.BackColor = System.Drawing.Color.White;
             this.txtGio.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGio.Location = new System.Drawing.Point(214, 338);
-            this.txtGio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGio.Margin = new System.Windows.Forms.Padding(4);
             this.txtGio.Multiline = true;
             this.txtGio.Name = "txtGio";
             this.txtGio.ReadOnly = true;
@@ -212,7 +212,7 @@
             // 
             this.txtTimeStart.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeStart.Location = new System.Drawing.Point(29, 118);
-            this.txtTimeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimeStart.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimeStart.Multiline = true;
             this.txtTimeStart.Name = "txtTimeStart";
             this.txtTimeStart.ReadOnly = true;
@@ -242,7 +242,7 @@
             this.btnTinh.Image = global::APP_QL_Billiard.Properties.Resources.time_;
             this.btnTinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTinh.Location = new System.Drawing.Point(29, 247);
-            this.btnTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTinh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTinh.Name = "btnTinh";
             this.btnTinh.Size = new System.Drawing.Size(321, 38);
             this.btnTinh.TabIndex = 38;
@@ -253,7 +253,7 @@
             // 
             this.txtTimeEnd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeEnd.Location = new System.Drawing.Point(27, 182);
-            this.txtTimeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimeEnd.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimeEnd.Multiline = true;
             this.txtTimeEnd.Name = "txtTimeEnd";
             this.txtTimeEnd.ReadOnly = true;
@@ -281,7 +281,7 @@
             this.btnStart.Image = global::APP_QL_Billiard.Properties.Resources.play;
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStart.Location = new System.Drawing.Point(358, 114);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(142, 38);
             this.btnStart.TabIndex = 35;
@@ -300,7 +300,7 @@
             this.btnEnd.Image = global::APP_QL_Billiard.Properties.Resources.end;
             this.btnEnd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEnd.Location = new System.Drawing.Point(358, 182);
-            this.btnEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEnd.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(142, 38);
             this.btnEnd.TabIndex = 37;
@@ -318,9 +318,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "fFunction_Ban";
             this.Text = "ChiTietBan";
-            this.Activated += new System.EventHandler(this.fFunction_Ban_Activated);
             this.Load += new System.EventHandler(this.fFunction_Ban_Load);
-            this.Enter += new System.EventHandler(this.fFunction_Ban_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

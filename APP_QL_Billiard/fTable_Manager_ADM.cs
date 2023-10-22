@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using APP_QL_Billiard.DTO;
 
 namespace APP_QL_Billiard
 {
@@ -53,8 +54,10 @@ namespace APP_QL_Billiard
 
         private void btnStatusBan_Click(object sender, EventArgs e)
         {
+            fFunction_Ban f = new fFunction_Ban();
             namePage.Text = btnStatusBan.Text;
-            formContent(new f_ListTable(), new fFunction_Ban(), pn_center, pn_Right);
+            formContent(new f_ListTable(f), f, pn_center, pn_Right);
+            
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -82,6 +85,11 @@ namespace APP_QL_Billiard
         private void btnDatTruoc_Click(object sender, EventArgs e)
         {
             namePage.Text = btnDatTruoc.Text;
+
+        }
+
+        private void pn_center_Click(object sender, EventArgs e)
+        {
 
         }
     }

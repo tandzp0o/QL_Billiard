@@ -38,7 +38,7 @@
             this.flpTable.Location = new System.Drawing.Point(12, 11);
             this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(452, 663);
+            this.flpTable.Size = new System.Drawing.Size(706, 663);
             this.flpTable.TabIndex = 1;
             this.flpTable.Paint += new System.Windows.Forms.PaintEventHandler(this.flpTable_Paint);
             // 
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 685);
+            this.ClientSize = new System.Drawing.Size(746, 685);
             this.Controls.Add(this.flpTable);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "f_ListTable";
