@@ -47,13 +47,13 @@ namespace APP_QL_Billiard
                 switch (item.Status)
                 {
                     case 1:
-                        btn.BackColor = Color.ForestGreen;
+                        btn.BackColor = Color.FromArgb(115, 184, 161);
                         break;
                     case 2:
                         btn.BackColor = Color.White;
                         break;
                     case 3:
-                        btn.BackColor = Color.Yellow;
+                        btn.BackColor = Color.FromArgb(242, 226, 176);
                         break;
 
                 }

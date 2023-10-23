@@ -109,6 +109,12 @@
     <Compile Include="f_ThanhToan.Designer.cs">
       <DependentUpon>f_ThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_ThongKe.Designer.cs">
+      <DependentUpon>f_ThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fFunction_Ban.resx">
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_ThanhToan.resx">
       <DependentUpon>f_ThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_ThongKe.resx">
+      <DependentUpon>f_ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
