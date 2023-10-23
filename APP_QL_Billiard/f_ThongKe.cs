@@ -35,7 +35,8 @@ namespace APP_QL_Billiard
         }
         void loadThuChi()
         {
-
+            DataSet ds1 = new DataSet();
+            string sql = "Select"
         }
         private void f_ThongKe_Load(object sender, EventArgs e)
         {

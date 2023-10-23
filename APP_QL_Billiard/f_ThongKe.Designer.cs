@@ -40,7 +40,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartDB = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDT = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -86,12 +85,12 @@
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Thu";
             series2.YValuesPerPoint = 4;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Legend = "Legend1";
-            series3.Name = "Series2";
+            series3.Name = "Chi";
             this.chartDT.Series.Add(series2);
             this.chartDT.Series.Add(series3);
             this.chartDT.Size = new System.Drawing.Size(797, 300);
@@ -115,12 +114,7 @@
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             series4.YValuesPerPoint = 4;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Series2";
             this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(563, 175);
             this.chart1.SuppressExceptions = true;
             this.chart1.TabIndex = 2;
