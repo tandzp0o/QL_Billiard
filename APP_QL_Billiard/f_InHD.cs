@@ -27,18 +27,19 @@ namespace APP_QL_Billiard
         private void f_InHD_Load(object sender, EventArgs e)
         {
             lb_Title.Text = "Hoá đơn bàn " + inHoaDonDAO.GetTenBan(maHoaDon);
+            lb_Ngay.Text = "Ngày: " + DateTime.Now.ToString("dd/MM/yyyy");
+            lb_MaSo.Text = "Mã số: " + inHoaDonDAO.GetMaHoaDon(maHoaDon);
+            lb_ThuNgan.Text = "Thu ngân: " + inHoaDonDAO.GetTenThuNgan(maHoaDon);
+            lb_InLuc.Text = "In lúc: " + DateTime.Now.ToString("HH:mm");
             lb_GBD.Text = "Giờ bắt đầu: " + inHoaDonDAO.GetGioBatDau(maHoaDon).ToString("HH:mm");
             lb_GKT.Text = "Giờ kết thúc: " + inHoaDonDAO.GetGioKetThuc(maHoaDon).ToString("HH:mm");
-            lb_GiamGia.Text = "Giảm giá: " + inHoaDonDAO.GetGiamGia(maHoaDon).ToString() + "%";
-            lb_TongTien.Text = "Tổng tiền: " + inHoaDonDAO.GetTongTien(maHoaDon).ToString() + " VND";
-            lb_ThuNgan.Text = "Thu ngân: " + inHoaDonDAO.GetTenThuNgan(maHoaDon);
-            lb_Ngay.Text = "Ngày: " + DateTime.Now.ToString("dd/MM/yyyy");
-            lb_InLuc.Text = "In lúc: " + DateTime.Now.ToString("HH:mm");
+            DataTable dt = inHoaDonDAO.GetHoaDonChiTiet(maHoaDon);
+            dgv_InHD.DataSource = dt;
             lb_TienDV.Text = "Tiền dịch vụ: " + inHoaDonDAO.GetTienDichVu(maHoaDon).ToString() + " VND";
             lb_TongTienGio.Text = "Tổng tiền giờ: " + inHoaDonDAO.GetTongTienGio(maHoaDon).ToString() + " VND";
+            lb_GiamGia.Text = "Giảm giá: " + inHoaDonDAO.GetGiamGia(maHoaDon).ToString() + "%";
+            lb_TongTien.Text = "Tổng tiền: " + inHoaDonDAO.GetTongTien(maHoaDon).ToString() + " VND";
             lb_TienGio.Text = "Giá giờ: " + inHoaDonDAO.GetGiaGio(maHoaDon).ToString() + "/1h";
-            DataTable dt = inHoaDonDAO.GetHoaDonChiTiet(maHoaDon);
-            dgv_ThanhToan.DataSource = dt;
         }
     }
 }

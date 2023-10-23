@@ -242,36 +242,38 @@ begin
 end;
 Go
 -- Thêm dữ liệu vào bảng KhachHang
-INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyen Van A', '0123456789');
-INSERT INTO KhachHang (Ten, Phone) VALUES (N'Tran Thi B', '0987654321');
+INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');
+INSERT INTO KhachHang (Ten, Phone) VALUES (N'Trần Thị B', '0987654321');
 
--- Thêm dữ liệu vào bảng Ban 
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A01', N'Ban 1', N'Lỗ', 3, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A02', N'Ban 2', N'Lip', 2, 200000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B01', N'Ban 3', N'Lỗ', 1, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B02', N'Ban 4', N'Lip', 3, 200000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('C01', N'Ban 5', N'Carom', 1, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('C02', N'Ban 6', N'Lỗ', 2, 200000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7', N'Carom', 1, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Lỗ', 3, 200000);
+-- Thêm dữ liệu vào bảng Ban
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B01', N'Bàn 1', N'Loại 1', 1, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B02', N'Bàn 2', N'Loại 2', 2, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
-INSERT INTO DatTruoc (Id, MaBan, NgayDat, ThoiGianToi) VALUES (1, 'B01', '2023-10-17T17:00:00', '18:00:00');
-INSERT INTO DatTruoc (Id, MaBan, NgayDat, ThoiGianToi) VALUES (2, 'B02', '2023-10-17T17:00:00', '19:00:00');
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (1, 'B01', '18:00:00');
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (2, 'B02', '19:00:00');
 
 -- Thêm dữ liệu vào bảng HoaDon
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T18:00:00', null);
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B02', '2023-10-17T18:30:00', '2023-10-17T19:30:00', null);
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null);
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B02', '2023-10-17T18:00:00', '2023-10-17T19:30:00', null);
 
 -- Thêm dữ liệu vào bảng ThucDon
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD01', N'Mon 1', 'Dia', 10, 50000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD02', N'Mon 2', 'Ly', 20, 30000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD03', N'Mon 3', 'Noi', 10, 50000);
-
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD01', N'Món 1', N'Đĩa', 10, 50000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD02', N'Món 2', N'Ly', 20, 30000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD03', N'Món 3', N'Nồi', 10, 50000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD04', N'Món 4', N'Bịch', 10, 20000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD05', N'Món 5', N'Chén', 10, 35000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD06', N'Món 6', N'Lon', 10, 15000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD07', N'Món 7', N'Két', 10, 100000);
 -- Thêm dữ liệu vào bảng ChiTietHoaDon
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD01', 2);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD03', 3);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (2, 'TD02', 3);
+INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD02', 3);
+INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD04', 3);
+INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD05', 1);
+INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD06', 3);
+
 
 
 

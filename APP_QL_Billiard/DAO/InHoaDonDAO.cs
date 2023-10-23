@@ -36,7 +36,7 @@ namespace APP_QL_Billiard.DAO
         {
             string query = "Select IsMember from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
-            if (result == null)
+            if (result == null || result is DBNull)
                 return 0;
             else if ((bool)result == false)
                 return 20;
@@ -46,7 +46,7 @@ namespace APP_QL_Billiard.DAO
 
         public double GetTongTien(int maHoaDon)
         {
-            string query = "Select ThanhToan from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select TongTien from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (double)result : 0;
         }
@@ -108,6 +108,12 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
+        public string GetMaHoaDon(int maHoaDon)
+        {
+            string query = "Select MaHoaDon from HoaDon where MaHoaDon = @maHoaDon";
+            object result = ExecuteScalar(query, maHoaDon);
+            return result != null ? result.ToString() : "";
+        }
 
         private object ExecuteScalar(string query, int maHoaDon)
         {
