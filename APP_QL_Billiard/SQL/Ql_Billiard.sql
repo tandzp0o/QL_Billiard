@@ -172,6 +172,30 @@ RETURN
     FROM Ban bn
 )
 go
+--Function tính doanh thu theo tháng
+CREATE FUNCTION dbo.DoanhThuThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @DoanhThu FLOAT;
+    SELECT @DoanhThu = SUM(TongTien)
+    FROM HoaDon
+    WHERE MONTH(GioBatDau) = @Thang;
+    RETURN @DoanhThu;
+END;
+go
+--function trả về doanh thu theo từng tháng
+CREATE FUNCTION dbo.DoanhThu()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.DoanhThuThang(Thang) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
 --Check
 
 --Insert dữ liệu
