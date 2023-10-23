@@ -25,9 +25,9 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
-        
 
-        
+        private DataProvider() { }
+
         // lấy datatable
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
