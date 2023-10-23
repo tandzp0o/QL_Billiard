@@ -17,6 +17,7 @@ namespace APP_QL_Billiard
     {
         ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
         int maHoaDon = 1;
+        string taiKhoan = "admin";
 
         public f_ThanhToan()
         {
@@ -87,6 +88,7 @@ namespace APP_QL_Billiard
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
+            thanhToanDAO.LuuLapHoaDon(taiKhoan, maHoaDon);
             f_InHD fInHD = new f_InHD(maHoaDon);
             fInHD.Show();
         }

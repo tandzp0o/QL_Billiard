@@ -11,6 +11,21 @@ namespace APP_QL_Billiard.DAO
 {
     public class InHoaDonDAO
     {
+        private object ExecuteScalar(string query, int maHoaDon)
+        {
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    con.Close();
+                    return result;
+                }
+            }
+        }
+
         public string GetTenBan(int maHoaDon)
         {
             string query = "Select TenBan from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
@@ -85,16 +100,11 @@ namespace APP_QL_Billiard.DAO
             {
                 con.Open();
                 string query = @"SELECT TenThucDon, SoLuongDat, DonViTinh, Gia,
-                         SoLuongDat * Gia AS ThanhTien,
-                         CASE
-                             WHEN IsMember IS NULL THEN ThanhToan
-                             WHEN IsMember = 0 THEN ThanhToan * 0.8
-                             WHEN IsMember = 1 THEN ThanhToan * 0.75
-                         END AS ThanhToan
-                         FROM ChiTietHoaDon
-                         JOIN ThucDon ON ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
-                         JOIN HoaDon ON ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
-                         WHERE ChiTietHoaDon.MaHoaDon = @maHoaDon";
+                 SoLuongDat * Gia as N'Thành tiền'
+                 FROM ChiTietHoaDon
+                 JOIN ThucDon ON ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                 JOIN HoaDon ON ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                 WHERE ChiTietHoaDon.MaHoaDon = @maHoaDon";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
@@ -115,19 +125,11 @@ namespace APP_QL_Billiard.DAO
             return result != null ? result.ToString() : "";
         }
 
-        private object ExecuteScalar(string query, int maHoaDon)
+        public string GetTaiKhoan(int maHoaDon)
         {
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
-                    con.Open();
-                    object result = cmd.ExecuteScalar();
-                    con.Close();
-                    return result;
-                }
-            }
+            string query = "SELECT TaiKhoan FROM LapHoaDon WHERE MaHoaDon = @maHoaDon";
+            object result = ExecuteScalar(query, maHoaDon);
+            return result != null ? (string)result : "";
         }
     }
 }
