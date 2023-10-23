@@ -25,10 +25,9 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
-        private DataProvider() { }
+        
 
-        //private string conStr = "Data Source=TRUONG;Initial Catalog=Ql_Billiard;Integrated Security=True";
-    
+        
         // lấy datatable
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
