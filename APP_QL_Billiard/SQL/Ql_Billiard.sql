@@ -160,6 +160,18 @@ BEGIN
     INNER JOIN inserted ON ThucDon.MaThucDon = inserted.MaThucDon;
 END;
 go
+
+--function tính tỉ lệ đặt bàn
+go
+CREATE FUNCTION dbo.TinhTyLeDatBan()
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT DISTINCT LoaiBan, ROUND(1.0 * (SELECT COUNT(*) FROM HoaDon h, Ban b WHERE h.MaBan = b.MaBan AND bn.LoaiBan = b.LoaiBan) / (SELECT COUNT(*) FROM HoaDon), 2) AS TyLeDatBan
+    FROM Ban bn
+)
+go
 --Check
 
 --Insert dữ liệu
@@ -246,8 +258,14 @@ INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Trần Thị B', '0987654321');
 
 -- Thêm dữ liệu vào bảng Ban
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B01', N'Bàn 1', N'Loại 1', 1, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B02', N'Bàn 2', N'Loại 2', 2, 200000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A01', N'Ban 1', N'Lỗ', 3, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('A02', N'Ban 2', N'Lip', 2, 200000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B01', N'Ban 3', N'Lỗ', 1, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('B02', N'Ban 4', N'Lip', 3, 200000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('C01', N'Ban 5', N'Carom', 1, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('C02', N'Ban 6', N'Lỗ', 2, 200000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7', N'Carom', 1, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Lỗ', 3, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
 INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (1, 'B01', '18:00:00');
