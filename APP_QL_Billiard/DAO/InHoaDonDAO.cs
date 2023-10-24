@@ -35,14 +35,14 @@ namespace APP_QL_Billiard.DAO
 
         public DateTime GetGioBatDau(int maHoaDon)
         {
-            string query = "Select GioBatDau from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.GioBatDau from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
         public DateTime GetGioKetThuc(int maHoaDon)
         {
-            string query = "Select GioKetThuc from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.GioKetThuc from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
@@ -61,7 +61,7 @@ namespace APP_QL_Billiard.DAO
 
         public double GetTongTien(int maHoaDon)
         {
-            string query = "Select TongTien from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.TongTien from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (double)result : 0;
         }
@@ -75,14 +75,14 @@ namespace APP_QL_Billiard.DAO
 
         public double GetTongTienGio(int maHoaDon)
         {
-            string query = "Select (DATEDIFF(MINUTE, GioBatDau, GioKetThuc)/60.0) * Gia from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
+            string query = "Select (DATEDIFF(MINUTE, HoaDon.GioBatDau, HoaDon.GioKetThuc)/60.0) * Gia from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? Convert.ToDouble(result) : 0;
         }
 
         public double GetGiaGio(int maHoaDon)
         {
-            string query = "Select Gia from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
+            string query = "Select Gia from Ban join HoaDon on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (double)result : 0;
         }

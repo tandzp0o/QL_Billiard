@@ -27,21 +27,21 @@ namespace APP_QL_Billiard.DAO
 
         public DateTime GetGioBatDau(int maHoaDon)
         {
-            string query = "Select GioBatDau from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.GioBatDau from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
         public DateTime GetGioKetThuc(int maHoaDon)
         {
-            string query = "Select GioKetThuc from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.GioKetThuc from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
         public int GetThoiGianSuDung(int maHoaDon)
         {
-            string query = "Select ThoiGianChoi from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (int)result : 0;
         }
@@ -64,7 +64,7 @@ namespace APP_QL_Billiard.DAO
 
         public double GetTongTien(int maHoaDon)
         {
-            string query = "Select TongTien from HoaDon where MaHoaDon = @maHoaDon";
+            string query = "Select HoaDon.TongTien from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (double)result : 0;
         }
