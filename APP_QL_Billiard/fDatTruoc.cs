@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 using System.Data.SqlClient;
+using APP_QL_Billiard.DAO;
 
 namespace APP_QL_Billiard
 {
@@ -40,10 +41,11 @@ namespace APP_QL_Billiard
 
         private void cbbTypeTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if(cbbTypeTable.SelectedItem == "Lỗ")
-            //{
-
-            //}    
+            string query = "select * from Ban where LoaiBan = '" + cbbTypeTable.SelectedItem.ToString() + "' and TrangThai = 2";
+            DataTable a = DataProvider.Instance.ExcuteQuery(query);
+            cbbEmptyTable.DataSource = a.DataSet;
+            cbbEmptyTable.DisplayMember = "TenBan";
+            cbbEmptyTable.ValueMember = "MaBan";
         }
     }
 }

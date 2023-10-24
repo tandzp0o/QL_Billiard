@@ -87,10 +87,5 @@ namespace APP_QL_Billiard
             namePage.Text = btnDatTruoc.Text;
 
         }
-
-        private void pn_center_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

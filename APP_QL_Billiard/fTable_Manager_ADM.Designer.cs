@@ -213,7 +213,6 @@ namespace APP_QL_Billiard
             this.pn_center.Name = "pn_center";
             this.pn_center.Size = new System.Drawing.Size(650, 710);
             this.pn_center.TabIndex = 3;
-            this.pn_center.Click += new System.EventHandler(this.pn_center_Click);
             // 
             // fTable_Manager_ADM
             // 

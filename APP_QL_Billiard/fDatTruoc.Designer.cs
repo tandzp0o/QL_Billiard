@@ -41,13 +41,15 @@ namespace APP_QL_Billiard
             this.label1 = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Checked = false;
             this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(58, 124);
+            this.dateTimePicker1.Location = new System.Drawing.Point(22, 92);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(364, 27);
@@ -56,10 +58,10 @@ namespace APP_QL_Billiard
             // btnRef
             // 
             this.btnRef.BackColor = System.Drawing.Color.LightCoral;
-            this.btnRef.Location = new System.Drawing.Point(285, 519);
+            this.btnRef.Location = new System.Drawing.Point(217, 476);
             this.btnRef.Margin = new System.Windows.Forms.Padding(4);
             this.btnRef.Name = "btnRef";
-            this.btnRef.Size = new System.Drawing.Size(137, 70);
+            this.btnRef.Size = new System.Drawing.Size(169, 70);
             this.btnRef.TabIndex = 6;
             this.btnRef.Text = "Đặt Lại";
             this.btnRef.UseVisualStyleBackColor = false;
@@ -68,10 +70,10 @@ namespace APP_QL_Billiard
             // 
             this.btnDo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnDo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDo.Location = new System.Drawing.Point(55, 519);
+            this.btnDo.Location = new System.Drawing.Point(22, 476);
             this.btnDo.Margin = new System.Windows.Forms.Padding(4);
             this.btnDo.Name = "btnDo";
-            this.btnDo.Size = new System.Drawing.Size(140, 70);
+            this.btnDo.Size = new System.Drawing.Size(169, 70);
             this.btnDo.TabIndex = 5;
             this.btnDo.Text = "Xác Nhận";
             this.btnDo.UseVisualStyleBackColor = false;
@@ -79,7 +81,7 @@ namespace APP_QL_Billiard
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 444);
+            this.label6.Location = new System.Drawing.Point(18, 401);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 20);
@@ -89,16 +91,16 @@ namespace APP_QL_Billiard
             // cbbEmptyTable
             // 
             this.cbbEmptyTable.FormattingEnabled = true;
-            this.cbbEmptyTable.Location = new System.Drawing.Point(160, 441);
+            this.cbbEmptyTable.Location = new System.Drawing.Point(118, 398);
             this.cbbEmptyTable.Margin = new System.Windows.Forms.Padding(4);
             this.cbbEmptyTable.Name = "cbbEmptyTable";
-            this.cbbEmptyTable.Size = new System.Drawing.Size(274, 28);
+            this.cbbEmptyTable.Size = new System.Drawing.Size(268, 28);
             this.cbbEmptyTable.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 369);
+            this.label5.Location = new System.Drawing.Point(18, 326);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 20);
@@ -108,17 +110,17 @@ namespace APP_QL_Billiard
             // cbbTypeTable
             // 
             this.cbbTypeTable.FormattingEnabled = true;
-            this.cbbTypeTable.Location = new System.Drawing.Point(160, 366);
+            this.cbbTypeTable.Location = new System.Drawing.Point(118, 323);
             this.cbbTypeTable.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTypeTable.Name = "cbbTypeTable";
-            this.cbbTypeTable.Size = new System.Drawing.Size(274, 28);
+            this.cbbTypeTable.Size = new System.Drawing.Size(268, 28);
             this.cbbTypeTable.TabIndex = 3;
             this.cbbTypeTable.SelectedIndexChanged += new System.EventHandler(this.cbbTypeTable_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 299);
+            this.label4.Location = new System.Drawing.Point(18, 256);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
@@ -128,7 +130,7 @@ namespace APP_QL_Billiard
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 228);
+            this.label3.Location = new System.Drawing.Point(18, 185);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 20);
@@ -139,7 +141,7 @@ namespace APP_QL_Billiard
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(140, 43);
+            this.label1.Location = new System.Drawing.Point(98, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 32);
@@ -148,10 +150,10 @@ namespace APP_QL_Billiard
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(160, 225);
+            this.txtSDT.Location = new System.Drawing.Point(118, 182);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(274, 27);
+            this.txtSDT.Size = new System.Drawing.Size(268, 27);
             this.txtSDT.TabIndex = 1;
             this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
             // 
@@ -160,36 +162,47 @@ namespace APP_QL_Billiard
             this.dateTimePicker2.Checked = false;
             this.dateTimePicker2.CustomFormat = "HH:mm:ss";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(160, 294);
+            this.dateTimePicker2.Location = new System.Drawing.Point(118, 251);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(274, 27);
+            this.dateTimePicker2.Size = new System.Drawing.Size(268, 27);
             this.dateTimePicker2.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtSDT);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btnRef);
+            this.panel1.Controls.Add(this.cbbTypeTable);
+            this.panel1.Controls.Add(this.btnDo);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.cbbEmptyTable);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(400, 569);
+            this.panel1.TabIndex = 26;
             // 
             // fDatTruoc
             // 
+            this.AcceptButton = this.btnDo;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 618);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.txtSDT);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.btnRef);
-            this.Controls.Add(this.btnDo);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbbEmptyTable);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cbbTypeTable);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.CancelButton = this.btnRef;
+            this.ClientSize = new System.Drawing.Size(424, 593);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fDatTruoc";
             this.Text = "fDatTruoc";
             this.Load += new System.EventHandler(this.fDatTruoc_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -206,5 +219,6 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
