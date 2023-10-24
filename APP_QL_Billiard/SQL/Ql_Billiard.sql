@@ -14,7 +14,10 @@ create table Account
 (
 	TaiKhoan varchar(20) primary key not null,
 	MatKhau varchar(50) not null,
-	IsAdmin bit
+	HoTen nvarchar(50),
+	SDT CHAR(10) NOT NULL CHECK (SDT LIKE '%[0-9]%'),
+	TinhTrang nvarchar(50) check(TinhTrang in (N'Đang làm việc', N'Nghỉ việc')),
+	QuanLy bit,
 )
 
 create table Ban
@@ -193,8 +196,8 @@ go
 
 --Insert dữ liệu
 --Account
-INSERT INTO Account VALUES ('admin','14',1)
-INSERT INTO Account VALUES ('user','14',0)
+INSERT INTO Account VALUES ('admin','14', N'Tấn', '0123456789', N'Đang làm việc', 1);
+INSERT INTO Account VALUES ('user','14',  N'Tấn', '9876543210', N'Đang làm việc', 0);
 
 ----------------------------------------------------------------------Trần Thành Luân----------------------------------------------------------------------
 --Trigger tính thời gian chơi(ThoiGianChoi) trong bảng hoá đơn(HoaDon)
@@ -289,8 +292,8 @@ INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (1, 'B01', '18:00:
 INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (2, 'B02', '19:00:00', '2023-10-17T17:00:00');
 
 -- Thêm dữ liệu vào bảng HoaDon
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null);
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B02', '2023-10-17T18:00:00', '2023-10-17T19:30:00', null);
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null, 'user');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('B02', '2023-10-17T18:00:00', '2023-10-17T19:30:00', null, 'user');
 
 -- Thêm dữ liệu vào bảng ThucDon
 INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD01', N'Món 1', N'Đĩa', 10, 50000);
