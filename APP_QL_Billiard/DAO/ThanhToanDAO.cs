@@ -98,21 +98,5 @@ namespace APP_QL_Billiard.DAO
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (string)result : "";
         }
-
-        public void LuuLapHoaDon(string taiKhoan, int maHoaDon)
-        {
-            string query = "INSERT INTO LapHoaDon (TaiKhoan, MaHoaDon) VALUES (@taiKhoan, @maHoaDon)";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@taiKhoan", taiKhoan);
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-        }
     }
 }

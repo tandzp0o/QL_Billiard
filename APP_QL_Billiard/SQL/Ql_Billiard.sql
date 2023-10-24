@@ -54,7 +54,9 @@ CREATE TABLE HoaDon
     ThanhToan FLOAT,
     IsMember BIT, 
     TongTien FLOAT,
+	TaiKhoan varchar(20),
     CONSTRAINT fk_hoadon_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
+	CONSTRAINT fk_hoadon_Account FOREIGN KEY (TaiKhoan) REFERENCES Account(TaiKhoan),
     CONSTRAINT chk_GioChoi CHECK (ThoiGianChoi > 0),
     CONSTRAINT chk_GioKetThuc CHECK (GioBatDau < GioKetThuc),
     CONSTRAINT chk_TongTien CHECK (TongTien > 0)
@@ -86,15 +88,6 @@ CREATE TABLE DatTruoc
     CONSTRAINT pk_DatTruoc PRIMARY KEY (Id,MaBan),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan)
-)
-
-CREATE TABLE LapHoaDon
-(
-    TaiKhoan VARCHAR(20) NOT NULL,
-    MaHoaDon int NOT NULL,
-    CONSTRAINT pk_LapHoaDon PRIMARY KEY (TaiKhoan, MaHoaDon),
-    CONSTRAINT fk_LapHoaDon_acc FOREIGN KEY (TaiKhoan) REFERENCES Account(TaiKhoan),
-    CONSTRAINT fk_LapHoaDon_hd FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
 )
 
 CREATE TABLE PhieuNhap
@@ -228,7 +221,7 @@ begin
 					 inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
 					 where ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon)
 
-                    + (select datediff(minute, GioBatDau, GioKetThuc) / 60.0 * Gia
+                    + (select datediff(minute, HoaDon.GioBatDau, HoaDon.GioKetThuc) / 60.0 * Gia
 					   from HoaDon
 					   inner join Ban on HoaDon.MaBan = Ban.MaBan
 					   where HoaDon.MaHoaDon in (select MaHoaDon from inserted))
@@ -269,7 +262,7 @@ begin
 						 inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon 
 						 where ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon)
 
-                        + (select datediff(minute, GioBatDau, GioKetThuc) / 60.0 * Gia 
+                        + (select datediff(minute, HoaDon.GioBatDau, HoaDon.GioKetThuc) / 60.0 * Gia 
 						   from HoaDon 
 						   inner join Ban on HoaDon.MaBan = Ban.MaBan 
 						   where HoaDon.MaHoaDon in (select MaHoaDon from inserted))
@@ -292,8 +285,8 @@ INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7'
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Lỗ', 3, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (1, 'B01', '18:00:00');
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi) VALUES (2, 'B02', '19:00:00');
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (1, 'B01', '18:00:00', '2023-10-17T17:00:00');
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (2, 'B02', '19:00:00', '2023-10-17T17:00:00');
 
 -- Thêm dữ liệu vào bảng HoaDon
 INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null);

@@ -66,13 +66,6 @@ namespace APP_QL_Billiard.DAO
             return result != null ? (double)result : 0;
         }
 
-        public string GetTenThuNgan(int maHoaDon)
-        {
-            string query = "Select Account.TaiKhoan from LapHoaDon join Account on LapHoaDon.TaiKhoan = Account.TaiKhoan where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? (string)result : "";
-        }
-
         public double GetTienDichVu(int maHoaDon)
         {
             string query = "Select SUM(SoLuongDat * Gia) from ChiTietHoaDon join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon where MaHoaDon = @maHoaDon";
@@ -123,13 +116,6 @@ namespace APP_QL_Billiard.DAO
             string query = "Select MaHoaDon from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? result.ToString() : "";
-        }
-
-        public string GetTaiKhoan(int maHoaDon)
-        {
-            string query = "SELECT TaiKhoan FROM LapHoaDon WHERE MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? (string)result : "";
         }
     }
 }
