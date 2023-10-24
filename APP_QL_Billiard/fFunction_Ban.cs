@@ -30,55 +30,9 @@ namespace APP_QL_Billiard
 
         public void fFunction_Ban_Load(object sender, EventArgs e)
         {
-
-           
-            if (Ban1 != null)
-            {
                 lbl_NV.Text = "Nguyễn Văn A";
-                txt_TenBan.Text = Ban1.Name; 
-            }
-
-            //var date1 = DateTime.Now;
-            //txtTimeStart.Text = date1.ToString("HH:mm   dd/MM/yyyy");
-
-            //if (ban.Status == 2) //1hd 2 trong 3 dat truoc
-            //{
-            //    btnEnd.Enabled = false;
-            //    btnStart.Enabled = true;
-            //    btnChange.Enabled = false;
-            //    if (string.Compare(ban.Type, "Loai 1") == 0)
-            //    {
-            //        //picBan.Image = global::Bida.Properties.Resources.; // kHUC NAY SE CHEN PIC CUA LOAI BAN BIDA
-            //    }
-            //    else if (string.Compare(ban.Type, "Loai 2") == 0)
-            //    {
-            //        //picBan.Image = global::Bida.Properties.Resources.;
-            //    }
-            //    else
-            //    {
-            //        //picBan.Image = global::Bida.Properties.Resources.;
-            //    }
-            //}
-            //else
-            //{
-            //    btnChange.Enabled = true;
-            //    var date = ban.GioBD;
-            //    int h = date.Hour;
-            //    int m = date.Minute;
-            //    txtTimeStart.Text = h + ":" + m;
-            //    txtTimeStart.Enabled = false;
-            //    btnStart.Enabled = false;
-            //    btnEnd.Enabled = true;
-            //    if (string.Compare(ban.Type, "Loai 2") == 0)
-            //    {
-            //        //picBan.Image = global::Bida.Properties.Resources.;
-            //    }
-            //    else
-            //    {
-            //        //picBan.Image = global::Bida.Properties.Resources.;
-            //    }
-            //}
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -93,7 +47,98 @@ namespace APP_QL_Billiard
             {
                 lbl_NV.Text = "Nguyễn Văn A";
                 txt_TenBan.Text = Ban1.Name;
+
+
+                if (Ban1.Status == 2 || Ban1.Status == 3) //1hd 2 trong 3 dat truoc
+                {
+                    btnEnd.Enabled = false;
+                    btnStart.Enabled = true;
+                    btnChange.Enabled = false;
+                    txtTimeEnd.Text = "";
+                    txtTimeEnd.Text = "";
+                    if (string.Compare(Ban1.Type, "Lỗ") == 0)
+                    {
+                        //picBan.Image = global::Bida.Properties.Resources.; // kHUC NAY SE CHEN PIC CUA LOAI BAN BIDA
+                    }
+                    else if (string.Compare(Ban1.Type, "Lip") == 0)
+                    {
+                        //picBan.Image = global::Bida.Properties.Resources.;
+                    }
+                    else //Carom
+                    {
+                        //picBan.Image = global::Bida.Properties.Resources.;
+                    }
+                }
+                else
+                {
+                   
+                    btnChange.Enabled = true;
+                    txtTimeStart.Enabled = false;
+                    btnStart.Enabled = false;
+                    btnEnd.Enabled = true;
+                   
+                    if (string.Compare(Ban1.Type, "Lỗ") == 0)
+                    {
+                        //picBan.Image = global::Bida.Properties.Resources.; // kHUC NAY SE CHEN PIC CUA LOAI BAN BIDA
+                    }
+                    else if (string.Compare(Ban1.Type, "Lip") == 0)
+                    {
+                        //picBan.Image = global::Bida.Properties.Resources.;
+                    }
+                    else //Carom
+                    {
+                        //picBan.Image = global::Bida.Properties.Resources.;
+                    }
+                }
             }
+        }
+        //public void updateBan(Ban b)
+        //{
+        //    new BanDAO().updateBan(b);
+        //}
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            Ban1.GioBD = date;
+            txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm   dd/MM/yyyy");
+            txtTimeEnd.Text = "";
+            Ban1.Status = 1;
+            btnTinh.Enabled = false;
+            //Them phuong thuc push data vao SQL
+            this.reLoad();
+        }
+
+        private void btnEnd_Click(object sender, EventArgs e)
+        {
+
+            var date = DateTime.Now;
+            Ban1.GioKT = date;
+            txtTimeEnd.Text = Ban1.GioKT.ToString("HH:mm   dd/MM/yyyy");
+            Ban1.Status = 1;
+            txtTimeEnd.Enabled = false;
+            btnTinh.Enabled = true;
+            //Them phuong thuc push data vao SQL
+            this.reLoad();
+        }
+
+        private void btnTinh_Click(object sender, EventArgs e)
+        {
+            
+                DateTime date = Ban1.GioBD;
+                DateTime date2 = Ban1.GioKT;
+                double m = (date2 - date).TotalMinutes;
+
+                int hour = (int)(m / 60);
+
+                int minute = (int)(m % 60);
+
+                txtGio.Text = hour + " giờ " + minute + " phút";
+
+                int gia = (int)(m * 2000) / 60;
+               txtGia.Text = gia + ".000 VND";
+                btnPay.Enabled = true;
+            this.reLoad();
         }
     }
 }

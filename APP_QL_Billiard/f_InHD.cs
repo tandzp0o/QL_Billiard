@@ -29,7 +29,7 @@ namespace APP_QL_Billiard
             lb_Title.Text = "Hoá đơn bàn " + inHoaDonDAO.GetTenBan(maHoaDon);
             lb_Ngay.Text = "Ngày: " + DateTime.Now.ToString("dd/MM/yyyy");
             lb_MaSo.Text = "Mã số: " + inHoaDonDAO.GetMaHoaDon(maHoaDon);
-            lb_ThuNgan.Text = "Thu ngân: " + inHoaDonDAO.GetTaiKhoan(maHoaDon);
+            // Chỗ này để code in tên thu ngân(chưa code)
             lb_InLuc.Text = "In lúc: " + DateTime.Now.ToString("HH:mm");
             lb_GBD.Text = "Giờ bắt đầu: " + inHoaDonDAO.GetGioBatDau(maHoaDon).ToString("HH:mm");
             lb_GKT.Text = "Giờ kết thúc: " + inHoaDonDAO.GetGioKetThuc(maHoaDon).ToString("HH:mm");

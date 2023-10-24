@@ -11,6 +11,7 @@ namespace APP_QL_Billiard.DAO
 {
     public class BanDAO
     {
+       
         private static BanDAO instance;
         public static BanDAO Instance
         {
@@ -20,8 +21,7 @@ namespace APP_QL_Billiard.DAO
 
         public static int TableWidth = 110;
         public static int TableHeight = 150;
-        private BanDAO() { }
-
+       
         public List<Ban> LoadTableList()
         {
             List<Ban> list = new List<Ban>();
@@ -34,7 +34,20 @@ namespace APP_QL_Billiard.DAO
             }
             return list;
         }
+        private BanDAO() { }
 
+        //public void updateBan(Ban b)
+        //{
+        //    string bd = b.GioBD.ToString("yyyy-MM-dd HH:mm:ss");
+        //    string kt = b.GioKT.ToString("yyyy-MM-dd HH:mm:ss");
+        //    DataProvider.Connect();
+
+        //    int loaiban = b.Statu ? 1 : 0;
+        //    int tinhtrang = b.TinhTrang1 ? 1 : 0;
+
+        //    string sql = "update ban set LOAIBAN = " + loaiban + ", KHUVUC = " + b.KhuVuc1 + ", TINHTRANG = " + tinhtrang + ", GIOBD= '" + bd + "',GIOKT = '" + kt + "' where MABAN = " + b.Maban1;
+        //    provider.ExcuteNonQuery(sql);
+        //}
 
     }
 }
