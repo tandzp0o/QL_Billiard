@@ -91,6 +91,7 @@ CREATE TABLE DatTruoc
     CONSTRAINT pk_DatTruoc PRIMARY KEY (Id,MaBan),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan)
+	CONSTRAINT chk_ThoiGianToi CHECK (DATEDIFF(hour, ThoiGianToi, GETDATE()) <= 3);
 )
 
 CREATE TABLE PhieuNhap

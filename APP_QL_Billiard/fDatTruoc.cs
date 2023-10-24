@@ -33,19 +33,31 @@ namespace APP_QL_Billiard
 
         private void fDatTruoc_Load(object sender, EventArgs e)
         {
-            dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 0, 0);
-            List<string> loai = new List<string> {"Lỗ", "Lip", "Carom"};
+            GioToi.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 0, 0);
+            List<string> loai = new List<string> {"Chọn", "Lỗ", "Lip", "Carom"};
             cbbTypeTable.DataSource = loai;
             cbbTypeTable.DisplayMember = "TypeTable";
         }
 
         private void cbbTypeTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = "select * from Ban where LoaiBan = '" + cbbTypeTable.SelectedItem.ToString() + "' and TrangThai = 2";
-            DataTable a = DataProvider.Instance.ExcuteQuery(query);
-            cbbEmptyTable.DataSource = a.DataSet;
+            string query = "select * from Ban where LoaiBan = N'" + cbbTypeTable.SelectedItem.ToString() + "' and TrangThai = 2";
+            DataTable a = DataProvider.Instance.ExcuteQuery(query);   
+            cbbEmptyTable.DataSource = a;
             cbbEmptyTable.DisplayMember = "TenBan";
             cbbEmptyTable.ValueMember = "MaBan";
+        }
+
+        private void btnDo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            txtSDT.Clear();
+            GioToi.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 0, 0);
+            cbbTypeTable.SelectedIndex = 0;
         }
     }
 }
