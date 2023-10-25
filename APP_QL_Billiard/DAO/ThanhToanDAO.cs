@@ -98,5 +98,21 @@ namespace APP_QL_Billiard.DAO
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (string)result : "";
         }
+
+        public void UpdateHoaDonTaiKhoan(int maHoaDon, string taiKhoan)
+        {
+            string query = "UPDATE HoaDon SET TaiKhoan = @taiKhoan WHERE MaHoaDon = @maHoaDon";
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    cmd.Parameters.AddWithValue("@taiKhoan", taiKhoan);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
     }
 }

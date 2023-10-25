@@ -117,5 +117,21 @@ namespace APP_QL_Billiard.DAO
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? result.ToString() : "";
         }
+
+        public string GetTenThuNgan(int maHoaDon)
+        {
+            string query = "SELECT HoTen FROM Account WHERE TaiKhoan = (SELECT TaiKhoan FROM HoaDon WHERE MaHoaDon = @maHoaDon)";
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    con.Close();
+                    return result != null ? (string)result : "";
+                }
+            }
+        }
     }
 }

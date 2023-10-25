@@ -16,7 +16,8 @@ namespace APP_QL_Billiard
     public partial class f_ThanhToan : Form
     {
         ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
-        int maHoaDon = 1;
+        int maHoaDon = 2;
+        string maTaiKhoan = "user";
 
         public f_ThanhToan()
         {
@@ -87,6 +88,7 @@ namespace APP_QL_Billiard
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
+            thanhToanDAO.UpdateHoaDonTaiKhoan(maHoaDon, maTaiKhoan);
             f_InHD fInHD = new f_InHD(maHoaDon);
             fInHD.Show();
         }
