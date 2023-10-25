@@ -21,7 +21,7 @@ namespace APP_QL_Billiard
         public Form child;
         public Form child2;
 
-        public void formContent(Form content, Form content2, Panel x, Panel y)
+        public void formContent(Form content, Form content2, TableLayoutPanel x, TableLayoutPanel y = null)
         {
             if(child != null && child2 != null)
             {
@@ -38,8 +38,11 @@ namespace APP_QL_Billiard
             content2.Dock = DockStyle.Fill;
             x.Controls.Add(content);
             x.Tag = content;
-            y.Controls.Add(content2);
-            y.Tag = content2;
+            if(y != null)
+            {
+                y.Controls.Add(content2);
+                y.Tag = content2;
+            }    
             content.BringToFront();
             content.Show();
             content2.BringToFront();
@@ -56,8 +59,15 @@ namespace APP_QL_Billiard
         {
             fFunction_Ban f = new fFunction_Ban();
             namePage.Text = btnStatusBan.Text;
-            formContent(new f_ListTable(f), f, pn_center, pn_Right);
+            table_panel.Controls.Clear();
+            formContent(f,new f_ListTable(f), table_panel, table_panel);
             
+        }
+        private void btnDatTruoc_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnDatTruoc.Text;
+            table_panel.Controls.Clear();
+            formContent(new fDatTruoc(), new fListDatTruoc(), table_panel, table_panel);
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -79,12 +89,8 @@ namespace APP_QL_Billiard
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             namePage.Text = btnThongKe.Text;
-
-        }
-
-        private void btnDatTruoc_Click(object sender, EventArgs e)
-        {
-            namePage.Text = btnDatTruoc.Text;
+            table_panel.Controls.Clear();
+            formContent(new f_ThongKe(), new Form(), table_panel, null);
 
         }
     }

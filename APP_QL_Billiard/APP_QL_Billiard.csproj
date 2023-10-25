@@ -67,6 +67,12 @@
     <Compile Include="fDatTruoc.Designer.cs">
       <DependentUpon>fDatTruoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="fListDatTruoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fListDatTruoc.Designer.cs">
+      <DependentUpon>fListDatTruoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTable_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fDatTruoc.resx">
       <DependentUpon>fDatTruoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fListDatTruoc.resx">
+      <DependentUpon>fListDatTruoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>

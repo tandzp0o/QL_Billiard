@@ -44,9 +44,11 @@
             this.chartDB = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chartDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chartDB
@@ -55,7 +57,7 @@
             this.chartDB.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartDB.Legends.Add(legend1);
-            this.chartDB.Location = new System.Drawing.Point(12, 12);
+            this.chartDB.Location = new System.Drawing.Point(3, 3);
             this.chartDB.Name = "chartDB";
             this.chartDB.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
@@ -64,7 +66,7 @@
             series1.Legend = "Legend1";
             series1.Name = "s1";
             this.chartDB.Series.Add(series1);
-            this.chartDB.Size = new System.Drawing.Size(228, 175);
+            this.chartDB.Size = new System.Drawing.Size(531, 299);
             this.chartDB.SuppressExceptions = true;
             this.chartDB.TabIndex = 0;
             this.chartDB.Text = "chart1";
@@ -79,7 +81,7 @@
             this.chartDT.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartDT.Legends.Add(legend2);
-            this.chartDT.Location = new System.Drawing.Point(12, 193);
+            this.chartDT.Location = new System.Drawing.Point(3, 308);
             this.chartDT.Name = "chartDT";
             this.chartDT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series2.ChartArea = "ChartArea1";
@@ -93,7 +95,7 @@
             series3.Name = "Chi";
             this.chartDT.Series.Add(series2);
             this.chartDT.Series.Add(series3);
-            this.chartDT.Size = new System.Drawing.Size(797, 300);
+            this.chartDT.Size = new System.Drawing.Size(1327, 435);
             this.chartDT.TabIndex = 1;
             this.chartDT.Text = "chartDT";
             title2.Alignment = System.Drawing.ContentAlignment.TopCenter;
@@ -106,7 +108,7 @@
             this.chart1.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(246, 12);
+            this.chart1.Location = new System.Drawing.Point(540, 3);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series4.ChartArea = "ChartArea1";
@@ -115,7 +117,7 @@
             series4.Name = "Series1";
             series4.YValuesPerPoint = 4;
             this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(563, 175);
+            this.chart1.Size = new System.Drawing.Size(790, 299);
             this.chart1.SuppressExceptions = true;
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -123,20 +125,29 @@
             title3.Name = "Title1";
             this.chart1.Titles.Add(title3);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.chartDB);
+            this.panel1.Controls.Add(this.chartDT);
+            this.panel1.Controls.Add(this.chart1);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1333, 746);
+            this.panel1.TabIndex = 3;
+            // 
             // f_ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 505);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.chartDT);
-            this.Controls.Add(this.chartDB);
+            this.ClientSize = new System.Drawing.Size(1357, 770);
+            this.Controls.Add(this.panel1);
             this.Name = "f_ThongKe";
             this.Text = "f_ThongKe";
             this.Load += new System.EventHandler(this.f_ThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -146,5 +157,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDB;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDT;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
