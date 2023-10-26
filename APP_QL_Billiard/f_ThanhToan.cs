@@ -24,10 +24,15 @@ namespace APP_QL_Billiard
             InitializeComponent();
         }
 
+        private void f_ThanhToan_Load(object sender, EventArgs e)
+        {
+            CapNhatThongTinHoaDon();
+        }
+
         private void CapNhatThongTinHoaDon()
         {
             string tenBan = thanhToanDAO.GetTenBan(maHoaDon);
-            lb_Title.Text = "Hoá đơn " + tenBan;
+            lb_Title.Text = "HOÁ ĐƠN BÀN " + tenBan;
 
             DataTable dt = thanhToanDAO.GetHoaDonChiTiet(maHoaDon);
             dgv_ThanhToan.DataSource = dt;
@@ -52,7 +57,7 @@ namespace APP_QL_Billiard
                 chk_SV.Checked = false;
                 chk_VIP.Checked = false;
                 thanhToanDAO.UpdateIsMember(maHoaDon, null);
-                lb_GiamGia.Text = "Giảm: 0%";
+                lb_GiamGia.Text = "Giảm 0%";
                 CapNhatThongTinHoaDon();
             }
         }
@@ -79,11 +84,6 @@ namespace APP_QL_Billiard
                 lb_GiamGia.Text = "Giảm: 25%";
                 CapNhatThongTinHoaDon();
             }
-        }
-
-        private void f_ThanhToan_Load(object sender, EventArgs e)
-        {
-            CapNhatThongTinHoaDon();
         }
 
         private void btn_InHD_Click(object sender, EventArgs e)

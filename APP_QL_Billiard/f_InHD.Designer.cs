@@ -60,7 +60,7 @@
             // 
             this.lb_TenQuan.AutoSize = true;
             this.lb_TenQuan.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TenQuan.Location = new System.Drawing.Point(277, 9);
+            this.lb_TenQuan.Location = new System.Drawing.Point(278, 9);
             this.lb_TenQuan.Name = "lb_TenQuan";
             this.lb_TenQuan.Size = new System.Drawing.Size(293, 32);
             this.lb_TenQuan.TabIndex = 0;
@@ -70,7 +70,7 @@
             // 
             this.lb_DiaChi.AutoSize = true;
             this.lb_DiaChi.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DiaChi.Location = new System.Drawing.Point(276, 46);
+            this.lb_DiaChi.Location = new System.Drawing.Point(277, 43);
             this.lb_DiaChi.Name = "lb_DiaChi";
             this.lb_DiaChi.Size = new System.Drawing.Size(295, 38);
             this.lb_DiaChi.TabIndex = 1;
@@ -81,17 +81,17 @@
             this.lb_Title.AutoSize = true;
             this.lb_Title.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Title.ForeColor = System.Drawing.Color.Red;
-            this.lb_Title.Location = new System.Drawing.Point(199, 113);
+            this.lb_Title.Location = new System.Drawing.Point(196, 134);
             this.lb_Title.Name = "lb_Title";
-            this.lb_Title.Size = new System.Drawing.Size(158, 70);
+            this.lb_Title.Size = new System.Drawing.Size(231, 70);
             this.lb_Title.TabIndex = 2;
-            this.lb_Title.Text = "HOÁ ĐƠN\r\n     ";
+            this.lb_Title.Text = "HOÁ ĐƠN BÀN\r\n           ";
             // 
             // lb_SDT
             // 
             this.lb_SDT.AutoSize = true;
             this.lb_SDT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SDT.Location = new System.Drawing.Point(355, 84);
+            this.lb_SDT.Location = new System.Drawing.Point(356, 83);
             this.lb_SDT.Name = "lb_SDT";
             this.lb_SDT.Size = new System.Drawing.Size(136, 19);
             this.lb_SDT.TabIndex = 3;
@@ -101,111 +101,111 @@
             // 
             this.lb_Ngay.AutoSize = true;
             this.lb_Ngay.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Ngay.Location = new System.Drawing.Point(8, 208);
+            this.lb_Ngay.Location = new System.Drawing.Point(13, 201);
             this.lb_Ngay.Name = "lb_Ngay";
-            this.lb_Ngay.Size = new System.Drawing.Size(49, 19);
+            this.lb_Ngay.Size = new System.Drawing.Size(53, 19);
             this.lb_Ngay.TabIndex = 4;
-            this.lb_Ngay.Text = "Ngày:";
+            this.lb_Ngay.Text = "Ngày: ";
             // 
             // lb_ThuNgan
             // 
             this.lb_ThuNgan.AutoSize = true;
             this.lb_ThuNgan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ThuNgan.Location = new System.Drawing.Point(8, 240);
+            this.lb_ThuNgan.Location = new System.Drawing.Point(13, 233);
             this.lb_ThuNgan.Name = "lb_ThuNgan";
             this.lb_ThuNgan.Size = new System.Drawing.Size(78, 19);
             this.lb_ThuNgan.TabIndex = 5;
-            this.lb_ThuNgan.Text = "Thu Ngân:";
+            this.lb_ThuNgan.Text = "Thu ngân: ";
             // 
             // lb_MaSo
             // 
             this.lb_MaSo.AutoSize = true;
             this.lb_MaSo.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_MaSo.Location = new System.Drawing.Point(451, 208);
+            this.lb_MaSo.Location = new System.Drawing.Point(457, 201);
             this.lb_MaSo.Name = "lb_MaSo";
-            this.lb_MaSo.Size = new System.Drawing.Size(56, 19);
+            this.lb_MaSo.Size = new System.Drawing.Size(60, 19);
             this.lb_MaSo.TabIndex = 6;
-            this.lb_MaSo.Text = "Mã số:";
+            this.lb_MaSo.Text = "Mã số: ";
             // 
             // lb_InLuc
             // 
             this.lb_InLuc.AutoSize = true;
             this.lb_InLuc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_InLuc.Location = new System.Drawing.Point(451, 240);
+            this.lb_InLuc.Location = new System.Drawing.Point(457, 233);
             this.lb_InLuc.Name = "lb_InLuc";
-            this.lb_InLuc.Size = new System.Drawing.Size(52, 19);
+            this.lb_InLuc.Size = new System.Drawing.Size(56, 19);
             this.lb_InLuc.TabIndex = 7;
-            this.lb_InLuc.Text = "In lúc:";
+            this.lb_InLuc.Text = "In lúc: ";
             // 
             // lb_GBD
             // 
             this.lb_GBD.AutoSize = true;
             this.lb_GBD.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GBD.Location = new System.Drawing.Point(8, 271);
+            this.lb_GBD.Location = new System.Drawing.Point(13, 264);
             this.lb_GBD.Name = "lb_GBD";
-            this.lb_GBD.Size = new System.Drawing.Size(92, 19);
+            this.lb_GBD.Size = new System.Drawing.Size(96, 19);
             this.lb_GBD.TabIndex = 8;
-            this.lb_GBD.Text = "Giờ bắt đầu:";
+            this.lb_GBD.Text = "Giờ bắt đầu: ";
             // 
             // lb_GKT
             // 
             this.lb_GKT.AutoSize = true;
             this.lb_GKT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GKT.Location = new System.Drawing.Point(451, 271);
+            this.lb_GKT.Location = new System.Drawing.Point(457, 264);
             this.lb_GKT.Name = "lb_GKT";
-            this.lb_GKT.Size = new System.Drawing.Size(98, 19);
+            this.lb_GKT.Size = new System.Drawing.Size(102, 19);
             this.lb_GKT.TabIndex = 9;
-            this.lb_GKT.Text = "Giờ kết thúc:";
+            this.lb_GKT.Text = "Giờ kết thúc: ";
             // 
             // lb_TienDV
             // 
             this.lb_TienDV.AutoSize = true;
             this.lb_TienDV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TienDV.Location = new System.Drawing.Point(12, 645);
+            this.lb_TienDV.Location = new System.Drawing.Point(14, 618);
             this.lb_TienDV.Name = "lb_TienDV";
-            this.lb_TienDV.Size = new System.Drawing.Size(95, 19);
+            this.lb_TienDV.Size = new System.Drawing.Size(99, 19);
             this.lb_TienDV.TabIndex = 10;
-            this.lb_TienDV.Text = "Tiền dịch vụ:";
+            this.lb_TienDV.Text = "Tiền dịch vụ: ";
             // 
             // lb_GiamGia
             // 
             this.lb_GiamGia.AutoSize = true;
             this.lb_GiamGia.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GiamGia.Location = new System.Drawing.Point(12, 699);
+            this.lb_GiamGia.Location = new System.Drawing.Point(14, 672);
             this.lb_GiamGia.Name = "lb_GiamGia";
-            this.lb_GiamGia.Size = new System.Drawing.Size(75, 19);
+            this.lb_GiamGia.Size = new System.Drawing.Size(79, 19);
             this.lb_GiamGia.TabIndex = 11;
-            this.lb_GiamGia.Text = "Giảm giá:";
+            this.lb_GiamGia.Text = "Giảm giá: ";
             // 
             // lb_TongTienGio
             // 
             this.lb_TongTienGio.AutoSize = true;
             this.lb_TongTienGio.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TongTienGio.Location = new System.Drawing.Point(12, 672);
+            this.lb_TongTienGio.Location = new System.Drawing.Point(14, 645);
             this.lb_TongTienGio.Name = "lb_TongTienGio";
-            this.lb_TongTienGio.Size = new System.Drawing.Size(104, 19);
+            this.lb_TongTienGio.Size = new System.Drawing.Size(108, 19);
             this.lb_TongTienGio.TabIndex = 12;
-            this.lb_TongTienGio.Text = "Tổng tiền giờ:";
+            this.lb_TongTienGio.Text = "Tổng tiền giờ: ";
             // 
             // lb_TienGio
             // 
             this.lb_TienGio.AutoSize = true;
             this.lb_TienGio.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TienGio.Location = new System.Drawing.Point(411, 757);
+            this.lb_TienGio.Location = new System.Drawing.Point(457, 715);
             this.lb_TienGio.Name = "lb_TienGio";
-            this.lb_TienGio.Size = new System.Drawing.Size(64, 19);
+            this.lb_TienGio.Size = new System.Drawing.Size(68, 19);
             this.lb_TienGio.TabIndex = 13;
-            this.lb_TienGio.Text = "Giá giờ:";
+            this.lb_TienGio.Text = "Giá giờ: ";
             // 
             // lb_TongTien
             // 
             this.lb_TongTien.AutoSize = true;
             this.lb_TongTien.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TongTien.Location = new System.Drawing.Point(12, 726);
+            this.lb_TongTien.Location = new System.Drawing.Point(14, 699);
             this.lb_TongTien.Name = "lb_TongTien";
-            this.lb_TongTien.Size = new System.Drawing.Size(78, 19);
+            this.lb_TongTien.Size = new System.Drawing.Size(82, 19);
             this.lb_TongTien.TabIndex = 14;
-            this.lb_TongTien.Text = "Tổng tiền:";
+            this.lb_TongTien.Text = "Tổng tiền: ";
             // 
             // dgv_InHD
             // 
@@ -229,7 +229,7 @@
             this.DVT,
             this.Gia,
             this.TTien});
-            this.dgv_InHD.Location = new System.Drawing.Point(12, 304);
+            this.dgv_InHD.Location = new System.Drawing.Point(14, 286);
             this.dgv_InHD.Name = "dgv_InHD";
             this.dgv_InHD.ReadOnly = true;
             this.dgv_InHD.RowHeadersVisible = false;
@@ -293,7 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(582, 785);
+            this.ClientSize = new System.Drawing.Size(582, 752);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgv_InHD);
             this.Controls.Add(this.lb_TongTien);
