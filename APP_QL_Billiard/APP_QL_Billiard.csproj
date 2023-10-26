@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="env.cs" />
+    <Compile Include="fCreateMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCreateMember.Designer.cs">
+      <DependentUpon>fCreateMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="fFunction_Ban.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fCreateMember.resx">
+      <DependentUpon>fCreateMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fFunction_Ban.resx">
       <DependentUpon>fFunction_Ban.cs</DependentUpon>
     </EmbeddedResource>

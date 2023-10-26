@@ -51,8 +51,8 @@ namespace APP_QL_Billiard
 
         private void btnThucDon_Click(object sender, EventArgs e)
         {
-         
             namePage.Text = btnThucDon.Text + " Admin";
+            table_panel.Controls.Clear();
         }
 
         private void btnStatusBan_Click(object sender, EventArgs e)
@@ -61,7 +61,6 @@ namespace APP_QL_Billiard
             namePage.Text = btnStatusBan.Text;
             table_panel.Controls.Clear();
             formContent(f,new f_ListTable(f), table_panel, table_panel);
-            
         }
         private void btnDatTruoc_Click(object sender, EventArgs e)
         {
@@ -73,17 +72,19 @@ namespace APP_QL_Billiard
         private void btnHistory_Click(object sender, EventArgs e)
         {
             namePage.Text = btnHistory.Text;
+            table_panel.Controls.Clear();
         }
 
         private void btnKho_Click(object sender, EventArgs e)
         {
             namePage.Text = btnKho.Text;
+            table_panel.Controls.Clear();
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             namePage.Text = btnEmployee.Text;
-
+            table_panel.Controls.Clear();
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)

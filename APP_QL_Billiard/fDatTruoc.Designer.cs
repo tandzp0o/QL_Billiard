@@ -29,7 +29,7 @@ namespace APP_QL_Billiard
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.NgayHienTai = new System.Windows.Forms.DateTimePicker();
             this.btnRef = new System.Windows.Forms.Button();
             this.btnDo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,18 +42,22 @@ namespace APP_QL_Billiard
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.GioToi = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtMaKH = new System.Windows.Forms.TextBox();
+            this.txtTenKH = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // NgayHienTai
             // 
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(22, 92);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(364, 27);
-            this.dateTimePicker1.TabIndex = 25;
+            this.NgayHienTai.Checked = false;
+            this.NgayHienTai.CustomFormat = "MM/dd/yyyy";
+            this.NgayHienTai.Enabled = false;
+            this.NgayHienTai.Location = new System.Drawing.Point(22, 92);
+            this.NgayHienTai.Margin = new System.Windows.Forms.Padding(4);
+            this.NgayHienTai.Name = "NgayHienTai";
+            this.NgayHienTai.Size = new System.Drawing.Size(364, 23);
+            this.NgayHienTai.TabIndex = 25;
             // 
             // btnRef
             // 
@@ -87,7 +91,7 @@ namespace APP_QL_Billiard
             this.label6.Location = new System.Drawing.Point(18, 401);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 20);
+            this.label6.Size = new System.Drawing.Size(79, 17);
             this.label6.TabIndex = 22;
             this.label6.Text = "Bàn Trống:";
             // 
@@ -98,7 +102,7 @@ namespace APP_QL_Billiard
             this.cbbEmptyTable.Location = new System.Drawing.Point(118, 398);
             this.cbbEmptyTable.Margin = new System.Windows.Forms.Padding(4);
             this.cbbEmptyTable.Name = "cbbEmptyTable";
-            this.cbbEmptyTable.Size = new System.Drawing.Size(268, 28);
+            this.cbbEmptyTable.Size = new System.Drawing.Size(268, 25);
             this.cbbEmptyTable.TabIndex = 4;
             // 
             // label5
@@ -107,7 +111,7 @@ namespace APP_QL_Billiard
             this.label5.Location = new System.Drawing.Point(18, 326);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 20;
             this.label5.Text = "Loại Bàn:";
             // 
@@ -118,7 +122,7 @@ namespace APP_QL_Billiard
             this.cbbTypeTable.Location = new System.Drawing.Point(118, 323);
             this.cbbTypeTable.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTypeTable.Name = "cbbTypeTable";
-            this.cbbTypeTable.Size = new System.Drawing.Size(268, 28);
+            this.cbbTypeTable.Size = new System.Drawing.Size(268, 25);
             this.cbbTypeTable.TabIndex = 3;
             this.cbbTypeTable.SelectedIndexChanged += new System.EventHandler(this.cbbTypeTable_SelectedIndexChanged);
             // 
@@ -128,7 +132,7 @@ namespace APP_QL_Billiard
             this.label4.Location = new System.Drawing.Point(18, 256);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.Size = new System.Drawing.Size(58, 17);
             this.label4.TabIndex = 17;
             this.label4.Text = "Giờ Tới:";
             // 
@@ -138,7 +142,7 @@ namespace APP_QL_Billiard
             this.label3.Location = new System.Drawing.Point(18, 185);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 20);
+            this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 16;
             this.label3.Text = "SĐT:";
             // 
@@ -149,7 +153,7 @@ namespace APP_QL_Billiard
             this.label1.Location = new System.Drawing.Point(128, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 32);
+            this.label1.Size = new System.Drawing.Size(151, 26);
             this.label1.TabIndex = 15;
             this.label1.Text = "Đặt Bàn Trước";
             // 
@@ -158,24 +162,27 @@ namespace APP_QL_Billiard
             this.txtSDT.Location = new System.Drawing.Point(118, 182);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(268, 27);
+            this.txtSDT.Size = new System.Drawing.Size(268, 23);
             this.txtSDT.TabIndex = 1;
-            this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
+            this.txtSDT.Leave += new System.EventHandler(this.txtSDT_Leave);
             // 
             // GioToi
             // 
             this.GioToi.Checked = false;
-            this.GioToi.CustomFormat = "HH:mm:ss";
             this.GioToi.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.GioToi.Location = new System.Drawing.Point(118, 251);
             this.GioToi.Name = "GioToi";
             this.GioToi.ShowUpDown = true;
-            this.GioToi.Size = new System.Drawing.Size(268, 27);
+            this.GioToi.Size = new System.Drawing.Size(268, 23);
             this.GioToi.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.txtMaKH);
+            this.panel1.Controls.Add(this.txtTenKH);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.NgayHienTai);
             this.panel1.Controls.Add(this.GioToi);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtSDT);
@@ -192,10 +199,37 @@ namespace APP_QL_Billiard
             this.panel1.Size = new System.Drawing.Size(400, 569);
             this.panel1.TabIndex = 26;
             // 
+            // txtMaKH
+            // 
+            this.txtMaKH.Location = new System.Drawing.Point(153, 48);
+            this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.Size = new System.Drawing.Size(100, 23);
+            this.txtMaKH.TabIndex = 28;
+            this.txtMaKH.Visible = false;
+            // 
+            // txtTenKH
+            // 
+            this.txtTenKH.Location = new System.Drawing.Point(118, 135);
+            this.txtTenKH.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.ReadOnly = true;
+            this.txtTenKH.Size = new System.Drawing.Size(268, 23);
+            this.txtTenKH.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 17);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Khách Hàng:";
+            // 
             // fDatTruoc
             // 
             this.AcceptButton = this.btnDo;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnRef;
             this.ClientSize = new System.Drawing.Size(424, 593);
@@ -212,7 +246,7 @@ namespace APP_QL_Billiard
         }
 
         #endregion
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker NgayHienTai;
         private System.Windows.Forms.Button btnRef;
         private System.Windows.Forms.Button btnDo;
         private System.Windows.Forms.Label label6;
@@ -225,5 +259,8 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.DateTimePicker GioToi;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTenKH;
+        private System.Windows.Forms.TextBox txtMaKH;
     }
 }
