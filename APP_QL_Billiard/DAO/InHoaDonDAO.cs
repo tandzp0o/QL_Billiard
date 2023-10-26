@@ -28,9 +28,32 @@ namespace APP_QL_Billiard.DAO
 
         public string GetTenBan(int maHoaDon)
         {
-            string query = "Select TenBan from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
+            string query = "Select Ban.TenBan from Ban join HoaDon on Ban.MaBan = HoaDon.MaBan where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (string)result : "";
+        }
+
+        public string GetMaHoaDon(int maHoaDon)
+        {
+            string query = "Select MaHoaDon from HoaDon where MaHoaDon = @maHoaDon";
+            object result = ExecuteScalar(query, maHoaDon);
+            return result != null ? result.ToString() : "";
+        }
+
+        public string GetTenThuNgan(int maHoaDon)
+        {
+            string query = "Select HoTen from Account where TaiKhoan = (Select TaiKhoan from HoaDon where MaHoaDon = @maHoaDon)";
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    con.Close();
+                    return result != null ? (string)result : "";
+                }
+            }
         }
 
         public DateTime GetGioBatDau(int maHoaDon)
@@ -45,6 +68,44 @@ namespace APP_QL_Billiard.DAO
             string query = "Select HoaDon.GioKetThuc from HoaDon where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (DateTime)result : DateTime.MinValue;
+        }
+
+        public DataTable GetHoaDonChiTiet(int maHoaDon)
+        {
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                con.Open();
+                string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia,
+                 SoLuongDat * Gia as N'Thành tiền'
+                 from ChiTietHoaDon
+                 inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                 inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                 where ChiTietHoaDon.MaHoaDon = @maHoaDon";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+        public double GetTienDichVu(int maHoaDon)
+        {
+            string query = "Select sum(SoLuongDat * Gia) from ChiTietHoaDon inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon where MaHoaDon = @maHoaDon";
+            object result = ExecuteScalar(query, maHoaDon);
+            return result != null ? (double)result : 0;
+        }
+
+        public double GetTongTienGio(int maHoaDon)
+        {
+            string query = "Select (datediff(minute, HoaDon.GioBatDau, HoaDon.GioKetThuc)/60.0) * Gia from HoaDon innner join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
+            object result = ExecuteScalar(query, maHoaDon);
+            return result != null ? Convert.ToDouble(result) : 0;
         }
 
         public double GetGiamGia(int maHoaDon)
@@ -66,72 +127,11 @@ namespace APP_QL_Billiard.DAO
             return result != null ? (double)result : 0;
         }
 
-        public double GetTienDichVu(int maHoaDon)
-        {
-            string query = "Select SUM(SoLuongDat * Gia) from ChiTietHoaDon join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? (double)result : 0;
-        }
-
-        public double GetTongTienGio(int maHoaDon)
-        {
-            string query = "Select (DATEDIFF(MINUTE, HoaDon.GioBatDau, HoaDon.GioKetThuc)/60.0) * Gia from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? Convert.ToDouble(result) : 0;
-        }
-
         public double GetGiaGio(int maHoaDon)
         {
             string query = "Select Gia from Ban join HoaDon on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? (double)result : 0;
-        }
-
-        public DataTable GetHoaDonChiTiet(int maHoaDon)
-        {
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                con.Open();
-                string query = @"SELECT TenThucDon, SoLuongDat, DonViTinh, Gia,
-                 SoLuongDat * Gia as N'Thành tiền'
-                 FROM ChiTietHoaDon
-                 JOIN ThucDon ON ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
-                 JOIN HoaDon ON ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
-                 WHERE ChiTietHoaDon.MaHoaDon = @maHoaDon";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        return dt;
-                    }
-                }
-            }
-        }
-
-        public string GetMaHoaDon(int maHoaDon)
-        {
-            string query = "Select MaHoaDon from HoaDon where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? result.ToString() : "";
-        }
-
-        public string GetTenThuNgan(int maHoaDon)
-        {
-            string query = "SELECT HoTen FROM Account WHERE TaiKhoan = (SELECT TaiKhoan FROM HoaDon WHERE MaHoaDon = @maHoaDon)";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
-                    con.Open();
-                    object result = cmd.ExecuteScalar();
-                    con.Close();
-                    return result != null ? (string)result : "";
-                }
-            }
         }
     }
 }

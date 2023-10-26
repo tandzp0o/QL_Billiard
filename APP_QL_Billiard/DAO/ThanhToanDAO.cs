@@ -25,6 +25,36 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
+        public string GetTenBan(int maHoaDon)
+        {
+            string query = "Select Ban.TenBan from Ban join HoaDon on Ban.MaBan = HoaDon.MaBan where HoaDon.MaHoaDon = @maHoaDon";
+            object result = ExecuteScalar(query, maHoaDon);
+            return result != null ? (string)result : "";
+        }
+
+        public DataTable GetHoaDonChiTiet(int maHoaDon)
+        {
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                con.Open();
+                string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia
+                         from ChiTietHoaDon
+                         inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                         inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                         where ChiTietHoaDon.MaHoaDon = @maHoaDon";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
         public DateTime GetGioBatDau(int maHoaDon)
         {
             string query = "Select HoaDon.GioBatDau from HoaDon where MaHoaDon = @maHoaDon";
@@ -69,39 +99,9 @@ namespace APP_QL_Billiard.DAO
             return result != null ? (double)result : 0;
         }
 
-        public DataTable GetHoaDonChiTiet(int maHoaDon)
-        {
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                con.Open();
-                string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia
-                         from ChiTietHoaDon
-                         inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
-                         inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
-                         where ChiTietHoaDon.MaHoaDon = @maHoaDon";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        return dt;
-                    }
-                }
-            }
-        }
-
-        public string GetTenBan(int maHoaDon)
-        {
-            string query = "Select TenBan from HoaDon join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
-            return result != null ? (string)result : "";
-        }
-
         public void UpdateHoaDonTaiKhoan(int maHoaDon, string taiKhoan)
         {
-            string query = "UPDATE HoaDon SET TaiKhoan = @taiKhoan WHERE MaHoaDon = @maHoaDon";
+            string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaHoaDon = @maHoaDon";
             using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
