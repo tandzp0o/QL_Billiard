@@ -103,7 +103,7 @@ namespace APP_QL_Billiard.DAO
 
         public double GetTongTienGio(int maHoaDon)
         {
-            string query = "Select (datediff(minute, HoaDon.GioBatDau, HoaDon.GioKetThuc)/60.0) * Gia from HoaDon innner join Ban on HoaDon.MaBan = Ban.MaBan where MaHoaDon = @maHoaDon";
+            string query = "Select (DATEDIFF(minute, HoaDon.GioBatDau, HoaDon.GioKetThuc) / 60.0) * Gia from HoaDon inner join Ban on HoaDon.MaBan = Ban.MaBan where HoaDon.MaHoaDon = @maHoaDon";
             object result = ExecuteScalar(query, maHoaDon);
             return result != null ? Convert.ToDouble(result) : 0;
         }

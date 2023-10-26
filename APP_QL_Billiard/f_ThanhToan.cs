@@ -17,7 +17,7 @@ namespace APP_QL_Billiard
     {
         ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
         int maHoaDon = 1;
-        string maTaiKhoan = "user";
+        string maTaiKhoan = "admin";
 
         public f_ThanhToan()
         {
