@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f_InHD));
             this.lb_TenQuan = new System.Windows.Forms.Label();
             this.lb_DiaChi = new System.Windows.Forms.Label();
             this.lb_Title = new System.Windows.Forms.Label();
@@ -50,7 +51,9 @@
             this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InHD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_TenQuan
@@ -77,11 +80,12 @@
             // 
             this.lb_Title.AutoSize = true;
             this.lb_Title.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Title.Location = new System.Drawing.Point(138, 114);
+            this.lb_Title.ForeColor = System.Drawing.Color.Red;
+            this.lb_Title.Location = new System.Drawing.Point(199, 113);
             this.lb_Title.Name = "lb_Title";
-            this.lb_Title.Size = new System.Drawing.Size(231, 35);
+            this.lb_Title.Size = new System.Drawing.Size(158, 70);
             this.lb_Title.TabIndex = 2;
-            this.lb_Title.Text = "HOÁ ĐƠN BÀN";
+            this.lb_Title.Text = "HOÁ ĐƠN\r\n     ";
             // 
             // lb_SDT
             // 
@@ -97,7 +101,7 @@
             // 
             this.lb_Ngay.AutoSize = true;
             this.lb_Ngay.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Ngay.Location = new System.Drawing.Point(140, 160);
+            this.lb_Ngay.Location = new System.Drawing.Point(8, 208);
             this.lb_Ngay.Name = "lb_Ngay";
             this.lb_Ngay.Size = new System.Drawing.Size(49, 19);
             this.lb_Ngay.TabIndex = 4;
@@ -107,7 +111,7 @@
             // 
             this.lb_ThuNgan.AutoSize = true;
             this.lb_ThuNgan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ThuNgan.Location = new System.Drawing.Point(140, 192);
+            this.lb_ThuNgan.Location = new System.Drawing.Point(8, 240);
             this.lb_ThuNgan.Name = "lb_ThuNgan";
             this.lb_ThuNgan.Size = new System.Drawing.Size(78, 19);
             this.lb_ThuNgan.TabIndex = 5;
@@ -117,7 +121,7 @@
             // 
             this.lb_MaSo.AutoSize = true;
             this.lb_MaSo.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_MaSo.Location = new System.Drawing.Point(355, 160);
+            this.lb_MaSo.Location = new System.Drawing.Point(451, 208);
             this.lb_MaSo.Name = "lb_MaSo";
             this.lb_MaSo.Size = new System.Drawing.Size(56, 19);
             this.lb_MaSo.TabIndex = 6;
@@ -127,7 +131,7 @@
             // 
             this.lb_InLuc.AutoSize = true;
             this.lb_InLuc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_InLuc.Location = new System.Drawing.Point(355, 192);
+            this.lb_InLuc.Location = new System.Drawing.Point(451, 240);
             this.lb_InLuc.Name = "lb_InLuc";
             this.lb_InLuc.Size = new System.Drawing.Size(52, 19);
             this.lb_InLuc.TabIndex = 7;
@@ -137,7 +141,7 @@
             // 
             this.lb_GBD.AutoSize = true;
             this.lb_GBD.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GBD.Location = new System.Drawing.Point(140, 223);
+            this.lb_GBD.Location = new System.Drawing.Point(8, 271);
             this.lb_GBD.Name = "lb_GBD";
             this.lb_GBD.Size = new System.Drawing.Size(92, 19);
             this.lb_GBD.TabIndex = 8;
@@ -147,7 +151,7 @@
             // 
             this.lb_GKT.AutoSize = true;
             this.lb_GKT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GKT.Location = new System.Drawing.Point(355, 223);
+            this.lb_GKT.Location = new System.Drawing.Point(451, 271);
             this.lb_GKT.Name = "lb_GKT";
             this.lb_GKT.Size = new System.Drawing.Size(98, 19);
             this.lb_GKT.TabIndex = 9;
@@ -157,7 +161,7 @@
             // 
             this.lb_TienDV.AutoSize = true;
             this.lb_TienDV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TienDV.Location = new System.Drawing.Point(140, 379);
+            this.lb_TienDV.Location = new System.Drawing.Point(12, 645);
             this.lb_TienDV.Name = "lb_TienDV";
             this.lb_TienDV.Size = new System.Drawing.Size(95, 19);
             this.lb_TienDV.TabIndex = 10;
@@ -167,7 +171,7 @@
             // 
             this.lb_GiamGia.AutoSize = true;
             this.lb_GiamGia.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GiamGia.Location = new System.Drawing.Point(140, 433);
+            this.lb_GiamGia.Location = new System.Drawing.Point(12, 699);
             this.lb_GiamGia.Name = "lb_GiamGia";
             this.lb_GiamGia.Size = new System.Drawing.Size(75, 19);
             this.lb_GiamGia.TabIndex = 11;
@@ -177,7 +181,7 @@
             // 
             this.lb_TongTienGio.AutoSize = true;
             this.lb_TongTienGio.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TongTienGio.Location = new System.Drawing.Point(140, 406);
+            this.lb_TongTienGio.Location = new System.Drawing.Point(12, 672);
             this.lb_TongTienGio.Name = "lb_TongTienGio";
             this.lb_TongTienGio.Size = new System.Drawing.Size(104, 19);
             this.lb_TongTienGio.TabIndex = 12;
@@ -187,7 +191,7 @@
             // 
             this.lb_TienGio.AutoSize = true;
             this.lb_TienGio.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TienGio.Location = new System.Drawing.Point(8, 491);
+            this.lb_TienGio.Location = new System.Drawing.Point(411, 757);
             this.lb_TienGio.Name = "lb_TienGio";
             this.lb_TienGio.Size = new System.Drawing.Size(64, 19);
             this.lb_TienGio.TabIndex = 13;
@@ -197,7 +201,7 @@
             // 
             this.lb_TongTien.AutoSize = true;
             this.lb_TongTien.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TongTien.Location = new System.Drawing.Point(140, 460);
+            this.lb_TongTien.Location = new System.Drawing.Point(12, 726);
             this.lb_TongTien.Name = "lb_TongTien";
             this.lb_TongTien.Size = new System.Drawing.Size(78, 19);
             this.lb_TongTien.TabIndex = 14;
@@ -209,6 +213,7 @@
             this.dgv_InHD.AllowUserToDeleteRows = false;
             this.dgv_InHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_InHD.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_InHD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,13 +229,13 @@
             this.DVT,
             this.Gia,
             this.TTien});
-            this.dgv_InHD.Location = new System.Drawing.Point(12, 245);
+            this.dgv_InHD.Location = new System.Drawing.Point(12, 304);
             this.dgv_InHD.Name = "dgv_InHD";
             this.dgv_InHD.ReadOnly = true;
             this.dgv_InHD.RowHeadersVisible = false;
             this.dgv_InHD.RowHeadersWidth = 51;
             this.dgv_InHD.RowTemplate.Height = 24;
-            this.dgv_InHD.Size = new System.Drawing.Size(558, 131);
+            this.dgv_InHD.Size = new System.Drawing.Size(558, 329);
             this.dgv_InHD.TabIndex = 15;
             // 
             // MatHang
@@ -273,11 +278,23 @@
             this.TTien.Name = "TTien";
             this.TTien.ReadOnly = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // f_InHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 519);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(582, 785);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgv_InHD);
             this.Controls.Add(this.lb_TongTien);
             this.Controls.Add(this.lb_TienGio);
@@ -298,9 +315,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "f_InHD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoá đơn";
             this.Load += new System.EventHandler(this.f_InHD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InHD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +348,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
         private System.Windows.Forms.DataGridViewTextBoxColumn TTien;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

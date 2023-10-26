@@ -189,6 +189,7 @@
     <None Include="Resources\exchange.png" />
     <None Include="Resources\dollar-flat.png" />
     <None Include="Resources\user11.png" />
+    <Content Include="Image\printer.png" />
     <Content Include="SQL\PhanCong_NghiepVu.txt" />
     <Content Include="SQL\Ql_Billiard.sql" />
   </ItemGroup>

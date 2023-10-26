@@ -26,12 +26,10 @@ namespace APP_QL_Billiard
 
         private void f_InHD_Load(object sender, EventArgs e)
         {
-            lb_Title.Text = "Hoá đơn bàn " + inHoaDonDAO.GetTenBan(maHoaDon);
+            lb_Title.Text += inHoaDonDAO.GetTenBan(maHoaDon);
             lb_Ngay.Text = "Ngày: " + DateTime.Now.ToString("dd/MM/yyyy");
             lb_MaSo.Text = "Mã số: " + inHoaDonDAO.GetMaHoaDon(maHoaDon);
-
             lb_ThuNgan.Text = "Thu Ngân: " + inHoaDonDAO.GetTenThuNgan(maHoaDon);
-
             lb_InLuc.Text = "In lúc: " + DateTime.Now.ToString("HH:mm");
             lb_GBD.Text = "Giờ bắt đầu: " + inHoaDonDAO.GetGioBatDau(maHoaDon).ToString("HH:mm");
             lb_GKT.Text = "Giờ kết thúc: " + inHoaDonDAO.GetGioKetThuc(maHoaDon).ToString("HH:mm");
