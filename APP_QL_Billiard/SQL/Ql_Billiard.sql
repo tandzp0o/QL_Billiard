@@ -91,7 +91,7 @@ CREATE TABLE DatTruoc
     CONSTRAINT pk_DatTruoc PRIMARY KEY (Id,MaBan),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
-	CONSTRAINT chk_ThoiGianToi CHECK (ThoiGianToi <= DATEADD(hour, 3, GETDATE()))
+	CONSTRAINT chk_ThoiGianToi CHECK (ThoiGianToi <= DATEADD(hour, 3, GETDATE()) and ThoiGianToi >= GETDATE())
 )
 
 CREATE TABLE PhieuNhap
@@ -200,6 +200,17 @@ go
 INSERT INTO Account VALUES ('admin','14', N'Tấn', '0123456789', N'Đang làm việc', 1);
 INSERT INTO Account VALUES ('user','14',  N'Tấn', '9876543210', N'Đang làm việc', 0);
 
+--trigger đổi trạng thái bàn khi đặt trước
+go
+CREATE trigger trg_CapNhatTrangThaiDatTruoc on DatTruoc
+after insert
+as
+begin
+	update Ban
+	set TrangThai = 3
+	FROM Ban b
+    INNER JOIN inserted i ON b.MaBan = i.MaBan
+end
 ----------------------------------------------------------------------Trần Thành Luân----------------------------------------------------------------------
 --Trigger tính thời gian chơi(ThoiGianChoi) trong bảng hoá đơn(HoaDon)
 Go
@@ -274,6 +285,7 @@ begin
     end
 end;
 Go
+
 -- Thêm dữ liệu vào bảng KhachHang
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Trần Thị B', '0987654321');
@@ -325,5 +337,3 @@ go
 CREATE PROC USP_GetTableList
 AS SELECT * FROM Ban
 Go
-
-EXECUTE USP_GetTableList
