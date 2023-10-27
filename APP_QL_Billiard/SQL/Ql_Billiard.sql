@@ -120,28 +120,47 @@ CREATE PROCEDURE [dbo].[TrangThaiBan]
 AS
 BEGIN
 
-    DECLARE @ThoiGianHienTai DATETIME
-    SET @ThoiGianHienTai = GETDATE()
+    SELECT
+    DatTruoc.Id,
+    DatTruoc.MaBan,
+    DatTruoc.ThoiGianToi,
+    DatTruoc.TrangThai,
+    Ban.TrangThai
+	FROM
+		DatTruoc
+	INNER JOIN
+		Ban
+	ON
+		DatTruoc.MaBan = Ban.MaBan
+	WHERE
+		DatTruoc.ThoiGianToi <= DATEADD(hour, -3, GETDATE())
+	AND
+		DatTruoc.TrangThai = 0
 
-    DECLARE @ThoiGianDatTruoc DATETIME
-    SET @ThoiGianDatTruoc = DATEADD(HOUR, -3, @ThoiGianHienTai)
-
-    DECLARE @TrangThaiDatTruoc INT
-    DECLARE @TrangThaiBan INT
-
-    SELECT @TrangThaiDatTruoc = TrangThai
-      FROM dbo.DatTruoc
-     WHERE ThoiGianToi <= @ThoiGianDatTruoc
-
-    IF @TrangThaiDatTruoc = 0
-    BEGIN
-        UPDATE dbo.Ban
-           SET TrangThai = 2
-         WHERE MaBan = @TrangThaiDatTruoc
-    END
+	IF @@ROWCOUNT > 0
+	BEGIN
+		-- Cập nhật trạng thái của bàn
+		UPDATE
+			Ban
+		SET
+			TrangThai = 2
+		WHERE
+			MaBan IN (
+				SELECT
+					DatTruoc.MaBan
+				FROM
+					DatTruoc
+				WHERE
+					DatTruoc.ThoiGianToi > GETDATE()
+				AND
+					DatTruoc.ThoiGianToi <= DATEADD(hour, 3, GETDATE())
+				AND
+					DatTruoc.TrangThai = 0
+			)
+	END
 
 END
-
+go
 --Triger
 
 --Chuyển bàn và thanh toán thành công sst bàn = 2
@@ -394,14 +413,19 @@ go
 
 ---------------------------------------------------------------CỤC NÀY ALWAY NẰM DƯỚI CÙNG
 --Tạo job để thực thi stored procedure(tự động 1h 1 lần)
+go
 USE [msdb]
 GO
 
-/****** Object:  Job [check và sửa trạng thái bàn đặt trước]    Script Date: 27/10/2023 20:47:09 ******/
+/****** Object:  Job [check và sửa trạng thái bàn đặt trước]    Script Date: 27/10/2023 21:35:23 ******/
+EXEC msdb.dbo.sp_delete_job @job_name=N'check và sửa trạng thái bàn đặt trước', @delete_unused_schedule=1
+GO
+
+/****** Object:  Job [check và sửa trạng thái bàn đặt trước]    Script Date: 27/10/2023 21:35:23 ******/
 BEGIN TRANSACTION
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
-/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 27/10/2023 20:47:09 ******/
+/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 27/10/2023 21:35:23 ******/
 IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]' AND category_class=1)
 BEGIN
 EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'[Uncategorized (Local)]'
@@ -421,8 +445,8 @@ EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'check và sửa trạng thá
 		@category_name=N'[Uncategorized (Local)]', 
 		@owner_login_name=N'sa', @job_id = @jobId OUTPUT
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [s1: sử dụng poc [dbo].[TrangThaiBan]]    Script Date: 27/10/2023 20:47:10 ******/
-EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N's1: sử dụng poc [dbo].[TrangThaiBan]', 
+/****** Object:  Step [s1: sử dụng proc [dbo].[TrangThaiBan]]    Script Date: 27/10/2023 21:35:23 ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N's1: sử dụng proc [dbo].[TrangThaiBan]', 
 		@step_id=1, 
 		@cmdexec_success_code=0, 
 		@on_success_action=1, 
@@ -460,5 +484,6 @@ QuitWithRollback:
     IF (@@TRANCOUNT > 0) ROLLBACK TRANSACTION
 EndSave:
 GO
+EXEC msdb.dbo.sp_start_job @job_name = N'check và sửa trạng thái bàn đặt trước'
 
 ----------------Không để dòng lệnh nào dưới này-------------------
