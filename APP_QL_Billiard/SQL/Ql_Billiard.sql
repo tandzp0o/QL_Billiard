@@ -181,12 +181,36 @@ BEGIN
     RETURN @DoanhThu;
 END;
 go
+--Function tính chi theo tháng
+CREATE FUNCTION dbo.ChiThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @Chi FLOAT;
+    SELECT @Chi = SUM(ThanhTien)
+    FROM PhieuNhap
+    WHERE MONTH(NgayNhap) = @Thang;
+    RETURN @Chi;
+END;
+go
 --function trả về doanh thu theo từng tháng
 CREATE FUNCTION dbo.DoanhThu()
 RETURNS TABLE
 AS
 RETURN (
     SELECT Thang, dbo.DoanhThuThang(Thang) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
+--function trả về chi theo tháng
+CREATE FUNCTION dbo.Chi()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.ChiThang(Thang) AS Chi
     FROM (
         VALUES (1), (2), (3), (4), (5), (6),
                (7), (8), (9), (10), (11), (12)
