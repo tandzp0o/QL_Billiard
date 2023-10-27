@@ -88,6 +88,7 @@ CREATE TABLE DatTruoc
     MaBan CHAR(3) NOT NULL,
     ThoiGianToi datetime not null, --nếu tới giờ thì hiện thông báo 
 	NgayDat datetime not null,
+	TrangThai bit not null,
     CONSTRAINT pk_DatTruoc PRIMARY KEY (Id,MaBan),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
@@ -113,6 +114,53 @@ CREATE TABLE ChiTietPhieuNhap
 	constraint FK_CTPN_TD foreign key (MaThucDon) references ThucDon(MaThucDon)
 )
 
+--Procedure
+GO
+CREATE PROCEDURE [dbo].[TrangThaiBan]
+AS
+BEGIN
+
+    SELECT
+    DatTruoc.Id,
+    DatTruoc.MaBan,
+    DatTruoc.ThoiGianToi,
+    DatTruoc.TrangThai,
+    Ban.TrangThai
+	FROM
+		DatTruoc
+	INNER JOIN
+		Ban
+	ON
+		DatTruoc.MaBan = Ban.MaBan
+	WHERE
+		DatTruoc.ThoiGianToi <= DATEADD(hour, -3, GETDATE())
+	AND
+		DatTruoc.TrangThai = 0
+
+	IF @@ROWCOUNT > 0
+	BEGIN
+		-- Cập nhật trạng thái của bàn
+		UPDATE
+			Ban
+		SET
+			TrangThai = 2
+		WHERE
+			MaBan IN (
+				SELECT
+					DatTruoc.MaBan
+				FROM
+					DatTruoc
+				WHERE
+					DatTruoc.ThoiGianToi > GETDATE()
+				AND
+					DatTruoc.ThoiGianToi <= DATEADD(hour, 3, GETDATE())
+				AND
+					DatTruoc.TrangThai = 0
+			)
+	END
+
+END
+go
 --Triger
 
 --Chuyển bàn và thanh toán thành công sst bàn = 2
@@ -181,12 +229,36 @@ BEGIN
     RETURN @DoanhThu;
 END;
 go
+--Function tính chi theo tháng
+CREATE FUNCTION dbo.ChiThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @Chi FLOAT;
+    SELECT @Chi = SUM(ThanhTien)
+    FROM PhieuNhap
+    WHERE MONTH(NgayNhap) = @Thang;
+    RETURN @Chi;
+END;
+go
 --function trả về doanh thu theo từng tháng
 CREATE FUNCTION dbo.DoanhThu()
 RETURNS TABLE
 AS
 RETURN (
     SELECT Thang, dbo.DoanhThuThang(Thang) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
+--function trả về chi theo tháng
+CREATE FUNCTION dbo.Chi()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.ChiThang(Thang) AS Chi
     FROM (
         VALUES (1), (2), (3), (4), (5), (6),
                (7), (8), (9), (10), (11), (12)
@@ -301,8 +373,8 @@ INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7'
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Lỗ', 3, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (1, 'B01', GETDATE(), GETDATE());
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (2, 'B02', GETDATE(), GETDATE());
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES (1, 'B01', GETDATE(), 0, GETDATE());
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES (2, 'B02', GETDATE(), 0, GETDATE());
 
 -- Thêm dữ liệu vào bảng HoaDon
 INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null, 'user');
@@ -336,4 +408,82 @@ INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD06', 3
 go
 CREATE PROC USP_GetTableList
 AS SELECT * FROM Ban
-Go
+go
+
+
+---------------------------------------------------------------CỤC NÀY ALWAY NẰM DƯỚI CÙNG
+--Tạo job để thực thi stored procedure(tự động 1h 1 lần)
+go
+USE [msdb]
+GO
+
+/****** Object:  Job [check và sửa trạng thái bàn đặt trước]    Script Date: 27/10/2023 21:35:23 ******/
+EXEC msdb.dbo.sp_delete_job @job_name=N'check và sửa trạng thái bàn đặt trước', @delete_unused_schedule=1
+GO
+
+/****** Object:  Job [check và sửa trạng thái bàn đặt trước]    Script Date: 27/10/2023 21:35:23 ******/
+BEGIN TRANSACTION
+DECLARE @ReturnCode INT
+SELECT @ReturnCode = 0
+/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 27/10/2023 21:35:23 ******/
+IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]' AND category_class=1)
+BEGIN
+EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'[Uncategorized (Local)]'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+
+END
+
+DECLARE @jobId BINARY(16)
+EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'check và sửa trạng thái bàn đặt trước', 
+		@enabled=1, 
+		@notify_level_eventlog=0, 
+		@notify_level_email=0, 
+		@notify_level_netsend=0, 
+		@notify_level_page=0, 
+		@delete_level=0, 
+		@description=N'No description available.', 
+		@category_name=N'[Uncategorized (Local)]', 
+		@owner_login_name=N'sa', @job_id = @jobId OUTPUT
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+/****** Object:  Step [s1: sử dụng proc [dbo].[TrangThaiBan]]    Script Date: 27/10/2023 21:35:23 ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N's1: sử dụng proc [dbo].[TrangThaiBan]', 
+		@step_id=1, 
+		@cmdexec_success_code=0, 
+		@on_success_action=1, 
+		@on_success_step_id=0, 
+		@on_fail_action=2, 
+		@on_fail_step_id=0, 
+		@retry_attempts=0, 
+		@retry_interval=0, 
+		@os_run_priority=0, @subsystem=N'TSQL', 
+		@command=N'exec [dbo].[TrangThaiBan]', 
+		@database_name=N'Ql_Billiard', 
+		@flags=0
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_add_jobschedule @job_id=@jobId, @name=N'do after 1 hour', 
+		@enabled=1, 
+		@freq_type=4, 
+		@freq_interval=1, 
+		@freq_subday_type=4, 
+		@freq_subday_interval=1, 
+		@freq_relative_interval=0, 
+		@freq_recurrence_factor=0, 
+		@active_start_date=20231027, 
+		@active_end_date=99991231, 
+		@active_start_time=0, 
+		@active_end_time=235959, 
+		@schedule_uid=N'8764f49a-8ea4-4320-9dfd-c70d0fea456e'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+COMMIT TRANSACTION
+GOTO EndSave
+QuitWithRollback:
+    IF (@@TRANCOUNT > 0) ROLLBACK TRANSACTION
+EndSave:
+GO
+EXEC msdb.dbo.sp_start_job @job_name = N'check và sửa trạng thái bàn đặt trước'
+
+----------------Không để dòng lệnh nào dưới này-------------------
