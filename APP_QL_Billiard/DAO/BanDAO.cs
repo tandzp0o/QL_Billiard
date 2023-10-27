@@ -35,7 +35,7 @@ namespace APP_QL_Billiard.DAO
             return list;
         }
         private BanDAO() { }
-
+       
         //public void updateBan(Ban b)
         //{
         //    string bd = b.GioBD.ToString("yyyy-MM-dd HH:mm:ss");

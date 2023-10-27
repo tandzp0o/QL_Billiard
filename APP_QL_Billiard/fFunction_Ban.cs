@@ -45,14 +45,13 @@ namespace APP_QL_Billiard
             {
                 lbl_NV.Text = "Nguyễn Văn A";
                 txt_TenBan.Text = Ban1.Name;
-
-
+                txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm:ss   dd/MM/yyyy");
                 if (Ban1.Status == 2 || Ban1.Status == 3) //1hd 2 trong 3 dat truoc
                 {
                     btnEnd.Enabled = false;
                     btnStart.Enabled = true;
                     btnChange.Enabled = false;
-                    txtTimeEnd.Text = "";
+                    txtTimeStart.Text = "";
                     txtTimeEnd.Text = "";
                     if (string.Compare(Ban1.Type, "Lỗ") == 0)
                     {
@@ -99,11 +98,15 @@ namespace APP_QL_Billiard
         {
             DateTime date = DateTime.Now;
             Ban1.GioBD = date;
-            txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm   dd/MM/yyyy");
+            txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm:ss   dd/MM/yyyy");
             txtTimeEnd.Text = "";
             Ban1.Status = 1;
             btnTinh.Enabled = false;
             //Them phuong thuc push data vao SQL
+            string query = "  UPDATE Ban SET GioBatDau = '@gioBD' ";
+            query = query.Replace("@gioBD", DateTime.Now.ToString());
+            int k = DataProvider.Instance.ExcuteNonQuery(query);
+
             this.reLoad();
         }
 
@@ -112,11 +115,14 @@ namespace APP_QL_Billiard
 
             var date = DateTime.Now;
             Ban1.GioKT = date;
-            txtTimeEnd.Text = Ban1.GioKT.ToString("HH:mm   dd/MM/yyyy");
+            txtTimeEnd.Text = Ban1.GioKT.ToString("HH:mm:ss   dd/MM/yyyy");
             Ban1.Status = 1;
             txtTimeEnd.Enabled = false;
             btnTinh.Enabled = true;
             //Them phuong thuc push data vao SQL
+            string query = "  UPDATE Ban SET GioKetThuc = '@gioKT' ";
+            query = query.Replace("@gioKT", DateTime.Now.ToString());
+            int k = DataProvider.Instance.ExcuteNonQuery(query);
             this.reLoad();
         }
 
