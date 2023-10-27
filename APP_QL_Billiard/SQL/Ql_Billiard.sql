@@ -88,6 +88,7 @@ CREATE TABLE DatTruoc
     MaBan CHAR(3) NOT NULL,
     ThoiGianToi datetime not null, --nếu tới giờ thì hiện thông báo 
 	NgayDat datetime not null,
+	TrangThai bit not null,
     CONSTRAINT pk_DatTruoc PRIMARY KEY (Id,MaBan),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
@@ -112,6 +113,39 @@ CREATE TABLE ChiTietPhieuNhap
 	constraint FK_CTPN_PN foreign key (MaPN) references PhieuNhap(MaPN),
 	constraint FK_CTPN_TD foreign key (MaThucDon) references ThucDon(MaThucDon)
 )
+
+--Procedure
+GO
+CREATE PROCEDURE [dbo].[TrangThaiBan]
+AS
+BEGIN
+
+    DECLARE @ThoiGianHienTai DATETIME
+    SET @ThoiGianHienTai = GETDATE()
+
+    DECLARE @ThoiGianDatTruoc DATETIME
+    SET @ThoiGianDatTruoc = DATEADD(HOUR, -3, @ThoiGianHienTai)
+
+    DECLARE @TrangThaiDatTruoc INT
+    DECLARE @TrangThaiBan INT
+
+    SELECT @TrangThaiDatTruoc = TrangThai
+      FROM dbo.DatTruoc
+     WHERE ThoiGianToi <= @ThoiGianDatTruoc
+
+    SELECT @TrangThaiBan = TrangThai
+      FROM dbo.Ban
+     WHERE MaBan = @TrangThaiDatTruoc
+
+    IF @TrangThaiDatTruoc = 0
+        AND @TrangThaiBan IS NULL
+    BEGIN
+        UPDATE dbo.Ban
+           SET TrangThai = 2
+         WHERE MaBan = @TrangThaiDatTruoc
+    END
+
+END
 
 --Triger
 
@@ -301,8 +335,8 @@ INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D01', N'Ban 7'
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('D02', N'Ban 8', N'Lỗ', 3, 200000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (1, 'B01', GETDATE(), GETDATE());
-INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, NgayDat) VALUES (2, 'B02', GETDATE(), GETDATE());
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES (1, 'B01', GETDATE(), 0, GETDATE());
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES (2, 'B02', GETDATE(), 0, GETDATE());
 
 -- Thêm dữ liệu vào bảng HoaDon
 INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('B01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null, 'user');
@@ -336,4 +370,8 @@ INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD06', 3
 go
 CREATE PROC USP_GetTableList
 AS SELECT * FROM Ban
-Go
+go
+
+
+---------------------------------------------------------------CỤC NÀY ALWAY NẰM DƯỚI CÙNG
+--Tạo job để thực thi stored procedure(tự động 1h 1 lần)
