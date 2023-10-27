@@ -35,12 +35,37 @@ namespace APP_QL_Billiard
         }
         void loadThuChi()
         {
-            DataSet ds1 = new DataSet();
-            string sql = "Select";
+            DataSet ds = new DataSet();
+            string sql = "Select t.Thang, ISNULL(DoanhThu, 0) as 'DoanhThu', ISNULL(c.Chi,0) as 'Chi' from dbo.DoanhThu() t, dbo.Chi() c where t.Thang = c.Thang";
+            SqlDataAdapter da = new SqlDataAdapter(sql, env.conStr);
+            da.Fill(ds);
+            chartTC.DataSource = ds;
+            chartTC.ChartAreas[0].AxisX.Maximum = 12;
+            chartTC.ChartAreas[0].AxisX.Title = "Tháng";
+            chartTC.ChartAreas[0].AxisY.Title = "VND";
+            chartTC.Series["Thu"].XValueMember = "Thang";
+            chartTC.Series["Chi"].XValueMember = "Thang";
+            chartTC.Series["Thu"].YValueMembers = "DoanhThu";
+            chartTC.Series["Chi"].YValueMembers = "Chi";
+        }
+        void loadDoanhThu()
+        {
+            DataSet ds = new DataSet();
+            string sql = "Select Thang, ISNULL(dbo.DoanhThuThang(Thang), 0) - ISNULL(dbo.ChiThang(Thang),0) as DoanhThu from dbo.DoanhThu()";
+            SqlDataAdapter da = new SqlDataAdapter(sql, env.conStr);
+            da.Fill(ds);
+            chartDT.DataSource = ds;
+            chartDT.ChartAreas[0].AxisX.Maximum = 12;
+            chartDT.ChartAreas[0].AxisX.Title = "Tháng";
+            chartDT.ChartAreas[0].AxisY.Title = "VND";
+            chartDT.Series["s1"].XValueMember = "Thang";
+            chartDT.Series["s1"].YValueMembers = "DoanhThu";
         }
         private void f_ThongKe_Load(object sender, EventArgs e)
         {
             loadTiLeDatBan();
+            loadThuChi();
+            loadDoanhThu();
         }
     }
 }

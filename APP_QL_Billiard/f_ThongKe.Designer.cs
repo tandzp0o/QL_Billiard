@@ -42,12 +42,12 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartDB = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTC = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDT = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chartDB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,61 +75,65 @@
             title1.Name = "Title1";
             this.chartDB.Titles.Add(title1);
             // 
-            // chartDT
+            // chartTC
             // 
             chartArea2.Name = "ChartArea1";
-            this.chartDT.ChartAreas.Add(chartArea2);
+            this.chartTC.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
-            this.chartDT.Legends.Add(legend2);
-            this.chartDT.Location = new System.Drawing.Point(3, 308);
-            this.chartDT.Name = "chartDT";
-            this.chartDT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartTC.Legends.Add(legend2);
+            this.chartTC.Location = new System.Drawing.Point(3, 308);
+            this.chartTC.Name = "chartTC";
+            this.chartTC.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.IsValueShownAsLabel = true;
             series2.Legend = "Legend1";
             series2.Name = "Thu";
             series2.YValuesPerPoint = 4;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.IsValueShownAsLabel = true;
             series3.Legend = "Legend1";
             series3.Name = "Chi";
-            this.chartDT.Series.Add(series2);
-            this.chartDT.Series.Add(series3);
-            this.chartDT.Size = new System.Drawing.Size(1327, 435);
-            this.chartDT.TabIndex = 1;
-            this.chartDT.Text = "chartDT";
+            this.chartTC.Series.Add(series2);
+            this.chartTC.Series.Add(series3);
+            this.chartTC.Size = new System.Drawing.Size(1327, 435);
+            this.chartTC.TabIndex = 1;
+            this.chartTC.Text = "chartDT";
             title2.Alignment = System.Drawing.ContentAlignment.TopCenter;
             title2.Name = "Title1";
-            this.chartDT.Titles.Add(title2);
+            this.chartTC.Titles.Add(title2);
             // 
-            // chart1
+            // chartDT
             // 
             chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            this.chartDT.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(540, 3);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartDT.Legends.Add(legend3);
+            this.chartDT.Location = new System.Drawing.Point(540, 3);
+            this.chartDT.Name = "chartDT";
+            this.chartDT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.IsValueShownAsLabel = true;
             series4.Legend = "Legend1";
-            series4.Name = "Series1";
+            series4.LegendText = "Doanh thu";
+            series4.Name = "s1";
             series4.YValuesPerPoint = 4;
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(790, 299);
-            this.chart1.SuppressExceptions = true;
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
+            this.chartDT.Series.Add(series4);
+            this.chartDT.Size = new System.Drawing.Size(790, 299);
+            this.chartDT.SuppressExceptions = true;
+            this.chartDT.TabIndex = 2;
+            this.chartDT.Text = "chart1";
             title3.Alignment = System.Drawing.ContentAlignment.TopCenter;
             title3.Name = "Title1";
-            this.chart1.Titles.Add(title3);
+            this.chartDT.Titles.Add(title3);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.chartDB);
+            this.panel1.Controls.Add(this.chartTC);
             this.panel1.Controls.Add(this.chartDT);
-            this.panel1.Controls.Add(this.chart1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1333, 746);
@@ -145,8 +149,8 @@
             this.Text = "f_ThongKe";
             this.Load += new System.EventHandler(this.f_ThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartDB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -155,8 +159,8 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDB;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTC;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDT;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel1;
     }
 }

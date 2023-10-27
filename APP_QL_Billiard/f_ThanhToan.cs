@@ -10,18 +10,24 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DTO;
 
 namespace APP_QL_Billiard
 {
     public partial class f_ThanhToan : Form
     {
         ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
-        int maHoaDon = 1;
-        string maTaiKhoan = "user";
+        string maBan;
 
         public f_ThanhToan()
         {
             InitializeComponent();
+        }
+
+        public f_ThanhToan(string maBan)
+        {
+            InitializeComponent();
+            this.maBan = maBan;
         }
 
         private void f_ThanhToan_Load(object sender, EventArgs e)
@@ -31,22 +37,22 @@ namespace APP_QL_Billiard
 
         private void CapNhatThongTinHoaDon()
         {
-            string tenBan = thanhToanDAO.GetTenBan(maHoaDon);
+            string tenBan = thanhToanDAO.GetTenBan(maBan);
             lb_Title.Text = "HOÁ ĐƠN BÀN " + tenBan;
 
-            DataTable dt = thanhToanDAO.GetHoaDonChiTiet(maHoaDon);
+            DataTable dt = thanhToanDAO.GetHoaDonChiTiet(maBan);
             dgv_ThanhToan.DataSource = dt;
 
-            DateTime gioBatDau = thanhToanDAO.GetGioBatDau(maHoaDon);
+            DateTime gioBatDau = thanhToanDAO.GetGioBatDau(maBan);
             lb_GBD.Text = "Giờ bắt đầu: " + gioBatDau.ToString("HH:mm");
 
-            DateTime gioKetThuc = thanhToanDAO.GetGioKetThuc(maHoaDon);
+            DateTime gioKetThuc = thanhToanDAO.GetGioKetThuc(maBan);
             lb_GKT.Text = "Giờ kết thúc: " + gioKetThuc.ToString("HH:mm");
 
-            int thoiGianSuDung = thanhToanDAO.GetThoiGianSuDung(maHoaDon);
+            int thoiGianSuDung = thanhToanDAO.GetThoiGianSuDung(maBan);
             lb_TgSD.Text = "Thời gian sử dụng: " + thoiGianSuDung.ToString() + " phút";
 
-            double tongTien = thanhToanDAO.GetTongTien(maHoaDon);
+            double tongTien = thanhToanDAO.GetTongTien(maBan);
             lb_TongTien.Text = "Tổng tiền: " + tongTien.ToString() + " VND";
         }
 
@@ -56,7 +62,7 @@ namespace APP_QL_Billiard
             {
                 chk_SV.Checked = false;
                 chk_VIP.Checked = false;
-                thanhToanDAO.UpdateIsMember(maHoaDon, null);
+                thanhToanDAO.UpdateIsMember(maBan, null);
                 lb_GiamGia.Text = "Giảm 0%";
                 CapNhatThongTinHoaDon();
             }
@@ -68,7 +74,7 @@ namespace APP_QL_Billiard
             {
                 chk_KT.Checked = false;
                 chk_VIP.Checked = false;
-                thanhToanDAO.UpdateIsMember(maHoaDon, false);
+                thanhToanDAO.UpdateIsMember(maBan, false);
                 lb_GiamGia.Text = "Giảm: 20%";
                 CapNhatThongTinHoaDon();
             }
@@ -80,7 +86,7 @@ namespace APP_QL_Billiard
             {
                 chk_KT.Checked = false;
                 chk_SV.Checked = false;
-                thanhToanDAO.UpdateIsMember(maHoaDon, true);
+                thanhToanDAO.UpdateIsMember(maBan, true);
                 lb_GiamGia.Text = "Giảm: 25%";
                 CapNhatThongTinHoaDon();
             }
@@ -88,8 +94,9 @@ namespace APP_QL_Billiard
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
-            thanhToanDAO.UpdateHoaDonTaiKhoan(maHoaDon, maTaiKhoan);
-            f_InHD fInHD = new f_InHD(maHoaDon);
+            string maTaiKhoan = "user";
+            thanhToanDAO.UpdateHoaDonTaiKhoan(maBan, maTaiKhoan);
+            f_InHD fInHD = new f_InHD(maBan);
             this.Hide();
             fInHD.ShowDialog();
             this.Show();
