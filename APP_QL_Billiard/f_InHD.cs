@@ -16,30 +16,30 @@ namespace APP_QL_Billiard
     public partial class f_InHD : Form
     {
         InHoaDonDAO inHoaDonDAO = new InHoaDonDAO();
-        int maHoaDon;
+        string maBan;
 
-        public f_InHD(int maHoaDon)
+        public f_InHD(string maBan)
         {
             InitializeComponent();
-            this.maHoaDon = maHoaDon;
+            this.maBan = maBan;
         }
 
         private void f_InHD_Load(object sender, EventArgs e)
         {
-            lb_Title.Text += inHoaDonDAO.GetTenBan(maHoaDon);
+            lb_Title.Text += inHoaDonDAO.GetTenBan(maBan);
             lb_Ngay.Text += DateTime.Now.ToString("dd/MM/yyyy");
-            lb_MaSo.Text += inHoaDonDAO.GetMaHoaDon(maHoaDon);
-            lb_ThuNgan.Text += inHoaDonDAO.GetTenThuNgan(maHoaDon);
+            lb_MaSo.Text += inHoaDonDAO.GetMaHoaDon(maBan);
+            lb_ThuNgan.Text += inHoaDonDAO.GetTenThuNgan(maBan);
             lb_InLuc.Text += DateTime.Now.ToString("HH:mm");
-            lb_GBD.Text += inHoaDonDAO.GetGioBatDau(maHoaDon).ToString("HH:mm");
-            lb_GKT.Text += inHoaDonDAO.GetGioKetThuc(maHoaDon).ToString("HH:mm");
-            DataTable dt = inHoaDonDAO.GetHoaDonChiTiet(maHoaDon);
+            lb_GBD.Text += inHoaDonDAO.GetGioBatDau(maBan);
+            lb_GKT.Text += inHoaDonDAO.GetGioKetThuc(maBan);
+            DataTable dt = inHoaDonDAO.GetHoaDonChiTiet(maBan);
             dgv_InHD.DataSource = dt;
-            lb_TienDV.Text += inHoaDonDAO.GetTienDichVu(maHoaDon).ToString() + " VND";
-            lb_TongTienGio.Text += inHoaDonDAO.GetTongTienGio(maHoaDon).ToString() + " VND";
-            lb_GiamGia.Text += inHoaDonDAO.GetGiamGia(maHoaDon).ToString() + "%";
-            lb_TongTien.Text += inHoaDonDAO.GetTongTien(maHoaDon).ToString() + " VND";
-            lb_TienGio.Text += inHoaDonDAO.GetGiaGio(maHoaDon).ToString() + "/1h";
+            lb_TienDV.Text += inHoaDonDAO.GetTienDichVu(maBan).ToString() + " VND";
+            lb_TongTienGio.Text += inHoaDonDAO.GetTongTienGio(maBan).ToString() + " VND";
+            lb_GiamGia.Text += inHoaDonDAO.GetGiamGia(maBan).ToString() + "%";
+            lb_TongTien.Text += inHoaDonDAO.GetTongTien(maBan).ToString() + " VND";
+            lb_TienGio.Text += inHoaDonDAO.GetGiaGio(maBan).ToString() + "/1h";
         }
     }
 }
