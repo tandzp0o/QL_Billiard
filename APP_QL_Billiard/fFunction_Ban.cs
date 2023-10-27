@@ -141,6 +141,17 @@ namespace APP_QL_Billiard
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            string tenBan = txt_TenBan.Text;
+            DateTime gioBatDau = Ban1.GioBD;
+            DateTime gioKetThuc = Ban1.GioKT;
+            string tenNV = lbl_NV.Text;
+
+            ThanhToanDAO dao = new ThanhToanDAO();
+            string maBan = dao.GetMaBan(tenBan);
+            string taiKhoan = dao.GetTaiKhoan(tenNV);
+
+            dao.LuuHoaDon(maBan, gioBatDau, gioKetThuc, taiKhoan);
+
             f_ThanhToan thanhToanForm = new f_ThanhToan(Ban1.ID);
             thanhToanForm.Show();
             this.Hide();

@@ -97,7 +97,7 @@ namespace APP_QL_Billiard.DAO
         {
             string query = "Select HoaDon.TongTien from HoaDon where MaBan = @maBan";
             object result = ExecuteScalar(query, maBan);
-            return result != null ? (double)result : 0;
+            return result != DBNull.Value ? Convert.ToDouble(result) : 0;
         }
 
         public void UpdateHoaDonTaiKhoan(string maBan, string taiKhoan)
@@ -115,5 +115,57 @@ namespace APP_QL_Billiard.DAO
                 }
             }
         }
+
+        public void LuuHoaDon(string maBan, DateTime gioBatDau, DateTime gioKetThuc, string taiKhoan)
+        {
+            string query = "INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, TaiKhoan) VALUES (@MaBan, @GioBatDau, @GioKetThuc, @TaiKhoan)";
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@MaBan", maBan);
+                    cmd.Parameters.AddWithValue("@GioBatDau", gioBatDau);
+                    cmd.Parameters.AddWithValue("@GioKetThuc", gioKetThuc);
+                    cmd.Parameters.AddWithValue("@TaiKhoan", taiKhoan);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+        public string GetMaBan(string tenBan)
+        {
+            string query = "SELECT MaBan FROM Ban WHERE TenBan = @tenBan";
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@tenBan", tenBan);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    con.Close();
+                    return result != null ? (string)result : "";
+                }
+            }
+        }
+
+
+        public string GetTaiKhoan(string tenNV)
+        {
+            string query = "SELECT TaiKhoan FROM Account WHERE HoTen = @tenNV";
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@tenNV", tenNV);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    con.Close();
+                    return result != null ? (string)result : "";
+                }
+            }
+        }
+
     }
 }
