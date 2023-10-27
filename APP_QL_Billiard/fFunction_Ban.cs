@@ -12,8 +12,6 @@ using APP_QL_Billiard.DTO;
 
 namespace APP_QL_Billiard
 {
-
-
     public partial class fFunction_Ban : Form
     {
         public Ban Ban1 { get;  set;}
@@ -139,6 +137,13 @@ namespace APP_QL_Billiard
                txtGia.Text = gia + ".000 VND";
                 btnPay.Enabled = true;
             this.reLoad();
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            f_ThanhToan thanhToanForm = new f_ThanhToan(Ban1.ID);
+            thanhToanForm.Show();
+            this.Hide();
         }
     }
 }

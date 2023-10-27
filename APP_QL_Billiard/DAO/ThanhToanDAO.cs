@@ -5,18 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 
 namespace APP_QL_Billiard.DAO
 {
     public class ThanhToanDAO
     {
-        public object ExecuteScalar(string query, int maHoaDon)
+        public object ExecuteScalar(string query, object paramValue)
         {
             using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    cmd.Parameters.AddWithValue("@maBan", paramValue);
                     con.Open();
                     object result = cmd.ExecuteScalar();
                     con.Close();
@@ -25,14 +26,14 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
-        public string GetTenBan(int maHoaDon)
+        public string GetTenBan(string maBan)
         {
-            string query = "Select Ban.TenBan from Ban join HoaDon on Ban.MaBan = HoaDon.MaBan where HoaDon.MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
+            string query = "Select Ban.TenBan from Ban where MaBan = @maBan";
+            object result = ExecuteScalar(query, maBan);
             return result != null ? (string)result : "";
         }
 
-        public DataTable GetHoaDonChiTiet(int maHoaDon)
+        public DataTable GetHoaDonChiTiet(string maBan)
         {
             using (SqlConnection con = new SqlConnection(env.conStr))
             {
@@ -41,10 +42,10 @@ namespace APP_QL_Billiard.DAO
                          from ChiTietHoaDon
                          inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
                          inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
-                         where ChiTietHoaDon.MaHoaDon = @maHoaDon";
+                         where HoaDon.MaBan = @maBan";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    cmd.Parameters.AddWithValue("@maBan", maBan);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -55,35 +56,35 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
-        public DateTime GetGioBatDau(int maHoaDon)
+        public DateTime GetGioBatDau(string maBan)
         {
-            string query = "Select HoaDon.GioBatDau from HoaDon where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
+            string query = "Select HoaDon.GioBatDau from HoaDon where MaBan = @maBan";
+            object result = ExecuteScalar(query, maBan);
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
-        public DateTime GetGioKetThuc(int maHoaDon)
+        public DateTime GetGioKetThuc(string maBan)
         {
-            string query = "Select HoaDon.GioKetThuc from HoaDon where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
+            string query = "Select HoaDon.GioKetThuc from HoaDon where MaBan = @maBan";
+            object result = ExecuteScalar(query, maBan);
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
-        public int GetThoiGianSuDung(int maHoaDon)
+        public int GetThoiGianSuDung(string maBan)
         {
-            string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
+            string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaBan = @maBan";
+            object result = ExecuteScalar(query, maBan);
             return result != null ? (int)result : 0;
         }
 
-        public void UpdateIsMember(int maHoaDon, bool? isMember)
+        public void UpdateIsMember(string maBan, bool? isMember)
         {
-            string query = "Update HoaDon set IsMember = @isMember where MaHoaDon = @maHoaDon";
+            string query = "Update HoaDon set IsMember = @isMember where MaBan = @maBan";
             using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    cmd.Parameters.AddWithValue("@maBan", maBan);
                     cmd.Parameters.AddWithValue("@isMember", (object)isMember ?? DBNull.Value);
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -92,21 +93,21 @@ namespace APP_QL_Billiard.DAO
             }
         }
 
-        public double GetTongTien(int maHoaDon)
+        public double GetTongTien(string maBan)
         {
-            string query = "Select HoaDon.TongTien from HoaDon where MaHoaDon = @maHoaDon";
-            object result = ExecuteScalar(query, maHoaDon);
+            string query = "Select HoaDon.TongTien from HoaDon where MaBan = @maBan";
+            object result = ExecuteScalar(query, maBan);
             return result != null ? (double)result : 0;
         }
 
-        public void UpdateHoaDonTaiKhoan(int maHoaDon, string taiKhoan)
+        public void UpdateHoaDonTaiKhoan(string maBan, string taiKhoan)
         {
-            string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaHoaDon = @maHoaDon";
+            string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaBan = @maBan";
             using (SqlConnection con = new SqlConnection(env.conStr))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+                    cmd.Parameters.AddWithValue("@maBan", maBan);
                     cmd.Parameters.AddWithValue("@taiKhoan", taiKhoan);
                     con.Open();
                     cmd.ExecuteNonQuery();
