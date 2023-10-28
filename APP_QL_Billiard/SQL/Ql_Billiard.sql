@@ -151,8 +151,6 @@ BEGIN
 				FROM
 					DatTruoc
 				WHERE
-					DatTruoc.ThoiGianToi > GETDATE()
-				AND
 					DatTruoc.ThoiGianToi <= GETDATE()
 				AND
 					DatTruoc.TrangThai = 0
