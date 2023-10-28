@@ -53,10 +53,11 @@ namespace APP_QL_Billiard
             this.NgayHienTai.Checked = false;
             this.NgayHienTai.CustomFormat = "MM/dd/yyyy";
             this.NgayHienTai.Enabled = false;
-            this.NgayHienTai.Location = new System.Drawing.Point(22, 92);
+            this.NgayHienTai.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.NgayHienTai.Location = new System.Drawing.Point(133, 62);
             this.NgayHienTai.Margin = new System.Windows.Forms.Padding(4);
             this.NgayHienTai.Name = "NgayHienTai";
-            this.NgayHienTai.Size = new System.Drawing.Size(364, 23);
+            this.NgayHienTai.Size = new System.Drawing.Size(146, 23);
             this.NgayHienTai.TabIndex = 25;
             // 
             // btnRef
@@ -139,7 +140,7 @@ namespace APP_QL_Billiard
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 185);
+            this.label3.Location = new System.Drawing.Point(18, 123);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 17);
@@ -159,7 +160,7 @@ namespace APP_QL_Billiard
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(118, 182);
+            this.txtSDT.Location = new System.Drawing.Point(118, 120);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(268, 23);
@@ -201,7 +202,7 @@ namespace APP_QL_Billiard
             // 
             // txtMaKH
             // 
-            this.txtMaKH.Location = new System.Drawing.Point(153, 48);
+            this.txtMaKH.Location = new System.Drawing.Point(21, 22);
             this.txtMaKH.Name = "txtMaKH";
             this.txtMaKH.Size = new System.Drawing.Size(100, 23);
             this.txtMaKH.TabIndex = 28;
@@ -209,7 +210,7 @@ namespace APP_QL_Billiard
             // 
             // txtTenKH
             // 
-            this.txtTenKH.Location = new System.Drawing.Point(118, 135);
+            this.txtTenKH.Location = new System.Drawing.Point(118, 182);
             this.txtTenKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.ReadOnly = true;
@@ -219,7 +220,7 @@ namespace APP_QL_Billiard
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 138);
+            this.label2.Location = new System.Drawing.Point(18, 185);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 17);

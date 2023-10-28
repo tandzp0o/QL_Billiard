@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using APP_QL_Billiard.DTO;
+using APP_QL_Billiard.DAO;
 
 namespace APP_QL_Billiard
 {
@@ -93,6 +94,24 @@ namespace APP_QL_Billiard
             table_panel.Controls.Clear();
             formContent(new f_ThongKe(), new Form(), table_panel, null);
 
+        }
+
+
+        private void btnThucDon_MouseHover(object sender, EventArgs e)
+        {
+            //this.BackColor = Color.FromArgb();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            string query = "exec dbo.TrangThaiBan";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
+
+        private void fTable_Manager_ADM_Load(object sender, EventArgs e)
+        {
+            GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
     }
 }
