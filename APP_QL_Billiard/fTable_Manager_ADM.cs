@@ -65,9 +65,11 @@ namespace APP_QL_Billiard
         }
         private void btnDatTruoc_Click(object sender, EventArgs e)
         {
+            fListDatTruoc f = new fListDatTruoc();
+
             namePage.Text = btnDatTruoc.Text;
             table_panel.Controls.Clear();
-            formContent(new fDatTruoc(), new fListDatTruoc(), table_panel, table_panel);
+            formContent(new fDatTruoc(f), f, table_panel, table_panel);
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -92,7 +94,7 @@ namespace APP_QL_Billiard
         {
             namePage.Text = btnThongKe.Text;
             table_panel.Controls.Clear();
-            formContent(new f_ThongKe(), new Form(), table_panel, null);
+            formContent(new f_ThongKe(), new f_DoanhThu(), table_panel, table_panel);
 
         }
 
@@ -112,6 +114,14 @@ namespace APP_QL_Billiard
         private void fTable_Manager_ADM_Load(object sender, EventArgs e)
         {
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+        }
+
+        private void btnDKMember_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnDKMember.Text;
+            table_panel.Controls.Clear();
+            formContent(new fCreateMember(), new Form(), table_panel, null);
+
         }
     }
 }

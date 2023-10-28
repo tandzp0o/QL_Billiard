@@ -15,6 +15,13 @@ namespace APP_QL_Billiard
 {
     public partial class fDatTruoc : Form
     {
+        public fListDatTruoc F { get; set; }
+        public fDatTruoc(fListDatTruoc f)
+        {
+            InitializeComponent();
+            F = f;
+        }
+
         public fDatTruoc()
         {
             InitializeComponent();
@@ -26,6 +33,7 @@ namespace APP_QL_Billiard
             List<string> loai = new List<string> {"Chọn", "Lỗ", "Lip", "Carom"};
             cbbTypeTable.DataSource = loai;
             cbbTypeTable.DisplayMember = "TypeTable";
+            GioToi.Value = DateTime.Now;
         }
 
         private void cbbTypeTable_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,27 +45,34 @@ namespace APP_QL_Billiard
             cbbEmptyTable.ValueMember = "MaBan";
         }
 
+
+
         private void btnDo_Click(object sender, EventArgs e)
         {
             if(txtSDT.Text == string.Empty || cbbTypeTable.SelectedIndex == 0)
             {
                 MessageBox.Show("Chưa nhập đủ thông tin","Thông Báo");
                 return;
-            }    
+            }
             if (txtMaKH.Text != string.Empty)
             {
+                if(GioToi.Value > DateTime.Now.AddHours(3) || GioToi.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Không được đặt trước quá 3 giờ hoặc trước giờ hiện tại","Thông Báo");
+                    return;
+                }    
                 if (GioToi.Value.TimeOfDay < DateTime.Now.TimeOfDay)
                     NgayHienTai.Value = NgayHienTai.Value.AddDays(1);
-                string query = "insert into DatTruoc values (" + txtMaKH.Text + ", '" + cbbEmptyTable.SelectedValue.ToString() + "','" + NgayHienTai.Value.ToString("MM/dd/yyyy") +" "+ GioToi.Text + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy") + "',0)";
+                string query = "insert into DatTruoc(Id, MaBan, ThoiGianToi, NgayDat, TrangThai) values (" + txtMaKH.Text + ", '" + cbbEmptyTable.SelectedValue.ToString() + "','" + DateTime.Now.ToString("MM/dd/yyyy") + " "+ GioToi.Value.ToString("HH:mm:ss") + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "',0)";
                 int k = DataProvider.Instance.ExcuteNonQuery(query);
                 if (NgayHienTai.Value > DateTime.Now)
                     NgayHienTai.Value = DateTime.Now;
                 if (k != 0)
                 {
-                    MessageBox.Show("Đặt thành công");
+                    MessageBox.Show("Đặt thành công", "Thông Báo");
                 }
                 else
-                    MessageBox.Show("Đặt không thành công");
+                    MessageBox.Show("Đặt không thành công", "Thông Báo");
             }
             else
             {
@@ -68,8 +83,9 @@ namespace APP_QL_Billiard
                     a.SDT = txtSDT;
                     a.Show();
                 }    
-            }    
-            
+            }
+            string query1 = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan";
+            F.loaddtgv(query1);
         }
 
         private void btnRef_Click(object sender, EventArgs e)

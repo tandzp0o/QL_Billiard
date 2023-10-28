@@ -20,9 +20,29 @@ namespace APP_QL_Billiard
 
         private void btnWatchAll_Click(object sender, EventArgs e)
         {
-            string query = "select MaBan, ThoiGianToi, NgayDat from DatTruoc";
+            string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan";
+            loaddtgv(query);
+        }
+
+        public void loaddtgv(string query)
+        {
             DataTable a = DataProvider.Instance.ExcuteQuery(query);
             dtgvDatTruoc.DataSource = a;
+            dtgvDatTruoc.Columns[0].HeaderText = "Tên Bàn";
+            dtgvDatTruoc.Columns[1].HeaderText = "Giờ Tới";
+            dtgvDatTruoc.Columns[2].HeaderText = "Ngày Đặt";
+        }
+
+        private void fListDatTruoc_Load(object sender, EventArgs e)
+        {
+            string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan";
+            loaddtgv(query);
+        }
+
+        private void btnWatchFrom_Click(object sender, EventArgs e)
+        {
+            string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan and ThoiGianToi >='" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and ThoiGianToi <='" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "'";
+            loaddtgv(query);
         }
     }
 }

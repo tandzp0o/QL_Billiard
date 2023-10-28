@@ -53,11 +53,10 @@ namespace APP_QL_Billiard
             this.NgayHienTai.Checked = false;
             this.NgayHienTai.CustomFormat = "MM/dd/yyyy";
             this.NgayHienTai.Enabled = false;
-            this.NgayHienTai.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.NgayHienTai.Location = new System.Drawing.Point(133, 62);
+            this.NgayHienTai.Location = new System.Drawing.Point(118, 64);
             this.NgayHienTai.Margin = new System.Windows.Forms.Padding(4);
             this.NgayHienTai.Name = "NgayHienTai";
-            this.NgayHienTai.Size = new System.Drawing.Size(146, 23);
+            this.NgayHienTai.Size = new System.Drawing.Size(268, 23);
             this.NgayHienTai.TabIndex = 25;
             // 
             // btnRef
@@ -150,11 +149,11 @@ namespace APP_QL_Billiard
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 19);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(113, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 26);
+            this.label1.Size = new System.Drawing.Size(166, 29);
             this.label1.TabIndex = 15;
             this.label1.Text = "Đặt Bàn Trước";
             // 
@@ -171,7 +170,8 @@ namespace APP_QL_Billiard
             // GioToi
             // 
             this.GioToi.Checked = false;
-            this.GioToi.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.GioToi.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            this.GioToi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.GioToi.Location = new System.Drawing.Point(118, 251);
             this.GioToi.Name = "GioToi";
             this.GioToi.ShowUpDown = true;
@@ -202,7 +202,7 @@ namespace APP_QL_Billiard
             // 
             // txtMaKH
             // 
-            this.txtMaKH.Location = new System.Drawing.Point(21, 22);
+            this.txtMaKH.Location = new System.Drawing.Point(300, 0);
             this.txtMaKH.Name = "txtMaKH";
             this.txtMaKH.Size = new System.Drawing.Size(100, 23);
             this.txtMaKH.TabIndex = 28;

@@ -33,7 +33,7 @@ namespace APP_QL_Billiard
             this.bànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billiardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_Left = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDKMember = new System.Windows.Forms.Button();
             this.btnDatTruoc = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@ namespace APP_QL_Billiard
             // 
             // pn_Left
             // 
-            this.pn_Left.Controls.Add(this.button1);
+            this.pn_Left.Controls.Add(this.btnDKMember);
             this.pn_Left.Controls.Add(this.btnDatTruoc);
             this.pn_Left.Controls.Add(this.btnThongKe);
             this.pn_Left.Controls.Add(this.btnSignOut);
@@ -86,16 +86,17 @@ namespace APP_QL_Billiard
             this.pn_Left.Size = new System.Drawing.Size(194, 661);
             this.pn_Left.TabIndex = 0;
             // 
-            // button1
+            // btnDKMember
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 319);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Đặt Trước";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDKMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDKMember.Location = new System.Drawing.Point(0, 319);
+            this.btnDKMember.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDKMember.Name = "btnDKMember";
+            this.btnDKMember.Size = new System.Drawing.Size(194, 40);
+            this.btnDKMember.TabIndex = 4;
+            this.btnDKMember.Text = "Đăng Ký Thành Viên";
+            this.btnDKMember.UseVisualStyleBackColor = true;
+            this.btnDKMember.Click += new System.EventHandler(this.btnDKMember_Click);
             // 
             // btnDatTruoc
             // 
@@ -296,7 +297,7 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.Button btnDatTruoc;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.TableLayoutPanel table_panel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDKMember;
         private System.Windows.Forms.Label GioHeThong;
         private System.Windows.Forms.Timer timer1;
     }
