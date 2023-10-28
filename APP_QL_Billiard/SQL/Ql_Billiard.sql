@@ -225,7 +225,7 @@ BEGIN
     DECLARE @DoanhThu FLOAT;
     SELECT @DoanhThu = SUM(TongTien)
     FROM HoaDon
-    WHERE MONTH(GioBatDau) = @Thang;
+    WHERE MONTH(GioBatDau) = @Thang and YEAR(GioBatDau) = YEAR(GETDATE());
     RETURN @DoanhThu;
 END;
 go
@@ -237,7 +237,7 @@ BEGIN
     DECLARE @Chi FLOAT;
     SELECT @Chi = SUM(ThanhTien)
     FROM PhieuNhap
-    WHERE MONTH(NgayNhap) = @Thang;
+    WHERE MONTH(NgayNhap) = @Thang and YEAR(NgayNhap) = YEAR(GETDATE());
     RETURN @Chi;
 END;
 go
