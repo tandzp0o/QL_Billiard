@@ -44,6 +44,36 @@ namespace APP_QL_Billiard
         {
             if (SDT != null)
                 txtPhone.Text = SDT.Text;
+            string query = "select * from KhachHang";
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            dtgvDSMember.DataSource = dt;
+            txtPhone.Focus();
+        }
+
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            txtName.Clear();
+            txtPhone.Clear();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            string query = "delete KhachHang where = "+ txtPhone.Text;
+        }
+
+        private void dtgvDSMember_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dtgvDSMember.Rows[e.RowIndex];
+                row.Selected = true;
+            }
+        }
+
+        private void dtgvDSMember_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtPhone.Text = dtgvDSMember.SelectedRows[0].Cells[1].Value.ToString();
+            txtName.Text = dtgvDSMember.SelectedRows[0].Cells[0].Value.ToString();
         }
     }
 }
