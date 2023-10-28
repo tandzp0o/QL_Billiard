@@ -48,7 +48,7 @@ namespace APP_QL_Billiard
             {
                 if (GioToi.Value.TimeOfDay < DateTime.Now.TimeOfDay)
                     NgayHienTai.Value = NgayHienTai.Value.AddDays(1);
-                string query = "insert into DatTruoc values (" + txtMaKH.Text + ", '" + cbbEmptyTable.SelectedValue.ToString() + "','" + NgayHienTai.Value.ToString("MM/dd/yyyy") +" "+ GioToi.Text + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy") + "' )";
+                string query = "insert into DatTruoc values (" + txtMaKH.Text + ", '" + cbbEmptyTable.SelectedValue.ToString() + "','" + NgayHienTai.Value.ToString("MM/dd/yyyy") +" "+ GioToi.Text + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy") + "',0)";
                 int k = DataProvider.Instance.ExcuteNonQuery(query);
                 if (NgayHienTai.Value > DateTime.Now)
                     NgayHienTai.Value = DateTime.Now;
