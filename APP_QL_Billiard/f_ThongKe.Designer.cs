@@ -101,6 +101,7 @@
             this.chartTC.TabIndex = 1;
             this.chartTC.Text = "chartDT";
             title2.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title2.Name = "Title1";
             this.chartTC.Titles.Add(title2);
             // 
@@ -126,6 +127,7 @@
             this.chartDT.TabIndex = 2;
             this.chartDT.Text = "chart1";
             title3.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title3.Name = "Title1";
             this.chartDT.Titles.Add(title3);
             // 

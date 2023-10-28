@@ -40,6 +40,7 @@ namespace APP_QL_Billiard
             SqlDataAdapter da = new SqlDataAdapter(sql, env.conStr);
             da.Fill(ds);
             chartTC.DataSource = ds;
+            chartTC.Titles["Title1"].Text = "Biểu đồ thu chi theo từng tháng";
             chartTC.ChartAreas[0].AxisX.Maximum = 12;
             chartTC.ChartAreas[0].AxisX.Title = "Tháng";
             chartTC.ChartAreas[0].AxisY.Title = "VND";
@@ -55,6 +56,7 @@ namespace APP_QL_Billiard
             SqlDataAdapter da = new SqlDataAdapter(sql, env.conStr);
             da.Fill(ds);
             chartDT.DataSource = ds;
+            chartDT.Titles["Title1"].Text = "Biểu đồ doanh thu theo từng tháng";
             chartDT.ChartAreas[0].AxisX.Maximum = 12;
             chartDT.ChartAreas[0].AxisX.Title = "Tháng";
             chartDT.ChartAreas[0].AxisY.Title = "VND";

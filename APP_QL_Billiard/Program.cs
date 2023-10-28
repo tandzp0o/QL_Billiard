@@ -12,7 +12,7 @@ namespace APP_QL_Billiard
     {
         /// <summary>
         /// The main entry point for the application.
-        /// </summary>
+        /// </summary> 
         [STAThread]
         static void Main()
         {
