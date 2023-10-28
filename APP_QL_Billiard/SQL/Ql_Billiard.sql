@@ -1,8 +1,8 @@
-﻿ --use master 
- --go
- --alter database [Ql_Billiard] set single_user with rollback immediate
+﻿-- use master 
+-- go
+-- alter database [Ql_Billiard] set single_user with rollback immediate
 
- --drop database [Ql_Billiard]
+-- drop database [Ql_Billiard]
 
 create database Ql_Billiard
 go
@@ -114,7 +114,7 @@ CREATE TABLE ChiTietPhieuNhap
 	constraint FK_CTPN_TD foreign key (MaThucDon) references ThucDon(MaThucDon)
 )
 
---Procedure
+--Procedure nếu giờ tới mà khách chưa checkin thì set trạng thái bàn thành 2
 GO
 CREATE PROCEDURE [dbo].[TrangThaiBan]
 AS
@@ -133,7 +133,7 @@ BEGIN
 	ON
 		DatTruoc.MaBan = Ban.MaBan
 	WHERE
-		DatTruoc.ThoiGianToi <= DATEADD(hour, -3, GETDATE())
+		DatTruoc.ThoiGianToi <= GETDATE()
 	AND
 		DatTruoc.TrangThai = 0
 
@@ -153,13 +153,15 @@ BEGIN
 				WHERE
 					DatTruoc.ThoiGianToi > GETDATE()
 				AND
-					DatTruoc.ThoiGianToi <= DATEADD(hour, 3, GETDATE())
+					DatTruoc.ThoiGianToi <= GETDATE()
 				AND
 					DatTruoc.TrangThai = 0
 			)
 	END
 
 END
+go
+exec dbo.TrangThaiBan
 go
 --Triger
 
