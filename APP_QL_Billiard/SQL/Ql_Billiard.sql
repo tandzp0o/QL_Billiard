@@ -77,20 +77,21 @@ create TABLE ChiTietHoaDon
 
 CREATE TABLE KhachHang
 (
-    Phone CHAR(10) PRIMARY KEY CHECK (Phone LIKE '%[0-9]%' and len(Phone) = 10),
-    Ten NVARCHAR(50) NOT NULL
+    Id int IDENTITY PRIMARY KEY NOT NULL,
+    Ten NVARCHAR(50) NOT NULL,
+    Phone CHAR(10) NOT NULL CHECK (Phone LIKE '%[0-9]%')
 )
 
 CREATE TABLE DatTruoc
 (
 	MaDatTruoc int identity not null,
-    Phone CHAR(10) NOT NULL,
+    Id int NOT NULL,
     MaBan char(4) NOT NULL,
     ThoiGianToi datetime not null, --nếu tới giờ thì hiện thông báo 
 	NgayDat datetime not null,
 	TrangThai int not null,
     CONSTRAINT pk_DatTruoc PRIMARY KEY (MaDatTruoc),
-    CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Phone) REFERENCES KhachHang(Phone),
+    CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Id) REFERENCES KhachHang(Id),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
 	CONSTRAINT chk_ThoiGianToi CHECK (ThoiGianToi <= DATEADD(hour, 3, GETDATE()) and ThoiGianToi >= GETDATE()),
 	constraint chk_TrangThaiDatTruoc check (TrangThai >= 0 and TrangThai <= 2)
@@ -122,7 +123,7 @@ AS
 BEGIN
 
     SELECT
-    DatTruoc.Phone,
+    DatTruoc.Id,
     DatTruoc.MaBan,
     DatTruoc.ThoiGianToi,
     DatTruoc.TrangThai,
@@ -393,8 +394,8 @@ Go
 
 -- Thêm dữ liệu vào bảng KhachHang
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');
-INSERT INTO KhachHang (Ten, Phone) VALUES (N'Lê An Tuyết', '0000000000');
-INSERT INTO KhachHang (Ten, Phone) VALUES (N'Tấn Đẹp chai', '1111111111');
+INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');
+INSERT INTO KhachHang (Ten, Phone) VALUES (N'Tấn Đẹp chai', '12');
 
 -- Thêm dữ liệu vào bảng Ban
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Lo01', N'Bàn Lỗ 1', N'Lỗ', 2, 100000);
@@ -407,8 +408,8 @@ INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Ca01', N'Bàn 
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Ca02', N'Bàn Carom 2', N'Carom', 2, 100000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
-INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('1111111111', 'Lo01', dateadd(hour,2,getdate()), 0, GETDATE());
-INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('0000000000', 'Li02', dateadd(hour,2,getdate()), 0, GETDATE());
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES (1, 'Lo01', dateadd(hour,2,getdate()), 0, GETDATE());
+INSERT INTO DatTruoc (Id, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES (2, 'Li02', dateadd(hour,2,getdate()), 0, GETDATE());
 
 -- Thêm dữ liệu vào bảng HoaDon
 INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Lo01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null, 'user');
