@@ -36,7 +36,7 @@ namespace APP_QL_Billiard
             foreach (Ban item in banList)
             {
                 Button btn = new Button() { Width = BanDAO.TableWidth, Height = BanDAO.TableHeight };
-                btn.Text = item.Name + Environment.NewLine + item.Type + Environment.NewLine + item.Gia;
+                btn.Text = item.Name + Environment.NewLine + item.Type;
                 btn.Margin = new Padding(18);
                 btn.Tag= item;
                 btn.Click += Btn_Click;

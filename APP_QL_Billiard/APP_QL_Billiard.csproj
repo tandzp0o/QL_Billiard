@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ThucDonDAO.cs" />
-    <Compile Include="DTO\ThucDon.cs" />
     <Compile Include="env.cs" />
     <Compile Include="fCreateMember.cs">
       <SubType>Form</SubType>
@@ -111,12 +109,6 @@
     <Compile Include="f_InHD.Designer.cs">
       <DependentUpon>f_InHD.cs</DependentUpon>
     </Compile>
-    <Compile Include="f_ListMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="f_ListMenu.Designer.cs">
-      <DependentUpon>f_ListMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="f_ListTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,9 +161,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_InHD.resx">
       <DependentUpon>f_InHD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="f_ListMenu.resx">
-      <DependentUpon>f_ListMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_ListTable.resx">
       <DependentUpon>f_ListTable.cs</DependentUpon>
