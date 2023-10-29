@@ -139,8 +139,8 @@ namespace APP_QL_Billiard
 
                 txtGio.Text = hour + " giờ " + minute + " phút";
 
-                int gia = (int)(m * 2000) / 60;
-               txtGia.Text = gia + ".000 VND";
+                int gia = (int)(m * 100000) / 60; // sẽ kéo giá từ db về để tính
+               txtGia.Text = gia + ".00 VND";
                 btnPay.Enabled = true;
             this.reLoad();
         }
