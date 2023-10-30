@@ -33,13 +33,13 @@ namespace APP_QL_Billiard
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnWatchFrom = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnWatchAll = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dtgvDatTruoc = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDatTruoc)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,16 @@ namespace APP_QL_Billiard
             this.panel1.Size = new System.Drawing.Size(577, 718);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(156, 175);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(317, 29);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Danh Sách Đăng Ký Trước";
+            // 
             // btnWatchFrom
             // 
             this.btnWatchFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -76,7 +86,7 @@ namespace APP_QL_Billiard
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(28, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
+            this.label2.Size = new System.Drawing.Size(51, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Đến";
             // 
@@ -102,7 +112,7 @@ namespace APP_QL_Billiard
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(234, 29);
+            this.dateTimePicker2.Size = new System.Drawing.Size(234, 34);
             this.dateTimePicker2.TabIndex = 2;
             // 
             // dateTimePicker1
@@ -116,7 +126,7 @@ namespace APP_QL_Billiard
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(234, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(234, 34);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // dtgvDatTruoc
@@ -148,24 +158,15 @@ namespace APP_QL_Billiard
             this.dtgvDatTruoc.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvDatTruoc.Name = "dtgvDatTruoc";
             this.dtgvDatTruoc.ReadOnly = true;
+            this.dtgvDatTruoc.RowHeadersVisible = false;
             this.dtgvDatTruoc.RowHeadersWidth = 51;
             this.dtgvDatTruoc.RowTemplate.Height = 24;
             this.dtgvDatTruoc.Size = new System.Drawing.Size(577, 513);
             this.dtgvDatTruoc.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(156, 175);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 24);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Danh Sách Đăng Ký Trước";
-            // 
             // fListDatTruoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 745);
             this.Controls.Add(this.panel1);

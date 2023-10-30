@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APP_QL_Billiard.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,44 @@ namespace APP_QL_Billiard
         public fLichSu()
         {
             InitializeComponent();
+        }
+
+        private void fLichSu_Load(object sender, EventArgs e)
+        {
+            string query = "select TaiKhoan from Account";
+            DataTable a = DataProvider.Instance.ExcuteQuery(query);
+            cbbNhanVien.DataSource = a;
+            cbbNhanVien.DisplayMember = "HoTen";
+            cbbNhanVien.ValueMember = "TaiKhoan";
+            string query1 = "select * from HoaDon";
+            dataGridView1_Load(query1);
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            string query = "select * from HoaDon where GioKetThuc >= '" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and GioKetThuc <= '" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "' and TaiKhoan = '"+cbbNhanVien.SelectedValue+"'";
+            dataGridView1_Load(query);
+        }
+
+        private void dataGridView1_Load(string query)
+        {
+            DataTable a = DataProvider.Instance.ExcuteQuery(query);
+            dataGridView1.DataSource = a;
+            dataGridView1.Columns[0].HeaderText = "Mã Hoá Đơn";
+            dataGridView1.Columns[1].HeaderText = "Mã Bàn";
+            dataGridView1.Columns[2].HeaderText = "Giờ Bắt Đầu";
+            dataGridView1.Columns[3].HeaderText = "Giờ Kết Thúc";
+            dataGridView1.Columns[4].HeaderText = "Thời Gian Chơi";
+            dataGridView1.Columns[5].HeaderText = "Tiền Thanh Toán";
+            dataGridView1.Columns[6].HeaderText = "Khách Hàng";
+            dataGridView1.Columns[7].HeaderText = "Tổng Tiền";
+            dataGridView1.Columns[8].HeaderText = "Tài Khoản Thanh Toán";
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            string query = "select * from HoaDon";
+            dataGridView1_Load(query);
         }
     }
 }

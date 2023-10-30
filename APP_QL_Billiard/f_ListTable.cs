@@ -78,5 +78,11 @@ namespace APP_QL_Billiard
             PointF pf2 = new PointF(465f,flpTable.Height*60f/9);
             e.Graphics.DrawLine(p, pf1, pf2);*/
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            f_TaoBan f = new f_TaoBan();
+            f.Show();
+        }
     }
 }
