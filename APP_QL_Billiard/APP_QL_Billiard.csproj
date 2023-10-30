@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\ListThucDon.cs" />
+    <Compile Include="DAO\ThucDonDAO.cs" />
     <Compile Include="DTO\ThucDon.cs" />
     <Compile Include="env.cs" />
     <Compile Include="fCreateMember.cs">
@@ -129,6 +130,12 @@
     <Compile Include="f_ListTable.Designer.cs">
       <DependentUpon>f_ListTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_ListThucDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_ListThucDon.Designer.cs">
+      <DependentUpon>f_ListThucDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_NhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +198,9 @@
     <EmbeddedResource Include="f_ListTable.resx">
       <DependentUpon>f_ListTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_ListThucDon.resx">
+      <DependentUpon>f_ListThucDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_NhapHang.resx">
       <DependentUpon>f_NhapHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +248,7 @@
     <None Include="Resources\user11.png" />
     <None Include="Image\action-hide-password.png" />
     <None Include="Image\action-display-password-512.png" />
+    <Content Include="HinhMatHang\63827014164001.png" />
     <Content Include="Image\printer.png" />
     <Content Include="SQL\PhanCong_NghiepVu.txt" />
     <Content Include="SQL\Ql_Billiard.sql" />
