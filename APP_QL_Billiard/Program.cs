@@ -29,6 +29,7 @@ namespace APP_QL_Billiard
             Application.Run(new f_ListMenu());
             //Application.Run(new f_ThongKe());
             //Application.Run(new fDatTruoc());
+            //Application.Run(new fCreateMember());
         }
     }
 }

@@ -20,3 +20,4 @@ Tấn: đặt bàn trước, đăng nhập, tạo member
 	+ nếu tới giờ bàn đặt trước mà khách không tới thì stt = 2
 	+ nếu đặt bàn thì stt = 1
 	+ ấn đặt trước thì stt =3
+- trạng thái đặt trước(0: mới đặt, 1 đã checkin, 2 bỏ )
