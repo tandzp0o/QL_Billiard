@@ -19,12 +19,95 @@ namespace APP_QL_Billiard
             InitializeComponent();
          
         }
-       
+
+        public Form child;
+        public Form child2;
+
+        public void formContent(Form content, Form content2, TableLayoutPanel x, TableLayoutPanel y = null)
+        {
+            if (child != null && child2 != null)
+            {
+                child.Close();
+                child2.Close();
+            }
+            child = content;
+            child2 = content;
+            content.TopLevel = false;
+            content.FormBorderStyle = FormBorderStyle.None;
+            content.Dock = DockStyle.Fill;
+            content2.TopLevel = false;
+            content2.FormBorderStyle = FormBorderStyle.None;
+            content2.Dock = DockStyle.Fill;
+            x.Controls.Add(content);
+            x.Tag = content;
+            if (y != null)
+            {
+                y.Controls.Add(content2);
+                y.Tag = content2;
+            }
+            content.BringToFront();
+            content.Show();
+            content2.BringToFront();
+            content2.Show();
+        }
+
         private void pn_Content_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            AccountDAO.Instance.TaiKhoan = string.Empty;
+            AccountDAO.Instance.MatKhau = string.Empty;
+            AccountDAO.Instance.HoTen = string.Empty;
+            AccountDAO.Instance.SDT = string.Empty;
+            AccountDAO.Instance.IsQuanLy = false;
+            this.Close();
+        }
 
+        private void btnThucDon_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnThucDon.Text;
+
+        }
+
+        private void btnStatusBan_Click(object sender, EventArgs e)
+        {
+            fFunction_Ban f = new fFunction_Ban();
+            namePage.Text = btnStatusBan.Text;
+            table_panel.Controls.Clear();
+            formContent(f, new f_ListTable(f), table_panel, table_panel);
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnHistory.Text;
+            table_panel.Controls.Clear();
+            formContent(new fLichSu(), new Form(), table_panel);
+        }
+
+        private void btnKho_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnKho.Text;
+            table_panel.Controls.Clear();
+            formContent(new f_NhapHang(), new f_ListThucDon() , table_panel, table_panel);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            string query = "dbo.TrangThaiBan";
+            DataProvider.Instance.ExecuteProcedure(query);
+        }
+
+        private void fTable_Manager_Load(object sender, EventArgs e)
+        {
+            GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            TenNhanVien.Text = "Nhân Viên: " + AccountDAO.Instance.HoTen;
+
+            string query = "dbo.TrangThaiBan";
+            DataProvider.Instance.ExecuteProcedure(query);
+        }
     }
 }

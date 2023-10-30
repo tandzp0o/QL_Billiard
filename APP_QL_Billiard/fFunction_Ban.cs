@@ -28,7 +28,6 @@ namespace APP_QL_Billiard
 
         public void fFunction_Ban_Load(object sender, EventArgs e)
         {
-                lbl_NV.Text = "Nguyễn Văn A";
         }
 
 
@@ -43,7 +42,6 @@ namespace APP_QL_Billiard
         {
             if (Ban1 != null)
             {
-                lbl_NV.Text = "Nguyễn Văn A";
                 txt_TenBan.Text = Ban1.Name;
                 txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm:ss   dd/MM/yyyy");
                 if (Ban1.Status == 2 || Ban1.Status == 3) //1hd 2 trong 3 dat truoc
@@ -150,7 +148,7 @@ namespace APP_QL_Billiard
             string tenBan = txt_TenBan.Text;
             DateTime gioBatDau = Ban1.GioBD;
             DateTime gioKetThuc = Ban1.GioKT;
-            string tenNV = lbl_NV.Text;
+            string tenNV = AccountDAO.Instance.HoTen;
 
             ThanhToanDAO dao = new ThanhToanDAO();
             string maBan = dao.GetMaBan(tenBan);

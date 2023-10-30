@@ -38,9 +38,11 @@ namespace APP_QL_Billiard
         {
             if (Login(txtTK.Text, txtMK.Text))
             {
-                if(AccountDAO.Instance.CheckADM(txtTK.Text))
+                if(AccountDAO.Instance.CheckADM())
                 {
                     fTable_Manager_ADM f = new fTable_Manager_ADM();
+                    txtTK.Text = string.Empty;
+                    txtMK.Text = string.Empty;
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
@@ -48,6 +50,8 @@ namespace APP_QL_Billiard
                 else
                 {
                     fTable_Manager f1 = new fTable_Manager();
+                    txtTK.Text = string.Empty;
+                    txtMK.Text = string.Empty;
                     this.Hide();
                     f1.ShowDialog();
                     this.Show();

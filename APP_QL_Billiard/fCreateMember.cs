@@ -62,14 +62,12 @@ namespace APP_QL_Billiard
             {
                 DataGridViewRow row = dtgvDSMember.Rows[e.RowIndex];
                 row.Selected = true;
+                if (dtgvDSMember.SelectedRows != null)
+                {
+                    txtPhone.Text = dtgvDSMember.SelectedRows[0].Cells[0].Value.ToString();
+                    txtName.Text = dtgvDSMember.SelectedRows[0].Cells[1].Value.ToString();
+                }
             }
-        }
-
-        private void dtgvDSMember_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (dtgvDSMember.SelectedRows != null)
-                txtPhone.Text = dtgvDSMember.SelectedRows[0].Cells[0].Value.ToString();
-                txtName.Text = dtgvDSMember.SelectedRows[0].Cells[1].Value.ToString();
         }
 
     }

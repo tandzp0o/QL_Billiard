@@ -84,5 +84,17 @@ namespace APP_QL_Billiard
             f_TaoBan f = new f_TaoBan();
             f.Show();
         }
+
+        private void f_ListTable_Load(object sender, EventArgs e)
+        {
+            if (AccountDAO.Instance.IsQuanLy)
+            {
+                panel1.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = false;
+            }
+        }
     }
 }

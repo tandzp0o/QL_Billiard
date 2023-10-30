@@ -20,18 +20,40 @@ namespace APP_QL_Billiard
 
         private void fLichSu_Load(object sender, EventArgs e)
         {
-            string query = "select TaiKhoan from Account";
-            DataTable a = DataProvider.Instance.ExcuteQuery(query);
-            cbbNhanVien.DataSource = a;
-            cbbNhanVien.DisplayMember = "HoTen";
-            cbbNhanVien.ValueMember = "TaiKhoan";
-            string query1 = "select * from HoaDon";
+            string query1 = "";
+            if(AccountDAO.Instance.IsQuanLy)
+            {
+                string query = "select TaiKhoan from Account";
+                DataTable a = DataProvider.Instance.ExcuteQuery(query);
+                DataRow b = a.NewRow();
+                b[0] = "Tất Cả";
+                a.Rows.InsertAt(b,0);
+                cbbNhanVien.DataSource = a;
+                cbbNhanVien.DisplayMember = "HoTen";
+                cbbNhanVien.ValueMember = "TaiKhoan";
+                query1 = "select * from HoaDon";
+            }    
+            else
+            {
+                cbbNhanVien.Items.Add(AccountDAO.Instance.TaiKhoan);
+                query1 = "select * from HoaDon where TaiKhoan = '"+ AccountDAO.Instance.TaiKhoan + "'";
+            }    
             dataGridView1_Load(query1);
+            cbbNhanVien.SelectedIndex = 0;
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            string query = "select * from HoaDon where GioKetThuc >= '" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and GioKetThuc <= '" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "' and TaiKhoan = '"+cbbNhanVien.SelectedValue+"'";
+            string query = ""; 
+            if(cbbNhanVien.SelectedIndex == 0 && AccountDAO.Instance.IsQuanLy)
+            {
+                query = "select * from HoaDon where GioKetThuc >= '" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and GioKetThuc <= '" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "'";
+
+            }
+            else
+            {
+                query = "select * from HoaDon where GioKetThuc >= '" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and GioKetThuc <= '" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "' and TaiKhoan = '"+cbbNhanVien.SelectedValue+"'";
+            }    
             dataGridView1_Load(query);
         }
 

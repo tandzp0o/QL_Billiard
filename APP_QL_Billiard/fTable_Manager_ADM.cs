@@ -88,7 +88,7 @@ namespace APP_QL_Billiard
         {
             namePage.Text = btnKho.Text;
             table_panel.Controls.Clear();
-            formContent(new f_NhapHang(), new Form(), table_panel);
+            formContent(new f_NhapHang(), new f_ListThucDon(), table_panel, table_panel);
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -121,6 +121,8 @@ namespace APP_QL_Billiard
         private void fTable_Manager_ADM_Load(object sender, EventArgs e)
         {
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            TenNhanVien.Text = "Nhân Viên: " + AccountDAO.Instance.HoTen;
+
             string query = "dbo.TrangThaiBan";
             DataProvider.Instance.ExecuteProcedure(query);
         }
@@ -131,6 +133,16 @@ namespace APP_QL_Billiard
             table_panel.Controls.Clear();
             formContent(new fCreateMember(), new Form(), table_panel, null);
 
+        }
+
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            AccountDAO.Instance.TaiKhoan = string.Empty;
+            AccountDAO.Instance.MatKhau = string.Empty;
+            AccountDAO.Instance.HoTen = string.Empty;
+            AccountDAO.Instance.SDT = string.Empty;
+            AccountDAO.Instance.IsQuanLy = false;
+            this.Close();
         }
     }
 }

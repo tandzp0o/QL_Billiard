@@ -141,7 +141,6 @@ namespace APP_QL_Billiard
             this.dtgvDSMember.Size = new System.Drawing.Size(604, 555);
             this.dtgvDSMember.TabIndex = 6;
             this.dtgvDSMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDSMember_CellClick);
-            this.dtgvDSMember.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtgvDSMember_MouseClick);
             // 
             // label3
             // 

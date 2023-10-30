@@ -26,18 +26,20 @@ namespace APP_QL_Billiard
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pn_Left = new System.Windows.Forms.Panel();
             this.btnSignOut = new System.Windows.Forms.Button();
-            this.btnKho = new System.Windows.Forms.Button();
-            this.btnHistory = new System.Windows.Forms.Button();
-            this.btnStatusBan = new System.Windows.Forms.Button();
-            this.btnThucDon = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pn_Top = new System.Windows.Forms.Panel();
+            this.btnHistory = new System.Windows.Forms.Button();
+            this.btnKho = new System.Windows.Forms.Button();
+            this.btnStatusBan = new System.Windows.Forms.Button();
+            this.btnThucDon = new System.Windows.Forms.Button();
             this.namePage = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.GioHeThong = new System.Windows.Forms.Label();
             this.table_panel = new System.Windows.Forms.TableLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TenNhanVien = new System.Windows.Forms.Label();
             this.pn_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pn_Top.SuspendLayout();
@@ -45,18 +47,17 @@ namespace APP_QL_Billiard
             // 
             // pn_Left
             // 
-            this.pn_Left.Controls.Add(this.tableLayoutPanel2);
-            this.pn_Left.Controls.Add(this.btnSignOut);
-            this.pn_Left.Controls.Add(this.btnKho);
             this.pn_Left.Controls.Add(this.btnHistory);
+            this.pn_Left.Controls.Add(this.btnKho);
             this.pn_Left.Controls.Add(this.btnStatusBan);
             this.pn_Left.Controls.Add(this.btnThucDon);
+            this.pn_Left.Controls.Add(this.btnSignOut);
             this.pn_Left.Controls.Add(this.picLogo);
             this.pn_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_Left.Location = new System.Drawing.Point(0, 0);
             this.pn_Left.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pn_Left.Name = "pn_Left";
-            this.pn_Left.Size = new System.Drawing.Size(193, 659);
+            this.pn_Left.Size = new System.Drawing.Size(195, 659);
             this.pn_Left.TabIndex = 3;
             // 
             // btnSignOut
@@ -66,50 +67,11 @@ namespace APP_QL_Billiard
             this.btnSignOut.Location = new System.Drawing.Point(0, 613);
             this.btnSignOut.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSignOut.Name = "btnSignOut";
-            this.btnSignOut.Size = new System.Drawing.Size(193, 46);
+            this.btnSignOut.Size = new System.Drawing.Size(195, 46);
             this.btnSignOut.TabIndex = 7;
             this.btnSignOut.Text = "Đăng Xuất";
             this.btnSignOut.UseVisualStyleBackColor = false;
-            // 
-            // btnKho
-            // 
-            this.btnKho.Location = new System.Drawing.Point(0, 365);
-            this.btnKho.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(193, 46);
-            this.btnKho.TabIndex = 4;
-            this.btnKho.Text = "Kho";
-            this.btnKho.UseVisualStyleBackColor = true;
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Location = new System.Drawing.Point(0, 313);
-            this.btnHistory.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(193, 46);
-            this.btnHistory.TabIndex = 3;
-            this.btnHistory.Text = "Lịch Sử";
-            this.btnHistory.UseVisualStyleBackColor = true;
-            // 
-            // btnStatusBan
-            // 
-            this.btnStatusBan.Location = new System.Drawing.Point(0, 263);
-            this.btnStatusBan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnStatusBan.Name = "btnStatusBan";
-            this.btnStatusBan.Size = new System.Drawing.Size(193, 46);
-            this.btnStatusBan.TabIndex = 2;
-            this.btnStatusBan.Text = "Tình Trạng Bàn";
-            this.btnStatusBan.UseVisualStyleBackColor = true;
-            // 
-            // btnThucDon
-            // 
-            this.btnThucDon.Location = new System.Drawing.Point(0, 211);
-            this.btnThucDon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnThucDon.Name = "btnThucDon";
-            this.btnThucDon.Size = new System.Drawing.Size(193, 46);
-            this.btnThucDon.TabIndex = 1;
-            this.btnThucDon.Text = "Menu";
-            this.btnThucDon.UseVisualStyleBackColor = true;
+            this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
             // 
             // picLogo
             // 
@@ -125,50 +87,84 @@ namespace APP_QL_Billiard
             // 
             // pn_Top
             // 
-            this.pn_Top.Controls.Add(this.tableLayoutPanel1);
+            this.pn_Top.Controls.Add(this.TenNhanVien);
+            this.pn_Top.Controls.Add(this.GioHeThong);
             this.pn_Top.Controls.Add(this.namePage);
             this.pn_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn_Top.Location = new System.Drawing.Point(193, 0);
+            this.pn_Top.Location = new System.Drawing.Point(195, 0);
             this.pn_Top.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pn_Top.Name = "pn_Top";
-            this.pn_Top.Size = new System.Drawing.Size(1130, 77);
+            this.pn_Top.Size = new System.Drawing.Size(1128, 77);
             this.pn_Top.TabIndex = 2;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.Location = new System.Drawing.Point(0, 276);
+            this.btnHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(194, 40);
+            this.btnHistory.TabIndex = 10;
+            this.btnHistory.Text = "Lịch Sử";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnKho
+            // 
+            this.btnKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKho.Location = new System.Drawing.Point(0, 320);
+            this.btnKho.Margin = new System.Windows.Forms.Padding(2);
+            this.btnKho.Name = "btnKho";
+            this.btnKho.Size = new System.Drawing.Size(194, 40);
+            this.btnKho.TabIndex = 11;
+            this.btnKho.Text = "Kho";
+            this.btnKho.UseVisualStyleBackColor = true;
+            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
+            // 
+            // btnStatusBan
+            // 
+            this.btnStatusBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatusBan.Location = new System.Drawing.Point(0, 232);
+            this.btnStatusBan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStatusBan.Name = "btnStatusBan";
+            this.btnStatusBan.Size = new System.Drawing.Size(194, 40);
+            this.btnStatusBan.TabIndex = 9;
+            this.btnStatusBan.Text = "Tình Trạng Bàn";
+            this.btnStatusBan.UseVisualStyleBackColor = true;
+            this.btnStatusBan.Click += new System.EventHandler(this.btnStatusBan_Click);
+            // 
+            // btnThucDon
+            // 
+            this.btnThucDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThucDon.Location = new System.Drawing.Point(0, 188);
+            this.btnThucDon.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThucDon.Name = "btnThucDon";
+            this.btnThucDon.Size = new System.Drawing.Size(194, 40);
+            this.btnThucDon.TabIndex = 8;
+            this.btnThucDon.Text = "Menu";
+            this.btnThucDon.UseVisualStyleBackColor = true;
+            this.btnThucDon.Click += new System.EventHandler(this.btnThucDon_Click);
             // 
             // namePage
             // 
             this.namePage.AutoSize = true;
-            this.namePage.Location = new System.Drawing.Point(53, 26);
+            this.namePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namePage.Location = new System.Drawing.Point(50, 25);
             this.namePage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.namePage.Name = "namePage";
-            this.namePage.Size = new System.Drawing.Size(35, 13);
-            this.namePage.TabIndex = 0;
-            this.namePage.Text = "label1";
+            this.namePage.Size = new System.Drawing.Size(85, 31);
+            this.namePage.TabIndex = 5;
+            this.namePage.Text = "Menu";
             // 
-            // tableLayoutPanel1
+            // GioHeThong
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 75);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 530);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(193, 75);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(900, 530);
-            this.tableLayoutPanel2.TabIndex = 4;
+            this.GioHeThong.AutoSize = true;
+            this.GioHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GioHeThong.Location = new System.Drawing.Point(956, 9);
+            this.GioHeThong.Name = "GioHeThong";
+            this.GioHeThong.Size = new System.Drawing.Size(76, 25);
+            this.GioHeThong.TabIndex = 6;
+            this.GioHeThong.Text = "label1";
             // 
             // table_panel
             // 
@@ -177,13 +173,30 @@ namespace APP_QL_Billiard
             this.table_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.table_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.table_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.table_panel.Location = new System.Drawing.Point(193, 77);
+            this.table_panel.Location = new System.Drawing.Point(195, 77);
             this.table_panel.Margin = new System.Windows.Forms.Padding(2);
             this.table_panel.Name = "table_panel";
             this.table_panel.RowCount = 1;
-            this.table_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.table_panel.Size = new System.Drawing.Size(1130, 582);
+            this.table_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_panel.Size = new System.Drawing.Size(1128, 582);
             this.table_panel.TabIndex = 4;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 30000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // TenNhanVien
+            // 
+            this.TenNhanVien.AutoSize = true;
+            this.TenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenNhanVien.Location = new System.Drawing.Point(956, 52);
+            this.TenNhanVien.Name = "TenNhanVien";
+            this.TenNhanVien.Size = new System.Drawing.Size(76, 25);
+            this.TenNhanVien.TabIndex = 7;
+            this.TenNhanVien.Text = "label1";
             // 
             // fTable_Manager
             // 
@@ -198,6 +211,7 @@ namespace APP_QL_Billiard
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần Mềm Quản Lý Billiard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.fTable_Manager_Load);
             this.pn_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pn_Top.ResumeLayout(false);
@@ -208,15 +222,16 @@ namespace APP_QL_Billiard
 
         private System.Windows.Forms.Panel pn_Left;
         private System.Windows.Forms.Button btnSignOut;
-        private System.Windows.Forms.Button btnKho;
-        private System.Windows.Forms.Button btnHistory;
-        private System.Windows.Forms.Button btnStatusBan;
-        private System.Windows.Forms.Button btnThucDon;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel pn_Top;
+        private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnKho;
+        private System.Windows.Forms.Button btnStatusBan;
+        private System.Windows.Forms.Button btnThucDon;
         private System.Windows.Forms.Label namePage;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label GioHeThong;
         private System.Windows.Forms.TableLayoutPanel table_panel;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label TenNhanVien;
     }
 }
