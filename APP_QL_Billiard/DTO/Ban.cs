@@ -9,12 +9,13 @@ namespace APP_QL_Billiard.DTO
 {
     public class Ban
     {
-        public Ban(string id, string name, string type, int status, DateTime gioBd, DateTime gioKt)
+        public Ban(string id, string name, string type, int status,double gia ,DateTime gioBd, DateTime gioKt)
         {
             this.ID = id;
             this.Name = name;
             this.Type = type;
             this.Status = status;
+            this.Price= gia;
             this.GioBD = gioBd;
             this.GioKT = gioKt;
 
@@ -39,6 +40,9 @@ namespace APP_QL_Billiard.DTO
 
         private int status;
         public int Status { get => status; set => status = value; }
+
+        private double price;
+        public double Price { get=> price; set => price = value; }
 
         private DateTime gioBD;
         public DateTime GioBD { get => gioBD; set => gioBD = value; }
