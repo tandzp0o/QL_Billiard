@@ -24,7 +24,7 @@ namespace APP_QL_Billiard.DTO
         {
             this.ID = row["MaBan"].ToString();
             this.Name = row["TenBan"].ToString();
-            //this.Type = row["LoaiBan"].ToString();
+            this.Type = row["LoaiBan"].ToString();
             this.Status =(int)row["TrangThai"];
         }
 
