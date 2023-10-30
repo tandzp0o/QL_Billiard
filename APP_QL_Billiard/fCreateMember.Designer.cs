@@ -136,6 +136,7 @@ namespace APP_QL_Billiard
             this.dtgvDSMember.Location = new System.Drawing.Point(12, 221);
             this.dtgvDSMember.Name = "dtgvDSMember";
             this.dtgvDSMember.ReadOnly = true;
+            this.dtgvDSMember.RowHeadersVisible = false;
             this.dtgvDSMember.RowHeadersWidth = 51;
             this.dtgvDSMember.Size = new System.Drawing.Size(604, 555);
             this.dtgvDSMember.TabIndex = 6;

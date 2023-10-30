@@ -56,7 +56,7 @@ namespace APP_QL_Billiard
         {
             namePage.Text = btnThucDon.Text + " Admin";
             table_panel.Controls.Clear();
-            formContent(new f_ListMenu(),new Form(), table_panel);
+            //formContent(new f_ListMenu(),new Form(), table_panel);
 
         }
 
@@ -80,6 +80,8 @@ namespace APP_QL_Billiard
         {
             namePage.Text = btnHistory.Text;
             table_panel.Controls.Clear();
+            formContent(new fLichSu(),new Form(), table_panel);
+
         }
 
         private void btnKho_Click(object sender, EventArgs e)

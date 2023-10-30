@@ -22,7 +22,7 @@ namespace APP_QL_Billiard
             //Application.Run(new f_NhapHang());
             //Application.Run(new f_NhapHang());
             //Application.Run(new fTable_Manager());
-            //Application.Run(new fTable_Manager_ADM());
+            Application.Run(new fTable_Manager_ADM());
             //Application.Run(new fLogin());
             //Application.Run(new f_ListTable());
             //Application.Run(new fFunction_Ban());
@@ -31,7 +31,7 @@ namespace APP_QL_Billiard
             //Application.Run(new fDatTruoc());
             //Application.Run(new fCreateMember());
             //Application.Run(new f_TaoBan());
-            Application.Run(new fLichSu());
+            //Application.Run(new fLichSu());
 
         }
     }

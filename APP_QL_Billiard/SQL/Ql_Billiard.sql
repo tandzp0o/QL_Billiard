@@ -1,4 +1,4 @@
-﻿  --use master 
+﻿ -- use master 
  --go
  --alter database [Ql_Billiard] set single_user with rollback immediate
 
@@ -55,7 +55,7 @@ CREATE TABLE HoaDon
     GioKetThuc DATETIME,
     ThoiGianChoi INT,
     ThanhToan FLOAT,
-    IsMember BIT, 
+    IsMember nvarchar(20), 
     TongTien FLOAT,
 	TaiKhoan varchar(20),
     CONSTRAINT fk_hoadon_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
@@ -350,23 +350,23 @@ end;
 Go
 
 --Trigger tính tổng tiền(TongTien) trong bảng hoá đơn(HoaDon)
-Go
-Create trigger trg_CapNhatTongTien on HoaDon
-for insert, update
-as
-begin
-    if update(ThanhToan)
-    begin
-        update HoaDon
-        set TongTien = case 
-            when IsMember is null then ThanhToan 
-            when IsMember = 0 then ThanhToan * 0.8 
-            when IsMember = 1 then ThanhToan * 0.75 
-            end 
-        where MaHoaDon in (select MaHoaDon from inserted)
-    end
-end;
-Go
+--Go
+--Create trigger trg_CapNhatTongTien on HoaDon
+--for insert, update
+--as
+--begin
+--    if update(ThanhToan)
+--    begin
+--        update HoaDon
+--        set TongTien = case 
+--            when IsMember is null then ThanhToan 
+--            when IsMember = 0 then ThanhToan * 0.8 
+--            when IsMember = 1 then ThanhToan * 0.75 
+--            end 
+--        where MaHoaDon in (select MaHoaDon from inserted)
+--    end
+--end;
+--Go
 
 --Trigger tính tổng tiền(TongTien) sau khi thay đổi giá trị IsMember trong bảng hoá đơn(HoaDon)
 Go
@@ -411,8 +411,9 @@ INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('11
 INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('0000000000', 'Li02', dateadd(hour,2,getdate()), 0, GETDATE());
 
 -- Thêm dữ liệu vào bảng HoaDon
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Lo01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', null, 'user');
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li02', '2023-10-17T18:00:00', '2023-10-17T19:30:00', null, 'user');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Lo01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', N'Khách vãng lai', 'user');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li02', '2023-10-17T18:00:00', '2023-10-17T19:30:00', N'Học sinh/Sinh viên', 'admin');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li01', '2023-10-17T18:00:00', '2023-10-17T19:30:00', N'VIP', 'admin');
 
 -- Thêm dữ liệu vào bảng ThucDon
 INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD01', N'Món 1', N'Đĩa', 10, 50000);

@@ -69,7 +69,7 @@ namespace APP_QL_Billiard
         {
             if (dtgvDSMember.SelectedRows != null)
                 txtPhone.Text = dtgvDSMember.SelectedRows[0].Cells[0].Value.ToString();
-            txtName.Text = dtgvDSMember.SelectedRows[0].Cells[1].Value.ToString();
+                txtName.Text = dtgvDSMember.SelectedRows[0].Cells[1].Value.ToString();
         }
 
     }
