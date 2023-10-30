@@ -75,6 +75,12 @@
     <Compile Include="fDatTruoc.Designer.cs">
       <DependentUpon>fDatTruoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="fLichSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLichSu.Designer.cs">
+      <DependentUpon>fLichSu.cs</DependentUpon>
+    </Compile>
     <Compile Include="fListDatTruoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <EmbeddedResource Include="fDatTruoc.resx">
       <DependentUpon>fDatTruoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fLichSu.resx">
+      <DependentUpon>fLichSu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fListDatTruoc.resx">
       <DependentUpon>fListDatTruoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +236,8 @@
     <None Include="Resources\exchange.png" />
     <None Include="Resources\dollar-flat.png" />
     <None Include="Resources\user11.png" />
+    <None Include="Image\action-hide-password.png" />
+    <None Include="Image\action-display-password-512.png" />
     <Content Include="Image\printer.png" />
     <Content Include="SQL\PhanCong_NghiepVu.txt" />
     <Content Include="SQL\Ql_Billiard.sql" />

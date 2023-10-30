@@ -15,7 +15,7 @@ create table Account
 	TaiKhoan varchar(20) primary key not null,
 	MatKhau varchar(50) not null,
 	HoTen nvarchar(50),
-	SDT CHAR(10) NOT NULL CHECK (SDT LIKE '%[0-9]%'),
+	SDT CHAR(10) NOT NULL CHECK (SDT LIKE '%[0-9]%' and len(SDT) = 10),
 	TinhTrang nvarchar(50) check(TinhTrang in (N'Đang làm việc', N'Nghỉ việc')),
 	QuanLy bit,
 )

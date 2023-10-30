@@ -72,11 +72,11 @@ namespace APP_QL_Billiard
         }
         private void flpTable_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = this.flpTable.CreateGraphics();
+            /*Graphics g = this.flpTable.CreateGraphics();
             Pen p = new Pen(Color.Black,3);
             PointF pf1 = new PointF(465f,0f);
             PointF pf2 = new PointF(465f,flpTable.Height*60f/9);
-            e.Graphics.DrawLine(p, pf1, pf2);
+            e.Graphics.DrawLine(p, pf1, pf2);*/
         }
     }
 }

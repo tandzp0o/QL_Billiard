@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.Properties;
+
 
 namespace APP_QL_Billiard
 {
@@ -63,6 +65,32 @@ namespace APP_QL_Billiard
         private void fLogin_Load(object sender, EventArgs e)
         {
             MaximizeBox = false;
+            pictureBox1.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if(txtMK.UseSystemPasswordChar == true)
+            {
+                txtMK.UseSystemPasswordChar = false;
+                pictureBox1.Image = Properties.Resources.action_display_password_512;
+            }
+            else
+            {
+                txtMK.UseSystemPasswordChar = true;
+                pictureBox1.Image = Properties.Resources.action_hide_password;
+
+            }
+        }
+
+        private void txtMK_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMK.Text == string.Empty)
+            {
+                pictureBox1.Visible = false;
+            }
+            else
+                pictureBox1.Visible = true;
         }
     }
 }
