@@ -1,4 +1,4 @@
-﻿ --use master 
+﻿  --use master 
  --go
  --alter database [Ql_Billiard] set single_user with rollback immediate
 
@@ -444,7 +444,10 @@ go
 CREATE PROC USP_GetTableList
 AS SELECT * FROM Ban
 go
-
+go
+CREATE PROC USP_GetMenuList
+AS SELECT * FROM ThucDon
+go
 
 ---------------------------------------------------------------CỤC NÀY ALWAY NẰM DƯỚI CÙNG
 exec dbo.TrangThaiBan
