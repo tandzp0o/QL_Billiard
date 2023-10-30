@@ -40,7 +40,7 @@ namespace APP_QL_Billiard.DAO
 
         public bool CheckADM(string tk)
         {
-            string query = "select IsAdmin from Account where TaiKhoan = '" + tk + "'";
+            string query = "select QuanLy from Account where TaiKhoan = '" + tk + "'";
             int result = DataProvider.Instance.ExcuteScalar<int>(query);
             return result>0;
 

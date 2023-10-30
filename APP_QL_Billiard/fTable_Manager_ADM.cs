@@ -84,6 +84,7 @@ namespace APP_QL_Billiard
         {
             namePage.Text = btnKho.Text;
             table_panel.Controls.Clear();
+            formContent(new f_NhapHang(), new Form(), table_panel);
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -116,6 +117,8 @@ namespace APP_QL_Billiard
         private void fTable_Manager_ADM_Load(object sender, EventArgs e)
         {
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            string query = "dbo.TrangThaiBan";
+            DataProvider.Instance.ExecuteProcedure(query);
         }
 
         private void btnDKMember_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace APP_QL_Billiard
 
         private void btnWatchAll_Click(object sender, EventArgs e)
         {
-            string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan";
+            string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan and dt.TrangThai = 0";
             loaddtgv(query);
         }
 
@@ -44,12 +44,6 @@ namespace APP_QL_Billiard
         private void btnWatchFrom_Click(object sender, EventArgs e)
         {
             string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan and ThoiGianToi >='" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and ThoiGianToi <='" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "'";
-            loaddtgv(query);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string query = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan and dt.TrangThai = 0";
             loaddtgv(query);
         }
     }
