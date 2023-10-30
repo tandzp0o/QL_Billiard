@@ -35,20 +35,20 @@ namespace APP_QL_Billiard
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnWatchFrom = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnWatchAll = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dtgvDatTruoc = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDatTruoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnWatchFrom);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnWatchAll);
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.dateTimePicker1);
@@ -56,17 +56,17 @@ namespace APP_QL_Billiard
             this.panel1.Location = new System.Drawing.Point(15, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(635, 718);
+            this.panel1.Size = new System.Drawing.Size(577, 718);
             this.panel1.TabIndex = 0;
             // 
             // btnWatchFrom
             // 
             this.btnWatchFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnWatchFrom.Location = new System.Drawing.Point(376, 19);
+            this.btnWatchFrom.Location = new System.Drawing.Point(336, 3);
             this.btnWatchFrom.Name = "btnWatchFrom";
-            this.btnWatchFrom.Size = new System.Drawing.Size(207, 54);
+            this.btnWatchFrom.Size = new System.Drawing.Size(180, 54);
             this.btnWatchFrom.TabIndex = 6;
-            this.btnWatchFrom.Text = "Xem Theo Mốc Thời Gian";
+            this.btnWatchFrom.Text = "Xem Theo Mốc";
             this.btnWatchFrom.UseVisualStyleBackColor = false;
             this.btnWatchFrom.Click += new System.EventHandler(this.btnWatchFrom_Click);
             // 
@@ -74,28 +74,18 @@ namespace APP_QL_Billiard
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(83, 81);
+            this.label2.Location = new System.Drawing.Point(28, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Đến";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Từ";
-            // 
             // btnWatchAll
             // 
             this.btnWatchAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnWatchAll.Location = new System.Drawing.Point(376, 98);
+            this.btnWatchAll.Location = new System.Drawing.Point(336, 90);
             this.btnWatchAll.Name = "btnWatchAll";
-            this.btnWatchAll.Size = new System.Drawing.Size(207, 54);
+            this.btnWatchAll.Size = new System.Drawing.Size(180, 54);
             this.btnWatchAll.TabIndex = 3;
             this.btnWatchAll.Text = "Xem Tất Cả";
             this.btnWatchAll.UseVisualStyleBackColor = false;
@@ -103,22 +93,30 @@ namespace APP_QL_Billiard
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker2.Checked = false;
+            this.dateTimePicker2.CustomFormat = "  HH:mm     |    dd/MM/yyyy";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(80, 112);
+            this.dateTimePicker2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dateTimePicker2.Location = new System.Drawing.Point(32, 100);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 23);
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(234, 29);
             this.dateTimePicker2.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "  HH:mm     |    dd/MM/yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(80, 33);
+            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dateTimePicker1.Location = new System.Drawing.Point(32, 13);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 23);
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(234, 29);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // dtgvDatTruoc
@@ -146,20 +144,30 @@ namespace APP_QL_Billiard
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvDatTruoc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgvDatTruoc.Location = new System.Drawing.Point(0, 168);
+            this.dtgvDatTruoc.Location = new System.Drawing.Point(0, 203);
             this.dtgvDatTruoc.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvDatTruoc.Name = "dtgvDatTruoc";
             this.dtgvDatTruoc.ReadOnly = true;
             this.dtgvDatTruoc.RowHeadersWidth = 51;
             this.dtgvDatTruoc.RowTemplate.Height = 24;
-            this.dtgvDatTruoc.Size = new System.Drawing.Size(634, 548);
+            this.dtgvDatTruoc.Size = new System.Drawing.Size(577, 513);
             this.dtgvDatTruoc.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(156, 175);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(257, 24);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Danh Sách Đăng Ký Trước";
             // 
             // fListDatTruoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 745);
+            this.ClientSize = new System.Drawing.Size(605, 745);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -178,10 +186,10 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnWatchFrom;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnWatchAll;
+        private System.Windows.Forms.DataGridView dtgvDatTruoc;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dtgvDatTruoc;
+        private System.Windows.Forms.Label label1;
     }
 }

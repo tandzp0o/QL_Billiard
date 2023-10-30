@@ -109,8 +109,8 @@ namespace APP_QL_Billiard
         private void timer1_Tick(object sender, EventArgs e)
         {
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-            string query = "exec dbo.TrangThaiBan";
-            DataProvider.Instance.ExcuteNonQuery(query);
+            string query = "dbo.TrangThaiBan";
+            DataProvider.Instance.ExecuteProcedure(query);
         }
 
         private void fTable_Manager_ADM_Load(object sender, EventArgs e)

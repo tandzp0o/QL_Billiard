@@ -54,7 +54,7 @@ namespace APP_QL_Billiard
                 MessageBox.Show("Chưa nhập đủ thông tin","Thông Báo");
                 return;
             }
-            if (txtMaKH.Text != string.Empty)
+            if (txtSDT.Text != string.Empty)
             {
                 if(GioToi.Value > DateTime.Now.AddHours(3) || GioToi.Value < DateTime.Now)
                 {
@@ -63,7 +63,7 @@ namespace APP_QL_Billiard
                 }    
                 if (GioToi.Value.TimeOfDay < DateTime.Now.TimeOfDay)
                     NgayHienTai.Value = NgayHienTai.Value.AddDays(1);
-                string query = "insert into DatTruoc(Id, MaBan, ThoiGianToi, NgayDat, TrangThai) values (" + txtMaKH.Text + ", '" + cbbEmptyTable.SelectedValue.ToString() + "','" + DateTime.Now.ToString("MM/dd/yyyy") + " "+ GioToi.Value.ToString("HH:mm:ss") + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "',0)";
+                string query = "insert into DatTruoc(Phone, MaBan, ThoiGianToi, NgayDat, TrangThai) values ('" + txtSDT.Text + "', '" + cbbEmptyTable.SelectedValue.ToString() + "','" + DateTime.Now.ToString("MM/dd/yyyy") + " "+ GioToi.Value.ToString("HH:mm") + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "',0)";
                 int k = DataProvider.Instance.ExcuteNonQuery(query);
                 if (NgayHienTai.Value > DateTime.Now)
                     NgayHienTai.Value = DateTime.Now;
@@ -84,14 +84,14 @@ namespace APP_QL_Billiard
                     a.Show();
                 }    
             }
-            string query1 = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan";
+            string query1 = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan and dt.TrangThai = 0";
             F.loaddtgv(query1);
         }
 
         private void btnRef_Click(object sender, EventArgs e)
         {
             txtSDT.Clear();
-            GioToi.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 0, 0);
+            GioToi.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0);
             cbbTypeTable.SelectedIndex = 0;
         }
 
@@ -103,7 +103,6 @@ namespace APP_QL_Billiard
             if(dt.Rows.Count != 0)
             {
                 txtTenKH.Text = dt.Rows[0].Field<string>("Ten");
-                txtMaKH.Text = dt.Rows[0].Field<int>("Id").ToString();
             }    
         }
 

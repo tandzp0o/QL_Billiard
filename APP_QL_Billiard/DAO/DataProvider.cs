@@ -113,6 +113,22 @@ namespace APP_QL_Billiard.DAO
             return (T)Convert.ChangeType(data, typeof(T));
         }
 
-       
+        public DataTable ExecuteProcedure(string query)
+        {
+            DataTable data = new DataTable();
+            // dùng xong khối lệnh tự giải phóng dữ liệu đc khai báo
+            using (SqlConnection con = new SqlConnection(env.conStr))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = query;
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(data);
+                con.Close();
+            }
+            return data;
+        }
     }
 }
