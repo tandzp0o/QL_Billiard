@@ -14,6 +14,8 @@ namespace APP_QL_Billiard
 {
     public partial class fTable_Manager_ADM : Form
     {
+
+        //public static List<ListThucDon.> = new List<ListThucDon>();
         public fTable_Manager_ADM()
         {
             InitializeComponent();
