@@ -11,161 +11,68 @@ namespace APP_QL_Billiard.DAO
 {
     public class ThanhToanDAO
     {
-        public object ExecuteScalar(string query, object paramValue)
+        private DataProvider dataProvider;
+
+        public ThanhToanDAO()
         {
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maBan", paramValue);
-                    con.Open();
-                    object result = cmd.ExecuteScalar();
-                    con.Close();
-                    return result;
-                }
-            }
+            dataProvider = DataProvider.Instance;
         }
 
         public string GetTenBan(string maBan)
         {
             string query = "Select Ban.TenBan from Ban where MaBan = @maBan";
-            object result = ExecuteScalar(query, maBan);
-            return result != null ? (string)result : "";
+            object result = dataProvider.ExcuteScalar<string>(query, new object[] { maBan });
+            return result != null ? (string)result : string.Empty;
         }
 
         public DataTable GetHoaDonChiTiet(string maBan)
         {
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                con.Open();
-                string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia
-                         from ChiTietHoaDon
-                         inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
-                         inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
-                         where HoaDon.MaBan = @maBan";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maBan", maBan);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        return dt;
-                    }
-                }
-            }
+            string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia
+                     from ChiTietHoaDon
+                     inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                     inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                     where HoaDon.MaBan = @maBan";
+            return dataProvider.ExcuteQuery(query, new object[] { maBan });
         }
 
         public DateTime GetGioBatDau(string maBan)
         {
             string query = "Select HoaDon.GioBatDau from HoaDon where MaBan = @maBan";
-            object result = ExecuteScalar(query, maBan);
+            object result = dataProvider.ExcuteScalar<DateTime>(query, new object[] { maBan });
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
         public DateTime GetGioKetThuc(string maBan)
         {
             string query = "Select HoaDon.GioKetThuc from HoaDon where MaBan = @maBan";
-            object result = ExecuteScalar(query, maBan);
+            object result = dataProvider.ExcuteScalar<DateTime>(query, new object[] { maBan });
             return result != null ? (DateTime)result : DateTime.MinValue;
         }
 
         public int GetThoiGianSuDung(string maBan)
         {
             string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaBan = @maBan";
-            object result = ExecuteScalar(query, maBan);
+            object result = dataProvider.ExcuteScalar<int>(query, new object[] { maBan });
             return result != null ? (int)result : 0;
         }
 
-        public void UpdateIsMember(string maBan, bool? isMember)
+        public void UpdateIsMember(string maBan, string isMember)
         {
             string query = "Update HoaDon set IsMember = @isMember where MaBan = @maBan";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maBan", maBan);
-                    cmd.Parameters.AddWithValue("@isMember", (object)isMember ?? DBNull.Value);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
+            dataProvider.ExcuteNonQuery(query, new object[] { isMember, maBan });
         }
 
         public double GetTongTien(string maBan)
         {
             string query = "Select HoaDon.TongTien from HoaDon where MaBan = @maBan";
-            object result = ExecuteScalar(query, maBan);
+            object result = dataProvider.ExcuteScalar<double>(query, new object[] { maBan });
             return result != DBNull.Value ? Convert.ToDouble(result) : 0;
         }
 
         public void UpdateHoaDonTaiKhoan(string maBan, string taiKhoan)
         {
             string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaBan = @maBan";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@maBan", maBan);
-                    cmd.Parameters.AddWithValue("@taiKhoan", taiKhoan);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
+            dataProvider.ExcuteNonQuery(query, new object[] { maBan, taiKhoan });
         }
-
-        public void LuuHoaDon(string maBan, DateTime gioBatDau, DateTime gioKetThuc, string taiKhoan)
-        {
-            string query = "INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, TaiKhoan) VALUES (@MaBan, @GioBatDau, @GioKetThuc, @TaiKhoan)";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@MaBan", maBan);
-                    cmd.Parameters.AddWithValue("@GioBatDau", gioBatDau);
-                    cmd.Parameters.AddWithValue("@GioKetThuc", gioKetThuc);
-                    cmd.Parameters.AddWithValue("@TaiKhoan", taiKhoan);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-        }
-
-        public string GetMaBan(string tenBan)
-        {
-            string query = "SELECT MaBan FROM Ban WHERE TenBan = @tenBan";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@tenBan", tenBan);
-                    con.Open();
-                    object result = cmd.ExecuteScalar();
-                    con.Close();
-                    return result != null ? (string)result : "";
-                }
-            }
-        }
-
-
-        public string GetTaiKhoan(string tenNV)
-        {
-            string query = "SELECT TaiKhoan FROM Account WHERE HoTen = @tenNV";
-            using (SqlConnection con = new SqlConnection(env.conStr))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@tenNV", tenNV);
-                    con.Open();
-                    object result = cmd.ExecuteScalar();
-                    con.Close();
-                    return result != null ? (string)result : "";
-                }
-            }
-        }
-
     }
 }

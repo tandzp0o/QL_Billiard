@@ -56,46 +56,34 @@ namespace APP_QL_Billiard
             lb_TongTien.Text = "Tổng tiền: " + tongTien.ToString() + " VND";
         }
 
-        private void chk_KT_CheckedChanged(object sender, EventArgs e)
+        private void cb_Member_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (chk_KT.Checked)
-            {
-                chk_SV.Checked = false;
-                chk_VIP.Checked = false;
-                thanhToanDAO.UpdateIsMember(maBan, null);
-                lb_GiamGia.Text = "Giảm 0%";
-                CapNhatThongTinHoaDon();
-            }
-        }
+            ComboBox comboBox = (ComboBox)sender;
+            string selectedValue = comboBox.SelectedItem.ToString();
 
-        private void chk_SV_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_SV.Checked)
-            {
-                chk_KT.Checked = false;
-                chk_VIP.Checked = false;
-                thanhToanDAO.UpdateIsMember(maBan, false);
-                lb_GiamGia.Text = "Giảm: 20%";
-                CapNhatThongTinHoaDon();
-            }
-        }
+            double giamGia = 0;
 
-        private void chk_VIP_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_VIP.Checked)
+            if (selectedValue == "Khách vãng lai")
             {
-                chk_KT.Checked = false;
-                chk_SV.Checked = false;
-                thanhToanDAO.UpdateIsMember(maBan, true);
-                lb_GiamGia.Text = "Giảm: 25%";
-                CapNhatThongTinHoaDon();
+                giamGia = 0;
             }
+            else if (selectedValue == "Học sinh/Sinh viên")
+            {
+                giamGia = 20;
+            }
+            else if (selectedValue == "VIP")
+            {
+                giamGia = 25;
+            }
+
+            lb_GiamGia.Text = "Giảm: " + giamGia.ToString() + "%";
+
+            thanhToanDAO.UpdateIsMember(maBan, selectedValue);
+            CapNhatThongTinHoaDon();
         }
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
-            string maTaiKhoan = "user";
-            thanhToanDAO.UpdateHoaDonTaiKhoan(maBan, maTaiKhoan);
             f_InHD fInHD = new f_InHD(maBan);
             this.Hide();
             fInHD.ShowDialog();
