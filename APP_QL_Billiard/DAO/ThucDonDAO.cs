@@ -25,7 +25,7 @@ namespace APP_QL_Billiard.DAO
         public List<ThucDon> LoadMenuList()
         {
             List<ThucDon> list = new List<ThucDon>();
-            DataTable data = DataProvider.Instance.ExcuteQuery("USP_GetMenuList");
+            DataTable data = DataProvider.Instance.ExcuteQuery("Select * from ThucDon");
 
             foreach (DataRow item in data.Rows)
             {
