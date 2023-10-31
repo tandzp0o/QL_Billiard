@@ -350,23 +350,23 @@ end;
 Go
 
 --Trigger tính tổng tiền(TongTien) trong bảng hoá đơn(HoaDon)
---Go
---Create trigger trg_CapNhatTongTien on HoaDon
---for insert, update
---as
---begin
---    if update(ThanhToan)
---    begin
---        update HoaDon
---        set TongTien = case 
---            when IsMember is null then ThanhToan 
---            when IsMember = 0 then ThanhToan * 0.8 
---            when IsMember = 1 then ThanhToan * 0.75 
---            end 
---        where MaHoaDon in (select MaHoaDon from inserted)
---    end
---end;
---Go
+Go
+Create trigger trg_CapNhatTongTien on HoaDon
+for insert, update
+as
+begin
+    if update(ThanhToan)
+    begin
+        update HoaDon
+        set TongTien = case 
+            when IsMember = N'Khách vãng lai' then ThanhToan 
+            when IsMember = N'Học sinh/Sinh viên' then ThanhToan * 0.8 
+            when IsMember = N'VIP' then ThanhToan * 0.75 
+            end 
+        where MaHoaDon in (select MaHoaDon from inserted)
+    end
+end;
+Go
 
 --Trigger tính tổng tiền(TongTien) sau khi thay đổi giá trị IsMember trong bảng hoá đơn(HoaDon)
 Go
@@ -390,6 +390,9 @@ begin
     end
 end;
 Go
+
+Select * from HoaDon;
+Select * from ChiTietHoaDon
 
 -- Thêm dữ liệu vào bảng KhachHang
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');
@@ -431,25 +434,3 @@ INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD02', 3
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD04', 3);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD05', 1);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD06', 3);
-
-
-
-
-
-
-
-
---------------------------------------------------------------------Thien
-go
-CREATE PROC USP_GetTableList
-AS SELECT * FROM Ban
-go
-go
-CREATE PROC USP_GetMenuList
-AS SELECT * FROM ThucDon
-go
-
----------------------------------------------------------------CỤC NÀY ALWAY NẰM DƯỚI CÙNG
-exec dbo.TrangThaiBan
-
-----------------Không để dòng lệnh nào dưới này-------------------
