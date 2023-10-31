@@ -140,5 +140,18 @@ namespace APP_QL_Billiard
             f_ThanhToan thanhToanForm = new f_ThanhToan(Ban1.ID);
             thanhToanForm.Show();
         }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Bạn có muốn đổi bàn?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if(r == DialogResult.No)
+            {
+                this.Close();
+            }    
+            else
+            {
+                MessageBox.Show("Chọn bàn đi");
+            }    
+        }
     }
 }

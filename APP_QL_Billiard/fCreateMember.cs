@@ -47,6 +47,8 @@ namespace APP_QL_Billiard
             string query = "select * from KhachHang";
             DataTable dt = DataProvider.Instance.ExcuteQuery(query);
             dtgvDSMember.DataSource = dt;
+            dtgvDSMember.Columns[0].HeaderText = "Số Điện Thoại";
+            dtgvDSMember.Columns[1].HeaderText = "Tên Khách Hàng";
             txtPhone.Focus();
         }
 

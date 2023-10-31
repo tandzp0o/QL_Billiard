@@ -29,8 +29,8 @@ namespace APP_QL_Billiard
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ namespace APP_QL_Billiard
             this.txtPhone.Location = new System.Drawing.Point(100, 26);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(5);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(287, 30);
+            this.txtPhone.Size = new System.Drawing.Size(287, 26);
             this.txtPhone.TabIndex = 0;
             // 
             // txtName
@@ -57,16 +57,17 @@ namespace APP_QL_Billiard
             this.txtName.Location = new System.Drawing.Point(100, 88);
             this.txtName.Margin = new System.Windows.Forms.Padding(5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(287, 30);
+            this.txtName.Size = new System.Drawing.Size(287, 26);
             this.txtName.TabIndex = 1;
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(428, 16);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(124, 51);
+            this.btnSave.Size = new System.Drawing.Size(135, 51);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Đăng Ký";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -77,7 +78,7 @@ namespace APP_QL_Billiard
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 25);
+            this.label1.Size = new System.Drawing.Size(40, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên:";
             // 
@@ -86,17 +87,18 @@ namespace APP_QL_Billiard
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(33, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 25);
+            this.label2.Size = new System.Drawing.Size(45, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "SĐT:";
             // 
             // btnRef
             // 
             this.btnRef.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRef.Location = new System.Drawing.Point(428, 78);
             this.btnRef.Margin = new System.Windows.Forms.Padding(5);
             this.btnRef.Name = "btnRef";
-            this.btnRef.Size = new System.Drawing.Size(124, 51);
+            this.btnRef.Size = new System.Drawing.Size(135, 51);
             this.btnRef.TabIndex = 5;
             this.btnRef.Text = "Nhập Lại";
             this.btnRef.UseVisualStyleBackColor = false;
@@ -121,18 +123,19 @@ namespace APP_QL_Billiard
             this.dtgvDSMember.AllowUserToDeleteRows = false;
             this.dtgvDSMember.AllowUserToResizeColumns = false;
             this.dtgvDSMember.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dtgvDSMember.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dtgvDSMember.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgvDSMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvDSMember.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.dtgvDSMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvDSMember.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvDSMember.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvDSMember.Location = new System.Drawing.Point(12, 221);
             this.dtgvDSMember.Name = "dtgvDSMember";
             this.dtgvDSMember.ReadOnly = true;
@@ -145,16 +148,16 @@ namespace APP_QL_Billiard
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(92, 175);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(445, 29);
+            this.label3.Size = new System.Drawing.Size(438, 29);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Danh Sách Các Thành Viên Của CLB:";
+            this.label3.Text = "Danh Sách Các Thành Viên Của CLB";
             // 
             // fCreateMember
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 798);
             this.Controls.Add(this.panel1);

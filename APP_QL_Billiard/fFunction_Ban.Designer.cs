@@ -32,22 +32,26 @@
             System.Windows.Forms.Label label2;
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTinh = new System.Windows.Forms.Button();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txt_TenBan = new System.Windows.Forms.TextBox();
             this.NameTable = new System.Windows.Forms.Label();
-            this.btnChange = new System.Windows.Forms.Button();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.txtGio = new System.Windows.Forms.TextBox();
             this.txtTimeStart = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnTinh = new System.Windows.Forms.Button();
             this.txtTimeEnd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtgvMenuGoi = new System.Windows.Forms.DataGridView();
             label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMenuGoi)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -64,12 +68,13 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnTinh);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtGia);
             this.panel1.Controls.Add(this.btnChange);
+            this.panel1.Controls.Add(this.btnTinh);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txt_TenBan);
             this.panel1.Controls.Add(this.NameTable);
-            this.panel1.Controls.Add(this.txtGia);
             this.panel1.Controls.Add(this.btnPay);
             this.panel1.Controls.Add(this.txtGio);
             this.panel1.Controls.Add(this.txtTimeStart);
@@ -79,10 +84,53 @@
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.btnEnd);
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(808, 762);
+            this.panel1.Size = new System.Drawing.Size(808, 684);
             this.panel1.TabIndex = 52;
+            // 
+            // btnTinh
+            // 
+            this.btnTinh.BackColor = System.Drawing.Color.Teal;
+            this.btnTinh.Enabled = false;
+            this.btnTinh.FlatAppearance.BorderSize = 0;
+            this.btnTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTinh.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTinh.ForeColor = System.Drawing.Color.White;
+            this.btnTinh.Image = global::APP_QL_Billiard.Properties.Resources.time_;
+            this.btnTinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTinh.Location = new System.Drawing.Point(29, 419);
+            this.btnTinh.Name = "btnTinh";
+            this.btnTinh.Size = new System.Drawing.Size(289, 69);
+            this.btnTinh.TabIndex = 38;
+            this.btnTinh.Text = "Tính giờ";
+            this.btnTinh.UseVisualStyleBackColor = false;
+            this.btnTinh.Click += new System.EventHandler(this.btnTinh_Click);
+            // 
+            // btnChange
+            // 
+            this.btnChange.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnChange.FlatAppearance.BorderSize = 0;
+            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChange.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.ForeColor = System.Drawing.Color.White;
+            this.btnChange.Image = global::APP_QL_Billiard.Properties.Resources.exchange;
+            this.btnChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChange.Location = new System.Drawing.Point(29, 278);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(289, 69);
+            this.btnChange.TabIndex = 42;
+            this.btnChange.Text = "Chuyển bàn";
+            this.btnChange.UseVisualStyleBackColor = false;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dtgvMenuGoi);
+            this.panel2.Location = new System.Drawing.Point(354, 68);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(425, 420);
+            this.panel2.TabIndex = 54;
             // 
             // txt_TenBan
             // 
@@ -106,39 +154,22 @@
             this.NameTable.TabIndex = 51;
             this.NameTable.Text = "BÀN:";
             // 
-            // btnChange
-            // 
-            this.btnChange.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnChange.FlatAppearance.BorderSize = 0;
-            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChange.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChange.ForeColor = System.Drawing.Color.White;
-            this.btnChange.Image = global::APP_QL_Billiard.Properties.Resources.exchange;
-            this.btnChange.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnChange.Location = new System.Drawing.Point(29, 300);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(280, 80);
-            this.btnChange.TabIndex = 42;
-            this.btnChange.Text = "Chuyển bàn";
-            this.btnChange.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnChange.UseVisualStyleBackColor = false;
-            // 
             // txtGia
             // 
             this.txtGia.BackColor = System.Drawing.Color.White;
             this.txtGia.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGia.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
-            this.txtGia.Location = new System.Drawing.Point(182, 683);
+            this.txtGia.Location = new System.Drawing.Point(167, 594);
             this.txtGia.Multiline = true;
             this.txtGia.Name = "txtGia";
             this.txtGia.ReadOnly = true;
-            this.txtGia.Size = new System.Drawing.Size(213, 36);
+            this.txtGia.Size = new System.Drawing.Size(216, 32);
             this.txtGia.TabIndex = 46;
             // 
             // btnPay
             // 
-            this.btnPay.BackColor = System.Drawing.Color.Teal;
+            this.btnPay.BackColor = System.Drawing.Color.Red;
             this.btnPay.Enabled = false;
             this.btnPay.FlatAppearance.BorderSize = 0;
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -146,12 +177,11 @@
             this.btnPay.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPay.Image = global::APP_QL_Billiard.Properties.Resources.dollar_flat;
             this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPay.Location = new System.Drawing.Point(412, 630);
+            this.btnPay.Location = new System.Drawing.Point(461, 536);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(208, 89);
+            this.btnPay.Size = new System.Drawing.Size(318, 90);
             this.btnPay.TabIndex = 47;
             this.btnPay.Text = "Thanh toán";
-            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
@@ -159,11 +189,11 @@
             // 
             this.txtGio.BackColor = System.Drawing.Color.White;
             this.txtGio.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGio.Location = new System.Drawing.Point(182, 630);
+            this.txtGio.Location = new System.Drawing.Point(167, 536);
             this.txtGio.Multiline = true;
             this.txtGio.Name = "txtGio";
             this.txtGio.ReadOnly = true;
-            this.txtGio.Size = new System.Drawing.Size(213, 32);
+            this.txtGio.Size = new System.Drawing.Size(216, 32);
             this.txtGio.TabIndex = 43;
             // 
             // txtTimeStart
@@ -173,70 +203,52 @@
             this.txtTimeStart.Multiline = true;
             this.txtTimeStart.Name = "txtTimeStart";
             this.txtTimeStart.ReadOnly = true;
-            this.txtTimeStart.Size = new System.Drawing.Size(280, 32);
+            this.txtTimeStart.Size = new System.Drawing.Size(161, 53);
             this.txtTimeStart.TabIndex = 34;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Teal;
-            this.label3.Location = new System.Drawing.Point(38, 686);
+            this.label3.Location = new System.Drawing.Point(24, 600);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 29);
+            this.label3.Size = new System.Drawing.Size(124, 25);
             this.label3.TabIndex = 45;
-            this.label3.Text = "Tổng tiền : ";
-            // 
-            // btnTinh
-            // 
-            this.btnTinh.BackColor = System.Drawing.Color.Teal;
-            this.btnTinh.Enabled = false;
-            this.btnTinh.FlatAppearance.BorderSize = 0;
-            this.btnTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTinh.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTinh.ForeColor = System.Drawing.Color.White;
-            this.btnTinh.Image = global::APP_QL_Billiard.Properties.Resources.time_;
-            this.btnTinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTinh.Location = new System.Drawing.Point(29, 429);
-            this.btnTinh.Name = "btnTinh";
-            this.btnTinh.Size = new System.Drawing.Size(280, 80);
-            this.btnTinh.TabIndex = 38;
-            this.btnTinh.Text = "Tính giờ";
-            this.btnTinh.UseVisualStyleBackColor = false;
-            this.btnTinh.Click += new System.EventHandler(this.btnTinh_Click);
+            this.label3.Text = "Tổng tiền: ";
             // 
             // txtTimeEnd
             // 
             this.txtTimeEnd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimeEnd.Location = new System.Drawing.Point(29, 221);
+            this.txtTimeEnd.Location = new System.Drawing.Point(29, 188);
             this.txtTimeEnd.Multiline = true;
             this.txtTimeEnd.Name = "txtTimeEnd";
             this.txtTimeEnd.ReadOnly = true;
-            this.txtTimeEnd.Size = new System.Drawing.Size(280, 32);
+            this.txtTimeEnd.Size = new System.Drawing.Size(161, 53);
             this.txtTimeEnd.TabIndex = 36;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 634);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 540);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 25);
+            this.label1.Size = new System.Drawing.Size(137, 25);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Số giờ chơi : ";
+            this.label1.Text = "Số giờ chơi:";
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.Color.Teal;
+            this.btnStart.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
             this.btnStart.Image = global::APP_QL_Billiard.Properties.Resources.play;
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStart.Location = new System.Drawing.Point(130, 140);
+            this.btnStart.Location = new System.Drawing.Point(205, 102);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(179, 31);
+            this.btnStart.Size = new System.Drawing.Size(113, 54);
             this.btnStart.TabIndex = 35;
             this.btnStart.Text = "Bắt đầu";
             this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -245,7 +257,7 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.BackColor = System.Drawing.Color.Teal;
+            this.btnEnd.BackColor = System.Drawing.Color.Salmon;
             this.btnEnd.Enabled = false;
             this.btnEnd.FlatAppearance.BorderSize = 0;
             this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -253,35 +265,50 @@
             this.btnEnd.ForeColor = System.Drawing.Color.White;
             this.btnEnd.Image = global::APP_QL_Billiard.Properties.Resources.end;
             this.btnEnd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnd.Location = new System.Drawing.Point(130, 259);
+            this.btnEnd.Location = new System.Drawing.Point(205, 185);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(179, 31);
+            this.btnEnd.Size = new System.Drawing.Size(113, 56);
             this.btnEnd.TabIndex = 37;
             this.btnEnd.Text = "Kết thúc";
             this.btnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEnd.UseVisualStyleBackColor = false;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
-            // panel2
+            // label4
             // 
-            this.panel2.Location = new System.Drawing.Point(354, 125);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(425, 486);
-            this.panel2.TabIndex = 54;
+            this.label4.AllowDrop = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(348, 22);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(182, 32);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "MENU ĐÃ GỌI:";
+            // 
+            // dtgvMenuGoi
+            // 
+            this.dtgvMenuGoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMenuGoi.Location = new System.Drawing.Point(0, 0);
+            this.dtgvMenuGoi.Name = "dtgvMenuGoi";
+            this.dtgvMenuGoi.Size = new System.Drawing.Size(425, 420);
+            this.dtgvMenuGoi.TabIndex = 0;
             // 
             // fFunction_Ban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 783);
+            this.ClientSize = new System.Drawing.Size(828, 705);
             this.Controls.Add(this.panel1);
             this.Controls.Add(label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fFunction_Ban";
             this.Text = "ChiTietBan";
             this.Load += new System.EventHandler(this.fFunction_Ban_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMenuGoi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +332,7 @@
         private System.Windows.Forms.TextBox txtTimeStart;
         private System.Windows.Forms.TextBox txt_TenBan;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dtgvMenuGoi;
     }
 }

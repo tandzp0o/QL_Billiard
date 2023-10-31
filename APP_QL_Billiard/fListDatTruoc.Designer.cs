@@ -56,14 +56,14 @@ namespace APP_QL_Billiard
             this.panel1.Location = new System.Drawing.Point(15, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(577, 718);
+            this.panel1.Size = new System.Drawing.Size(577, 782);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(156, 175);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(132, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(317, 29);
             this.label1.TabIndex = 7;
@@ -71,7 +71,8 @@ namespace APP_QL_Billiard
             // 
             // btnWatchFrom
             // 
-            this.btnWatchFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnWatchFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnWatchFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWatchFrom.Location = new System.Drawing.Point(336, 3);
             this.btnWatchFrom.Name = "btnWatchFrom";
             this.btnWatchFrom.Size = new System.Drawing.Size(180, 54);
@@ -83,16 +84,17 @@ namespace APP_QL_Billiard
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 60);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(90, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 25);
+            this.label2.Size = new System.Drawing.Size(48, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Đến";
             // 
             // btnWatchAll
             // 
-            this.btnWatchAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnWatchAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnWatchAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWatchAll.Location = new System.Drawing.Point(336, 90);
             this.btnWatchAll.Name = "btnWatchAll";
             this.btnWatchAll.Size = new System.Drawing.Size(180, 54);
@@ -112,7 +114,7 @@ namespace APP_QL_Billiard
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(234, 34);
+            this.dateTimePicker2.Size = new System.Drawing.Size(234, 29);
             this.dateTimePicker2.TabIndex = 2;
             // 
             // dateTimePicker1
@@ -126,13 +128,15 @@ namespace APP_QL_Billiard
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(234, 34);
+            this.dateTimePicker1.Size = new System.Drawing.Size(234, 29);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // dtgvDatTruoc
             // 
             this.dtgvDatTruoc.AllowUserToAddRows = false;
             this.dtgvDatTruoc.AllowUserToDeleteRows = false;
+            this.dtgvDatTruoc.AllowUserToResizeColumns = false;
+            this.dtgvDatTruoc.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             this.dtgvDatTruoc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvDatTruoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -161,14 +165,14 @@ namespace APP_QL_Billiard
             this.dtgvDatTruoc.RowHeadersVisible = false;
             this.dtgvDatTruoc.RowHeadersWidth = 51;
             this.dtgvDatTruoc.RowTemplate.Height = 24;
-            this.dtgvDatTruoc.Size = new System.Drawing.Size(577, 513);
+            this.dtgvDatTruoc.Size = new System.Drawing.Size(577, 575);
             this.dtgvDatTruoc.TabIndex = 0;
             // 
             // fListDatTruoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 745);
+            this.ClientSize = new System.Drawing.Size(605, 808);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
