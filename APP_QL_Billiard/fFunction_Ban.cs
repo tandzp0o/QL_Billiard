@@ -30,14 +30,6 @@ namespace APP_QL_Billiard
         {
         }
 
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            DateTime currentTime = DateTime.Now;
-            txt_Time.Text = currentTime.ToString("HH:mm:ss");
-        }
-
-
         public void reLoad()
         {
             if (Ban1 != null)
