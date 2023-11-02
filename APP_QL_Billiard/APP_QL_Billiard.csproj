@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\ChiTietBillDAO.cs" />
     <Compile Include="DAO\ListThucDon.cs" />
     <Compile Include="DAO\ThucDonDAO.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\ChiTietBill.cs" />
     <Compile Include="DTO\ThucDon.cs" />
     <Compile Include="env.cs" />
     <Compile Include="fCreateMember.cs">

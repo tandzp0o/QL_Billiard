@@ -67,10 +67,10 @@ CREATE TABLE HoaDon
 
 create TABLE ChiTietHoaDon
 (
+	MaChiTietHoaDon int IDENTITY  PRIMARY KEY NOT NULL,
     MaHoaDon int NOT NULL,
     MaThucDon CHAR(5) NOT NULL,
     SoLuongDat int not null,
-    CONSTRAINT pk_chitiethd PRIMARY KEY (MaHoaDon, MaThucDon),
     CONSTRAINT fk_chitiet_hd FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
     CONSTRAINT fk_chitiet_td FOREIGN KEY (MaThucDon) REFERENCES ThucDon(MaThucDon)
 )
@@ -434,3 +434,4 @@ INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD02', 3
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD04', 3);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD05', 1);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD06', 3);
+
