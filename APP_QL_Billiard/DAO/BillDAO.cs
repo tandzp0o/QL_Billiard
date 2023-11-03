@@ -28,7 +28,7 @@ namespace APP_QL_Billiard.DAO
         /// <returns></returns>
         public int GetBillIDByTableID(string id)
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM HOADON WHERE MaBan = " + id + " ");
+            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM HOADON WHERE MaBan = '" + id + "'");
 
             if (data.Rows.Count > 0)
             {

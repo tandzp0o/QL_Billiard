@@ -1,8 +1,9 @@
-﻿ -- use master 
- --go
- --alter database [Ql_Billiard] set single_user with rollback immediate
+﻿ use master 
+ go
+ alter database [Ql_Billiard] set single_user with rollback immediate
 
- --drop database [Ql_Billiard]
+ drop database [Ql_Billiard]
+ go
 
 create database Ql_Billiard
 go
@@ -12,7 +13,7 @@ go
 
 create table Account
 (
-	TaiKhoan varchar(20) primary key not null,
+	TaiKhoan varchar(20) primary key,
 	MatKhau varchar(50) not null,
 	HoTen nvarchar(50),
 	SDT CHAR(10) NOT NULL CHECK (SDT LIKE '%[0-9]%' and len(SDT) = 10),
@@ -22,7 +23,7 @@ create table Account
 
 create table Ban
 (
-	MaBan char(4) primary key not null,
+	MaBan char(4) primary key,
 	TenBan nvarchar(20)  null,
 	LoaiBan nvarchar(20)  null,
     TrangThai int  null,
@@ -36,7 +37,7 @@ create table Ban
 
 CREATE TABLE ThucDon
 (
-    MaThucDon CHAR(5) PRIMARY KEY NOT NULL,
+    MaThucDon CHAR(5) primary key,
     TenThucDon NVARCHAR(50) NOT NULL,
     DonViTinh NVARCHAR(10) NOT NULL,
     SoLuong int NOT NULL default 0,
@@ -49,7 +50,7 @@ CREATE TABLE ThucDon
 
 CREATE TABLE HoaDon
 (
-    MaHoaDon int IDENTITY  PRIMARY KEY NOT NULL,
+    MaHoaDon int IDENTITY  primary key,
     MaBan CHAR(4) NOT NULL,
     GioBatDau DATETIME,
     GioKetThuc DATETIME,
@@ -67,7 +68,7 @@ CREATE TABLE HoaDon
 
 create TABLE ChiTietHoaDon
 (
-	MaChiTietHoaDon int IDENTITY  PRIMARY KEY NOT NULL,
+	MaChiTietHoaDon int IDENTITY  primary key,
     MaHoaDon int NOT NULL,
     MaThucDon CHAR(5) NOT NULL,
     SoLuongDat int not null,
@@ -83,13 +84,12 @@ CREATE TABLE KhachHang
 
 CREATE TABLE DatTruoc
 (
-	MaDatTruoc int identity not null,
+	MaDatTruoc int identity primary key,
     Phone CHAR(10) NOT NULL,
     MaBan char(4) NOT NULL,
     ThoiGianToi datetime not null, --nếu tới giờ thì hiện thông báo 
 	NgayDat datetime not null,
 	TrangThai int not null,
-    CONSTRAINT pk_DatTruoc PRIMARY KEY (MaDatTruoc),
     CONSTRAINT fk_DatTruoc_kh FOREIGN KEY (Phone) REFERENCES KhachHang(Phone),
     CONSTRAINT fk_DatTruoc_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
 	CONSTRAINT chk_ThoiGianToi CHECK (ThoiGianToi <= DATEADD(hour, 3, GETDATE()) and ThoiGianToi >= GETDATE()),
@@ -98,7 +98,7 @@ CREATE TABLE DatTruoc
 
 CREATE TABLE PhieuNhap
 (
-	MaPN INT IDENTITY not null primary key,
+	MaPN INT IDENTITY primary key,
 	NgayNhap date not null,
 	ThanhTien float
 )

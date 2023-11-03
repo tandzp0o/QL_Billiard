@@ -77,6 +77,14 @@ namespace APP_QL_Billiard
     
         private void Btn_Click(object sender, EventArgs e)
         {
+            string query = "select TrangThai from Ban where MaBan ='"+ ((sender as Button).Tag as Ban).ID + "'";
+            int a = DataProvider.Instance.ExcuteScalar<int>(query);
+            if(a == 3)
+            {
+                DialogResult r = MessageBox.Show("Bàn đã đặt trước, bạn có muốn bỏ qua đặt trước?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if(r == DialogResult.No)
+                    this.Close();
+            }    
             Button btn = (Button)sender;
             fFunction_Ban fSent = F;
             string tableID = ((sender as Button).Tag as Ban).ID;
