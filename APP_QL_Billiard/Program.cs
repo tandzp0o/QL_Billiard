@@ -32,6 +32,7 @@ namespace APP_QL_Billiard
             //Application.Run(new fCreateMember());
             //Application.Run(new f_TaoBan());
             //Application.Run(new f_ListThucDon());
+            //Application.Run(new f_DoanhThu());
         }
     }
 }

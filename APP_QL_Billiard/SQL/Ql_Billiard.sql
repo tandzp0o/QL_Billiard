@@ -281,8 +281,53 @@ RETURN (
     ) AS Thang(Thang)
 );
 go
+--function tính doanh thu theo ngày
+CREATE FUNCTION dbo.DoanhThuNgay(@NgayBatDau date, @NgayKetThuc date)
+RETURNS TABLE
+AS
+RETURN (
+    select format(convert(date, COALESCE(p.NgayNhap, h.GioBatDau)), 'dd-MM-yyyy') as Ngay, ISNULL(isnull(sum(TongTien), 0)-isnull(sum(ThanhTien), 0), 0) as DoanhThu 
+	from HoaDon h full join PhieuNhap p 
+	on h.GioBatDau = p.NgayNhap
+	where (GioBatDau >= @NgayBatDau and GioBatDau <= @NgayKetThuc) or (ngaynhap >= @NgayBatDau and ngaynhap <= @NgayKetThuc)
+	group by convert(date, COALESCE(p.NgayNhap, h.GioBatDau))
+);
+go
+--function tính doanh thu theo quý
+CREATE FUNCTION dbo.DoanhThuQuy(@Quy int)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT MONTH(COALESCE(NgayNhap, GioBatDau)) as Thang, ISNULL(isnull(sum(tongtien), 0) - isnull(sum(thanhtien), 0), 0) AS DoanhThu
+	FROM hoadon full join PhieuNhap
+	on NgayNhap = GioBatDau
+	WHERE YEAR(GioBatDau) = year(getdate())
+	AND Datepart(QUARTER, GioBatDau) = @Quy or Datepart(QUARTER, NgayNhap) = @Quy
+	group by MONTH(COALESCE(NgayNhap, GioBatDau))
+);
+go
+--function TinhTongDoanhThuQuy
+CREATE FUNCTION dbo.TongDoanhThuQuy(@Quy int)
+RETURNS Float
+AS
+BEGIN
+    declare @Tong int = 0
+	select @Tong = sum(DoanhThu) from dbo.DoanhThuQuy(@Quy)
+	return @Tong;
+END
+go
+--function tính doanh thu theo các quý
+CREATE FUNCTION dbo.DoanhThuCacQuy()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Quy, dbo.TongDoanhThuQuy(Quy) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4)
+    ) AS Quy(Quy)
+);
+go
 --Check
-
 --Insert dữ liệu
 --Account
 INSERT INTO Account VALUES ('admin','14', N'Tấn', '0123456789', N'Đang làm việc', 1);
@@ -391,8 +436,8 @@ begin
 end;
 Go
 
-Select * from HoaDon;
-Select * from ChiTietHoaDon
+--Select * from HoaDon;
+--Select * from ChiTietHoaDon
 
 -- Thêm dữ liệu vào bảng KhachHang
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Nguyễn Văn A', '0123456789');

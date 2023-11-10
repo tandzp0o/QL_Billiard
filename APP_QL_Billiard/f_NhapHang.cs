@@ -23,6 +23,14 @@ namespace APP_QL_Billiard
             InitializeComponent();
         }
 
+        public f_ListThucDon F { get; set; }
+
+        public f_NhapHang(f_ListThucDon f)
+        {
+            InitializeComponent();
+            F = f;
+        }
+
         List<CTPN> cts = new List<CTPN>();
         void loadMH()
         {
@@ -83,6 +91,7 @@ namespace APP_QL_Billiard
                     cts.Clear();
                     listView1.Items.Clear();
                     cbbMH.SelectedIndex = 0;
+                    F.loadThucDon();
                     MessageBox.Show("Thêm thành công");
                 }
                 else MessageBox.Show("Thêm không thành công");

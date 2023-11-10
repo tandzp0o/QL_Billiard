@@ -86,9 +86,10 @@ namespace APP_QL_Billiard
 
         private void btnKho_Click(object sender, EventArgs e)
         {
+            f_ListThucDon f = new f_ListThucDon();
             namePage.Text = btnKho.Text;
             table_panel.Controls.Clear();
-            formContent(new f_NhapHang(), new f_ListThucDon(), table_panel, table_panel);
+            formContent(new f_NhapHang(f), f, table_panel, table_panel);
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)

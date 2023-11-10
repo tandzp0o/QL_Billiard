@@ -21,7 +21,7 @@ namespace APP_QL_Billiard
             InitializeComponent();
         }
         
-        void loadThucDon()
+        public void loadThucDon()
         {
             DataSet ds = new DataSet();
             string sql = "Select MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh from ThucDon";

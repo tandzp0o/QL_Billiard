@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
+using APP_QL_Billiard.DAO;
 
 namespace APP_QL_Billiard
 {
@@ -63,11 +64,20 @@ namespace APP_QL_Billiard
             chartDT.Series["s1"].XValueMember = "Thang";
             chartDT.Series["s1"].YValueMembers = "DoanhThu";
         }
+        void loadThongKe()
+        {
+            lb7Days.Text = DataProvider.Instance.ExcuteScalar<string>("select isnull(sum(DoanhThu),0) from dbo.DoanhThuNgay(dateadd(day,-7,getdate()),getdate())") + "VND";
+            lb30Days.Text = DataProvider.Instance.ExcuteScalar<string>("select isnull(sum(DoanhThu),0) from dbo.DoanhThuNgay(dateadd(day,-30,getdate()),getdate())") + "VND";
+            lbMonth.Text = DataProvider.Instance.ExcuteScalar<string>("select isnull(dbo.DoanhThuThang(MONTH(Getdate())),0) - isnull(dbo.ChiThang(MONTH(Getdate())),0)") + "VND";
+            lbYear.Text = DataProvider.Instance.ExcuteScalar<string>("Select SUM(ISNULL(dbo.DoanhThuThang(Thang), 0) - ISNULL(dbo.ChiThang(Thang),0)) as DoanhThu from dbo.DoanhThu()") + "VND";
+            lbQuarter.Text = DataProvider.Instance.ExcuteScalar<string>("select isnull(sum(DoanhThu), 0) from dbo.DoanhThuQuy(Datepart(QUARTER, getdate()))") + "VND";
+        }
         private void f_ThongKe_Load(object sender, EventArgs e)
         {
             loadTiLeDatBan();
             loadThuChi();
             loadDoanhThu();
+            loadThongKe();
         }
     }
 }
