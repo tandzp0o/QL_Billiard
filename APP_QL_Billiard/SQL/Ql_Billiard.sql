@@ -1,9 +1,9 @@
-﻿ use master 
- go
- alter database [Ql_Billiard] set single_user with rollback immediate
+﻿ --use master 
+ --go
+ --alter database [Ql_Billiard] set single_user with rollback immediate
 
- drop database [Ql_Billiard]
- go
+ --drop database [Ql_Billiard]
+ --go
 
 create database Ql_Billiard
 go
@@ -479,4 +479,3 @@ INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD02', 3
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD04', 3);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD05', 1);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD06', 3);
-

@@ -18,6 +18,11 @@ namespace APP_QL_Billiard
         InHoaDonDAO inHoaDonDAO = new InHoaDonDAO();
         string maBan;
 
+        public f_InHD()
+        {
+            InitializeComponent();
+        }
+
         public f_InHD(string maBan)
         {
             InitializeComponent();

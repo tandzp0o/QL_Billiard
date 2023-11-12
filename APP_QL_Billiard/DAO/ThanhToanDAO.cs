@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using System.Runtime.InteropServices;
 
 namespace APP_QL_Billiard.DAO
 {
@@ -20,59 +21,67 @@ namespace APP_QL_Billiard.DAO
 
         public string GetTenBan(string maBan)
         {
-            string query = "Select Ban.TenBan from Ban where MaBan = @maBan";
-            object result = dataProvider.ExcuteScalar<string>(query, new object[] { maBan });
-            return result != null ? (string)result : string.Empty;
+            string query = "Select Ban.TenBan from Ban where MaBan = '" + maBan + "'";
+            DataTable result = dataProvider.getDataTable(query);
+            return result.Rows[0][0].ToString();
         }
 
         public DataTable GetHoaDonChiTiet(string maBan)
         {
             string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia
-                     from ChiTietHoaDon
-                     inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
-                     inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
-                     where HoaDon.MaBan = @maBan";
-            return dataProvider.ExcuteQuery(query, new object[] { maBan });
+                           from ChiTietHoaDon
+                           inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                           inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                           where HoaDon.MaBan = '" + maBan + "'";
+            return dataProvider.getDataTable(query);
         }
 
         public DateTime GetGioBatDau(string maBan)
         {
-            string query = "Select HoaDon.GioBatDau from HoaDon where MaBan = @maBan";
-            object result = dataProvider.ExcuteScalar<DateTime>(query, new object[] { maBan });
-            return result != null ? (DateTime)result : DateTime.MinValue;
+            string query = "Select HoaDon.GioBatDau from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = dataProvider.getDataTable(query);
+            return Convert.ToDateTime(result.Rows[0][0].ToString());
         }
 
         public DateTime GetGioKetThuc(string maBan)
         {
-            string query = "Select HoaDon.GioKetThuc from HoaDon where MaBan = @maBan";
-            object result = dataProvider.ExcuteScalar<DateTime>(query, new object[] { maBan });
-            return result != null ? (DateTime)result : DateTime.MinValue;
+            string query = "Select HoaDon.GioKetThuc from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = dataProvider.getDataTable(query);
+            return Convert.ToDateTime(result.Rows[0][0].ToString());
         }
 
         public int GetThoiGianSuDung(string maBan)
         {
-            string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaBan = @maBan";
-            object result = dataProvider.ExcuteScalar<int>(query, new object[] { maBan });
-            return result != null ? (int)result : 0;
+            string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = dataProvider.getDataTable(query);
+            return Convert.ToInt32(result.Rows[0][0].ToString());
         }
 
-        public void UpdateIsMember(string maBan, string isMember)
+        public void CapNhatIsMember(string maBan, string isMember)
         {
-            string query = "Update HoaDon set IsMember = @isMember where MaBan = @maBan";
-            dataProvider.ExcuteNonQuery(query, new object[] { isMember, maBan });
+            string query = "Update HoaDon set IsMember = N'" + isMember + "' where MaBan = '" + maBan + "'";
+            dataProvider.executeNonQuery(query);
         }
 
         public double GetTongTien(string maBan)
         {
-            string query = "Select HoaDon.TongTien from HoaDon where MaBan = @maBan";
-            object result = dataProvider.ExcuteScalar<double>(query, new object[] { maBan });
-            return result != DBNull.Value ? Convert.ToDouble(result) : 0;
+            string query = "Select HoaDon.TongTien from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = dataProvider.getDataTable(query);
+            double tongTien = 0;
+            if (double.TryParse(result.Rows[0][0].ToString(), out tongTien))
+            {
+                return tongTien;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public void UpdateHoaDonTaiKhoan(string maBan, string taiKhoan)
+        public void CapNhatHoaDonTaiKhoan(string maBan, string taiKhoan)
         {
-            string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaBan = @maBan";
-            dataProvider.ExcuteNonQuery(query, new object[] { maBan, taiKhoan });
+            string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaBan = '" + maBan + "'";
+            dataProvider.executeNonQuery(query);
         }
     }
 }

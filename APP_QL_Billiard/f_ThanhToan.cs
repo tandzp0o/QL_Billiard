@@ -17,7 +17,7 @@ namespace APP_QL_Billiard
     public partial class f_ThanhToan : Form
     {
         ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
-        string maBan;
+        string maBan = "Lo01";
 
         public f_ThanhToan()
         {
@@ -59,35 +59,34 @@ namespace APP_QL_Billiard
         private void cb_Member_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            string selectedValue = comboBox.SelectedItem.ToString();
+            string ismember = comboBox.SelectedItem.ToString();
 
             double giamGia = 0;
 
-            if (selectedValue == "Khách vãng lai")
+            if (ismember == "Khách vãng lai")
             {
                 giamGia = 0;
             }
-            else if (selectedValue == "Học sinh/Sinh viên")
+            else if (ismember == "Học sinh/Sinh viên")
             {
                 giamGia = 20;
             }
-            else if (selectedValue == "VIP")
+            else if (ismember == "VIP")
             {
                 giamGia = 25;
             }
 
             lb_GiamGia.Text = "Giảm: " + giamGia.ToString() + "%";
 
-            thanhToanDAO.UpdateIsMember(maBan, selectedValue);
+            thanhToanDAO.CapNhatIsMember(maBan, ismember);
             CapNhatThongTinHoaDon();
         }
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
             f_InHD fInHD = new f_InHD(maBan);
-            this.Hide();
+            fInHD.Hide();
             fInHD.ShowDialog();
-            this.Show();
         }
 
         private void f_ThanhToan_FormClosing(object sender, FormClosingEventArgs e)

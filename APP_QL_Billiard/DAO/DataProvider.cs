@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace APP_QL_Billiard.DAO
 {
@@ -129,6 +130,59 @@ namespace APP_QL_Billiard.DAO
                 con.Close();
             }
             return data;
+        }
+
+        SqlConnection conn = new SqlConnection(env.conStr);
+        // Mở CSDL
+        public void openConnection()
+        {
+            if (conn.State.ToString() == "Closed")
+                conn.Open();
+        }
+        //Dóng CDSL
+        public void closeConnection()
+        {
+            if (conn.State.ToString() == "Open")
+                conn.Close();
+        }
+
+        DataSet ds;
+        // lấy 1 cột không cụ thể
+        public DataTable getDataTable(string sql)
+        {
+            ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            da.Fill(ds);
+            return ds.Tables[0];
+        }
+
+        // Lấy 1 cột củ thể
+        public DataTable getDataTable(string sql, string tableName)
+        {
+            ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            da.Fill(ds, tableName);
+            return ds.Tables[tableName];
+        }
+
+        // Thực thi câu truy vấn
+        public int executeNonQuery(string sql)
+        {
+            openConnection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            int result = cmd.ExecuteNonQuery();
+            closeConnection();
+            return result;
+        }
+
+        // Trả về giá trị
+        public int getResult_ExecuteScalar(string sql)
+        {
+            openConnection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            int result = (int)cmd.ExecuteScalar();
+            closeConnection();
+            return result;
         }
     }
 }
