@@ -18,13 +18,13 @@ namespace APP_QL_Billiard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new f_ThanhToan());
+            //Application.Run(new f_ThanhToan());
             //Application.Run(new f_InHD());
             //Application.Run(new f_NhapHang());
             //Application.Run(new f_NhapHang());
             //Application.Run(new fTable_Manager());
             //Application.Run(new fTable_Manager_ADM());
-            //Application.Run(new fLogin());
+            Application.Run(new fLogin());
             //Application.Run(new f_ListTable());
             //Application.Run(new fFunction_Ban());
             //Application.Run(new f_ListMenu());
@@ -34,6 +34,7 @@ namespace APP_QL_Billiard
             //Application.Run(new f_TaoBan());
             //Application.Run(new f_ListThucDon());
             //Application.Run(new f_DoanhThu());
+            //Application.Run(new f_QuanLyNV());
         }
     }
 }

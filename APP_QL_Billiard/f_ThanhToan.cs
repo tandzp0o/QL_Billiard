@@ -17,7 +17,7 @@ namespace APP_QL_Billiard
     public partial class f_ThanhToan : Form
     {
         ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
-        string maBan = "Lo01";
+        string maBan;
 
         public f_ThanhToan()
         {

@@ -94,8 +94,10 @@ namespace APP_QL_Billiard
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            f_QuanLyNV f = new f_QuanLyNV();
             namePage.Text = btnEmployee.Text;
             table_panel.Controls.Clear();
+            formContent(new f_QuanLyNV(), new Form(), table_panel);
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
