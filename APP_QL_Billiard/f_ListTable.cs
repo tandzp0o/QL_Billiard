@@ -61,18 +61,7 @@ namespace APP_QL_Billiard
             }
         }
 
-        void ShowBill(string id)
-        {
-            List<ChiTietBill> ListChiTietBill = ChiTietBillDAO.Instance.GetListBillInfo(BillDAO.Instance.GetBillIDByTableID(id));
-            
-            
-           
-            foreach (ChiTietBill item in ListChiTietBill)
-            {
-              ListViewItem lstBill = new ListViewItem(item.FoodID.ToString());
-                lstBill.SubItems.Add(item.Count.ToString());
-            }
-        }
+       
         #endregion
     
         private void Btn_Click(object sender, EventArgs e)
@@ -88,7 +77,7 @@ namespace APP_QL_Billiard
             Button btn = (Button)sender;
             fFunction_Ban fSent = F;
             string tableID = ((sender as Button).Tag as Ban).ID;
-            ShowBill(tableID);
+            fSent.ShowBill(tableID);
             fSent.Ban1= (Ban)btn.Tag;
             fSent.Activate();
             fSent.reLoad();

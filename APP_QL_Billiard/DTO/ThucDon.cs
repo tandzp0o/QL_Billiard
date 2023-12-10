@@ -14,11 +14,12 @@ namespace APP_QL_Billiard.DTO
         public string MaThucDon { get; set; }
         public string TenThucDon { get; set; }
         public string DonViTinh { get; set; }
-        public string SoLuong { get; set; }
-        public string Gia { get; set; }
+        public int SoLuong { get; set; }
+        public double Gia { get; set; }
         public string Hinh { get; set; }
         public string GhiChu { get; set; }
-        public ThucDon(string id, string name, string unit, int amount, string pic, string note)
+
+        public ThucDon(string id, string name, string unit, int amount,double price, string pic, string note)
         {
             this.ID = id;
             this.Name = name;
@@ -31,13 +32,12 @@ namespace APP_QL_Billiard.DTO
 
         public ThucDon(DataRow row)
         {
-            this.ID = row["MaThucDon"].ToString();
+            
             this.Name = row["TenThucDon"].ToString();
             this.Unit = row["DonViTinh"].ToString();
-            this.Amount = (int)row["SoLuong"];
+            this.Amount = (int)row["SoLuongDat"];
             this.Price = (double)row["Gia"];
-            this.pic = row["Hinh"].ToString(); ;
-            this.Unit = row["GhiChu"].ToString();
+            this.TotalPrice = (double)row["TotalPrice"];
         }
 
         private string id;
@@ -60,6 +60,9 @@ namespace APP_QL_Billiard.DTO
 
         private string note;
         public string Note { get => note; set => note = value; }
+
+        private double totalPrice;
+        public double TotalPrice { get => totalPrice; set => totalPrice = value; }
 
     }
 }

@@ -20,12 +20,7 @@ namespace APP_QL_Billiard.DAO
 
         private BillDAO() { }
 
-        /// <summary>
-        /// Thành công: bill ID
-        /// thất bại: -1
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+    
         public int GetBillIDByTableID(string id)
         {
             DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM HOADON WHERE MaBan = '" + id + "'");

@@ -34,5 +34,19 @@ namespace APP_QL_Billiard.DAO
             }
             return list;
         }
+
+        public List<ThucDon> GetListMenuByTable(string id)
+        {
+            List<ThucDon> listMenu = new List<ThucDon>();
+            DataTable data = DataProvider.Instance.ExcuteQuery(" SELECT f.TenThucDon, f.DonViTinh, bi.SoLuongDat , f.Gia, f.Gia*bi.SoLuongDat AS totalPrice FROM dbo.ChiTietHoaDon AS bi, dbo.HoaDon AS b, dbo.ThucDon AS f WHERE bi.MaHoaDon = b.MaHoaDon AND bi.MaThucDon = f.MaThucDon AND b.MaBan = '" + id + "'");
+
+            foreach (DataRow item in data.Rows)
+            {
+                ThucDon menu = new ThucDon(item);
+                listMenu.Add(menu);
+            }
+
+            return listMenu;
+        }
     }
 }
