@@ -38,7 +38,7 @@ namespace APP_QL_Billiard
         private void CapNhatThongTinHoaDon()
         {
             string tenBan = thanhToanDAO.GetTenBan(maBan);
-            lb_Title.Text = "HOÁ ĐƠN BÀN " + tenBan;
+            lb_Title.Text = "Hoá đơn " + tenBan;
 
             DataTable dt = thanhToanDAO.GetHoaDonChiTiet(maBan);
             dgv_ThanhToan.DataSource = dt;
