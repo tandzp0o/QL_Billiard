@@ -1,9 +1,9 @@
-﻿ --use master 
- --go
- --alter database [Ql_Billiard] set single_user with rollback immediate
+﻿ use master 
+ go
+ alter database [Ql_Billiard] set single_user with rollback immediate
 
- --drop database [Ql_Billiard]
- --go
+ drop database [Ql_Billiard]
+ go
 
 create database Ql_Billiard
 go

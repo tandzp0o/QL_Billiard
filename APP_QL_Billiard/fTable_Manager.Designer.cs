@@ -28,18 +28,20 @@ namespace APP_QL_Billiard
         {
             this.components = new System.ComponentModel.Container();
             this.pn_Left = new System.Windows.Forms.Panel();
-            this.btnSignOut = new System.Windows.Forms.Button();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.pn_Top = new System.Windows.Forms.Panel();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnKho = new System.Windows.Forms.Button();
             this.btnStatusBan = new System.Windows.Forms.Button();
             this.btnThucDon = new System.Windows.Forms.Button();
-            this.namePage = new System.Windows.Forms.Label();
+            this.btnSignOut = new System.Windows.Forms.Button();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.pn_Top = new System.Windows.Forms.Panel();
+            this.TenNhanVien = new System.Windows.Forms.Label();
             this.GioHeThong = new System.Windows.Forms.Label();
+            this.namePage = new System.Windows.Forms.Label();
             this.table_panel = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.TenNhanVien = new System.Windows.Forms.Label();
+            this.btnDKMember = new System.Windows.Forms.Button();
+            this.btnDatTruoc = new System.Windows.Forms.Button();
             this.pn_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pn_Top.SuspendLayout();
@@ -47,6 +49,8 @@ namespace APP_QL_Billiard
             // 
             // pn_Left
             // 
+            this.pn_Left.Controls.Add(this.btnDatTruoc);
+            this.pn_Left.Controls.Add(this.btnDKMember);
             this.pn_Left.Controls.Add(this.btnHistory);
             this.pn_Left.Controls.Add(this.btnKho);
             this.pn_Left.Controls.Add(this.btnStatusBan);
@@ -59,6 +63,54 @@ namespace APP_QL_Billiard
             this.pn_Left.Name = "pn_Left";
             this.pn_Left.Size = new System.Drawing.Size(195, 659);
             this.pn_Left.TabIndex = 3;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.Location = new System.Drawing.Point(1, 364);
+            this.btnHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(194, 40);
+            this.btnHistory.TabIndex = 10;
+            this.btnHistory.Text = "Lịch Sử";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnKho
+            // 
+            this.btnKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKho.Location = new System.Drawing.Point(1, 408);
+            this.btnKho.Margin = new System.Windows.Forms.Padding(2);
+            this.btnKho.Name = "btnKho";
+            this.btnKho.Size = new System.Drawing.Size(194, 40);
+            this.btnKho.TabIndex = 11;
+            this.btnKho.Text = "Kho";
+            this.btnKho.UseVisualStyleBackColor = true;
+            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
+            // 
+            // btnStatusBan
+            // 
+            this.btnStatusBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatusBan.Location = new System.Drawing.Point(0, 232);
+            this.btnStatusBan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStatusBan.Name = "btnStatusBan";
+            this.btnStatusBan.Size = new System.Drawing.Size(194, 40);
+            this.btnStatusBan.TabIndex = 9;
+            this.btnStatusBan.Text = "Tình Trạng Bàn";
+            this.btnStatusBan.UseVisualStyleBackColor = true;
+            this.btnStatusBan.Click += new System.EventHandler(this.btnStatusBan_Click);
+            // 
+            // btnThucDon
+            // 
+            this.btnThucDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThucDon.Location = new System.Drawing.Point(0, 188);
+            this.btnThucDon.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThucDon.Name = "btnThucDon";
+            this.btnThucDon.Size = new System.Drawing.Size(194, 40);
+            this.btnThucDon.TabIndex = 8;
+            this.btnThucDon.Text = "Menu";
+            this.btnThucDon.UseVisualStyleBackColor = true;
+            this.btnThucDon.Click += new System.EventHandler(this.btnThucDon_Click);
             // 
             // btnSignOut
             // 
@@ -97,53 +149,25 @@ namespace APP_QL_Billiard
             this.pn_Top.Size = new System.Drawing.Size(1128, 77);
             this.pn_Top.TabIndex = 2;
             // 
-            // btnHistory
+            // TenNhanVien
             // 
-            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistory.Location = new System.Drawing.Point(0, 276);
-            this.btnHistory.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(194, 40);
-            this.btnHistory.TabIndex = 10;
-            this.btnHistory.Text = "Lịch Sử";
-            this.btnHistory.UseVisualStyleBackColor = true;
-            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            this.TenNhanVien.AutoSize = true;
+            this.TenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenNhanVien.Location = new System.Drawing.Point(956, 52);
+            this.TenNhanVien.Name = "TenNhanVien";
+            this.TenNhanVien.Size = new System.Drawing.Size(76, 25);
+            this.TenNhanVien.TabIndex = 7;
+            this.TenNhanVien.Text = "label1";
             // 
-            // btnKho
+            // GioHeThong
             // 
-            this.btnKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKho.Location = new System.Drawing.Point(0, 320);
-            this.btnKho.Margin = new System.Windows.Forms.Padding(2);
-            this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(194, 40);
-            this.btnKho.TabIndex = 11;
-            this.btnKho.Text = "Kho";
-            this.btnKho.UseVisualStyleBackColor = true;
-            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
-            // 
-            // btnStatusBan
-            // 
-            this.btnStatusBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatusBan.Location = new System.Drawing.Point(0, 232);
-            this.btnStatusBan.Margin = new System.Windows.Forms.Padding(2);
-            this.btnStatusBan.Name = "btnStatusBan";
-            this.btnStatusBan.Size = new System.Drawing.Size(194, 40);
-            this.btnStatusBan.TabIndex = 9;
-            this.btnStatusBan.Text = "Tình Trạng Bàn";
-            this.btnStatusBan.UseVisualStyleBackColor = true;
-            this.btnStatusBan.Click += new System.EventHandler(this.btnStatusBan_Click);
-            // 
-            // btnThucDon
-            // 
-            this.btnThucDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThucDon.Location = new System.Drawing.Point(0, 188);
-            this.btnThucDon.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThucDon.Name = "btnThucDon";
-            this.btnThucDon.Size = new System.Drawing.Size(194, 40);
-            this.btnThucDon.TabIndex = 8;
-            this.btnThucDon.Text = "Menu";
-            this.btnThucDon.UseVisualStyleBackColor = true;
-            this.btnThucDon.Click += new System.EventHandler(this.btnThucDon_Click);
+            this.GioHeThong.AutoSize = true;
+            this.GioHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GioHeThong.Location = new System.Drawing.Point(956, 9);
+            this.GioHeThong.Name = "GioHeThong";
+            this.GioHeThong.Size = new System.Drawing.Size(76, 25);
+            this.GioHeThong.TabIndex = 6;
+            this.GioHeThong.Text = "label1";
             // 
             // namePage
             // 
@@ -155,16 +179,6 @@ namespace APP_QL_Billiard
             this.namePage.Size = new System.Drawing.Size(85, 31);
             this.namePage.TabIndex = 5;
             this.namePage.Text = "Menu";
-            // 
-            // GioHeThong
-            // 
-            this.GioHeThong.AutoSize = true;
-            this.GioHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GioHeThong.Location = new System.Drawing.Point(956, 9);
-            this.GioHeThong.Name = "GioHeThong";
-            this.GioHeThong.Size = new System.Drawing.Size(76, 25);
-            this.GioHeThong.TabIndex = 6;
-            this.GioHeThong.Text = "label1";
             // 
             // table_panel
             // 
@@ -188,15 +202,29 @@ namespace APP_QL_Billiard
             this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // TenNhanVien
+            // btnDKMember
             // 
-            this.TenNhanVien.AutoSize = true;
-            this.TenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TenNhanVien.Location = new System.Drawing.Point(956, 52);
-            this.TenNhanVien.Name = "TenNhanVien";
-            this.TenNhanVien.Size = new System.Drawing.Size(76, 25);
-            this.TenNhanVien.TabIndex = 7;
-            this.TenNhanVien.Text = "label1";
+            this.btnDKMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDKMember.Location = new System.Drawing.Point(1, 276);
+            this.btnDKMember.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDKMember.Name = "btnDKMember";
+            this.btnDKMember.Size = new System.Drawing.Size(194, 40);
+            this.btnDKMember.TabIndex = 5;
+            this.btnDKMember.Text = "Đăng Ký Thành Viên";
+            this.btnDKMember.UseVisualStyleBackColor = true;
+            this.btnDKMember.Click += new System.EventHandler(this.btnDKMember_Click);
+            // 
+            // btnDatTruoc
+            // 
+            this.btnDatTruoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatTruoc.Location = new System.Drawing.Point(0, 320);
+            this.btnDatTruoc.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDatTruoc.Name = "btnDatTruoc";
+            this.btnDatTruoc.Size = new System.Drawing.Size(194, 40);
+            this.btnDatTruoc.TabIndex = 12;
+            this.btnDatTruoc.Text = "Đặt Trước";
+            this.btnDatTruoc.UseVisualStyleBackColor = true;
+            this.btnDatTruoc.Click += new System.EventHandler(this.btnDatTruoc_Click);
             // 
             // fTable_Manager
             // 
@@ -211,6 +239,7 @@ namespace APP_QL_Billiard
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần Mềm Quản Lý Billiard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fTable_Manager_FormClosing);
             this.Load += new System.EventHandler(this.fTable_Manager_Load);
             this.pn_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
@@ -233,5 +262,7 @@ namespace APP_QL_Billiard
         private System.Windows.Forms.TableLayoutPanel table_panel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label TenNhanVien;
+        private System.Windows.Forms.Button btnDKMember;
+        private System.Windows.Forms.Button btnDatTruoc;
     }
 }

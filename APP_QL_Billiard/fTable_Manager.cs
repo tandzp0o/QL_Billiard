@@ -109,5 +109,28 @@ namespace APP_QL_Billiard
             string query = "dbo.TrangThaiBan";
             DataProvider.Instance.ExecuteProcedure(query);
         }
+
+        private void btnDKMember_Click(object sender, EventArgs e)
+        {
+            namePage.Text = btnDKMember.Text;
+            table_panel.Controls.Clear();
+            formContent(new fCreateMember(), new Form(), table_panel, null);
+        }
+
+        private void btnDatTruoc_Click(object sender, EventArgs e)
+        {
+            fListDatTruoc f = new fListDatTruoc();
+
+            namePage.Text = btnDatTruoc.Text;
+            table_panel.Controls.Clear();
+            formContent(new fDatTruoc(f), f, table_panel, table_panel);
+        }
+
+        private void fTable_Manager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Bạn có muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.No)
+                e.Cancel = true;
+        }
     }
 }

@@ -147,5 +147,12 @@ namespace APP_QL_Billiard
             AccountDAO.Instance.IsQuanLy = false;
             this.Close();
         }
+
+        private void fTable_Manager_ADM_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Bạn có muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.No)
+                e.Cancel = true;
+        }
     }
 }
