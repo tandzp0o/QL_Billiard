@@ -35,7 +35,14 @@ namespace APP_QL_Billiard.DAO
             return list;
         }
         private BanDAO() { }
-       
+
+
+        //public int AddEmployee(string taiKhoan, string matkhau, string hoTen, string sdt, string tinhTrang)
+        //{
+        //    string sql = $"insert into Account (TaiKhoan, MatKhau, HoTen, SDT, TinhTrang) VALUES ('{taiKhoan}', {matkhau}, N'{hoTen}', '{sdt}', N'{tinhTrang}')";
+        //    return dataProvider.executeNonQuery(sql);
+        //}
+
         //public void updateBan(Ban b)
         //{
         //    string bd = b.GioBD.ToString("yyyy-MM-dd HH:mm:ss");

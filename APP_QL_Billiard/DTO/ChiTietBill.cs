@@ -9,7 +9,7 @@ namespace APP_QL_Billiard.DTO
 {
     public class ChiTietBill
     {
-         public ChiTietBill(int id, int billID, int foodID, int count)
+         public ChiTietBill(int id, int billID, string foodID, int count)
         {
             this.ID = id;
             this.BillID = billID;
@@ -21,7 +21,7 @@ namespace APP_QL_Billiard.DTO
         {
             this.ID = (int)row["MaChiTietHoaDon"];
             this.BillID = (int)row["MaHoaDon"];
-            this.FoodID = (int)row["MaThucDon"];
+            this.FoodID = row["MaThucDon"].ToString();
             this.Count = (int)row["SoLuongDat"];
         }
 
@@ -33,9 +33,9 @@ namespace APP_QL_Billiard.DTO
             set { count = value; }
         }
 
-        private int foodID;
+        private string foodID;
 
-        public int FoodID
+        public string FoodID
         {
             get { return foodID; }
             set { foodID = value; }

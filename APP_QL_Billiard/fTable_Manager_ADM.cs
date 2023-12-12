@@ -56,7 +56,7 @@ namespace APP_QL_Billiard
         {
             namePage.Text = btnThucDon.Text + " Admin";
             table_panel.Controls.Clear();
-            //formContent(new f_ListMenu(),new Form(), table_panel);
+            formContent(new f_ListMenu(), new Form(), table_panel);
 
         }
 
