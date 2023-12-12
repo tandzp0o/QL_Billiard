@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
@@ -9,35 +9,32 @@ using System.Windows.Forms;
 
 namespace APP_QL_Billiard.DTO
 {
-    public class ThucDon
+    public class ListThucDon
     {
-        public string MaThucDon { get; set; }
-        public string TenThucDon { get; set; }
-        public string DonViTinh { get; set; }
-        public int SoLuong { get; set; }
-        public double Gia { get; set; }
-        public string Hinh { get; set; }
-        public string GhiChu { get; set; }
 
-        public ThucDon(string id, string name, string unit, int amount,double price, string pic, string note)
+
+        public ListThucDon(string id, string name, string unit, int amount, double price, string pic, string note)
         {
             this.ID = id;
             this.Name = name;
             this.Unit = unit;
             this.Amount = amount;
             this.Price = price;
-         
+            this.Pic = pic;
+            this.Note = note;
         }
 
-        public ThucDon(DataRow row)
+        public ListThucDon(DataRow row)
         {
-            
+            this.ID = row["MaThucDon"].ToString();
             this.Name = row["TenThucDon"].ToString();
             this.Unit = row["DonViTinh"].ToString();
-            this.Amount = (int)row["SoLuongDat"];
+            this.Amount = (int)row["SoLuong"];
             this.Price = (double)row["Gia"];
-            this.TotalPrice = (double)row["TotalPrice"];
+            this.Pic = row["Hinh"].ToString();
+            this.Note = row["GhiChu"].ToString();
         }
+
 
         private string id;
         public string ID { get => id; set => id = value; }
@@ -54,8 +51,12 @@ namespace APP_QL_Billiard.DTO
         private double price;
         public double Price { get => price; set => price = value; }
 
-        private double totalPrice;
-        public double TotalPrice { get => totalPrice; set => totalPrice = value; }
+        private string pic;
+        public string Pic { get => pic; set => pic = value; }
 
+        private string note;
+        public string Note { get => note; set => note = value; }
     }
+
 }
+

@@ -61,8 +61,7 @@ CREATE TABLE HoaDon
 	TaiKhoan varchar(20),
     CONSTRAINT fk_hoadon_ban FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
 	CONSTRAINT fk_hoadon_Account FOREIGN KEY (TaiKhoan) REFERENCES Account(TaiKhoan),
-    CONSTRAINT chk_GioChoi CHECK (ThoiGianChoi > 0),
-    CONSTRAINT chk_GioKetThuc CHECK (GioBatDau < GioKetThuc),
+    CONSTRAINT chk_GioKetThuc CHECK (GioBatDau <= GioKetThuc),
     CONSTRAINT chk_TongTien CHECK (TongTien > 0)
 )
 
@@ -459,9 +458,9 @@ INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('11
 INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('0000000000', 'Li02', dateadd(hour,2,getdate()), 0, GETDATE());
 
 -- Thêm dữ liệu vào bảng HoaDon
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Lo01', '2023-10-17T17:00:00', '2023-10-17T17:30:00', N'Khách vãng lai', 'user');
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li02', '2023-10-17T18:00:00', '2023-10-17T19:30:00', N'Học sinh/Sinh viên', 'admin');
-INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li01', '2023-10-17T18:00:00', '2023-10-17T19:30:00', N'VIP', 'admin');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Lo01', '','', N'Khách vãng lai', 'user');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li02', '', '', N'Học sinh/Sinh viên', 'admin');
+INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li01', '', '', N'VIP', 'admin');
 
 -- Thêm dữ liệu vào bảng ThucDon
 INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD01', N'Món 1', N'Đĩa', 10, 50000);

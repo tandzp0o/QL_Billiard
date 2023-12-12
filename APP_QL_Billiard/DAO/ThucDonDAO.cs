@@ -2,8 +2,6 @@
 using System.Data;
 using APP_QL_Billiard.DTO;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +20,7 @@ namespace APP_QL_Billiard.DAO
         public static int MenuWidth = 110;
         public static int MenuHeight = 150;
 
+        //Load cho tung ban
         public List<ThucDon> LoadMenuList()
         {
             List<ThucDon> list = new List<ThucDon>();
@@ -35,6 +34,19 @@ namespace APP_QL_Billiard.DAO
             return list;
         }
 
+        //Load cho trang order
+        public List<ListThucDon> LoadMenuListForOrder()
+        {
+            List<ListThucDon> list = new List<ListThucDon>();
+            DataTable data = DataProvider.Instance.ExcuteQuery("Select * from ThucDon");
+
+            foreach (DataRow item in data.Rows)
+            {
+                ListThucDon thucDon = new ListThucDon(item);
+                list.Add(thucDon);
+            }
+            return list;
+        }
         public List<ThucDon> GetListMenuByTable(string id)
         {
             List<ThucDon> listMenu = new List<ThucDon>();
