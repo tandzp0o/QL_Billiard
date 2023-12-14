@@ -44,7 +44,7 @@ namespace APP_QL_Billiard
             menuTable.Columns.Add("Giá", typeof(double));
             menuTable.Columns.Add("Số lượng", typeof(int));
             menuTable.Columns.Add("Tạm tính", typeof(double));
-
+            GetListMenuByTable(id);
             foreach (DataRow item in lstThucDon.Rows)
             {
                 menuTable.Rows.Add(item["TenThucDon"].ToString(), item["DonViTinh"].ToString(), item["Gia"].ToString(), item["SoLuongDat"].ToString(), item["TongTien"].ToString());
@@ -111,10 +111,7 @@ namespace APP_QL_Billiard
 
 
         }
-        //public void updateBan(Ban b)
-        //{
-        //    new BanDAO().updateBan(b);
-        //}
+      
 
         private void btnStart_Click(object sender, EventArgs e)
         {

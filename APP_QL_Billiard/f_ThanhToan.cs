@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using APP_QL_Billiard.DBconnect;
-using APP_QL_Billiard.DTO;
 
 namespace APP_QL_Billiard
 {

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using APP_QL_Billiard.DBconnect;
-using APP_QL_Billiard.DTO;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.Runtime.CompilerServices;

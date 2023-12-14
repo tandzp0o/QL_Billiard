@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using APP_QL_Billiard.DTO;
+
 using APP_QL_Billiard.DBconnect;
 
 namespace APP_QL_Billiard
