@@ -46,9 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBConnect\BillDAO.cs" />
     <Compile Include="DBConnect\ChiTietBillDAO.cs" />
-    <Compile Include="DBConnect\NhanVienDAO.cs" />
+    <Compile Include="DTO\ListThucDon.cs" />
     <Compile Include="DBConnect\ThucDonDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\ChiTietBill.cs" />
@@ -65,10 +64,10 @@
     <Compile Include="fFunction_Ban.Designer.cs">
       <DependentUpon>fFunction_Ban.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBConnect\AccountDAO.cs" />
+    <Compile Include="DBConnect\Account.cs" />
+    <Compile Include="DBConnect\BanDAO.cs" />
     <Compile Include="DBConnect\DBConnect.cs" />
-    <Compile Include="DBConnect\InHoaDonDAO.cs" />
-    <Compile Include="DBConnect\ThanhToanDAO.cs" />
+    <Compile Include="DTO\Ban.cs" />
     <Compile Include="fDatTruoc.cs">
       <SubType>Form</SubType>
     </Compile>
