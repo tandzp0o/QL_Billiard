@@ -61,11 +61,9 @@ namespace APP_QL_Billiard
             }
         }
 
-
-
         private void Btn_Click(object sender, EventArgs e)
         {
-            string tenMon = ((sender as Button).Tag as DataRow)["MaThucDon"].ToString();
+            string tenMon = ((sender as Button).Tag as DataRow)["TenThucDon"].ToString();
             txt_Mon.Text = tenMon;
         }
         DataTable lstThucDon = new DataTable();

@@ -43,7 +43,7 @@
             this.flpTable.AutoScroll = true;
             this.flpTable.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpTable.Location = new System.Drawing.Point(2, 95);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(528, 497);
             this.flpTable.TabIndex = 1;
@@ -52,7 +52,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(19, 24);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(119, 38);
             this.btnAdd.TabIndex = 0;
@@ -63,22 +63,24 @@
             // btnDel
             // 
             this.btnDel.Location = new System.Drawing.Point(154, 24);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(119, 38);
             this.btnDel.TabIndex = 2;
             this.btnDel.Text = "Xoá Bàn";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(293, 24);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(119, 38);
             this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Sửa Thông Tin Bàn";
+            this.btnEdit.Text = "Sửa Gía Bàn";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // panel1
             // 
@@ -86,7 +88,7 @@
             this.panel1.Controls.Add(this.btnDel);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(528, 89);
             this.panel1.TabIndex = 2;
@@ -96,7 +98,7 @@
             this.panel2.Controls.Add(this.flpTable);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Location = new System.Drawing.Point(9, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(532, 594);
             this.panel2.TabIndex = 3;
@@ -107,7 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 613);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "f_ListTable";
             this.Text = "f_ListTable";
             this.Load += new System.EventHandler(this.f_ListTable_Load);

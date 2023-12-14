@@ -158,6 +158,18 @@
     <Compile Include="f_ThongKe.Designer.cs">
       <DependentUpon>f_ThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_UpdateBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_UpdateBan.Designer.cs">
+      <DependentUpon>f_UpdateBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_XoaBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_XoaBan.Designer.cs">
+      <DependentUpon>f_XoaBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fCreateMember.resx">
@@ -213,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_ThongKe.resx">
       <DependentUpon>f_ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_UpdateBan.resx">
+      <DependentUpon>f_UpdateBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_XoaBan.resx">
+      <DependentUpon>f_XoaBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

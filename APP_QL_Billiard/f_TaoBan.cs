@@ -66,10 +66,12 @@ namespace APP_QL_Billiard
             if (kq != 0)
             {
                 MessageBox.Show("Thêm thành công", "Thông báo");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Thêm không công", "Thông báo");
+                this.Close();
             }
         }
 

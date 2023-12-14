@@ -125,5 +125,17 @@ namespace APP_QL_Billiard
                 panel1.Visible = false;
             }
         }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            f_XoaBan f = new f_XoaBan();
+            f.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            f_UpdateBan f = new f_UpdateBan();
+            f.Show();
+        }
     }
 }
