@@ -7,22 +7,22 @@ using System.Data;
 
 namespace APP_QL_Billiard.DBconnect
 {
-    public class AccountDAO
+    public class Account
     {
         // tạo 1 thể hiện(instance)
-        private static AccountDAO instance;
+        private static Account instance;
         public string TaiKhoan { get; set; }
         public string MatKhau { get; set; }
         public string HoTen { get; set; }
         public string SDT { get; set; }
         public string TinhTrang { get; set; }
         public bool IsQuanLy { get; set; }
-        public static AccountDAO Instance
+        public static Account Instance
         {
             get 
             { 
                 if (instance == null) 
-                    instance = new AccountDAO();
+                    instance = new Account();
                 return instance;
             }            
             private set
@@ -31,7 +31,7 @@ namespace APP_QL_Billiard.DBconnect
             }
         }
 
-        private AccountDAO()
+        private Account()
         {
 
         }
@@ -52,9 +52,5 @@ namespace APP_QL_Billiard.DBconnect
             return result.Rows.Count > 0;
         }
 
-        public bool CheckADM()
-        {
-            return IsQuanLy;
-        }
     }
 }

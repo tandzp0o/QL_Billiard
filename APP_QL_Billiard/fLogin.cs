@@ -17,6 +17,10 @@ namespace APP_QL_Billiard
 {
     public partial class fLogin : Form
     {
+        public bool CheckADM()
+        {
+            return Account.Instance.IsQuanLy;
+        }
         public fLogin()
         {
             InitializeComponent();
@@ -32,13 +36,13 @@ namespace APP_QL_Billiard
 
         public bool Login(string tk, string mk)
         {
-            return AccountDAO.Instance.Login(tk, mk);
+            return Account.Instance.Login(tk, mk);
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (Login(txtTK.Text, txtMK.Text))
             {
-                if(AccountDAO.Instance.CheckADM())
+                if(CheckADM())
                 {
                     fTable_Manager_ADM f = new fTable_Manager_ADM();
                     txtTK.Text = string.Empty;

@@ -58,11 +58,11 @@ namespace APP_QL_Billiard
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
-            AccountDAO.Instance.TaiKhoan = string.Empty;
-            AccountDAO.Instance.MatKhau = string.Empty;
-            AccountDAO.Instance.HoTen = string.Empty;
-            AccountDAO.Instance.SDT = string.Empty;
-            AccountDAO.Instance.IsQuanLy = false;
+            Account.Instance.TaiKhoan = string.Empty;
+            Account.Instance.MatKhau = string.Empty;
+            Account.Instance.HoTen = string.Empty;
+            Account.Instance.SDT = string.Empty;
+            Account.Instance.IsQuanLy = false;
             this.Close();
         }
 
@@ -104,7 +104,7 @@ namespace APP_QL_Billiard
         private void fTable_Manager_Load(object sender, EventArgs e)
         {
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-            TenNhanVien.Text = "Nhân Viên: " + AccountDAO.Instance.HoTen;
+            TenNhanVien.Text = "Nhân Viên: " + Account.Instance.HoTen;
 
             string query = "dbo.TrangThaiBan";
             DBConnect.Instance.ExecuteProcedure(query);

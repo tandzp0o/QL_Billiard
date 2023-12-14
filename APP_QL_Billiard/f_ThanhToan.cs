@@ -16,7 +16,72 @@ namespace APP_QL_Billiard
 {
     public partial class f_ThanhToan : Form
     {
-        ThanhToanDAO thanhToanDAO = new ThanhToanDAO();
+
+        public string GetTenBan(string maBan)
+        {
+            string query = "Select Ban.TenBan from Ban where MaBan = '" + maBan + "'";
+            DataTable result = DBConnect.Instance.getDataTable(query);
+            return result.Rows[0][0].ToString();
+        }
+
+        public DataTable GetHoaDonChiTiet(string maBan)
+        {
+            string query = @"Select TenThucDon, SoLuongDat, DonViTinh, Gia
+                           from ChiTietHoaDon
+                           inner join ThucDon on ChiTietHoaDon.MaThucDon = ThucDon.MaThucDon
+                           inner join HoaDon on ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon
+                           where HoaDon.MaBan = '" + maBan + "'";
+            return DBConnect.Instance.getDataTable(query);
+        }
+
+        public DateTime GetGioBatDau(string maBan)
+        {
+            string query = "Select HoaDon.GioBatDau from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = DBConnect.Instance.getDataTable(query);
+            return Convert.ToDateTime(result.Rows[0][0].ToString());
+        }
+
+        public DateTime GetGioKetThuc(string maBan)
+        {
+            string query = "Select HoaDon.GioKetThuc from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = DBConnect.Instance.getDataTable(query);
+            return Convert.ToDateTime(result.Rows[0][0].ToString());
+        }
+
+        public int GetThoiGianSuDung(string maBan)
+        {
+            string query = "Select HoaDon.ThoiGianChoi from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = DBConnect.Instance.getDataTable(query);
+            return Convert.ToInt32(result.Rows[0][0].ToString());
+        }
+
+        public void CapNhatIsMember(string maBan, string isMember)
+        {
+            string query = "Update HoaDon set IsMember = N'" + isMember + "' where MaBan = '" + maBan + "'";
+            DBConnect.Instance.executeNonQuery(query);
+        }
+
+        public double GetTongTien(string maBan)
+        {
+            string query = "Select HoaDon.TongTien from HoaDon where MaBan = '" + maBan + "'";
+            DataTable result = DBConnect.Instance.getDataTable(query);
+            double tongTien = 0;
+            if (double.TryParse(result.Rows[0][0].ToString(), out tongTien))
+            {
+                return tongTien;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public void CapNhatHoaDonTaiKhoan(string maBan, string taiKhoan)
+        {
+            string query = "Update HoaDon set TaiKhoan = @taiKhoan where MaBan = '" + maBan + "'";
+            DBConnect.Instance.executeNonQuery(query);
+        }
+
         string maBan;
 
         public f_ThanhToan()
@@ -37,22 +102,22 @@ namespace APP_QL_Billiard
 
         private void CapNhatThongTinHoaDon()
         {
-            string tenBan = thanhToanDAO.GetTenBan(maBan);
+            string tenBan = GetTenBan(maBan);
             lb_Title.Text = "Hoá đơn " + tenBan;
 
-            DataTable dt = thanhToanDAO.GetHoaDonChiTiet(maBan);
+            DataTable dt = GetHoaDonChiTiet(maBan);
             dgv_ThanhToan.DataSource = dt;
 
-            DateTime gioBatDau = thanhToanDAO.GetGioBatDau(maBan);
+            DateTime gioBatDau = GetGioBatDau(maBan);
             lb_GBD.Text = "Giờ bắt đầu: " + gioBatDau.ToString("HH:mm");
 
-            DateTime gioKetThuc = thanhToanDAO.GetGioKetThuc(maBan);
+            DateTime gioKetThuc = GetGioKetThuc(maBan);
             lb_GKT.Text = "Giờ kết thúc: " + gioKetThuc.ToString("HH:mm");
 
-            int thoiGianSuDung = thanhToanDAO.GetThoiGianSuDung(maBan);
+            int thoiGianSuDung = GetThoiGianSuDung(maBan);
             lb_TgSD.Text = "Thời gian sử dụng: " + thoiGianSuDung.ToString() + " phút";
 
-            double tongTien = thanhToanDAO.GetTongTien(maBan);
+            double tongTien = GetTongTien(maBan);
             lb_TongTien.Text = "Tổng tiền: " + tongTien.ToString() + " VND";
         }
 
@@ -78,7 +143,7 @@ namespace APP_QL_Billiard
 
             lb_GiamGia.Text = "Giảm: " + giamGia.ToString() + "%";
 
-            thanhToanDAO.CapNhatIsMember(maBan, ismember);
+            CapNhatIsMember(maBan, ismember);
             CapNhatThongTinHoaDon();
         }
 

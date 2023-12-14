@@ -99,7 +99,7 @@ namespace APP_QL_Billiard
 
         private void f_ListTable_Load(object sender, EventArgs e)
         {
-            if (AccountDAO.Instance.IsQuanLy)
+            if (Account.Instance.IsQuanLy)
             {
                 panel1.Visible = true;
             }

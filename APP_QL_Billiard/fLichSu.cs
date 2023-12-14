@@ -21,7 +21,7 @@ namespace APP_QL_Billiard
         private void fLichSu_Load(object sender, EventArgs e)
         {
             string query1 = "";
-            if(AccountDAO.Instance.IsQuanLy)
+            if(Account.Instance.IsQuanLy)
             {
                 string query = "select TaiKhoan from Account";
                 DataTable a = DBConnect.Instance.ExcuteQuery(query);
@@ -35,8 +35,8 @@ namespace APP_QL_Billiard
             }    
             else
             {
-                cbbNhanVien.Items.Add(AccountDAO.Instance.TaiKhoan);
-                query1 = "select * from HoaDon where TaiKhoan = '"+ AccountDAO.Instance.TaiKhoan + "'";
+                cbbNhanVien.Items.Add(Account.Instance.TaiKhoan);
+                query1 = "select * from HoaDon where TaiKhoan = '"+ Account.Instance.TaiKhoan + "'";
             }    
             dataGridView1_Load(query1);
             cbbNhanVien.SelectedIndex = 0;
@@ -45,7 +45,7 @@ namespace APP_QL_Billiard
         private void btnShow_Click(object sender, EventArgs e)
         {
             string query = ""; 
-            if(cbbNhanVien.SelectedIndex == 0 && AccountDAO.Instance.IsQuanLy)
+            if(cbbNhanVien.SelectedIndex == 0 && Account.Instance.IsQuanLy)
             {
                 query = "select * from HoaDon where GioKetThuc >= '" + dateTimePicker1.Value.ToString("MM/dd/yyyy") + "' and GioKetThuc <= '" + dateTimePicker2.Value.ToString("MM/dd/yyyy") + "'";
 

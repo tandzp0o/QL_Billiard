@@ -13,11 +13,27 @@ namespace APP_QL_Billiard
 {
     public partial class f_QuanLyNV : Form
     {
-        private NhanVienDAO nv;
+        public DataTable GetAllEmployees()
+        {
+            string sql = "select TaiKhoan, HoTen, SDT, TinhTrang from Account";
+            return DBConnect.Instance.getDataTable(sql);
+        }
+
+        public int AddEmployee(string taiKhoan, string matkhau, string hoTen, string sdt, string tinhTrang)
+        {
+            string sql = "insert into Account (TaiKhoan, MatKhau, HoTen, SDT, TinhTrang) VALUES ('" + taiKhoan + "', " + matkhau + ", N'" + hoTen + "', '" + sdt + "', N'" + tinhTrang + "')";
+            return DBConnect.Instance.executeNonQuery(sql);
+        }
+
+        public int UpdateEmployee(string taiKhoan, string hoTen, string sdt, string tinhTrang)
+        {
+            string sql = "update Account set HoTen = N'" + hoTen + "', SDT = '" + sdt + "', TinhTrang = N'" + tinhTrang + "' WHERE TaiKhoan = '" + taiKhoan + "'";
+            return DBConnect.Instance.executeNonQuery(sql);
+        }
+        //private NhanVienDAO nv;
         public f_QuanLyNV()
         {
             InitializeComponent();
-            nv = new NhanVienDAO();
             LoadDataToDGV();
         }
 
@@ -47,13 +63,12 @@ namespace APP_QL_Billiard
 
         private void f_QuanLyNV_Load(object sender, EventArgs e)
         {
-            txt_taiKhoan.Enabled = false;
-            txt_matKhau.Enabled = false;
+
         }
 
         private void LoadDataToDGV()
         {
-            dgv_dsnv.DataSource = nv.GetAllEmployees();
+            dgv_dsnv.DataSource = GetAllEmployees();
         }
 
         private void dgv_dsnv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -83,11 +98,9 @@ namespace APP_QL_Billiard
             string sdt = txt_sdt.Text;
             string tinhTrang = txt_tinhTrang.Text;
 
-            nv.AddEmployee(taiKhoan, matkhau, hoTen, sdt, tinhTrang);
+            AddEmployee(taiKhoan, matkhau, hoTen, sdt, tinhTrang);
             LoadDataToDGV();
             ClearTextBoxes();
-            txt_taiKhoan.Enabled = false;
-            txt_matKhau.Enabled = false;
         }
 
         private void btn_capNhat_Click(object sender, EventArgs e)
@@ -97,10 +110,9 @@ namespace APP_QL_Billiard
             string sdt = txt_sdt.Text;
             string tinhTrang = txt_tinhTrang.Text;
 
-            nv.UpdateEmployee(taiKhoan, hoTen, sdt, tinhTrang);
+            UpdateEmployee(taiKhoan, hoTen, sdt, tinhTrang);
             LoadDataToDGV();
             ClearTextBoxes();
-            txt_taiKhoan.Enabled = false;
         }
         
     }

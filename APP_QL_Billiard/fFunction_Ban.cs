@@ -199,7 +199,7 @@ namespace APP_QL_Billiard
             DBConnect.Instance.ExcuteNonQuery(updateHoaDonQuery);
 
             int tt = (int)gia;
-            string updateHoaDonQuery1 = "UPDATE HoaDon SET ThanhToan = '" + tt + "',TaiKhoan='" + AccountDAO.Instance.TaiKhoan + "' WHERE MaHoaDon = '@maHD'";
+            string updateHoaDonQuery1 = "UPDATE HoaDon SET ThanhToan = '" + tt + "',TaiKhoan='" + Account.Instance.TaiKhoan + "' WHERE MaHoaDon = '@maHD'";
             updateHoaDonQuery1 = updateHoaDonQuery1.Replace("@maHD", mahd);
             DBConnect.Instance.ExcuteNonQuery(updateHoaDonQuery1);
 
