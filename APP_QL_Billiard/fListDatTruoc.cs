@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 
 namespace APP_QL_Billiard
 {
@@ -26,7 +26,7 @@ namespace APP_QL_Billiard
 
         public void loaddtgv(string query)
         {
-            DataTable a = DataProvider.Instance.ExcuteQuery(query);
+            DataTable a = DBConnect.Instance.ExcuteQuery(query);
             dtgvDatTruoc.DataSource = a;
             dtgvDatTruoc.Columns[0].HeaderText = "Tên Bàn";
             dtgvDatTruoc.Columns[1].HeaderText = "Giờ Tới";

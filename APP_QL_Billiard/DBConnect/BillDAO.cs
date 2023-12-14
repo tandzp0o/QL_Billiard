@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class BillDAO
     {
@@ -23,7 +23,7 @@ namespace APP_QL_Billiard.DAO
     
         public int GetBillIDByTableID(string id)
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM HOADON WHERE MaBan = '" + id + "'");
+            DataTable data = DBConnect.Instance.ExcuteQuery("SELECT * FROM HOADON WHERE MaBan = '" + id + "'");
 
             if (data.Rows.Count > 0)
             {

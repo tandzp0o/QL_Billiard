@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 using System.Text.RegularExpressions;
 
 namespace APP_QL_Billiard
@@ -33,7 +33,7 @@ namespace APP_QL_Billiard
                 MessageBox.Show("Invalid phone number");
             }
             string sql = "insert into KhachHang(Ten, Phone) values (N'" + txtName.Text + "', '" + txtPhone.Text + "')";
-            int k = DataProvider.Instance.ExcuteNonQuery(sql);
+            int k = DBConnect.Instance.ExcuteNonQuery(sql);
             if (k != 0)
             {
                 MessageBox.Show("Ok");
@@ -45,7 +45,7 @@ namespace APP_QL_Billiard
             if (SDT != null)
                 txtPhone.Text = SDT.Text;
             string query = "select * from KhachHang";
-            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            DataTable dt = DBConnect.Instance.ExcuteQuery(query);
             dtgvDSMember.DataSource = dt;
             dtgvDSMember.Columns[0].HeaderText = "Số Điện Thoại";
             dtgvDSMember.Columns[1].HeaderText = "Tên Khách Hàng";

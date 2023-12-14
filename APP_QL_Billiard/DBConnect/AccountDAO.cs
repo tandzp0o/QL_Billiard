@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class AccountDAO
     {
@@ -39,7 +39,7 @@ namespace APP_QL_Billiard.DAO
         public bool Login(string tk, string mk)
         {
             string query = "select * from Account where TaiKhoan = '" + tk + "' and MatKhau = '" + mk + "'";
-            DataTable result = DataProvider.Instance.ExcuteQuery(query);
+            DataTable result = DBConnect.Instance.ExcuteQuery(query);
             if(result.Rows.Count > 0)
             {
                 TaiKhoan = tk;

@@ -1,4 +1,4 @@
-﻿using APP_QL_Billiard.DAO;
+﻿using APP_QL_Billiard.DBconnect;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +24,7 @@ namespace APP_QL_Billiard
             if(AccountDAO.Instance.IsQuanLy)
             {
                 string query = "select TaiKhoan from Account";
-                DataTable a = DataProvider.Instance.ExcuteQuery(query);
+                DataTable a = DBConnect.Instance.ExcuteQuery(query);
                 DataRow b = a.NewRow();
                 b[0] = "Tất Cả";
                 a.Rows.InsertAt(b,0);
@@ -59,7 +59,7 @@ namespace APP_QL_Billiard
 
         private void dataGridView1_Load(string query)
         {
-            DataTable a = DataProvider.Instance.ExcuteQuery(query);
+            DataTable a = DBConnect.Instance.ExcuteQuery(query);
             dataGridView1.DataSource = a;
             dataGridView1.Columns[0].HeaderText = "Mã Hoá Đơn";
             dataGridView1.Columns[1].HeaderText = "Mã Bàn";

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class ThucDonDAO
     {
@@ -24,7 +24,7 @@ namespace APP_QL_Billiard.DAO
         public List<ThucDon> LoadMenuList()
         {
             List<ThucDon> list = new List<ThucDon>();
-            DataTable data = DataProvider.Instance.ExcuteQuery("Select * from ThucDon");
+            DataTable data = DBConnect.Instance.ExcuteQuery("Select * from ThucDon");
 
             foreach (DataRow item in data.Rows)
             {
@@ -38,7 +38,7 @@ namespace APP_QL_Billiard.DAO
         public List<ListThucDon> LoadMenuListForOrder()
         {
             List<ListThucDon> list = new List<ListThucDon>();
-            DataTable data = DataProvider.Instance.ExcuteQuery("Select * from ThucDon");
+            DataTable data = DBConnect.Instance.ExcuteQuery("Select * from ThucDon");
 
             foreach (DataRow item in data.Rows)
             {
@@ -50,7 +50,7 @@ namespace APP_QL_Billiard.DAO
         public List<ThucDon> GetListMenuByTable(string id)
         {
             List<ThucDon> listMenu = new List<ThucDon>();
-            DataTable data = DataProvider.Instance.ExcuteQuery(" SELECT f.TenThucDon, f.DonViTinh, bi.SoLuongDat , f.Gia, f.Gia*bi.SoLuongDat AS totalPrice FROM dbo.ChiTietHoaDon AS bi, dbo.HoaDon AS b, dbo.ThucDon AS f WHERE bi.MaHoaDon = b.MaHoaDon AND bi.MaThucDon = f.MaThucDon AND b.MaBan = '" + id + "'");
+            DataTable data = DBConnect.Instance.ExcuteQuery(" SELECT f.TenThucDon, f.DonViTinh, bi.SoLuongDat , f.Gia, f.Gia*bi.SoLuongDat AS totalPrice FROM dbo.ChiTietHoaDon AS bi, dbo.HoaDon AS b, dbo.ThucDon AS f WHERE bi.MaHoaDon = b.MaHoaDon AND bi.MaThucDon = f.MaThucDon AND b.MaBan = '" + id + "'");
 
             foreach (DataRow item in data.Rows)
             {

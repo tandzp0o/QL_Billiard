@@ -1,4 +1,4 @@
-﻿using APP_QL_Billiard.DAO;
+﻿using APP_QL_Billiard.DBconnect;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ namespace APP_QL_Billiard
         void loadCbbLoaiBan()
         {
             string sql = "Select distinct LoaiBan from Ban";
-            DataTable dt = DataProvider.Instance.ExcuteQuery(sql);
+            DataTable dt = DBConnect.Instance.ExcuteQuery(sql);
             cbbLoaiBan.DataSource = dt;
             cbbLoaiBan.DisplayMember = "LoaiBan";
             cbbLoaiBan.ValueMember = "LoaiBan";
@@ -47,7 +47,7 @@ namespace APP_QL_Billiard
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string Ban = RemoveUnicode(cbbLoaiBan.SelectedValue.ToString());
-            string ma = DataProvider.Instance.ExcuteScalar<string>("Select top 1 MaBan from Ban where LoaiBan = N'" + cbbLoaiBan.SelectedValue.ToString() + "' order by MaBan desc");
+            string ma = DBConnect.Instance.ExcuteScalar<string>("Select top 1 MaBan from Ban where LoaiBan = N'" + cbbLoaiBan.SelectedValue.ToString() + "' order by MaBan desc");
             string lastTwo = ma.Substring(ma.Length - 2);
             int stt = int.Parse(lastTwo);
             stt++;
@@ -62,7 +62,7 @@ namespace APP_QL_Billiard
             string maban = Ban.Substring(0, 2) + lastTwo;
             string tenban = "Bàn " + cbbLoaiBan.SelectedValue.ToString() + " " + stt;
             string sql = "insert into Ban(MaBan, TenBan, LoaiBan, gia, trangthai) values ('" + maban + "', N'" + tenban + "', N'" + cbbLoaiBan.SelectedValue.ToString() + "', " + textBox1.Text + ", 2)";
-            int kq = DataProvider.Instance.ExcuteNonQuery(sql);
+            int kq = DBConnect.Instance.ExcuteNonQuery(sql);
             if (kq != 0)
             {
                 MessageBox.Show("Thêm thành công", "Thông báo");

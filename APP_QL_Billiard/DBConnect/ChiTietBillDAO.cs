@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class ChiTietBillDAO
     {
@@ -25,7 +25,7 @@ namespace APP_QL_Billiard.DAO
         {
             List<ChiTietBill> listBillInfo = new List<ChiTietBill>();
 
-            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = " + id);
+            DataTable data = DBConnect.Instance.ExcuteQuery("SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = " + id);
 
             foreach (DataRow item in data.Rows)
             {

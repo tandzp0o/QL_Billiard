@@ -8,15 +8,15 @@ using System.Data.SqlClient;
 using System.Xml.Linq;
 using System.Runtime.InteropServices;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class ThanhToanDAO
     {
-        private DataProvider dataProvider;
+        private DBConnect dataProvider;
 
         public ThanhToanDAO()
         {
-            dataProvider = DataProvider.Instance;
+            dataProvider = DBConnect.Instance;
         }
 
         public string GetTenBan(string maBan)

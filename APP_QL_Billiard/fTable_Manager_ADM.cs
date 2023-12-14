@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using APP_QL_Billiard.DTO;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 
 namespace APP_QL_Billiard
 {
@@ -118,7 +118,7 @@ namespace APP_QL_Billiard
         {
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             string query = "dbo.TrangThaiBan";
-            DataProvider.Instance.ExecuteProcedure(query);
+            DBConnect.Instance.ExecuteProcedure(query);
         }
 
         private void fTable_Manager_ADM_Load(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace APP_QL_Billiard
             TenNhanVien.Text = "Nhân Viên: " + AccountDAO.Instance.HoTen;
 
             string query = "dbo.TrangThaiBan";
-            DataProvider.Instance.ExecuteProcedure(query);
+            DBConnect.Instance.ExecuteProcedure(query);
         }
 
         private void btnDKMember_Click(object sender, EventArgs e)

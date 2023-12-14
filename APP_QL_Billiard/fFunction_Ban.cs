@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 using APP_QL_Billiard.DTO;
 
 namespace APP_QL_Billiard
@@ -83,7 +83,7 @@ namespace APP_QL_Billiard
                 else
                 {
                     string query = "select GioBatDau from HoaDon where MaBan ='" + Ban1.ID + "' and GioKetThuc IS NULL";
-                    string a = DataProvider.Instance.ExcuteScalar<string>(query);
+                    string a = DBConnect.Instance.ExcuteScalar<string>(query);
                     txtTimeStart.Text = a;
 
                     btnChange.Enabled = true;
@@ -124,12 +124,12 @@ namespace APP_QL_Billiard
             insertHoaDonQuery = insertHoaDonQuery.Replace("@maBan", Ban1.ID);
             insertHoaDonQuery = insertHoaDonQuery.Replace("@gioBD", date.ToString("HH:mm:ss   dd/MM/yyyy")); // Định dạng ngày giờ cho SQL
 
-            int result = DataProvider.Instance.ExcuteNonQuery(insertHoaDonQuery);
+            int result = DBConnect.Instance.ExcuteNonQuery(insertHoaDonQuery);
 
             // Thêm trường Status của bảng Ban vào câu truy vấn UPDATE
             string updateBanStatusQuery = "UPDATE Ban SET TrangThai = 1 WHERE MaBan = '@maBan'";
             updateBanStatusQuery = updateBanStatusQuery.Replace("@maBan", Ban1.ID);
-            DataProvider.Instance.ExcuteNonQuery(updateBanStatusQuery);
+            DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery);
 
             if (result > 0)
             {
@@ -156,22 +156,22 @@ namespace APP_QL_Billiard
 
             string updateBanStatusQuery = "UPDATE Ban SET TrangThai = 2 WHERE MaBan = '@maBan'";
             updateBanStatusQuery = updateBanStatusQuery.Replace("@maBan", Ban1.ID);
-            DataProvider.Instance.ExcuteNonQuery(updateBanStatusQuery);
+            DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery);
 
             string query = "select MaHoaDon from HoaDon where MaBan ='" + Ban1.ID + "' and GioKetThuc IS NULL";
-            string a = DataProvider.Instance.ExcuteScalar<string>(query);
+            string a = DBConnect.Instance.ExcuteScalar<string>(query);
 
             string updateBanStatusQuery1 = "UPDATE HOADON SET GioKetThuc = '"+date.ToString()+ "' WHERE MaHoaDon = '@maHD'";
             updateBanStatusQuery1 = updateBanStatusQuery1.Replace("@maHD",a);
-            DataProvider.Instance.ExcuteNonQuery(updateBanStatusQuery1);
+            DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery1);
         }
 
         private void btnTinh_Click(object sender, EventArgs e)
         {
             string query = "select GioBatDau from HoaDon where MaBan ='" + Ban1.ID + "'";
-            DateTime a = DataProvider.Instance.ExcuteScalar<DateTime>(query);
+            DateTime a = DBConnect.Instance.ExcuteScalar<DateTime>(query);
             string query1 = "select GioKetThuc from HoaDon where MaBan ='" + Ban1.ID + "'";
-            DateTime b = DataProvider.Instance.ExcuteScalar<DateTime>(query1);
+            DateTime b = DBConnect.Instance.ExcuteScalar<DateTime>(query1);
 
             DateTime date = a;
             DateTime date2 = b;
@@ -184,28 +184,28 @@ namespace APP_QL_Billiard
             txtGio.Text = hour + " giờ " + minute + " phút";
 
             string query2 = "SELECT Gia FROM Ban WHERE MaBan = '" + Ban1.ID + "' ";
-            int c = DataProvider.Instance.ExcuteScalar<int>(query2);
+            int c = DBConnect.Instance.ExcuteScalar<int>(query2);
             int gia = (int)(m * c) / 60;
             txtGia.Text = gia + ".00 VND";
             btnPay.Enabled = true;
 
             //Them phuong thuc push data vao SQL
             string query3 = "select MaHoaDon from HoaDon where MaBan ='" + Ban1.ID + "' and GioKetThuc IS NULL";
-            string mahd = DataProvider.Instance.ExcuteScalar<string>(query3);
+            string mahd = DBConnect.Instance.ExcuteScalar<string>(query3);
 
             string updateHoaDonQuery = "UPDATE HoaDon SET ThoiGianChoi='" + (int)m + "' WHERE MaHoaDon = '@maHD'";
             updateHoaDonQuery = updateHoaDonQuery.Replace("@maHD", mahd);
             updateHoaDonQuery = updateHoaDonQuery.Replace("@gioKT", date2.ToString("yyyy-MM-dd HH:mm:ss")); // Định dạng ngày giờ cho SQL
-            DataProvider.Instance.ExcuteNonQuery(updateHoaDonQuery);
+            DBConnect.Instance.ExcuteNonQuery(updateHoaDonQuery);
 
             int tt = (int)gia;
             string updateHoaDonQuery1 = "UPDATE HoaDon SET ThanhToan = '" + tt + "',TaiKhoan='" + AccountDAO.Instance.TaiKhoan + "' WHERE MaHoaDon = '@maHD'";
             updateHoaDonQuery1 = updateHoaDonQuery1.Replace("@maHD", mahd);
-            DataProvider.Instance.ExcuteNonQuery(updateHoaDonQuery1);
+            DBConnect.Instance.ExcuteNonQuery(updateHoaDonQuery1);
 
             string updateBanStatusQuery2 = "UPDATE Ban SET TrangThai = 2 WHERE MaBan = '@maBan'";
             updateBanStatusQuery2 = updateBanStatusQuery2.Replace("@maBan", Ban1.ID);
-            DataProvider.Instance.ExcuteNonQuery(updateBanStatusQuery2);
+            DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery2);
             this.reLoad();
         }
 

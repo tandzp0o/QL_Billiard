@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class NhanVienDAO
     {
-        private DataProvider dataProvider;
+        private DBConnect dataProvider;
 
         public NhanVienDAO()
         {
-            dataProvider = DataProvider.Instance;
+            dataProvider = DBConnect.Instance;
         }
 
         public DataTable GetAllEmployees()

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -79,15 +79,15 @@ namespace APP_QL_Billiard
             }
             File.Copy(txtPic.Text, Path.Combine(imgPath, Path.GetFileName(txtPic.Text)), true);
             string imgName = Path.GetFileName(txtPic.Text);
-            string ma = DataProvider.Instance.ExcuteScalar<string>("Select top 1 MaThucDon from thucdon order by MaThucDon desc");
-            int stt = int.Parse(ma.Substring(ma.Length - 2));
+            string ma = DBConnect.Instance.ExcuteScalar<string>("Select top 1 MaThucDon from thucdon order by MaThucDon desc");
+            int stt = int.Parse(ma.Substring(ma.Length - 3));
             stt++;
             if (stt < 10)
                 ma = ma.Substring(0, 2) + "0" + stt;
             else
                 ma = ma.Substring(0, 2) + stt;
             string sql = "INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('"+ma+"', N'"+txtName.Text+"', N'"+cbbDVT.SelectedValue.ToString()+"', "+txtSL.Text+", "+txtPrice.Text+", '"+imgName+"')";
-            int kq = DataProvider.Instance.ExcuteNonQuery(sql);
+            int kq = DBConnect.Instance.ExcuteNonQuery(sql);
             if(kq > 0)
             {
                 MessageBox.Show("Thêm thành công", "Thông báo");
@@ -206,7 +206,7 @@ namespace APP_QL_Billiard
                     File.Copy(txtPic.Text, Path.Combine(imgPath, Path.GetFileName(txtPic.Text)), true);
                 }
                 string sql = "update ThucDon set TenThucDon = N'" + txtName.Text + "', DonViTinh = N'" + cbbDVT.SelectedValue.ToString() + "', SoLuong = " + txtSL.Text + ", Gia = " + txtPrice.Text + ", Hinh = N'" + txtPicName.Text + "' where MaThucDon = '" + dgvThucDon.SelectedRows[0].Cells[0].Value.ToString() + "'";
-                int kq = DataProvider.Instance.ExcuteNonQuery(sql);
+                int kq = DBConnect.Instance.ExcuteNonQuery(sql);
                 if (kq > 0)
                 {
                     MessageBox.Show("Sửa thành công", "Thông báo");

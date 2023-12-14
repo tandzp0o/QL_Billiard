@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 using System.Data.SqlClient;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 
 namespace APP_QL_Billiard
 {
@@ -39,7 +39,7 @@ namespace APP_QL_Billiard
         private void cbbTypeTable_SelectedIndexChanged(object sender, EventArgs e)
         {
             string query = "select * from Ban where LoaiBan = N'" + cbbTypeTable.SelectedItem.ToString() + "' and TrangThai = 2";
-            DataTable a = DataProvider.Instance.ExcuteQuery(query);   
+            DataTable a = DBConnect.Instance.ExcuteQuery(query);   
             cbbEmptyTable.DataSource = a;
             cbbEmptyTable.DisplayMember = "TenBan";
             cbbEmptyTable.ValueMember = "MaBan";
@@ -64,7 +64,7 @@ namespace APP_QL_Billiard
                 if (GioToi.Value.TimeOfDay < DateTime.Now.TimeOfDay)
                     NgayHienTai.Value = NgayHienTai.Value.AddDays(1);
                 string query = "insert into DatTruoc(Phone, MaBan, ThoiGianToi, NgayDat, TrangThai) values ('" + txtSDT.Text + "', '" + cbbEmptyTable.SelectedValue.ToString() + "','" + DateTime.Now.ToString("MM/dd/yyyy") + " "+ GioToi.Value.ToString("HH:mm") + "' ,'" + DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "',0)";
-                int k = DataProvider.Instance.ExcuteNonQuery(query);
+                int k = DBConnect.Instance.ExcuteNonQuery(query);
                 if (NgayHienTai.Value > DateTime.Now)
                     NgayHienTai.Value = DateTime.Now;
                 if (k != 0)
@@ -99,7 +99,7 @@ namespace APP_QL_Billiard
         private void txtSDT_Leave(object sender, EventArgs e)
         {
             string query = "select * from KhachHang where Phone = '" + txtSDT.Text + "'";
-            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            DataTable dt = DBConnect.Instance.ExcuteQuery(query);
             if(dt.Rows.Count != 0)
             {
                 txtTenKH.Text = dt.Rows[0].Field<string>("Ten");

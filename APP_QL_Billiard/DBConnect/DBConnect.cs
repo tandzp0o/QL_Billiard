@@ -7,27 +7,27 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
-    public class DataProvider
+    public class DBConnect
     {
-        private static DataProvider instance;
-        public static DataProvider Instance
+        private static DBConnect instance;
+        public static DBConnect Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new DataProvider();
-                return DataProvider.instance;
+                    instance = new DBConnect();
+                return DBConnect.instance;
             }
             private set
             {
-                DataProvider.instance = value;
+                DBConnect.instance = value;
             }
         }
 
 
-        private DataProvider() { }
+        private DBConnect() { }
 
         // lấy datatable
         public DataTable ExcuteQuery(string query, object[] parameter = null)

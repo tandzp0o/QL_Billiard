@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class InHoaDonDAO
     {
-        private DataProvider dataProvider;
+        private DBConnect dataProvider;
 
         public InHoaDonDAO()
         {
-            dataProvider = DataProvider.Instance;
+            dataProvider = DBConnect.Instance;
         }
 
         public string GetTenBan(string maBan)

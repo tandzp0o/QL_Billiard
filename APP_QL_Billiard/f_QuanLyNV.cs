@@ -1,4 +1,4 @@
-﻿using APP_QL_Billiard.DAO;
+﻿using APP_QL_Billiard.DBconnect;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

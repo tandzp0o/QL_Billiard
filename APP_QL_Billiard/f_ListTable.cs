@@ -1,4 +1,4 @@
-﻿using APP_QL_Billiard.DAO;
+﻿using APP_QL_Billiard.DBconnect;
 using APP_QL_Billiard.DTO;
 using System;
 using System.Collections.Generic;
@@ -67,7 +67,7 @@ namespace APP_QL_Billiard
         private void Btn_Click(object sender, EventArgs e)
         {
             string query = "select TrangThai from Ban where MaBan ='"+ ((sender as Button).Tag as Ban).ID + "'";
-            int a = DataProvider.Instance.ExcuteScalar<int>(query);
+            int a = DBConnect.Instance.ExcuteScalar<int>(query);
             if(a == 3)
             {
                 DialogResult r = MessageBox.Show("Bàn đã đặt trước, bạn có muốn bỏ qua đặt trước?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);

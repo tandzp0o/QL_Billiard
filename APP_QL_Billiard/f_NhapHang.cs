@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using APP_QL_Billiard.DAO;
+using APP_QL_Billiard.DBconnect;
 using APP_QL_Billiard.DTO;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.Runtime.CompilerServices;
@@ -30,8 +29,16 @@ namespace APP_QL_Billiard
             InitializeComponent();
             F = f;
         }
+        DataTable ctpn = new DataTable();
 
-        List<CTPN> cts = new List<CTPN>();
+        void makeCTPN()
+        {
+            ctpn.Columns.Add("MaThucDon", typeof(string));
+            ctpn.Columns.Add("SoLuong", typeof(int));
+            ctpn.Columns.Add("DonGia", typeof(int));
+        }
+        
+        //List<CTPN> cts = new List<CTPN>();
         void loadMH()
         {
             DataSet ds = new DataSet();
@@ -45,6 +52,7 @@ namespace APP_QL_Billiard
         private void f_NhapHang_Load(object sender, EventArgs e)
         {
             loadMH();
+            makeCTPN();
             this.gbNH.Click += new EventHandler(gbNH_Click);
         }
 
@@ -52,21 +60,21 @@ namespace APP_QL_Billiard
         {
             if (txtDG.Text != string.Empty && txtSL.Text != string.Empty)
             {
-                foreach (var item in cts)
+                foreach (DataRow item in ctpn.Rows)
                 {
-                    if(item.MaThucDon == cbbMH.SelectedValue.ToString())
+                    if (item[0].ToString() == cbbMH.SelectedValue.ToString())
                     {
                         MessageBox.Show("Đã tồn tại mặt hàng trong phiếu nhập này");
                         return;
                     }    
                 }
                 btnEdit.Visible = false;
-                CTPN ctpn = new CTPN();
-                ctpn.MaThucDon = cbbMH.SelectedValue.ToString();
-                ctpn.SoLuong = int.Parse(txtSL.Text);
-                ctpn.DonGia = int.Parse(txtDG.Text);
-                cts.Add(ctpn);
-                string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), ctpn.DonGia.ToString(), ctpn.SoLuong.ToString() };
+                DataRow dr = ctpn.NewRow();
+                dr[0] = cbbMH.SelectedValue.ToString();
+                dr[1] = int.Parse(txtSL.Text);
+                dr[2] = int.Parse(txtDG.Text);
+                ctpn.Rows.Add(dr);
+                string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), dr[2].ToString(), dr[1].ToString() };
                 ListViewItem listViewI = new ListViewItem(row);
                 listView1.Items.Add(listViewI);
                 txtDG.Clear();
@@ -80,21 +88,19 @@ namespace APP_QL_Billiard
         {
             if (listView1.Items.Count > 0)
             {
-                CtpnDAO ctpnDAO = new CtpnDAO();
-                if (ctpnDAO.addToCTPN(cts) != 0)
+                string sql = "insert into PhieuNhap(NgayNhap) values ('" + DateTime.Now.ToString("MM/dd/yyyy") + "')";
+                DBConnect.Instance.ExcuteNonQuery(sql);
+                sql = "select top 1 mapn from PhieuNhap order by mapn desc";
+                string mapn = DBConnect.Instance.ExcuteScalar<string>(sql);
+                foreach (DataRow i in ctpn.Rows)
                 {
-                    btnAdd.Visible = true;
-                    btnEdit.Visible = false;
-                    cbbMH.Enabled = true;
-                    txtDG.Clear();
-                    txtSL.Clear();
-                    cts.Clear();
-                    listView1.Items.Clear();
-                    cbbMH.SelectedIndex = 0;
-                    F.loadThucDon();
-                    MessageBox.Show("Thêm thành công");
+                    sql = "insert into ChiTietPhieuNhap(mapn, mathucdon, soluong, dongia) values ('" + mapn + "','" + i[0] + "'," + i[1] + "," + i[2] + ")";
+                    DBConnect.Instance.ExcuteNonQuery(sql);
                 }
-                else MessageBox.Show("Thêm không thành công");
+                ctpn.Clear();
+                listView1.Items.Clear();
+                F.loadThucDon();
+                MessageBox.Show("Nhập hàng thành công");
             }
             else MessageBox.Show("Không có thực đơn trong phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -120,14 +126,14 @@ namespace APP_QL_Billiard
                 int index = cbbMH.FindStringExact(listViewItem.SubItems[0].Text);
                 DataRowView drv = (DataRowView)cbbMH.Items[index];
                 var cbbi = drv[0].ToString();
-                foreach (var i in cts)
+                foreach (DataRow i in ctpn.Rows)
                 {
-                    if (i.MaThucDon == cbbi)
+                    if (i[0].ToString() == cbbi)
                     {
-                        i.MaThucDon = cbbMH.SelectedValue.ToString();
-                        i.SoLuong = int.Parse(txtSL.Text);
-                        i.DonGia = int.Parse(txtDG.Text);
-                        string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), i.DonGia.ToString(), i.SoLuong.ToString() };
+                        i[0] = cbbMH.SelectedValue.ToString();
+                        i[1] = int.Parse(txtSL.Text);
+                        i[2] = int.Parse(txtDG.Text);
+                        string[] row = { this.cbbMH.GetItemText(this.cbbMH.SelectedItem), i[2].ToString(), i[1].ToString() };
                         for (int j = 0; j < row.Length; j++)
                         {
                             listView1.SelectedItems[0].SubItems[j].Text = row[j];
@@ -190,7 +196,7 @@ namespace APP_QL_Billiard
 
         private void delToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cts.RemoveAt(listView1.SelectedIndices[0]);
+            ctpn.Rows.RemoveAt(listView1.SelectedIndices[0]);
             listView1.Items[listView1.SelectedIndices[0]].Remove();
         }
     }

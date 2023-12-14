@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APP_QL_Billiard.DAO
+namespace APP_QL_Billiard.DBconnect
 {
     public class BanDAO
     {
@@ -25,7 +25,7 @@ namespace APP_QL_Billiard.DAO
         public List<Ban> LoadTableList()
         {
             List<Ban> list = new List<Ban>();
-            DataTable data = DataProvider.Instance.ExcuteQuery("Select * from Ban");
+            DataTable data = DBConnect.Instance.ExcuteQuery("Select * from Ban");
 
             foreach (DataRow item in data.Rows)
             {
