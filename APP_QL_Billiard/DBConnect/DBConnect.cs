@@ -38,23 +38,23 @@ namespace APP_QL_Billiard.DBconnect
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                if(parameter != null)
+                if (parameter != null)
                 {
                     string[] listPara = query.Split(' ');
                     int i = 0;
-                    foreach( string item in listPara)
+                    foreach (string item in listPara)
                     {
-                        if(item.Contains('@'))
+                        if (item.Contains('@'))
                         {
                             cmd.Parameters.AddWithValue(item, parameter[i]);
                             i++;
-                        }    
-                    }    
-                }    
+                        }
+                    }
+                }
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);
                 con.Close();
-            }    
+            }
             return data;
         }
 

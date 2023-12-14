@@ -29,8 +29,8 @@ namespace APP_QL_Billiard
         }
 
         #region Method
-        public static int TableWidth = 110;
-        public static int TableHeight = 150;
+        public static int ButtonWidth = 110;
+        public static int ButtonHeight = 150;
 
         DataTable lstBan = new DataTable();
         void makeListBan()
@@ -51,7 +51,7 @@ namespace APP_QL_Billiard
 
             foreach (DataRow item in lstBan.Rows)
             {
-                Button btn = new Button() { Width = TableWidth, Height = TableHeight };
+                Button btn = new Button() { Width = ButtonWidth, Height = ButtonHeight };
                 btn.Text = item["TenBan"] + Environment.NewLine + item["LoaiBan"] + Environment.NewLine + item["Gia"];
                 btn.Margin = new Padding(18);
                 btn.Tag = item;
