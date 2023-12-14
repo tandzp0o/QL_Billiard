@@ -1,4 +1,4 @@
-﻿﻿using APP_QL_Billiard.DBconnect;
+﻿using APP_QL_Billiard.DBconnect;
 using APP_QL_Billiard.DTO;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace APP_QL_Billiard
         public f_ListMenu()
         {
             InitializeComponent();
-            LoadMenu();
+            //LoadMenu();
             selectedValue = string.Empty;
             cboBan.SelectedValueChanged += CboBan_SelectedValueChanged;
             loadCboTable();
@@ -30,31 +30,31 @@ namespace APP_QL_Billiard
         {
             F = f;
             InitializeComponent();
-            LoadMenu();
-        
+            //LoadMenu();
+
         }
 
         #region Method
-        void LoadMenu()
-        {
-            List<ListThucDon> thucDonList = ThucDonDAO.Instance.LoadMenuListForOrder();
-            foreach (ListThucDon item in thucDonList)
-            {
-                Button btn = new Button() { Width = ThucDonDAO.MenuWidth, Height = ThucDonDAO.MenuHeight };
-                btn.Text = item.Name + Environment.NewLine + item.Unit + Environment.NewLine + item.Price;
-                btn.Margin = new Padding(18);
-                btn.Tag = item;
-                //Chèn ảnh
+        //void LoadMenu()
+        //{
+        //    List<ListThucDon> thucDonList = ThucDonDAO.Instance.LoadMenuListForOrder();
+        //    foreach (ListThucDon item in thucDonList)
+        //    {
+        //        Button btn = new Button() { Width = ThucDonDAO.MenuWidth, Height = ThucDonDAO.MenuHeight };
+        //        btn.Text = item.Name + Environment.NewLine + item.Unit + Environment.NewLine + item.Price;
+        //        btn.Margin = new Padding(18);
+        //        btn.Tag = item;
+        //        //Chèn ảnh
 
-                btn.Click += Btn_Click;
-                btn.FlatStyle = FlatStyle.Flat;
-                btn.FlatAppearance.BorderColor = Color.Black;
-                btn.FlatAppearance.BorderSize = 2;
-                flp_Menu.Controls.Add(btn);
-            }
-        }
+        //        btn.Click += Btn_Click;
+        //        btn.FlatStyle = FlatStyle.Flat;
+        //        btn.FlatAppearance.BorderColor = Color.Black;
+        //        btn.FlatAppearance.BorderSize = 2;
+        //        flp_Menu.Controls.Add(btn);
+        //    }
+        //}
 
-    
+
         private void Btn_Click(object sender, EventArgs e)
         {
 
@@ -65,33 +65,33 @@ namespace APP_QL_Billiard
             //fSent.Activate();
 
         }
-        public void loaddgv_Order(string id)
-        {
+        //public void loaddgv_Order(string id)
+        //{
 
-            List<ThucDon> ListChiTietBill = ThucDonDAO.Instance.GetListMenuByTable(id);
-
-
-            DataTable dataTable = new DataTable();
+        //    List<ThucDon> ListChiTietBill = ThucDonDAO.Instance.GetListMenuByTable(id);
 
 
-            dataTable.Columns.Add("Tên món", typeof(string));
-            dataTable.Columns.Add("Số lượng", typeof(int));
-            dataTable.Columns.Add("Gía", typeof(int));
-            dataTable.Columns.Add("Tổng tiền", typeof(int));
+        //    DataTable dataTable = new DataTable();
 
 
-            foreach (ThucDon item in ListChiTietBill)
-            {
+        //    dataTable.Columns.Add("Tên món", typeof(string));
+        //    dataTable.Columns.Add("Số lượng", typeof(int));
+        //    dataTable.Columns.Add("Gía", typeof(int));
+        //    dataTable.Columns.Add("Tổng tiền", typeof(int));
 
-                dataTable.Rows.Add(item.Name.ToString(),  item.Amount.ToString(),item.Price,item.TotalPrice);
-            }
-            dgv_Order.DataSource = dataTable;
-            dgv_Order.Columns["Tên món"].Width = 200;  // Độ rộng mong muốn
-            dgv_Order.Columns["Số lượng"].Width = 50;
-            dgv_Order.Columns["Gía"].Width = 70;
-            dgv_Order.Columns["Tổng tiền"].Width = 90;
 
-        }
+        //    foreach (ThucDon item in ListChiTietBill)
+        //    {
+
+        //        dataTable.Rows.Add(item.Name.ToString(), item.Amount.ToString(), item.Price, item.TotalPrice);
+        //    }
+        //    dgv_Order.DataSource = dataTable;
+        //    dgv_Order.Columns["Tên món"].Width = 200;  // Độ rộng mong muốn
+        //    dgv_Order.Columns["Số lượng"].Width = 50;
+        //    dgv_Order.Columns["Gía"].Width = 70;
+        //    dgv_Order.Columns["Tổng tiền"].Width = 90;
+
+        //}
 
         private void CboBan_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -101,7 +101,7 @@ namespace APP_QL_Billiard
 
             // Thực hiện các hành động khác tùy thuộc vào giá trị được chọn
             // Ví dụ: cập nhật DataGridView
-            loaddgv_Order(selectedValue);
+            //loaddgv_Order(selectedValue);
         }
         public void loadCboTable()
         {
@@ -112,7 +112,7 @@ namespace APP_QL_Billiard
             cboBan.DataSource = ds.Tables[0];
             cboBan.DisplayMember = "TenBan";
             cboBan.ValueMember = "MaBan";
-           
+
         }
 
         #endregion

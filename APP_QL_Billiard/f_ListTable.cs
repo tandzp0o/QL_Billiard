@@ -30,21 +30,38 @@ namespace APP_QL_Billiard
         }
 
         #region Method
+        public static int TableWidth = 110;
+        public static int TableHeight = 150;
+
+        DataTable lstBan = new DataTable();
+        void makeListBan()
+        {
+            lstBan.Columns.Add("MaBan", typeof(string));
+            lstBan.Columns.Add("TenBan", typeof(string));
+            lstBan.Columns.Add("LoaiBan", typeof(string));
+            lstBan.Columns.Add("TrangThai", typeof(int));
+            lstBan.Columns.Add("Gia", typeof(int));
+            lstBan.Columns.Add("GioBatDau", typeof(DateTime));
+            lstBan.Columns.Add("GioKetThuc", typeof(DateTime));
+        }
+
+
         void LoadBan()
         {
-            List<Ban> banList = BanDAO.Instance.LoadTableList();
-            foreach (Ban item in banList)
+            lstBan = DBConnect.Instance.ExcuteQuery("SELECT [MaBan],[TenBan]  ,[LoaiBan]    ,[TrangThai]     ,[Gia]   ,[GioBatDau]     ,[GioKetThuc]  FROM [Ql_Billiard].[dbo].[Ban]");
+
+            foreach (DataRow item in lstBan.Rows)
             {
-                Button btn = new Button() { Width = BanDAO.TableWidth, Height = BanDAO.TableHeight };
-                btn.Text = item.Name + Environment.NewLine + item.Type;
+                Button btn = new Button() { Width = TableWidth, Height = TableHeight };
+                btn.Text = item["TenBan"] + Environment.NewLine + item["LoaiBan"] + Environment.NewLine + item["Gia"];
                 btn.Margin = new Padding(18);
-                btn.Tag= item;
+                btn.Tag = item;
                 btn.Click += Btn_Click;
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.FlatAppearance.BorderColor = Color.Black;
                 btn.FlatAppearance.BorderSize = 2;
 
-                switch (item.Status)
+                switch (item["TrangThai"])
                 {
                     case 1:
                         btn.BackColor = Color.FromArgb(115, 184, 161);
@@ -61,24 +78,24 @@ namespace APP_QL_Billiard
             }
         }
 
-       
+
         #endregion
-    
+
         private void Btn_Click(object sender, EventArgs e)
         {
-            string query = "select TrangThai from Ban where MaBan ='"+ ((sender as Button).Tag as Ban).ID + "'";
+            string query = "select TrangThai from Ban where MaBan ='" + ((sender as Button).Tag as DataRow)["MaBan"] + "'";
             int a = DBConnect.Instance.ExcuteScalar<int>(query);
-            if(a == 3)
+            if (a == 3)
             {
                 DialogResult r = MessageBox.Show("Bàn đã đặt trước, bạn có muốn bỏ qua đặt trước?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if(r == DialogResult.No)
+                if (r == DialogResult.No)
                     this.Close();
-            }    
+            }
             Button btn = (Button)sender;
             fFunction_Ban fSent = F;
-            string tableID = ((sender as Button).Tag as Ban).ID;
+            string tableID = ((sender as Button).Tag as DataRow)["MaBan"].ToString();
             fSent.ShowBill(tableID);
-            fSent.Ban1= (Ban)btn.Tag;
+            fSent.Ban1 = btn.Tag as DataRow;
             fSent.Activate();
             fSent.reLoad();
         }
@@ -99,9 +116,12 @@ namespace APP_QL_Billiard
 
         private void f_ListTable_Load(object sender, EventArgs e)
         {
+            //makeListBan();
+            //LoadBan();
             if (AccountDAO.Instance.IsQuanLy)
             {
                 panel1.Visible = true;
+
             }
             else
             {

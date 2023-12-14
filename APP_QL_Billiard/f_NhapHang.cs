@@ -38,7 +38,6 @@ namespace APP_QL_Billiard
             ctpn.Columns.Add("DonGia", typeof(int));
         }
         
-        //List<CTPN> cts = new List<CTPN>();
         void loadMH()
         {
             DataSet ds = new DataSet();

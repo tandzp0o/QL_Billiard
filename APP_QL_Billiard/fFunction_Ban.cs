@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using APP_QL_Billiard.DBconnect;
-using APP_QL_Billiard.DTO;
+
 
 namespace APP_QL_Billiard
 {
@@ -17,39 +17,42 @@ namespace APP_QL_Billiard
     {
 
 
-        public Ban Ban1 { get; set; }
+        public DataRow Ban1 { get; set; }
         public fFunction_Ban()
         {
             InitializeComponent();
 
 
         }
-        public fFunction_Ban(Ban a)
+        public fFunction_Ban(DataRow a)
         {
             InitializeComponent();
             Ban1 = a;
         }
 
+        DataTable lstThucDon = new DataTable();
+
+        public void GetListMenuByTable(string id)
+        {
+            lstThucDon = DBConnect.Instance.ExcuteQuery(" SELECT f.TenThucDon, f.DonViTinh, bi.SoLuongDat , f.Gia, f.Gia*bi.SoLuongDat AS TongTien FROM dbo.ChiTietHoaDon AS bi, dbo.HoaDon AS b, dbo.ThucDon AS f WHERE bi.MaHoaDon = b.MaHoaDon AND bi.MaThucDon = f.MaThucDon AND b.MaBan = '" + id + "'");
+        }
         public void ShowBill(string id)
         {
+            DataTable menuTable = new DataTable();
+            menuTable.Columns.Add("Tên món", typeof(string));
+            menuTable.Columns.Add("Đơn vị tính", typeof(string));
+            menuTable.Columns.Add("Giá", typeof(double));
+            menuTable.Columns.Add("Số lượng", typeof(int));
+            menuTable.Columns.Add("Tạm tính", typeof(double));
 
-            List<ThucDon> ListChiTietBill = ThucDonDAO.Instance.GetListMenuByTable(id);
-            DataTable dataTable = new DataTable();
-
-            dataTable.Columns.Add("Tên món", typeof(string));
-            dataTable.Columns.Add("Đơn vị tính", typeof(string));
-            dataTable.Columns.Add("Gía", typeof(double));
-            dataTable.Columns.Add("Số lượng", typeof(int));
-            dataTable.Columns.Add("Tạm tính", typeof(double));
-
-            foreach (ThucDon item in ListChiTietBill)
+            foreach (DataRow item in lstThucDon.Rows)
             {
-                dataTable.Rows.Add(item.Name.ToString(), item.Unit.ToString(), item.Price.ToString(), item.Amount.ToString(), item.TotalPrice.ToString());
+                menuTable.Rows.Add(item["TenThucDon"].ToString(), item["DonViTinh"].ToString(), item["Gia"].ToString(), item["SoLuongDat"].ToString(), item["TongTien"].ToString());
             }
-            dgvMenu.DataSource = dataTable;
+            dgvMenu.DataSource = menuTable;
             dgvMenu.Columns["Tên món"].Width = 150;  // Độ rộng mong muốn
             dgvMenu.Columns["Đơn vị tính"].Width = 60;
-            dgvMenu.Columns["Gía"].Width = 60;
+            dgvMenu.Columns["Giá"].Width = 60;
             dgvMenu.Columns["Số lượng"].Width = 50;
             dgvMenu.Columns["Tạm tính"].Width = 120;
         }
@@ -57,32 +60,35 @@ namespace APP_QL_Billiard
         {
             if (Ban1 != null)
             {
-                txt_TenBan.Text = Ban1.Name.ToString();
-                txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm:ss   dd/MM/yyyy");
-                if (Ban1.Status == 2 || Ban1.Status == 3) //1hd 2 trong 3 dat truoc
+                txt_TenBan.Text = Ban1["TenBan"].ToString();
+                if(!string.IsNullOrEmpty(Ban1["GioBatDau"].ToString()))
+                {
+                    txtTimeStart.Text = ((DateTime)Convert.ChangeType(Ban1["GioBatDau"], typeof(DateTime))).ToString("HH:mm:ss dd/MM/yyyy");
+
+                }
+                if ((int)Ban1["TrangThai"] == 2 || (int)Ban1["TrangThai"] == 3) //1hd 2 trong 3 dat truoc
                 {
                     btnEnd.Enabled = false;
                     btnStart.Enabled = true;
                     btnChange.Enabled = false;
                     txtTimeStart.Text = "";
                     txtTimeEnd.Text = "";
-                    if (string.Compare(Ban1.Type, "Lỗ") == 0)
+                    if (string.Compare(Ban1["LoaiBan"].ToString(), "Lỗ") == 0)
                     {
-                        //picBan.Image = global::Bida.Properties.Resources.;
-                        //CHEN PIC CUA LOAI BAN BIDA
+                      
                     }
-                    else if (string.Compare(Ban1.Type, "Lip") == 0)
+                    else if (string.Compare(Ban1["LoaiBan"].ToString(), "Lip") == 0)
                     {
-                        //picBan.Image = global::Bida.Properties.Resources.;
+                        
                     }
-                    else //Carom
+                    else 
                     {
-                        //picBan.Image = global::Bida.Properties.Resources.;
+                       
                     }
                 }
                 else
                 {
-                    string query = "select GioBatDau from HoaDon where MaBan ='" + Ban1.ID + "' and GioKetThuc IS NULL";
+                    string query = "select GioBatDau from HoaDon where MaBan ='" + Ban1["MaBan"] + "' and GioKetThuc IS NULL";
                     string a = DBConnect.Instance.ExcuteScalar<string>(query);
                     txtTimeStart.Text = a;
 
@@ -91,17 +97,14 @@ namespace APP_QL_Billiard
                     btnStart.Enabled = false;
                     btnEnd.Enabled = true;
 
-                    if (string.Compare(Ban1.Type, "Lỗ") == 0)
+                    if (string.Compare(Ban1["LoaiBan"].ToString(), "Lỗ") == 0)
                     {
-                        //picBan.Image = global::Bida.Properties.Resources.; // kHUC NAY SE CHEN PIC CUA LOAI BAN BIDA
                     }
-                    else if (string.Compare(Ban1.Type, "Lip") == 0)
+                    else if (string.Compare(Ban1["LoaiBan"].ToString(), "Lip") == 0)
                     {
-                        //picBan.Image = global::Bida.Properties.Resources.;
                     }
                     else //Carom
                     {
-                        //picBan.Image = global::Bida.Properties.Resources.;
                     }
                 }
             }
@@ -116,25 +119,26 @@ namespace APP_QL_Billiard
         private void btnStart_Click(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
-            txtTimeStart.Text = Ban1.GioBD.ToString("HH:mm:ss   dd/MM/yyyy");
+            Ban1["GioBatDau"] = date;
+            txtTimeStart.Text = date.ToString("HH:mm:ss dd/MM/yyyy");
             txtTimeEnd.Text = "";
-            Ban1.Status = 1;
+            Ban1["TrangThai"] = 1;
             btnTinh.Enabled = false;
             string insertHoaDonQuery = "INSERT INTO HoaDon (MaBan, GioBatDau) VALUES ('@maBan', '@gioBD')";
-            insertHoaDonQuery = insertHoaDonQuery.Replace("@maBan", Ban1.ID);
-            insertHoaDonQuery = insertHoaDonQuery.Replace("@gioBD", date.ToString("HH:mm:ss   dd/MM/yyyy")); // Định dạng ngày giờ cho SQL
+            insertHoaDonQuery = insertHoaDonQuery.Replace("@maBan", Ban1["MaBan"].ToString());
+            insertHoaDonQuery = insertHoaDonQuery.Replace("@gioBD", date.ToString("HH:mm:ss MM/dd/yyyy")); // Định dạng ngày giờ cho SQL
 
             int result = DBConnect.Instance.ExcuteNonQuery(insertHoaDonQuery);
 
             // Thêm trường Status của bảng Ban vào câu truy vấn UPDATE
             string updateBanStatusQuery = "UPDATE Ban SET TrangThai = 1 WHERE MaBan = '@maBan'";
-            updateBanStatusQuery = updateBanStatusQuery.Replace("@maBan", Ban1.ID);
+            updateBanStatusQuery = updateBanStatusQuery.Replace("@maBan", Ban1["MaBan"].ToString());
             DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery);
 
             if (result > 0)
             {
-                MessageBox.Show("Đã tạo hóa đơn mới cho bàn " + Ban1.ID);
-                Ban1.GioBD = date;
+                MessageBox.Show("Đã tạo hóa đơn mới cho bàn " + Ban1["MaBan"].ToString());
+                Ban1["GioBatDau"] = date;
                 this.reLoad();
             }
             else
@@ -148,29 +152,29 @@ namespace APP_QL_Billiard
         {
 
             DateTime date = DateTime.Now;
-            Ban1.GioKT = date;
-            txtTimeEnd.Text = Ban1.GioKT.ToString("yyyy-MM-dd HH:mm:ss");
-            Ban1.Status = 1;
+            Ban1["GioKetThuc"] = date;
+            txtTimeEnd.Text = date.ToString("HH:mm:ss MM/dd/yyyy");
+            Ban1["TrangThai"] = 1;
             txtTimeEnd.Enabled = false;
             btnTinh.Enabled = true;
 
             string updateBanStatusQuery = "UPDATE Ban SET TrangThai = 2 WHERE MaBan = '@maBan'";
-            updateBanStatusQuery = updateBanStatusQuery.Replace("@maBan", Ban1.ID);
+            updateBanStatusQuery = updateBanStatusQuery.Replace("@maBan", Ban1["MaBan"].ToString());
             DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery);
 
-            string query = "select MaHoaDon from HoaDon where MaBan ='" + Ban1.ID + "' and GioKetThuc IS NULL";
+            string query = "select MaHoaDon from HoaDon where MaBan ='" + Ban1["MaBan"].ToString() + "' and GioKetThuc IS NULL";
             string a = DBConnect.Instance.ExcuteScalar<string>(query);
 
-            string updateBanStatusQuery1 = "UPDATE HOADON SET GioKetThuc = '"+date.ToString()+ "' WHERE MaHoaDon = '@maHD'";
-            updateBanStatusQuery1 = updateBanStatusQuery1.Replace("@maHD",a);
+            string updateBanStatusQuery1 = "UPDATE HOADON SET GioKetThuc = '" + date.ToString("HH:mm:ss MM/dd/yyyy") + "' WHERE MaHoaDon = '@maHD'";
+            updateBanStatusQuery1 = updateBanStatusQuery1.Replace("@maHD", a);
             DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery1);
         }
 
         private void btnTinh_Click(object sender, EventArgs e)
         {
-            string query = "select GioBatDau from HoaDon where MaBan ='" + Ban1.ID + "'";
+            string query = "select GioBatDau from HoaDon where MaBan ='" + Ban1["MaBan"].ToString() + "'";
             DateTime a = DBConnect.Instance.ExcuteScalar<DateTime>(query);
-            string query1 = "select GioKetThuc from HoaDon where MaBan ='" + Ban1.ID + "'";
+            string query1 = "select GioKetThuc from HoaDon where MaBan ='" + Ban1["MaBan"].ToString() + "'";
             DateTime b = DBConnect.Instance.ExcuteScalar<DateTime>(query1);
 
             DateTime date = a;
@@ -183,19 +187,19 @@ namespace APP_QL_Billiard
 
             txtGio.Text = hour + " giờ " + minute + " phút";
 
-            string query2 = "SELECT Gia FROM Ban WHERE MaBan = '" + Ban1.ID + "' ";
+            string query2 = "SELECT Gia FROM Ban WHERE MaBan = '" + Ban1["MaBan"].ToString() + "' ";
             int c = DBConnect.Instance.ExcuteScalar<int>(query2);
             int gia = (int)(m * c) / 60;
             txtGia.Text = gia + ".00 VND";
             btnPay.Enabled = true;
 
             //Them phuong thuc push data vao SQL
-            string query3 = "select MaHoaDon from HoaDon where MaBan ='" + Ban1.ID + "' and GioKetThuc IS NULL";
+            string query3 = "select MaHoaDon from HoaDon where MaBan ='" + Ban1["MaBan"].ToString() + "' and GioKetThuc IS NULL";
             string mahd = DBConnect.Instance.ExcuteScalar<string>(query3);
 
             string updateHoaDonQuery = "UPDATE HoaDon SET ThoiGianChoi='" + (int)m + "' WHERE MaHoaDon = '@maHD'";
             updateHoaDonQuery = updateHoaDonQuery.Replace("@maHD", mahd);
-            updateHoaDonQuery = updateHoaDonQuery.Replace("@gioKT", date2.ToString("yyyy-MM-dd HH:mm:ss")); // Định dạng ngày giờ cho SQL
+            updateHoaDonQuery = updateHoaDonQuery.Replace("@gioKT", date2.ToString("HH:mm:ss MM/dd/yyyy")); // Định dạng ngày giờ cho SQL
             DBConnect.Instance.ExcuteNonQuery(updateHoaDonQuery);
 
             int tt = (int)gia;
@@ -204,14 +208,14 @@ namespace APP_QL_Billiard
             DBConnect.Instance.ExcuteNonQuery(updateHoaDonQuery1);
 
             string updateBanStatusQuery2 = "UPDATE Ban SET TrangThai = 2 WHERE MaBan = '@maBan'";
-            updateBanStatusQuery2 = updateBanStatusQuery2.Replace("@maBan", Ban1.ID);
+            updateBanStatusQuery2 = updateBanStatusQuery2.Replace("@maBan", Ban1["MaBan"].ToString());
             DBConnect.Instance.ExcuteNonQuery(updateBanStatusQuery2);
             this.reLoad();
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            f_ThanhToan thanhToanForm = new f_ThanhToan(Ban1.ID);
+            f_ThanhToan thanhToanForm = new f_ThanhToan(Ban1["MaBan"].ToString());
             thanhToanForm.Show();
         }
 
