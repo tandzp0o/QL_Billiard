@@ -70,7 +70,7 @@ create TABLE ChiTietHoaDon
 	MaChiTietHoaDon int IDENTITY  primary key,
     MaHoaDon int NOT NULL,
     MaThucDon CHAR(5) NOT NULL,
-    SoLuongDat int not null,
+    SoLuongDat int default 1,
     CONSTRAINT fk_chitiet_hd FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon),
     CONSTRAINT fk_chitiet_td FOREIGN KEY (MaThucDon) REFERENCES ThucDon(MaThucDon)
 )
@@ -444,14 +444,14 @@ INSERT INTO KhachHang (Ten, Phone) VALUES (N'Lê An Tuyết', '0000000000');
 INSERT INTO KhachHang (Ten, Phone) VALUES (N'Tấn Đẹp chai', '1111111111');
 
 -- Thêm dữ liệu vào bảng Ban
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Lo01', N'Bàn Lỗ 1', N'Lỗ', 2, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Lo01', N'Bàn Lỗ 1', N'Lỗ', 1, 100000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Lo02', N'Bàn Lỗ 2', N'Lỗ', 2, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Lo03', N'Bàn Lỗ 3', N'Lỗ', 2, 100000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Lo04', N'Bàn Lỗ 4', N'Lỗ', 2, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Li01', N'Bàn Lip 1', N'Lip', 2, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Li02', N'Bàn Lip 2', N'Lip', 2, 200000);
 INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Ca01', N'Bàn Carom 1', N'Carom', 2, 100000);
-INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Ca02', N'Bàn Carom 2', N'Carom', 2, 100000);
+INSERT INTO Ban (MaBan, TenBan, LoaiBan, TrangThai, Gia) VALUES ('Ca02', N'Bàn Carom 2', N'Carom', 1, 100000);
 
 -- Thêm dữ liệu vào bảng DatTruoc
 INSERT INTO DatTruoc (Phone, MaBan, ThoiGianToi, TrangThai, NgayDat) VALUES ('1111111111', 'Lo01', dateadd(hour,2,getdate()), 0, GETDATE());
@@ -463,13 +463,15 @@ INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('L
 INSERT INTO HoaDon (MaBan, GioBatDau, GioKetThuc, IsMember, TaiKhoan) VALUES ('Li01', '', '', N'VIP', 'admin');
 
 -- Thêm dữ liệu vào bảng ThucDon
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD01', N'Món 1', N'Đĩa', 10, 50000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD02', N'Món 2', N'Ly', 20, 30000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD03', N'Món 3', N'Nồi', 10, 50000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD04', N'Món 4', N'Bịch', 10, 20000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD05', N'Món 5', N'Chén', 10, 35000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD06', N'Món 6', N'Lon', 10, 15000);
-INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia) VALUES ('TD07', N'Món 7', N'Két', 10, 100000);
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD01', N'Món 1', N'Đĩa', 10, 50000, N'cavien.jpg');
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD02', N'Món 2', N'Ly', 20, 30000, N'sting.jpg');
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD03', N'Món 3', N'Nồi', 10, 50000, N'traxanh.jpg');
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD04', N'Món 4', N'Bịch', 10, 20000, N'pep.jpg');
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD05', N'Món 5', N'Chén', 10, 35000, N'redbul.jpg');
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD06', N'Món 6', N'Lon', 10, 15000, N'muc.jpg');
+INSERT INTO ThucDon (MaThucDon, TenThucDon, DonViTinh, SoLuong, Gia, Hinh) VALUES ('TD07', N'Món 7', N'Két', 10, 100000, N'kem.jpg');
+
+
 -- Thêm dữ liệu vào bảng ChiTietHoaDon
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD01', 2);
 INSERT INTO ChiTietHoaDon (MaHoaDon, MaThucDon, SoLuongDat) VALUES (1, 'TD03', 3);

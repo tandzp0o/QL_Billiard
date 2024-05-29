@@ -51,24 +51,54 @@ namespace APP_QL_Billiard
             content2.BringToFront();
             content2.Show();
         }
+        public void form1Content(Form content, TableLayoutPanel panel)
+        {
+            // Close any existing forms in the panel(s)
+            if (panel.Controls.Count > 0)
+            {
+                foreach (Control existingForm in panel.Controls)
+                {
+                    if (existingForm is Form)
+                    {
+                        ((Form)existingForm).Close();
+                    }
+                }
+            }
+
+            // Set properties for the new form
+            content.TopLevel = false;
+            content.FormBorderStyle = FormBorderStyle.None;
+            content.Dock = DockStyle.Fill;
+
+            // Add the form to the panel
+            panel.Controls.Add(content);
+            panel.Tag = content;
+
+            // Bring the form to front and show it
+            content.BringToFront();
+            content.Show();
+        }
 
         private void btnThucDon_Click(object sender, EventArgs e)
         {
+            table_panel.ColumnCount = 1;
             namePage.Text = btnThucDon.Text + " Admin";
             table_panel.Controls.Clear();
-            formContent(new f_ListMenu(), new Form(), table_panel);
+            form1Content(new f_ListMenu2(), table_panel);
 
         }
 
         private void btnStatusBan_Click(object sender, EventArgs e)
         {
+            table_panel.ColumnCount = 1;
             fFunction_Ban f = new fFunction_Ban();
             namePage.Text = btnStatusBan.Text;
             table_panel.Controls.Clear();
-            formContent(f,new f_ListTable(f), table_panel, table_panel);
+            form1Content(new f_ListTable2(), table_panel);
         }
         private void btnDatTruoc_Click(object sender, EventArgs e)
         {
+            table_panel.ColumnCount = 2;
             fListDatTruoc f = new fListDatTruoc();
 
             namePage.Text = btnDatTruoc.Text;
@@ -78,6 +108,7 @@ namespace APP_QL_Billiard
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
+            //table_panel.ColumnCount = 2;
             namePage.Text = btnHistory.Text;
             table_panel.Controls.Clear();
             formContent(new fLichSu(),new Form(), table_panel);
@@ -86,6 +117,7 @@ namespace APP_QL_Billiard
 
         private void btnKho_Click(object sender, EventArgs e)
         {
+            table_panel.ColumnCount = 2;
             f_ListThucDon f = new f_ListThucDon();
             namePage.Text = btnKho.Text;
             table_panel.Controls.Clear();
@@ -94,6 +126,7 @@ namespace APP_QL_Billiard
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            //table_panel.ColumnCount = 2;
             f_QuanLyNV f = new f_QuanLyNV();
             namePage.Text = btnEmployee.Text;
             table_panel.Controls.Clear();
@@ -102,6 +135,7 @@ namespace APP_QL_Billiard
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            table_panel.ColumnCount = 2;
             namePage.Text = btnThongKe.Text;
             table_panel.Controls.Clear();
             formContent(new f_ThongKe(), new f_DoanhThu(), table_panel, table_panel);
@@ -123,6 +157,9 @@ namespace APP_QL_Billiard
 
         private void fTable_Manager_ADM_Load(object sender, EventArgs e)
         {
+            // hiện trang đầu
+            table_panel.ColumnCount=1;
+            form1Content(new f_ListMenu2(), table_panel);
             GioHeThong.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             TenNhanVien.Text = "Nhân Viên: " + Account.Instance.HoTen;
 

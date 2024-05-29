@@ -255,7 +255,7 @@ namespace APP_QL_Billiard
             // table_panel
             // 
             this.table_panel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-            this.table_panel.ColumnCount = 2;
+            this.table_panel.ColumnCount = 1;
             this.table_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.table_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.table_panel.Dock = System.Windows.Forms.DockStyle.Fill;

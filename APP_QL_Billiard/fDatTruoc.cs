@@ -54,8 +54,20 @@ namespace APP_QL_Billiard
                 MessageBox.Show("Chưa nhập đủ thông tin","Thông Báo");
                 return;
             }
-            if (txtSDT.Text != string.Empty)
+            if (txtSDT.Text != string.Empty || txtSDT.Text.Length == 10)
             {
+                string query2 = "select * from KhachHang where Phone = '" + txtSDT.Text + "'";
+                if(DBconnect.DBConnect.Instance.ExcuteQuery(query2).Rows.Count == 0)
+                {
+                    DialogResult r = MessageBox.Show("chưa có khách hàng, bạn có muốn đăng ký thành viên mới?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    if (r == DialogResult.Yes)
+                    {
+                        fCreateMember a = new fCreateMember();
+                        a.SDT = txtSDT;
+                        a.Show();
+                    }
+                    return;
+                }    
                 if(GioToi.Value > DateTime.Now.AddHours(3) || GioToi.Value < DateTime.Now)
                 {
                     MessageBox.Show("Không được đặt trước quá 3 giờ hoặc trước giờ hiện tại","Thông Báo");
@@ -76,13 +88,7 @@ namespace APP_QL_Billiard
             }
             else
             {
-                DialogResult r = MessageBox.Show("chưa có khách hàng, bạn có muốn đăng ký thành viên mới?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if(r == DialogResult.Yes)
-                {
-                    fCreateMember a = new fCreateMember();
-                    a.SDT = txtSDT;
-                    a.Show();
-                }    
+                MessageBox.Show("Số điện thoại chưa đúng", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             }
             string query1 = "select TenBan, ThoiGianToi, NgayDat from DatTruoc dt, Ban b where dt.MaBan = b.MaBan and dt.TrangThai = 0";
             F.loaddtgv(query1);

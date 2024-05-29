@@ -187,7 +187,7 @@ namespace APP_QL_Billiard
             string query2 = "SELECT Gia FROM Ban WHERE MaBan = '" + Ban1["MaBan"].ToString() + "' ";
             int c = DBConnect.Instance.ExcuteScalar<int>(query2);
             int gia = (int)(m * c) / 60;
-            txtGia.Text = gia + ".00 VND";
+            txtGia.Text = gia + "VND";
             btnPay.Enabled = true;
 
             //Them phuong thuc push data vao SQL

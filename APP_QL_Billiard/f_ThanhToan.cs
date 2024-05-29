@@ -17,7 +17,7 @@ namespace APP_QL_Billiard
 
         public string GetTenBan(string maBan)
         {
-            string query = "Select Ban.TenBan from Ban where MaBan = '" + maBan + "'";
+            string query = "Select TenBan from Ban where MaBan = '" + maBan + "'";
             DataTable result = DBConnect.Instance.getDataTable(query);
             return result.Rows[0][0].ToString();
         }

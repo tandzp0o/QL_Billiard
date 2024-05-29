@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBConnect\ThucDonDAO.cs" />
     <Compile Include="env.cs" />
+    <Compile Include="fBanTrong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBanTrong.Designer.cs">
+      <DependentUpon>fBanTrong.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCreateMember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,11 +121,23 @@
     <Compile Include="f_ListMenu.Designer.cs">
       <DependentUpon>f_ListMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_ListMenu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_ListMenu2.Designer.cs">
+      <DependentUpon>f_ListMenu2.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_ListTable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="f_ListTable.Designer.cs">
       <DependentUpon>f_ListTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_ListTable2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_ListTable2.Designer.cs">
+      <DependentUpon>f_ListTable2.cs</DependentUpon>
     </Compile>
     <Compile Include="f_ListThucDon.cs">
       <SubType>Form</SubType>
@@ -172,6 +189,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fBanTrong.resx">
+      <DependentUpon>fBanTrong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fCreateMember.resx">
       <DependentUpon>fCreateMember.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,8 +225,14 @@
     <EmbeddedResource Include="f_ListMenu.resx">
       <DependentUpon>f_ListMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_ListMenu2.resx">
+      <DependentUpon>f_ListMenu2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_ListTable.resx">
       <DependentUpon>f_ListTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_ListTable2.resx">
+      <DependentUpon>f_ListTable2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_ListThucDon.resx">
       <DependentUpon>f_ListThucDon.cs</DependentUpon>
@@ -268,6 +294,14 @@
     <None Include="Image\action-hide-password.png" />
     <None Include="Image\action-display-password-512.png" />
     <Content Include="HinhMatHang\63827014164001.png" />
+    <Content Include="HinhMatHang\anime-girl-red-eye-tattoo-sword-4k-wallpaper-uhdpaper.com-310%400%40j.jpg" />
+    <Content Include="HinhMatHang\cavien.jpg" />
+    <Content Include="HinhMatHang\kem.jpg" />
+    <Content Include="HinhMatHang\muc.jpg" />
+    <Content Include="HinhMatHang\pep.jpg" />
+    <Content Include="HinhMatHang\redbul.jpg" />
+    <Content Include="HinhMatHang\sting.jpg" />
+    <Content Include="HinhMatHang\traxanh.jpg" />
     <Content Include="Image\printer.png" />
     <Content Include="Image\staff.jpg" />
     <Content Include="SQL\PhanCong_NghiepVu.txt" />

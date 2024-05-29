@@ -61,7 +61,7 @@
             // 
             this.lb_GBD.AutoSize = true;
             this.lb_GBD.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GBD.Location = new System.Drawing.Point(7, 452);
+            this.lb_GBD.Location = new System.Drawing.Point(7, 382);
             this.lb_GBD.Name = "lb_GBD";
             this.lb_GBD.Size = new System.Drawing.Size(145, 28);
             this.lb_GBD.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             this.lb_GKT.AutoSize = true;
             this.lb_GKT.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GKT.Location = new System.Drawing.Point(7, 484);
+            this.lb_GKT.Location = new System.Drawing.Point(7, 414);
             this.lb_GKT.Name = "lb_GKT";
             this.lb_GKT.Size = new System.Drawing.Size(150, 28);
             this.lb_GKT.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             this.lb_TgSD.AutoSize = true;
             this.lb_TgSD.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TgSD.Location = new System.Drawing.Point(7, 516);
+            this.lb_TgSD.Location = new System.Drawing.Point(7, 446);
             this.lb_TgSD.Name = "lb_TgSD";
             this.lb_TgSD.Size = new System.Drawing.Size(211, 28);
             this.lb_TgSD.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             this.lb_GiamGia.AutoSize = true;
             this.lb_GiamGia.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GiamGia.Location = new System.Drawing.Point(14, 617);
+            this.lb_GiamGia.Location = new System.Drawing.Point(14, 547);
             this.lb_GiamGia.Name = "lb_GiamGia";
             this.lb_GiamGia.Size = new System.Drawing.Size(78, 28);
             this.lb_GiamGia.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             this.lb_TongTien.AutoSize = true;
             this.lb_TongTien.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TongTien.Location = new System.Drawing.Point(14, 649);
+            this.lb_TongTien.Location = new System.Drawing.Point(14, 579);
             this.lb_TongTien.Name = "lb_TongTien";
             this.lb_TongTien.Size = new System.Drawing.Size(123, 28);
             this.lb_TongTien.TabIndex = 6;
@@ -112,7 +112,7 @@
             this.btn_InHD.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_InHD.Image = ((System.Drawing.Image)(resources.GetObject("btn_InHD.Image")));
             this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_InHD.Location = new System.Drawing.Point(388, 708);
+            this.btn_InHD.Location = new System.Drawing.Point(388, 638);
             this.btn_InHD.Name = "btn_InHD";
             this.btn_InHD.Size = new System.Drawing.Size(185, 54);
             this.btn_InHD.TabIndex = 8;
@@ -130,7 +130,7 @@
             this.dgv_ThanhToan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -148,7 +148,7 @@
             this.dgv_ThanhToan.RowHeadersVisible = false;
             this.dgv_ThanhToan.RowHeadersWidth = 51;
             this.dgv_ThanhToan.RowTemplate.Height = 24;
-            this.dgv_ThanhToan.Size = new System.Drawing.Size(561, 394);
+            this.dgv_ThanhToan.Size = new System.Drawing.Size(561, 316);
             this.dgv_ThanhToan.TabIndex = 9;
             // 
             // MatHang
@@ -191,7 +191,7 @@
             "Khách vãng lai",
             "Học sinh/Sinh viên",
             "VIP"});
-            this.cb_Member.Location = new System.Drawing.Point(12, 560);
+            this.cb_Member.Location = new System.Drawing.Point(12, 490);
             this.cb_Member.Name = "cb_Member";
             this.cb_Member.Size = new System.Drawing.Size(293, 36);
             this.cb_Member.TabIndex = 10;
@@ -202,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(589, 774);
+            this.ClientSize = new System.Drawing.Size(589, 713);
             this.Controls.Add(this.cb_Member);
             this.Controls.Add(this.dgv_ThanhToan);
             this.Controls.Add(this.btn_InHD);
